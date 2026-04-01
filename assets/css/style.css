@@ -1,0 +1,73 @@
+/* :root{
+    --bg: radial-gradient(80% 80% at 20% 20$)
+}
+ */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: rgb(3, 0, 0);
+    color: wheat;
+}
+
+
+
+
+
+.header{
+    padding: 2rem   ;
+    text-align: start;
+}
+
+.hero_content{
+    padding: 2rem;
+}
+
+
+.title-main{
+    font-size: 6rem;
+    text-shadow: 0px 0px 3px #2596be;
+}
+
+.title-accent{
+    font-size: 6rem;
+    text-shadow: 0px 0px 3px #520815;
+    font-weight: 900;
+    color: #e81037;
+
+}
+
+.description{
+    color: #e81037;
+    padding: 1rem;
+}
+
+.hero_media{
+    display: flex;
+    justify-content: end;
+    align-content: center;
+}
+.hero_figure img{
+    max-width: 400px;
+}
+
+.hero_action{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 2rem;
+    
+}
+
+#Project{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+}
