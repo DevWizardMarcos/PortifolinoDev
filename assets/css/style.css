@@ -13,25 +13,25 @@
 body{
     background-color: rgb(3, 0, 0);
     color: wheat;
+
 }
 
-
-
-
-
 .header{
-    padding: 2rem   ;
+    padding: 2rem;
     text-align: start;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
 }
 
 .hero_content{
     padding: 2rem;
-}
 
+}
 
 .title-main{
     font-size: 6rem;
-    text-shadow: 0px 0px 3px #2596be;
+    text-shadow: 0px 0px 7px #2596be;
 }
 
 .title-accent{
@@ -49,25 +49,76 @@ body{
 
 .hero_media{
     display: flex;
-    justify-content: end;
-    align-content: center;
+    justify-content: center;
 }
+
 .hero_figure img{
     max-width: 400px;
 }
 
-.hero_action{
+/* .hero_figure img::before{
+    background-image: url('../img/aguia2.png');
+    padding: 2rem;
+} */
+
+/* .hero_action{
     display: flex;
     justify-content: start;
     align-items: center;
     padding: 0 2rem;
     gap: 2rem;
     
+} */
+
+#Project{
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 2rem;
 }
 
 #Project{
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    padding: 2rem;
+     grid-template-columns: 1fr 1fr;
 }
+
+.projects-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card {
+  border: 1px solid #2596be;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.project-image {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+
+
+.project-technologies {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+.projects-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.main-Title-Project{
+    color: #2596be;
+    margin: 1.2rem;
+    font-size: 6rem;
+}
+
+
