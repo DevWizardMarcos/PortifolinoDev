@@ -1,35 +1,138 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
-
-:root{
+:root {
     --corFundoTransparente: #ffffff1b;
-    --corTextoNav : #dcdee2;
-    --corBordaNav : #2a2a2a;
+    --corTextoNav: #dcdee2;
+    --corBordaNav: #2a2a2a;
+    --fenixDarkBlue: #0a14f2;
+    --fenixDarkRed: #ff2740;
+    --tituloPadrao: clamp(1.8rem, 5vw, 4.1rem);
 }
 
-#banner{
+#banner {
     background-image: url('../img/bannerPrincipal.png');
     background-size: cover;
     background-position: center;
     height: 55vw;
 }
 
-
-nav{
+nav {
     background-color: var(--corFundoTransparente);
     border: none;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-weight: bold;
 }
 
-.nav-link{
-    color: #dcdee2;
+.nav-link {
+    color: var(--corTextoNav);
 }
 
+.container-fluid a {
+    color: var(--corTextoNav);
+    text-shadow: 1px 1px black;
+}
+
+/* ===== Banner ===== */
+#tituloBanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--corTextoNav);
+    height: 50vw;
+    text-align: center;
+    font-weight: 900;
+}
+
+#tituloBanner h1 {
+    font-size: var(--tituloPadrao);
+    text-shadow: 0px 1px var(--corTextoNav);
+    color: #d6035b;
+    font-family: Cinzel, serif;
+}
+
+#tituloBanner p {
+    font-family: Lora, serif;
+    text-shadow: 0px 1px black;
+    color: var(--corTextoNav);
+    font-size: clamp(0.75rem, 1.8vw, 1.2rem);
+}
+
+.Dev {
+    text-shadow: 2px 2px var(--fenixDarkBlue);
+    color: var(--corTextoNav);
+}
+
+.Wizard {
+    text-shadow: 0px 1px var(--corTextoNav);
+    color: var(--fenixDarkRed);
+}
+
+/* ===== Stats Bar ===== */
+#statsBar {
+    margin-top: 1.5rem;
+    width: clamp(200px, 40vw, 500px);
+}
+
+.nivelLabel,
+.expLabel {
+    font-size: clamp(0.5rem, 1vw, 0.7rem);
+    letter-spacing: 2px;
+    color: var(--corTextoNav);
+    text-transform: uppercase;
+    font-family: Lora, serif;
+}
+
+.nivelNumero {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    color: var(--corTextoNav);
+    line-height: 1;
+}
+
+.expLabel {
+    margin-bottom: 6px;
+}
+
+.nivelNumero::first-letter {
+    color: var(--fenixDarkRed);
+}
+
+/* ===== Seção Jornada ===== */
+.Jornadada {
+    min-height: 50vw;
+    background-color: black;
+}
+
+.Jornadada h1 {
+    color: var(--fenixDarkRed);
+    font-size: var(--tituloPadrao);
+    text-shadow: 1px 0px whitesmoke;
+    font-family: Cinzel, serif;
+}
+
+.Jornadada p {
+    color: var(--corTextoNav);
+    font-family: Lora, serif;
+}
+
+.sessao-Jornada-Img {
+    display: flex;
+    justify-content: center;
+}
+
+.sessao-Jornada-Img img {
+    max-width: 60%;
+}
+
+@media (max-width: 768px) {
+    .sessao-Jornada-Img img {
+        max-width: 90%;
+    }
+}

@@ -2,67 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevWizardMarcos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevWizardMarcos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:wght@400;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <section id="banner">
-        
-            <header>
-             <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">DevWizardMarcos</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Jornada</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Skill</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Oraculo</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" aria-disabled="true">Contato</a>
-                </li>
-              </ul>
-        
-              <!--Icons Direireita-->
-              <div class="d-flex align-items-center gap-2">
-                <img src="" alt="simbolo" width="30" height="30">
-                <img src="" alt="avatar" width="35" height="35" class="rounded-circle">
-              </div>
-        
-        
+
+  <!--Banner-->
+  <section id="banner">
+    <header>
+      <nav class="navbar navbar-expand-lg" id="nav-container">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand" href="#">DevWizardMarcos</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Jornada</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Skill</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Oraculo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Contato</a>
+              </li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+              <img src="" alt="simbolo" width="30" height="30">
+              <img src="" alt="avatar" width="35" height="35" class="rounded-circle">
             </div>
           </div>
-        </nav>
-            </header>
-        <div id="tituloBanner">
-            DevWizardMarcos
-            <ul>
-                <li>Full-Stack Devoloper</li>
-                <li>Professor</li>
-                <li>Líder Técnico</li>
-            </ul>
-            Transformando conhecimento em experiêas digitais.
-            </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--texto banner principal-->
+    <div class="d-flex flex-column align-items-center justify-content-center text-center" id="tituloBanner">
+      <h1><b class="Dev">Dev</b><b class="Wizard">Wizard</b>Marcos</h1>
+      <p>Full-Stack Developer &bull; Professor &bull; Líder Técnico</p>
+      <p>Transformando conhecimento em experiências digitais.</p>
+
+      <!-- Stats Bar -->
+      <div class="d-flex align-items-center gap-3" id="statsBar">
+        <div class="d-flex flex-column" id="nivelContainer">
+          <span class="nivelLabel">NÍVEL</span>
+          <span class="nivelNumero">26</span>
+        </div>
+        <div class="d-flex flex-column flex-grow-1" id="expContainer">
+          <span class="expLabel">EXPERIÊNCIA</span>
+          <div class="progress" style="height: 6px; background-color: #d6035b;">
+            <div class="progress-bar" role="progressbar" style="width: 70%; background-color: var(--corTextoNav)"></div>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+  </section>
+
+  <!--Sessao jornada-->
+  <section class="Jornadada">
+    <div class="d-flex flex-column align-items-center justify-content-center" id="sessao-Jornadada">
+      <h1>A jornada</h1>
+      <p>Uma trajetória épica de evolução através da programação, ensino e liderança.</p>
+      <div class="sessao-Jornada-Img">
+        <img src="assets/img/BannerJornada.png" alt="Banner Jornada">
+      </div>
+    </div>
+  </section>
 
 
-
-    </section>
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 </body>
 
