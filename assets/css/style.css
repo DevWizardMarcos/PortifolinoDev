@@ -11,6 +11,8 @@
     --fenixDarkBlue: #0a14f2;
     --fenixDarkRed: #ff2740;
     --tituloPadrao: clamp(1.8rem, 5vw, 4.1rem);
+    --btn-h: 44px;
+    --btn-w: 220px;
 }
 
 #banner {
@@ -135,4 +137,174 @@ nav {
     .sessao-Jornada-Img img {
         max-width: 90%;
     }
+}
+
+/* ===== Seção Salão ===== */
+#Salao {
+    background-image: url('../img/bannerSalao.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 40vw;
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+#sessaoSalao {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: clamp(1.5rem, 4vw, 4rem) clamp(1rem, 4vw, 3rem);
+}
+
+.salao-conteudo-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: #f1e8d5;
+    text-transform: uppercase;
+}
+
+.salao-conteudo-central h2 {
+    font-family: Cinzel, serif;
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+#sessaoSalao h1 {
+    font-size: clamp(2.2rem, 7vw, 6rem);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    color: #f5dfaf;
+    font-family: Cinzel, serif;
+    margin: 0;
+}
+
+.salao-conteudo-central p {
+    margin: 0.3rem 0 1rem;
+    text-transform: none;
+    color: #e8dbc1;
+    font-family: Lora, serif;
+    font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+}
+
+
+
+.btn-salao {
+    text-decoration: none;
+    color: #f6e6c6;
+    border: 1px solid #c7a465;
+    padding: 0.65rem 2rem;
+    border-radius: 999px;
+    font-family: Cinzel, serif;
+    letter-spacing: 0.05em;
+    background: linear-gradient(90deg, rgba(42, 19, 89, 0.8) 0%, rgba(67, 32, 128, 0.85) 100%);
+}
+
+.salao-card-lateral {
+    position: absolute;
+    right: clamp(1rem, 4vw, 3rem);
+    top: 45%;
+    transform: translateY(-50%);
+    width: min(28vw, 340px);
+    background: rgba(16, 8, 35, 0.74);
+    border: 1px solid rgba(219, 183, 102, 0.52);
+    border-radius: 14px;
+    padding: 1.2rem 1.1rem;
+    text-align: left;
+    backdrop-filter: blur(2px);
+}
+
+.salao-card-lateral h3 {
+    color: #e8d1a6;
+    margin: 0 0 0.5rem;
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    font-family: Cinzel, serif;
+}
+
+.salao-card-lateral p {
+    margin: 0 0 0.8rem;
+    color: #d8c8a5;
+    font-family: Lora, serif;
+    font-size: clamp(0.78rem, 1vw, 0.95rem);
+}
+
+.salao-card-lateral a {
+    color: #e8c57b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    font-family: Cinzel, serif;
+}
+
+@media (max-width: 992px) {
+    #Salao {
+        min-height: 70vw;
+    }
+
+    #sessaoSalao {
+        flex-direction: column;
+        gap: 1.4rem;
+    }
+
+    .salao-card-lateral {
+        position: static;
+        transform: none;
+        width: min(92%, 420px);
+    }
+}
+
+@media (max-width: 576px) {
+    #Salao {
+        min-height: 95vw;
+    }
+
+    .btn-salao {
+        padding: 0.58rem 1.5rem;
+        font-size: 0.78rem;
+    }
+}
+
+
+#sessaoProjetos{
+    height: 20vw;
+    background-color: var(--corFundoTransparente);
+    border: 1px solid #e8c57b;
+    border-radius: 2rem;
+    border-top-left-radius: 16rem;
+    border-top-right-radius: 2.2rem;
+    border-bottom-right-radius: 12rem ;
+    border-left-color: var(--fenixDarkRed);
+    border-top-color: #d6035b;
+    border-right-color: var(--corTextoNav);
+    color: white;
+}
+
+#sessaoProjetos h1{
+    color: #c7a465;
+    
+}
+
+#elementoSelecionar{
+    border: none;
+    list-style: none;
+ 
+}
+
+#elementoSelecionar button{
+    background: transparent;
+    padding: 4px 4px;
+    color: white;
+    min-width: 2rem;
+}
+
+
+.sessao-Cards{
+    text-align: center;
+
 }
