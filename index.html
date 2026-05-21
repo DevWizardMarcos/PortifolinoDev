@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:wght@400;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/animacoes.css">
 </head>
 
 <body>
@@ -49,13 +50,13 @@
         </div>
       </nav>
     </header>
-
+    
     <!--texto banner principal-->
     <div class="d-flex flex-column align-items-center justify-content-center text-center" id="tituloBanner">
       <h1><b class="Dev">Dev</b><b class="Wizard">Wizard</b>Marcos</h1>
       <p>Full-Stack Developer &bull; Professor &bull; Líder Técnico</p>
       <p>Transformando conhecimento em experiências digitais.</p>
-
+      
       <!-- Stats Bar -->
       <div class="d-flex align-items-center gap-3" id="statsBar">
         <div class="d-flex flex-column" id="nivelContainer">
@@ -64,17 +65,160 @@
         </div>
         <div class="d-flex flex-column flex-grow-1" id="expContainer">
           <span class="expLabel">EXPERIÊNCIA</span>
-          <div class="progress" style="height: 6px; background-color: #d6035b;">
-            <div class="progress-bar" role="progressbar" style="width: 70%; background-color: var(--corTextoNav)"></div>
+          <div class="progress" style="height: 6px; background-color: var(--corTextoNav);">
+            <div class="progress-bar" role="progressbar" style="width: 70%; background-color: #d6035b"></div>
           </div>
+        </div>
+        
+      </div>
+
+      <div class="d-flex gap-4" id="sessao-Btn-Banner">
+        <button class="btnIncio"><a href="#sobre-Jornada">Iniciar Jornanda</a></button>
+        <button class="btnProjetos"><a href="">Explorar Projetos</a></button>
+        
+      </div>
+    <div id="personagem-run">
+        <img id="frame-personagem" src="assets/img/freams/correndo1.png" alt="">
+    </div>
+
+    </div>
+    
+
+  </section>
+  
+  <!--Sessao Sobre Mim-->
+  <section id="sobre-mim">
+
+    <img src="assets/img/deco-esquerda.png" alt="" class="deco-lateral deco-esquerda">
+    <img src="assets/img/deco-direita.png" alt="" class="deco-lateral deco-direita">
+
+    <div class="container d-flex flex-column align-items-center" id="sessao-SobreMim">
+
+      <h2 class="sessao-titulo">Sobre o Personagem</h2>
+      <p class="sessao-subtitulo">Conheça o dev por trás da magia.</p>
+
+      <div class="row w-100 align-items-center gap-4 justify-content-center">
+
+        <!-- Avatar / Foto -->
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+          <div class="avatar-frame">
+            <img src="assets/img/user/foto_perfil.png" alt="Foto de Marcos" class="avatar-img">
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="col-12 col-md-6 d-flex flex-column gap-3">
+
+          <div class="sobre-card">
+            <span class="sobre-label">&#9670; Classe</span>
+            <p>Full-Stack Developer &bull; Especialista Front-End &bull; Mentor Técnico</p>
+          </div>
+
+          <div class="sobre-card">
+            <span class="sobre-label">&#9670; História</span>
+            <p>
+              Olá, me chamo <strong>Marcos Paulo Simões</strong> — desenvolvedor Full-Stack com afinidade em
+              Front-End e apaixonado por tecnologia desde 2020, quando dei meus primeiros passos na programação
+              pela Danki Code. Desde então, nunca parei de estudar.
+            </p>
+            <p>
+              Em 2022 fiz a transição de aluno para empreendedor, fundando a <strong>MS Negócios</strong>,
+              minha própria empresa de criação de sites. Em paralelo, ingressei no curso técnico da
+              <strong>Infinity School</strong>, em Belo Horizonte — onde vivi uma das jornadas mais épicas da
+              minha vida: passei de aluno a monitor, de monitor a professor de programação, depois a líder de
+              monitoria Dev, líder de projetos (incluindo Hackathons), líder de instrutores e, por fim, líder
+              de professores. Ao longo de inúmeros workshops, super módulos e minicursos, fui acumulando
+              experiência sem jamais abandonar a postura de aluno — sempre ansioso para aprender algo novo.
+            </p>
+            <p>
+              Também fundei a <strong>Dreams</strong>, marca de blusas focada no universo geek, e a
+              <strong>Connect CNX</strong>, empresa de tecnologia da qual sou CEO, atuando como desenvolvedor
+              Full-Stack e estrategista de marketing digital.
+            </p>
+            <p>
+              O nome <strong>DevWizard</strong> nasceu da minha paixão pelo mundo geek: a ideia de misturar
+              criatividade, magia e código para criar experiências imersivas — e compartilhar esse
+              conhecimento com quem está na mesma jornada de aprendizado. Como Diria um amigo meu Excelsior!
+            </p>
+          </div>
+
+          <!-- Arsenal Principal: será populado via JS -->
+          <div id="arsenal-skills"></div>
+
+          <div class="sobre-card">
+            <span class="sobre-label">&#9670; Guilda Atual</span>
+            <div class="d-flex flex-column gap-2 mt-1">
+
+              <div class="exp-item">
+                <span class="exp-cargo">Monitor PJ Líder / Sênior</span>
+                <span class="exp-empresa">Infinity School &bull; Abril 2025 – Presente</span>
+                <p class="exp-desc">
+                  Responsável por formar mais de +100 alunos e auxiliar os demais instrutores,
+                  liderando suporte técnico e pedagógico ao longo de todo o processo de aprendizagem.
+                  Conduzo o desenvolvimento de sistemas web, APIs e automações, organizo +20 workshops
+                  e +10 minicursos mensais e mentoro alunos em projetos finais. Dou suporte integral
+                  durante os cursos <em>Seja Full-Stack</em>, <em>Data Analytics</em>,
+                  <em>Data Science</em> e <em>AI / Automação do Zero</em>.
+                </p>
+              </div>
+
+              <div class="exp-item">
+                <span class="exp-cargo">Monitor Estagiário Dev</span>
+                <span class="exp-empresa">Infinity School &bull; Nov 2024 – Abr 2025</span>
+                <p class="exp-desc">
+                  Suporte estratégico aos instrutores, mentoria personalizada a alunos,
+                  contribuição no currículo e orientação em projetos front-end e back-end.
+                </p>
+              </div>
+
+              <div class="exp-item">
+                <span class="exp-cargo">CEO &amp; Desenvolvedor Full-Stack</span>
+                <span class="exp-empresa">MS Negócios &bull; Fundador</span>
+                <p class="exp-desc">
+                  Empresa própria de criação de sites e soluções digitais. Responsável por
+                  todo o ciclo de desenvolvimento, desde o briefing com o cliente até a
+                  entrega final, atuando em design, desenvolvimento e implantação.
+                </p>
+              </div>
+
+              <div class="exp-item">
+                <span class="exp-cargo">Full-Stack Developer &amp; SEO Specialist</span>
+                <span class="exp-empresa">CNX &bull; Atual</span>
+                <p class="exp-desc">
+                  Atuação como programador Full-Stack aliada à aplicação de estratégias
+                  de SEO e marketing digital, entregando soluções que unem performance
+                  técnica e visibilidade orgânica.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="sobre-card">
+            <span class="sobre-label">&#9670; Formação</span>
+            <div class="d-flex flex-column gap-2 mt-1">
+
+              <div class="exp-item">
+                <span class="exp-cargo">Análise e Desenvolvimento de Sistemas — 3º Período</span>
+                <span class="exp-empresa">Descomplica Faculdade Digital &bull; 2024 – 2027</span>
+                <p class="exp-desc">
+                  Construindo uma base sólida em desenvolvimento de software, design de sistemas e
+                  gerenciamento de projetos de TI. Com foco em habilidades práticas e tecnologias modernas,
+                  me preparando para entregar soluções digitais inovadoras e eficientes que impulsionam
+                  o crescimento e a transformação dos negócios.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
 
-    </div> 
+    </div>
   </section>
-
   <!--Sessao jornada-->
-  <section class="Jornadada">
+  <section class="Jornadada" id="sobre-Jornada">
     <div class="d-flex flex-column align-items-center justify-content-center" id="sessao-Jornadada">
       <h1>A jornada</h1>
       <p>Uma trajetória épica de evolução através da programação, ensino e liderança.</p>
@@ -85,7 +229,11 @@
   </section>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 
