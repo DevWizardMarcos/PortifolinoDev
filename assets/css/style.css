@@ -27,7 +27,6 @@ html, body {
 }
 
 nav {
-    background-color: var(--corFundoTransparente);
     border: none;
 }
 
@@ -498,12 +497,24 @@ nav {
 /* ===== Sessão Projetos / Salão ===== */
 #sessaoProjetos {
   height: auto;
-  background: var(--corFundoTransparente);
+  background: transparent;
   padding: 3rem 2rem;
   color: white;
-    border-bottom-left-radius: 8px;   /* arredonda o canto */
-  border: 1px solid var(--fenixDarkRed);    
+  /* border-bottom-left-radius: 4rem;   arredonda o canto */
+  /* border-bottom-right-radius: 5rem; */
+  /* border: 1px solid var(--fenixDarkRed); */
+  border-top-left-radius: 18rem;
+  border-top: 0.1px solid var(--corFundoTransparente) ;
+  border-bottom: 1px solid #c9a84c ;
+  border-bottom-left-radius: 3rem;
+  /* border-right-color: #d6035b; */
 }
+
+#elementoSelecionar {
+  background-color: transparent;
+  border: none;
+}
+
 
 
 
@@ -818,7 +829,27 @@ nav {
 
 .sessao-Cards {
   text-align: center;
+  
 }
+
+.sessao-Cards > .card{
+  background-color: transparent;
+  color: #c9a84c;
+  border-top: 1px solid #2d1060;
+  border-left: 1px solid #e8c57b ;
+  border-top-left-radius: 1.2rem;
+  padding: 1rem;
+  border-bottom-left-radius: 1.2rem;
+}
+
+.card-body > .btn-primary {
+  background-color: transparent;
+  border: none;
+  color: var(--corTextoNav);
+  font-weight: 600;
+}
+
+
 
 /* =============================================
    RESPONSIVIDADE GLOBAL
