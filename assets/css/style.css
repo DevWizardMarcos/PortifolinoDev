@@ -400,7 +400,7 @@ nav {
 }
 
 #sessaoSalao h1 {
-    font-size: clamp(2.2rem, 7vw, 6rem);
+    /* font-size: clamp(2.2rem, 7vw, 6rem); */
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
     color: #f5dfaf;
     font-family: Cinzel, serif;
@@ -877,18 +877,43 @@ nav {
 
 .sessao-Cards {
   text-align: center;
-  
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .sessao-Cards > .card{
   background-color: transparent;
   color: #c9a84c;
   border-top: 1px solid #2d1060;
-  border-left: 1px solid #e8c57b ;
+  border-left: 1px solid #e8c57b;
   border-top-left-radius: 1.2rem;
   padding: 1rem;
   border-bottom-left-radius: 1.2rem;
+  left: 2.1rem;
+  border-bottom-color: transparent;
+  position: relative;
 }
+
+.sessao-Cards > .card img{
+  position: relative;
+  left: 2.2rem;
+
+}
+
+.card-title {
+  color: #e8c57b;
+  font-weight: 600;
+}
+
+.card-text{
+  color: #d8c8a5;
+}
+
+
+
+
+
 
 .card-body > .btn-primary {
   background-color: transparent;
