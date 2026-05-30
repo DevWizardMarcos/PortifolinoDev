@@ -420,13 +420,15 @@ nav {
 .btn-salao {
     text-decoration: none;
     color: #f6e6c6;
-    border: 1px solid #c7a465;
+    /* border: 1px solid #c7a465; */
     padding: 0.65rem 2rem;
     border-radius: 999px;
     font-family: Cinzel, serif;
     letter-spacing: 0.05em;
     background: linear-gradient(90deg, rgba(42, 19, 89, 0.8) 0%, rgba(67, 32, 128, 0.85) 100%);
-}
+    border-top-left-radius: none;
+
+  }
 
 .salao-card-lateral {
     position: absolute;
@@ -508,12 +510,58 @@ nav {
   border-bottom: 1px solid #c9a84c ;
   border-bottom-left-radius: 3rem;
   /* border-right-color: #d6035b; */
+  
 }
 
 #elementoSelecionar {
   background-color: transparent;
   border: none;
 }
+
+#elementoSelecionar > button {
+  background-color: transparent;
+  padding: 0px 2px;
+  border-left-color: #c9a84c;
+  border-top: none;
+  border-bottom-color: #dcdee2;
+  border-right: none;
+  border-top-left-radius: 1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+}
+
+/* animação btn */ 
+
+#elementoSelecionar > button:hover{
+  color: var(--fenixDarkRed);
+  transform: translateY(-2px);
+} 
+
+
+
+/* animaçao do a */ 
+
+
+#elementoSelecionar > button > a:hover{
+  color: #d6035b;
+  transition: transform 2s ease-in-out, color 0.3s ease;
+
+}
+
+#elementoSelecionar > button a:active{
+  color: var(--fenixDarkRed);
+  transition: transform 3s ease, color 0.4s;
+}
+
+
+
+#elementoSelecionar > button > a {
+  margin: 0px 1rem;
+  color: #c9a84c;
+  font-weight: 700;
+  text-decoration:none;
+}
+
 
 
 
