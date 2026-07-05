@@ -166,49 +166,6 @@ nav {
 }
 
 
-/* ===== Seção Jornada ===== */
-.Jornadada {
-    min-height: 50vw;
-    background-color: black;
-    padding: 2.8rem;
-}
-
-.Jornadada h1 {
-    color: var(--fenixDarkRed);
-    font-size: var(--tituloPadrao);
-    text-shadow: 1px 0px whitesmoke;
-    font-family: Cinzel, serif;
-}
-
-.Jornadada p {
-    color: var(--corTextoNav);
-    font-family: Lora, serif;
-}
-
-
-
-.sessao-Jornada-Img {
-    display: flex;
-    justify-content: center;
-    
-}
-
-.sessao-Jornada-Img img {
-    max-width: 70%;
-    padding: 0.2rem;
-    background-color: #030303;
-
-}
-
-/* sessao repsonsiva */
-
-
-@media (max-width: 768px) {
-    .sessao-Jornada-Img img {
-        max-width: 90%;
-    }
-}
-
 #sobre-mim {
   position: relative; /* necessário para o absolute funcionar */
   overflow: hidden;   /* evita que as imagens vazem pra fora */
