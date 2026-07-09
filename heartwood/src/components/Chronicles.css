@@ -1,0 +1,98 @@
+.chronicles__inner {
+  max-width: 46rem;
+}
+
+.chronicles__manuscript {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* A régua dourada do manuscrito */
+.chronicles__manuscript::before {
+  content: '';
+  position: absolute;
+  left: 4.2rem;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), rgba(201, 159, 69, 0.1));
+}
+
+.chronicle {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+/* O ano vive na margem, como numeração de fólio */
+.chronicle__year {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--gold);
+  text-align: right;
+  padding-top: var(--space-2);
+}
+
+.chronicle__entry {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  padding: var(--space-5);
+}
+
+.chronicle__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.chronicle__type {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--arcane-bright);
+}
+
+.chronicle__title {
+  font-size: var(--text-md);
+  color: var(--parchment);
+}
+
+.chronicle__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+}
+
+/* A capitular iluminada */
+.chronicle__capital {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 0.85;
+  color: var(--gold-bright);
+  padding: 0.1rem 0.5rem 0 0;
+  text-shadow: 0 0 12px rgba(227, 196, 115, 0.3);
+}
+
+@media (max-width: 560px) {
+  .chronicles__manuscript::before {
+    display: none;
+  }
+
+  .chronicle {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .chronicle__year {
+    text-align: left;
+    padding-top: 0;
+  }
+}

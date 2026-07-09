@@ -19,13 +19,13 @@ export class ControlsManager {
     this.controls.dampingFactor = 0.08
 
     // Zoom limitado — não deixa aproximar demais nem afastar até perder o mapa.
-    this.controls.minDistance = 8
-    this.controls.maxDistance = 32
+    this.controls.minDistance = 14
+    this.controls.maxDistance = 68
 
-    // Rotação vertical limitada: nunca vira por baixo do mapa nem fica
-    // totalmente de topo (mantém a leitura "isométrica" da cena).
-    this.controls.minPolarAngle = Math.PI * 0.15
-    this.controls.maxPolarAngle = Math.PI * 0.48
+    // Rotação vertical limitada: nunca vira por baixo do tabuleiro nem
+    // fica totalmente de topo — sempre a leitura de diorama em 3/4.
+    this.controls.minPolarAngle = Math.PI * 0.18
+    this.controls.maxPolarAngle = Math.PI * 0.46
 
     // Pan bem limitado — o foco é sempre o mapa, não arrastar a cena pra longe.
     this.controls.enablePan = false

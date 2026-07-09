@@ -1,0 +1,42 @@
+.embers {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.embers__mote {
+  position: absolute;
+  bottom: -10px;
+  border-radius: var(--r-full);
+  background: var(--gold-glow);
+  box-shadow: 0 0 6px rgba(244, 222, 159, 0.8);
+  opacity: 0;
+  animation-name: ember-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ember-rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.55;
+  }
+  70% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(var(--drift, 0px));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .embers {
+    display: none;
+  }
+}

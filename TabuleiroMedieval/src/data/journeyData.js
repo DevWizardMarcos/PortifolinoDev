@@ -7,8 +7,14 @@
 // =============================================================
 
 // Posição [x, z] de cada reino sobre o terreno (y é calculado à parte).
-// O terreno tem ~40 (x) por ~22 (z), então mantenha as posições dentro
-// dessa faixa (aprox. -18..18 em x e -9..9 em z) para não "cair fora do mapa".
+// O terreno tem 64 (x) por 44 (z) — mantenha as posições dentro de
+// aprox. -15..15 em x e -10..10 em z para não "cair fora do mapa".
+//
+// COMPOSIÇÃO (regra de leitura do mapa, como na arte de referência):
+// - norte (z negativo): a "linha do horizonte" com os 3 reinos do saber,
+//   Infinity School à direita como landmark dominante;
+// - sul (z positivo): os 2 reinos criativos, mais baixos e acolhedores;
+// - centro: a Árvore (Núcleo da Criação) amarra todas as estradas.
 export const journeyPoints = [
   {
     id: 'danki-code',
@@ -21,7 +27,7 @@ export const journeyPoints = [
       'O primeiro reino da jornada: os fundamentos de programação, lógica e as primeiras batalhas contra bugs.',
     tecnologias: ['JavaScript', 'HTML', 'CSS', 'Lógica de Programação'],
     links: [{ label: 'Ver projeto', url: '#' }],
-    posicao: [-14, 5],
+    posicao: [-14, -7],
     cor: 0x9b5de5, // roxo de destaque do reino — troque para diferenciar cada reino
   },
   {
@@ -35,8 +41,8 @@ export const journeyPoints = [
       'Onde código encontrou negócio: entender processos, pessoas e como a tecnologia resolve problemas reais.',
     tecnologias: ['Gestão de Projetos', 'Processos', 'Análise de Negócio'],
     links: [{ label: 'Ver projeto', url: '#' }],
-    posicao: [-7, -5.5],
-    cor: 0x7b2cbf,
+    posicao: [-7.5, -11],
+    cor: 0x4f7df0, // azul do monograma MS (identidade da marca)
   },
   {
     id: 'infinity-school',
@@ -49,8 +55,8 @@ export const journeyPoints = [
       'Aprofundamento técnico: estruturas de dados, arquitetura de software e o hábito de aprender sem parar.',
     tecnologias: ['Node.js', 'Bancos de Dados', 'Arquitetura de Software'],
     links: [{ label: 'Ver projeto', url: '#' }],
-    posicao: [0, 6],
-    cor: 0xc77dff,
+    posicao: [13, -6.5],
+    cor: 0xc73a2e, // vermelho do brasão "IN" da Infinity School
   },
   {
     id: 'dreams',
@@ -63,7 +69,7 @@ export const journeyPoints = [
       'Projetos autorais e experimentação criativa — o espaço onde ideias viram produtos.',
     tecnologias: ['React', 'UI/UX', 'Produto'],
     links: [{ label: 'Ver projeto', url: '#' }],
-    posicao: [7, -5.5],
+    posicao: [-11, 7],
     cor: 0x9d4edd,
   },
   {
@@ -77,8 +83,8 @@ export const journeyPoints = [
       'O reino mais recente da jornada: sistemas robustos, times e desafios em maior escala.',
     tecnologias: ['Three.js', 'Vite', 'Sistemas Distribuídos'],
     links: [{ label: 'Ver projeto', url: '#' }],
-    posicao: [14, 5],
-    cor: 0x5a189a,
+    posicao: [9, 10.5],
+    cor: 0xff6b3d, // laranja do gradiente CNX Connect (laranja -> roxo)
   },
 ]
 

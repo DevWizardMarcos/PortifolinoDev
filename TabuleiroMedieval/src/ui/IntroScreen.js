@@ -16,6 +16,12 @@ export class IntroScreen {
     this.onEnter = onEnter
     this.element = this.buildElement()
     document.body.appendChild(this.element)
+
+    // Atalho de desenvolvimento/deep-link: ?intro=skip pula direto
+    // para o mapa (útil para testar a cena sem clicar toda vez).
+    if (new URLSearchParams(window.location.search).get('intro') === 'skip') {
+      this.handleEnter()
+    }
   }
 
   buildElement() {

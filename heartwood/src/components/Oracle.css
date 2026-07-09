@@ -1,0 +1,131 @@
+.oracle__inner {
+  max-width: 44rem;
+}
+
+.oracle__chamber {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-7);
+  text-align: center;
+  background: radial-gradient(80% 70% at 50% 0%, rgba(139, 111, 208, 0.12), transparent 70%),
+    var(--color-surface);
+  border: 1px solid var(--color-border-arcane);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-raised), var(--shadow-arcane);
+}
+
+/* O olho do Oráculo: quieto, pulsando devagar */
+.oracle__eye {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--arcane);
+  background: radial-gradient(circle, rgba(139, 111, 208, 0.3), transparent 70%);
+  animation: oracle-pulse 6s var(--ease-settle) infinite;
+}
+
+.oracle__eye-core {
+  font-size: var(--text-xl);
+  color: var(--arcane-bright);
+  text-shadow: 0 0 18px rgba(169, 143, 232, 0.7);
+}
+
+@keyframes oracle-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px rgba(139, 111, 208, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 34px rgba(139, 111, 208, 0.45);
+  }
+}
+
+.oracle__intro {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--parchment-dim);
+}
+
+.oracle__questions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.oracle__question {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--parchment);
+  background: transparent;
+  border: 1px solid var(--color-border-arcane);
+  border-radius: var(--r-full);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-micro) var(--ease-settle),
+    color var(--dur-micro) var(--ease-settle),
+    box-shadow var(--dur-micro) var(--ease-settle);
+}
+
+.oracle__question:hover {
+  border-color: var(--arcane-bright);
+  color: var(--gold-glow);
+}
+
+.oracle__question.is-asked {
+  border-color: var(--arcane-bright);
+  color: var(--arcane-bright);
+  box-shadow: 0 0 14px rgba(139, 111, 208, 0.3);
+}
+
+/* A resposta: pergaminho escuro, escrita da pena */
+.oracle__answer {
+  width: 100%;
+  min-height: 7.5rem;
+  padding: var(--space-5);
+  background: rgba(8, 5, 15, 0.4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oracle__answer-text {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--parchment);
+  line-height: 1.6;
+  text-align: left;
+  max-width: 58ch;
+}
+
+.oracle__answer-mark {
+  color: var(--gold);
+  margin-right: var(--space-1);
+}
+
+.oracle__answer-idle {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.oracle__disclosure {
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--color-text-muted);
+  max-width: 46ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oracle__eye {
+    animation: none;
+  }
+}

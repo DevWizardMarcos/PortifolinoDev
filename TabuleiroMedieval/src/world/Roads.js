@@ -1,114 +1,164 @@
 // =============================================================
 // Roads.js
 // -------------------------------------------------------------
-// Estradas douradas em "raio de roda": todas partem da Árvore
-// Central (hubPosition) até cada um dos 5 castelos. Cada estrada tem:
-// - um tubo dourado principal (o caminho em si)
-// - uma linha fina e brilhante por cima (o "friso mágico")
-// - 2 pontos de energia roxos percorrendo o caminho continuamente
+// As trilhas do mapa, no estilo da arte de referência: um caminho
+// PONTILHADO DOURADO que sai do Núcleo da Criação e serpenteia até
+// cada reino, "sentado" no relevo (cada marco amostra a altura real
+// do terreno — nada de trilho flutuando).
+//
+// Sobre cada trilha viaja uma FAGULHA de luz (hub -> reino): além
+// de bonita, ela guia o olho do usuário para os pontos interativos.
+//
+// As curvas são DETERMINÍSTICAS (curvatura fixa por reino, nada de
+// Math.random) para a composição do mapa ser estável entre visitas —
+// e a vegetação usa exatamente estas curvas para abrir clareira.
 //
 // EDITE AQUI:
-// - ROAD_RADIUS -> largura da estrada
-// - ENERGY_SPEED -> velocidade dos pontos de energia
-// - MOTES_PER_ROAD -> quantos pontos de luz por caminho
+// - ROAD_BENDS -> personalidade da curva de cada estrada
+// - DOT_SPACING / HUB_CLEARANCE / KINGDOM_CLEARANCE -> ritmo da trilha
 // =============================================================
 
 import * as THREE from 'three'
-import { journeyPoints, roadColor, magicGlowColor, hubPosition } from '../data/journeyData.js'
+import { journeyPoints, hubPosition, roadColor } from '../data/journeyData.js'
+import { getTerrainHeight } from './Terrain.js'
 
-const ROAD_RADIUS = 0.14
-const ROAD_Y = 0.05
-const ENERGY_SPEED = 0.08 // "voltas" por segundo ao longo do caminho
-const MOTES_PER_ROAD = 2
+const DOT_SPACING = 1.05
+const HUB_CLEARANCE = 4.6 // a trilha nasce fora da colina da Árvore
+const KINGDOM_CLEARANCE = 4.4 // e morre na beira da plataforma do castelo
+const DOT_LIFT = 0.045
 
-const roadMaterial = new THREE.MeshStandardMaterial({
-  color: roadColor,
-  emissive: roadColor,
-  emissiveIntensity: 0.15,
-  roughness: 0.6,
-  metalness: 0.3,
-})
+// Curvatura fixa [bend@35%, bend@70%] como fração do comprimento.
+const ROAD_BENDS = [
+  [0.16, -0.2],
+  [-0.2, 0.13],
+  [0.12, 0.22],
+  [-0.17, -0.09],
+  [0.21, 0.08],
+]
 
-// Friso fino e brilhante que corre por cima do tubo principal.
-const glowLineMaterial = new THREE.MeshStandardMaterial({
-  color: 0xfff2c0,
-  emissive: 0xfff2c0,
-  emissiveIntensity: 1.5,
-  roughness: 0.3,
-  metalness: 0.5,
-})
-
-const energyMaterial = new THREE.MeshStandardMaterial({
-  color: magicGlowColor,
-  emissive: magicGlowColor,
-  emissiveIntensity: 2,
-})
-
-// Curva com 2 pontos de controle deslocados perpendicularmente ao
-// segmento hub->reino, escalados pela distância — dá uma sinuosidade
-// natural sem exagerar em caminhos curtos.
-function buildRoadCurve(hub, target) {
+function buildRoadCurve(hub, target, bends) {
   const direction = target.clone().sub(hub)
   const length = direction.length()
   const perpendicular = new THREE.Vector3(-direction.z, 0, direction.x).normalize()
 
-  const bendA = (Math.random() - 0.5) * length * 0.18
-  const bendB = (Math.random() - 0.5) * length * 0.18
-
-  const p1 = hub.clone().lerp(target, 0.35).add(perpendicular.clone().multiplyScalar(bendA))
-  const p2 = hub.clone().lerp(target, 0.7).add(perpendicular.clone().multiplyScalar(bendB))
-  p1.y = ROAD_Y
-  p2.y = ROAD_Y
+  const p1 = hub.clone().lerp(target, 0.35).add(perpendicular.clone().multiplyScalar(bends[0] * length))
+  const p2 = hub.clone().lerp(target, 0.7).add(perpendicular.clone().multiplyScalar(bends[1] * length))
 
   return new THREE.CatmullRomCurve3([hub, p1, p2, target], false, 'catmullrom', 0.35)
 }
 
-// Curva-espelho elevada, usada só para desenhar o friso brilhante por
-// cima do tubo principal (evita ele ficar "afundado" dentro do tubo).
-function buildGlowCurve(curve) {
-  const points = curve.getPoints(80).map((p) => new THREE.Vector3(p.x, p.y + ROAD_RADIUS * 0.92, p.z))
-  return new THREE.CatmullRomCurve3(points)
+function createSparkTexture() {
+  const size = 64
+  const canvas = document.createElement('canvas')
+  canvas.width = size
+  canvas.height = size
+  const ctx = canvas.getContext('2d')
+
+  const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
+  gradient.addColorStop(0, 'rgba(255, 240, 200, 1)')
+  gradient.addColorStop(0.35, 'rgba(240, 209, 130, 0.55)')
+  gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+  ctx.fillStyle = gradient
+  ctx.fillRect(0, 0, size, size)
+
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.needsUpdate = true
+  return texture
 }
 
 export class RoadsController {
   constructor() {
     this.group = new THREE.Group()
+    this.group.name = 'roads'
     this.roads = []
+    this.sparks = []
 
-    const hub = new THREE.Vector3(hubPosition[0], ROAD_Y, hubPosition[1])
+    const hub = new THREE.Vector3(hubPosition[0], 0, hubPosition[1])
+    const dotTransforms = []
+    const sparkTexture = createSparkTexture()
 
     journeyPoints.forEach((reino, index) => {
-      const target = new THREE.Vector3(reino.posicao[0], ROAD_Y, reino.posicao[1])
-      const curve = buildRoadCurve(hub, target)
+      const target = new THREE.Vector3(reino.posicao[0], 0, reino.posicao[1])
+      const curve = buildRoadCurve(hub, target, ROAD_BENDS[index % ROAD_BENDS.length])
+      const length = curve.getLength()
 
-      const tubeGeometry = new THREE.TubeGeometry(curve, 120, ROAD_RADIUS, 8, false)
-      this.group.add(new THREE.Mesh(tubeGeometry, roadMaterial))
+      // Janela útil da trilha (fora da colina do hub e da plataforma).
+      const t0 = THREE.MathUtils.clamp(HUB_CLEARANCE / length, 0, 0.45)
+      const t1 = THREE.MathUtils.clamp(1 - KINGDOM_CLEARANCE / length, 0.55, 1)
 
-      const glowCurve = buildGlowCurve(curve)
-      const glowGeometry = new THREE.TubeGeometry(glowCurve, 120, ROAD_RADIUS * 0.28, 6, false)
-      this.group.add(new THREE.Mesh(glowGeometry, glowLineMaterial))
-
-      const motes = []
-      for (let m = 0; m < MOTES_PER_ROAD; m++) {
-        const energyMesh = new THREE.Mesh(new THREE.SphereGeometry(0.13, 12, 12), energyMaterial)
-        const energyLight = new THREE.PointLight(magicGlowColor, 1.2, 4, 2)
-        energyMesh.add(energyLight)
-        this.group.add(energyMesh)
-        motes.push({ mesh: energyMesh, phase: m / MOTES_PER_ROAD })
+      const dotCount = Math.max(4, Math.floor((length * (t1 - t0)) / DOT_SPACING))
+      for (let i = 0; i <= dotCount; i++) {
+        const t = t0 + ((t1 - t0) * i) / dotCount
+        const point = curve.getPointAt(t)
+        const y = getTerrainHeight(point.x, point.z) + DOT_LIFT
+        // Marcos maiores a cada 5 pontos — ritmo visual de "passos".
+        const waystone = i % 5 === 0
+        dotTransforms.push({ x: point.x, y, z: point.z, scale: waystone ? 1.45 : 1 })
       }
 
-      this.roads.push({ curve, motes, offset: index / journeyPoints.length })
+      // Fagulha que percorre a trilha (velocidade/fase própria por reino).
+      const spark = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: sparkTexture,
+        color: 0xffe9b8,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      }))
+      spark.scale.setScalar(1.05)
+      this.group.add(spark)
+      this.sparks.push({
+        sprite: spark,
+        curve,
+        t0,
+        t1,
+        speed: 0.055 + index * 0.008,
+        phase: index * 0.23,
+      })
+
+      this.roads.push({ curve })
     })
+
+    this.buildDots(dotTransforms)
   }
 
-  // Chamado a cada frame — desloca os pontos de energia ao longo da curva.
+  buildDots(transforms) {
+    const geometry = new THREE.CylinderGeometry(0.13, 0.17, 0.07, 8)
+    const material = new THREE.MeshStandardMaterial({
+      color: roadColor,
+      emissive: 0xc9973f,
+      emissiveIntensity: 0.5,
+      roughness: 0.5,
+      metalness: 0.35,
+    })
+
+    const dots = new THREE.InstancedMesh(geometry, material, transforms.length)
+    dots.castShadow = false
+    dots.receiveShadow = true
+
+    const dummy = new THREE.Object3D()
+    transforms.forEach((transform, index) => {
+      dummy.position.set(transform.x, transform.y, transform.z)
+      dummy.rotation.y = Math.random() * Math.PI
+      dummy.scale.setScalar(transform.scale)
+      dummy.updateMatrix()
+      dots.setMatrixAt(index, dummy.matrix)
+    })
+
+    dots.instanceMatrix.needsUpdate = true
+    this.group.add(dots)
+  }
+
   update(elapsed) {
-    for (const road of this.roads) {
-      for (const mote of road.motes) {
-        const t = (elapsed * ENERGY_SPEED + road.offset + mote.phase) % 1
-        const point = road.curve.getPointAt(t)
-        mote.mesh.position.set(point.x, point.y + 0.15, point.z)
-      }
+    for (const spark of this.sparks) {
+      const cycle = (elapsed * spark.speed + spark.phase) % 1
+      const t = spark.t0 + (spark.t1 - spark.t0) * cycle
+      const point = spark.curve.getPointAt(t)
+      const y = getTerrainHeight(point.x, point.z)
+      spark.sprite.position.set(point.x, y + 0.55, point.z)
+
+      // Nasce e morre em fade — sem "teleporte" seco no loop.
+      const fade = Math.min(1, Math.min(cycle, 1 - cycle) * 9)
+      spark.sprite.material.opacity = 0.75 * fade
     }
   }
 }

@@ -1,0 +1,189 @@
+/* ============================================================
+   Base — reset, tipografia, utilidades, acessibilidade
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--dur-micro) var(--ease-settle);
+}
+
+a:hover {
+  color: var(--glow);
+}
+
+::selection {
+  background: var(--bronze);
+  color: var(--night-deep);
+}
+
+/* Foco sempre visível — anel bronze, nunca removido sem substituto */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* --- Skip link --- */
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100%;
+  z-index: 100;
+  background: var(--ember);
+  color: var(--night-deep);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* --- Layout de seção --- */
+.section {
+  padding: var(--space-9) var(--space-5);
+}
+
+.section__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+/* --- Botões --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-base);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform var(--dur-micro) var(--ease-settle),
+    box-shadow var(--dur-micro) var(--ease-settle),
+    background-color var(--dur-micro) var(--ease-settle),
+    border-color var(--dur-micro) var(--ease-settle);
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--ember);
+  color: var(--night-deep);
+}
+
+.btn--primary:hover {
+  box-shadow: var(--shadow-glow);
+  color: var(--night-deep);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--parchment);
+  border-color: var(--color-border);
+}
+
+.btn--ghost:hover {
+  border-color: var(--bronze);
+  color: var(--glow);
+}
+
+/* --- Chips (stack, tags) --- */
+.chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--parchment-dim);
+  background: rgba(176, 141, 87, 0.1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-full);
+  padding: 0.15rem 0.65rem;
+  white-space: nowrap;
+}
+
+/* --- Revelação ao rolar --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms var(--ease-settle),
+    transform 600ms var(--ease-settle);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Movimento reduzido: paridade total de conteúdo, zero animação --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

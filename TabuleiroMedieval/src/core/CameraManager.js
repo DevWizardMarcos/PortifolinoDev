@@ -14,15 +14,16 @@ import * as THREE from 'three'
 import gsap from 'gsap'
 import { sizes } from '../utils/sizes.js'
 
-// Câmera mais recuada e com FOV mais fechado (menos "olho de peixe") para
-// um enquadramento cinematográfico onde castelos/árvore não cortam nas bordas.
-const DEFAULT_POSITION = new THREE.Vector3(0, 13.5, 20)
-const DEFAULT_LOOK_AT = new THREE.Vector3(0, 0.6, 0)
-const INTRO_POSITION = new THREE.Vector3(0, 42, 58)
+// Enquadramento padrão ~35° de elevação: perto o bastante para os
+// castelos terem presença, alto o bastante para ler o mapa inteiro.
+// FOV fechado (34°) = compressão de "lente tele", olhar de diorama.
+const DEFAULT_POSITION = new THREE.Vector3(0, 33, 48)
+const DEFAULT_LOOK_AT = new THREE.Vector3(0, 0.8, -1.5)
+const INTRO_POSITION = new THREE.Vector3(0, 74, 100)
 
 export class CameraManager {
   constructor() {
-    this.instance = new THREE.PerspectiveCamera(32, sizes.aspect, 0.1, 250)
+    this.instance = new THREE.PerspectiveCamera(34, sizes.aspect, 0.1, 420)
 
     // Começa na posição "de longe" para a queda cinematográfica na entrada.
     this.instance.position.copy(INTRO_POSITION)
@@ -67,10 +68,12 @@ export class CameraManager {
 
   // Voa suavemente até um ponto do mapa (usado ao clicar num marcador).
   flyTo(targetPosition, { duration = 1.6, onUpdate, onComplete } = {}) {
+    // Aproxima por baixo do emblema, meio de lado — ângulo de "retrato"
+    // do castelo, não mergulho de topo.
     const camGoal = new THREE.Vector3(
-      targetPosition.x,
-      targetPosition.y + 6,
-      targetPosition.z + 7
+      targetPosition.x * 0.68,
+      targetPosition.y + 11.5,
+      targetPosition.z + 23
     )
 
     gsap.to(this.instance.position, {

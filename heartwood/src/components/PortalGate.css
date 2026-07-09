@@ -1,0 +1,109 @@
+.portal__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.portal__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+/* O anel: pedra, ouro e um núcleo de magia violeta */
+.portal__ring {
+  position: relative;
+  width: clamp(200px, 34vw, 300px);
+  aspect-ratio: 1;
+}
+
+.portal__ring-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-full);
+  border: 3px solid var(--gold);
+  box-shadow:
+    var(--shadow-glow),
+    inset 0 0 30px rgba(139, 111, 208, 0.25);
+}
+
+.portal__ring-shimmer {
+  position: absolute;
+  inset: 10px;
+  border-radius: var(--r-full);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(227, 196, 115, 0.35) 12%,
+    transparent 30%,
+    transparent 55%,
+    rgba(169, 143, 232, 0.3) 68%,
+    transparent 85%
+  );
+  animation: portal-spin 14s linear infinite;
+}
+
+.portal__ring-core {
+  position: absolute;
+  inset: 24px;
+  border-radius: var(--r-full);
+  background: radial-gradient(
+    circle,
+    rgba(139, 111, 208, 0.4) 0%,
+    rgba(139, 111, 208, 0.12) 55%,
+    transparent 75%
+  );
+  animation: portal-breathe 5s var(--ease-settle) infinite;
+}
+
+@keyframes portal-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portal-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.portal__whisper {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--arcane-bright);
+}
+
+/* O lampejo cobre a tela por um instante durante a travessia */
+.portal__flash {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: radial-gradient(circle, rgba(244, 222, 159, 0.95), rgba(169, 143, 232, 0.9));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 360ms var(--ease-settle);
+}
+
+.portal__flash.is-on {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal__ring-shimmer,
+  .portal__ring-core {
+    animation: none;
+  }
+
+  .portal__flash {
+    display: none;
+  }
+}

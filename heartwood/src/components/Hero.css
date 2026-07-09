@@ -1,0 +1,176 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-6)) var(--space-5) var(--space-8);
+  overflow: hidden;
+}
+
+/* A arte original do DevWizard */
+.hero__art {
+  position: absolute;
+  inset: 0;
+  background: url('/img/bannerPrincipal.png') center / cover no-repeat, var(--abyss);
+}
+
+/* Véu de legibilidade + fusão com a noite do mundo na borda inferior */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 48%, rgba(11, 6, 18, 0.45), transparent 75%),
+    linear-gradient(180deg, rgba(11, 6, 18, 0.5) 0%, transparent 22%, transparent 72%, var(--abyss) 100%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  animation: hero-enter 900ms var(--ease-settle) both;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* O título tricolor: Dev branco · Wizard vermelho · Marcos fogo-rosa */
+.hero__title {
+  font-size: var(--text-hero);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 24px rgba(4, 2, 8, 0.9);
+}
+
+.hero__title-dev {
+  color: var(--parchment);
+}
+
+.hero__title-wizard {
+  color: var(--crimson);
+  text-shadow: 0 0 28px rgba(224, 36, 68, 0.55);
+}
+
+.hero__title-marcos {
+  background: linear-gradient(105deg, var(--crimson) 10%, var(--pink) 65%, var(--crimson-bright));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__role {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--parchment);
+  text-shadow: 0 1px 12px rgba(4, 2, 8, 0.9);
+}
+
+.hero__tagline {
+  font-size: var(--text-md);
+  font-style: italic;
+  color: var(--parchment-dim);
+  text-shadow: 0 1px 12px rgba(4, 2, 8, 0.9);
+  text-wrap: balance;
+}
+
+/* --- Barra de status RPG --- */
+.hero__stats {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  width: min(30rem, 82vw);
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(11, 6, 18, 0.55);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-sm);
+  backdrop-filter: blur(4px);
+}
+
+.hero__stat-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+}
+
+.hero__level {
+  text-align: left;
+}
+
+.hero__level-number {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--pink);
+  line-height: 1;
+}
+
+.hero__xp {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.hero__xp-track {
+  height: 6px;
+  border-radius: var(--r-full);
+  background: rgba(240, 231, 216, 0.25);
+  overflow: hidden;
+}
+
+.hero__xp-fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  background: linear-gradient(90deg, var(--crimson), var(--pink));
+  box-shadow: 0 0 10px rgba(214, 3, 91, 0.7);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: var(--space-5);
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  animation: hint-drift 3.2s var(--ease-settle) infinite;
+}
+
+.hero__scroll-hint:hover {
+  color: var(--gold-glow);
+}
+
+@keyframes hint-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}

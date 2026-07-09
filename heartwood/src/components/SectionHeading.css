@@ -1,0 +1,38 @@
+.section-heading {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.section-heading__sigil {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: var(--space-3);
+}
+
+.section-heading__title {
+  font-size: var(--text-2xl);
+  color: var(--gold-bright);
+}
+
+/* Tom carmesim: o vermelho-fênix do design original */
+.section-heading--crimson .section-heading__title {
+  color: var(--crimson);
+  text-shadow: 0 0 22px rgba(224, 36, 68, 0.25);
+}
+
+.section-heading--crimson .section-heading__sigil {
+  color: var(--crimson-bright);
+}
+
+.section-heading__subtitle {
+  margin: var(--space-3) auto 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+}

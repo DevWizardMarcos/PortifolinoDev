@@ -16,9 +16,10 @@ import { CameraManager } from './CameraManager.js'
 import { RendererManager } from './RendererManager.js'
 import { ControlsManager } from './ControlsManager.js'
 
-import { createTerrain, createTerrainBorder } from '../world/Terrain.js'
+import { createTerrain, createTableBase } from '../world/Terrain.js'
 import { createLights } from '../world/Lights.js'
 import { MarkersController } from '../world/Markers.js'
+import { MountainsController } from '../world/Mountains.js'
 import { RoadsController } from '../world/Roads.js'
 import { ParticlesController } from '../world/Particles.js'
 import { PortalsController } from '../world/Portals.js'
@@ -29,6 +30,7 @@ import { Navigation } from '../ui/Navigation.js'
 import { InfoPanel } from '../ui/InfoPanel.js'
 import { Tooltip } from '../ui/Tooltip.js'
 import { RotateDevice } from '../ui/RotateDevice.js'
+import { MapFrame } from '../ui/MapFrame.js'
 
 import { PointerRaycaster } from '../utils/Raycaster.js'
 import { siteInfo } from '../data/journeyData.js'
@@ -55,7 +57,8 @@ export class Experience {
     createLights(this.sceneManager.scene)
 
     this.terrain = createTerrain()
-    this.terrainBorder = createTerrainBorder()
+    this.tableBase = createTableBase()
+    this.mountains = new MountainsController()
     this.markers = new MarkersController()
     this.roads = new RoadsController()
     // Depende das curvas do RoadsController para não plantar vegetação em cima das estradas.
@@ -64,7 +67,8 @@ export class Experience {
     this.portals = new PortalsController()
 
     this.sceneManager.add(this.terrain)
-    this.sceneManager.add(this.terrainBorder)
+    this.sceneManager.add(this.tableBase)
+    this.sceneManager.add(this.mountains.group)
     this.sceneManager.add(this.markers.group)
     this.sceneManager.add(this.roads.group)
     this.sceneManager.add(this.vegetation.group)
@@ -75,6 +79,7 @@ export class Experience {
   buildUI() {
     this.tooltip = new Tooltip()
     this.rotateDevice = new RotateDevice()
+    this.mapFrame = new MapFrame()
 
     this.infoPanel = new InfoPanel({
       onClose: () => this.cameraManager.resetView(),
@@ -119,7 +124,16 @@ export class Experience {
   }
 
   focusMarker(marker) {
-    this.cameraManager.flyTo(marker.wrapper.position)
+    // Posição do emblema no MUNDO (marker.wrapper é filho do grupo do
+    // reino — a posição local sozinha mandaria a câmera para o centro).
+    const worldPosition = new THREE.Vector3()
+    marker.wrapper.getWorldPosition(worldPosition)
+
+    // Foco no MEIO do castelo (não no emblema): o close-up enquadra o
+    // reino inteiro com o emblema coroando o topo do quadro.
+    worldPosition.y *= 0.45
+
+    this.cameraManager.flyTo(worldPosition)
     this.infoPanel.open(marker.reino)
   }
 
@@ -158,6 +172,7 @@ export class Experience {
       onComplete: () => {
         this.controlsManager.enable()
         this.navigation.show()
+        this.mapFrame.show()
       },
     })
   }

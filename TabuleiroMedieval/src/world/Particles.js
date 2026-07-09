@@ -1,89 +1,133 @@
 // =============================================================
 // Particles.js
 // -------------------------------------------------------------
-// Poeira mágica roxa/branca espalhada pelo mapa. Contagem baixa e
-// atualização simples (sem recriar geometria) para não pesar o FPS.
+// Vagalumes mágicos: pontos de luz roxos (com alguns dourados)
+// derivando devagar pelo ar do mapa. É a camada de "ar vivo" do
+// diorama — sem ela o mundo parece uma foto; com ela, respira.
 //
-// EDITE AQUI:
-// - COUNT -> quantidade de partículas (cuidado com performance)
-// - SPREAD_X / SPREAD_Z -> área do mapa coberta
+// Distribuição dirigida (não uniforme): mais densa ao redor da
+// Árvore central e num raio em volta de cada reino, rala no resto.
+//
+// EDITE AQUI: FIREFLY_COUNT, cores em createPalette(), alturas.
 // =============================================================
 
 import * as THREE from 'three'
-import { MAP_WIDTH, MAP_DEPTH } from './Terrain.js'
+import { journeyPoints, hubPosition, magicGlowColor } from '../data/journeyData.js'
+import { getTerrainHeight } from './Terrain.js'
 
-const COUNT = 260
-const SPREAD_X = MAP_WIDTH * 0.9
-const SPREAD_Z = MAP_DEPTH * 0.9
-const MAX_HEIGHT = 6
+const FIREFLY_COUNT = 150
+
+function createFireflyTexture() {
+  const size = 64
+  const canvas = document.createElement('canvas')
+  canvas.width = size
+  canvas.height = size
+  const ctx = canvas.getContext('2d')
+
+  const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
+  gradient.addColorStop(0, 'rgba(255, 255, 255, 1)')
+  gradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.5)')
+  gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+  ctx.fillStyle = gradient
+  ctx.fillRect(0, 0, size, size)
+
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.needsUpdate = true
+  return texture
+}
+
+// Sorteia um ponto de spawn perto de um "polo de magia" (Árvore ou reino).
+function sampleSpawnPoint() {
+  const poles = [
+    { x: hubPosition[0], z: hubPosition[1], radius: 7, weight: 3 },
+    ...journeyPoints.map((reino) => ({ x: reino.posicao[0], z: reino.posicao[1], radius: 6, weight: 1 })),
+  ]
+
+  const totalWeight = poles.reduce((sum, pole) => sum + pole.weight, 0)
+  let pick = Math.random() * totalWeight
+  let pole = poles[0]
+  for (const candidate of poles) {
+    pick -= candidate.weight
+    if (pick <= 0) {
+      pole = candidate
+      break
+    }
+  }
+
+  const angle = Math.random() * Math.PI * 2
+  const radius = Math.sqrt(Math.random()) * pole.radius
+  return {
+    x: pole.x + Math.cos(angle) * radius,
+    z: pole.z + Math.sin(angle) * radius,
+  }
+}
 
 export class ParticlesController {
   constructor() {
-    const geometry = new THREE.BufferGeometry()
-    const positions = new Float32Array(COUNT * 3)
-    const colors = new Float32Array(COUNT * 3)
+    this.positions = new Float32Array(FIREFLY_COUNT * 3)
+    this.seeds = []
 
-    this.basePositions = new Float32Array(COUNT * 3)
-    this.phases = new Float32Array(COUNT)
+    const colors = new Float32Array(FIREFLY_COUNT * 3)
+    const purple = new THREE.Color(magicGlowColor)
+    const lilac = new THREE.Color(0xc77dff)
+    const gold = new THREE.Color(0xf0d999)
 
-    const purple = new THREE.Color(0x9b5de5)
-    const white = new THREE.Color(0xffffff)
+    for (let i = 0; i < FIREFLY_COUNT; i++) {
+      const spawn = sampleSpawnPoint()
+      const ground = getTerrainHeight(spawn.x, spawn.z)
 
-    for (let i = 0; i < COUNT; i++) {
-      const x = (Math.random() - 0.5) * SPREAD_X
-      const y = Math.random() * MAX_HEIGHT
-      const z = (Math.random() - 0.5) * SPREAD_Z
+      this.seeds.push({
+        x: spawn.x,
+        z: spawn.z,
+        baseY: ground + 0.6 + Math.random() * 3.4,
+        swayRadius: 0.4 + Math.random() * 1.1,
+        swaySpeed: 0.12 + Math.random() * 0.3,
+        bobSpeed: 0.4 + Math.random() * 0.7,
+        bobAmplitude: 0.25 + Math.random() * 0.6,
+        phase: Math.random() * Math.PI * 2,
+      })
 
-      positions[i * 3] = x
-      positions[i * 3 + 1] = y
-      positions[i * 3 + 2] = z
-
-      this.basePositions[i * 3] = x
-      this.basePositions[i * 3 + 1] = y
-      this.basePositions[i * 3 + 2] = z
-      this.phases[i] = Math.random() * Math.PI * 2
-
-      // Metade roxo, metade branco — mistura mágica sutil.
-      const color = Math.random() > 0.5 ? purple : white
+      const roll = Math.random()
+      const color = roll < 0.6 ? purple : roll < 0.85 ? lilac : gold
       colors[i * 3] = color.r
       colors[i * 3 + 1] = color.g
       colors[i * 3 + 2] = color.b
     }
 
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    const geometry = new THREE.BufferGeometry()
+    geometry.setAttribute('position', new THREE.BufferAttribute(this.positions, 3))
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
 
     const material = new THREE.PointsMaterial({
-      size: 0.09,
+      map: createFireflyTexture(),
+      size: 0.42,
       vertexColors: true,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.85,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
       sizeAttenuation: true,
     })
 
     this.points = new THREE.Points(geometry, material)
+    this.points.name = 'magic-fireflies'
+    this.points.frustumCulled = false
+
+    this.update(0)
   }
 
-  // Movimento sutil: sobe/desce em câmera lenta + leve deriva lateral.
   update(elapsed) {
-    const positionAttribute = this.points.geometry.getAttribute('position')
+    const positions = this.positions
 
-    for (let i = 0; i < COUNT; i++) {
-      const phase = this.phases[i]
-      const baseX = this.basePositions[i * 3]
-      const baseY = this.basePositions[i * 3 + 1]
-      const baseZ = this.basePositions[i * 3 + 2]
+    for (let i = 0; i < this.seeds.length; i++) {
+      const seed = this.seeds[i]
+      const t = elapsed * seed.swaySpeed + seed.phase
 
-      positionAttribute.setXYZ(
-        i,
-        baseX + Math.sin(elapsed * 0.2 + phase) * 0.4,
-        baseY + Math.sin(elapsed * 0.5 + phase) * 0.5,
-        baseZ + Math.cos(elapsed * 0.2 + phase) * 0.4
-      )
+      positions[i * 3] = seed.x + Math.cos(t) * seed.swayRadius
+      positions[i * 3 + 1] = seed.baseY + Math.sin(elapsed * seed.bobSpeed + seed.phase) * seed.bobAmplitude
+      positions[i * 3 + 2] = seed.z + Math.sin(t * 0.9) * seed.swayRadius
     }
 
-    positionAttribute.needsUpdate = true
+    this.points.geometry.attributes.position.needsUpdate = true
   }
 }
