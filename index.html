@@ -280,34 +280,60 @@
   <!-- Salão dos Legados -->
   <section id="Salao" class="legacy-hall" aria-labelledby="legacy-title">
     <div class="legacy-overlay" aria-hidden="true"></div>
+    <div class="hall-depth-layers" aria-hidden="true">
+      <i class="hall-depth-layer hall-depth-far"></i>
+      <i class="hall-depth-layer hall-depth-near"></i>
+    </div>
     <div class="legacy-container">
       <header class="legacy-heading" id="salao-header">
         <span class="legacy-chapter">Capítulo IV</span>
         <h2 id="legacy-title">Salão dos Legados</h2>
         <p>Cada conquista deixa uma relíquia para trás.</p>
-        <a class="legacy-enter" href="#exposicao-legados">Entrar no Salão <span aria-hidden="true">↓</span></a>
+        <a class="legacy-enter" href="#exposicao-legados"><strong>Entrar no Salão</strong><span aria-hidden="true">↓</span></a>
+        <small class="hall-scroll-hint">Role para iniciar a travessia</small>
       </header>
 
       <section class="relic-showcase" id="exposicao-legados" aria-labelledby="tree-title">
+        <header class="hall-stage-heading">
+          <span>Etapa I · Aproximação</span>
+          <p>Adentre o núcleo onde cada conquista ganhou forma.</p>
+        </header>
         <div class="legacy-tree-core">
           <span class="tree-rune" aria-hidden="true">◇</span>
           <h3 id="tree-title">Árvore dos Legados</h3>
-          <img src="assets/img/avataSalao.jpeg" alt="Árvore dos Legados, núcleo das relíquias">
+          <div class="legacy-tree-portrait"><img src="assets/img/avataSalao.jpeg" alt="Árvore dos Legados, núcleo das relíquias" loading="lazy"></div>
           <span>Núcleo Arcano</span>
         </div>
         <div class="root-lines" aria-hidden="true"></div>
         <div id="relic-showcase" class="relic-showcase-grid"></div>
-        <img class="legacy-guardian" src="assets/img/cat.png" alt="" aria-hidden="true" loading="lazy">
       </section>
 
-      <button class="discover-legacies" type="button" aria-expanded="false" aria-controls="reliquias">
-        <span>Descobrir todos os legados</span><b aria-hidden="true">↓</b>
-      </button>
+      <aside class="guardian-passage" aria-label="Guardião dos Legados">
+        <div class="guardian-copy"><span>Guardião dos Legados</span><p>Nem toda relíquia revela seu poder à primeira vista.</p></div>
+        <img class="legacy-guardian" src="assets/img/cat.png" alt="Gato, guardião do Arquivo dos Legados" loading="lazy">
+      </aside>
+
+      <div class="archive-threshold">
+        <span class="portal-kicker">Etapa final da travessia</span>
+        <p class="portal-lore">O acervo completo aguarda além deste limiar.</p>
+        <button class="discover-legacies archive-portal" type="button" aria-expanded="false" aria-controls="reliquias">
+          <span class="portal-frame" aria-hidden="true">
+            <span class="portal-glow"></span>
+            <span class="portal-ring portal-ring-outer"></span>
+            <span class="portal-ring portal-ring-inner"></span>
+            <span class="portal-core"><b>◇</b></span>
+          </span>
+          <strong>Portal Arcano</strong>
+          <span>Arquivo dos Legados</span>
+          <small>Atravessar o portal</small>
+        </button>
+      </div>
 
       <section class="relic-library" id="reliquias" aria-labelledby="relics-title" hidden>
         <header class="library-heading">
           <span>Acervo do DevWizard</span>
-          <h3 id="relics-title">Relíquias do Legado</h3>
+          <h3 id="relics-title">Arquivo dos Legados</h3>
+          <p>Registros de projetos preservados ao longo da jornada.</p>
         </header>
         <nav class="relic-filters" aria-label="Filtrar projetos">
           <button class="relic-filter active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
@@ -320,8 +346,8 @@
         <button class="load-more-relics" type="button" hidden>Mostrar mais <span aria-hidden="true">↓</span></button>
       </section>
 
-      <dialog class="relic-dialog" id="relic-dialog" aria-labelledby="dialog-title">
-        <button class="dialog-close" type="button" aria-label="Fechar detalhes da relíquia">×</button>
+      <dialog class="relic-dialog" id="relic-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <button class="dialog-close" type="button" aria-label="Fechar detalhes do projeto">×</button>
         <div id="relic-dialog-content"></div>
       </dialog>
 
