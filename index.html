@@ -40,7 +40,6 @@
     <div class="d-flex flex-column align-items-center justify-content-center text-center" id="tituloBanner">
       <div class="hero-copy">
         <p class="hero-kicker"><span>◆</span> Portfólio // 2026 <span>◆</span></p>
-        <p class="hero-identity">DevWizard</p>
         <h1>Marcos Simões</h1>
         <p class="hero-role">Front-End Developer</p>
         <p class="hero-description">Interfaces modernas onde design,<br>código e experiência se encontram.</p>
@@ -69,7 +68,7 @@
 
       <div class="d-flex gap-4" id="sessao-Btn-Banner">
         <button class="btnIncio"><a href="#sobre-Jornada">Iniciar Jornanda</a></button>
-        <button class="btnProjetos"><a href="">Explorar Projetos</a></button>
+        <button class="btnProjetos"><a href="#exposicao-legados">Explorar Projetos</a></button>
         
       </div>
     <div id="personagem-run">
@@ -93,7 +92,6 @@
 
       <div class="about-story">
         <figure class="about-portrait">
-          <span class="portrait-rune" aria-hidden="true">◆</span>
           <img src="assets/img/user/foto_perfil.png" alt="Retrato de Marcos Simões">
           <span class="portrait-caption">O homem por trás do grimório</span>
         </figure>
@@ -308,28 +306,64 @@
         <div id="relic-showcase" class="relic-showcase-grid"></div>
       </section>
 
-      <aside class="guardian-passage" aria-label="Guardião dos Legados">
-        <div class="guardian-copy"><span>Guardião dos Legados</span><p>Nem toda relíquia revela seu poder à primeira vista.</p></div>
-        <img class="legacy-guardian" src="assets/img/cat.png" alt="Gato, guardião do Arquivo dos Legados" loading="lazy">
-      </aside>
+      <section class="archive-threshold" aria-labelledby="portal-scene-title" data-portal-state="idle">
+        <header class="portal-scene-copy">
+          <span class="portal-kicker">Etapa final · O limiar</span>
+          <h3 id="portal-scene-title">O Arquivo está selado</h3>
+          <p class="portal-lore">O cristal guarda a centelha capaz de despertar o acervo.</p>
+        </header>
 
-      <div class="archive-threshold">
-        <span class="portal-kicker">Etapa final da travessia</span>
-        <p class="portal-lore">O acervo completo aguarda além deste limiar.</p>
-        <button class="discover-legacies archive-portal" type="button" aria-expanded="false" aria-controls="reliquias">
-          <span class="portal-frame" aria-hidden="true">
-            <span class="portal-glow"></span>
-            <span class="portal-ring portal-ring-outer"></span>
-            <span class="portal-ring portal-ring-inner"></span>
-            <span class="portal-core"><b>◇</b></span>
-          </span>
-          <strong>Portal Arcano</strong>
-          <span>Arquivo dos Legados</span>
-          <small>Atravessar o portal</small>
-        </button>
-      </div>
+        <div class="portal-scene">
+          <div class="portal-atmosphere" aria-hidden="true"></div>
+          <div class="ancient-portal" aria-hidden="true">
+            <span class="portal-spire portal-spire-left"></span><span class="portal-spire portal-spire-right"></span>
+            <div class="portal-arch">
+              <div class="archive-preview">
+                <span class="preview-vault"></span>
+                <span class="preview-card preview-card-one"></span><span class="preview-card preview-card-two"></span><span class="preview-card preview-card-three"></span>
+                <small>Arquivo dos Legados</small>
+              </div>
+              <span class="portal-door portal-door-left"></span><span class="portal-door portal-door-right"></span>
+              <span class="portal-seam"></span>
+              <span class="portal-lock"><b>◇</b></span>
+              <span class="portal-rune rune-one">ᚱ</span><span class="portal-rune rune-two">ᛟ</span><span class="portal-rune rune-three">ᚨ</span>
+            </div>
+          </div>
 
-      <section class="relic-library" id="reliquias" aria-labelledby="relics-title" hidden>
+          <div class="energy-path" aria-hidden="true"><i></i><i></i><i></i></div>
+
+          <div class="arcane-foreground">
+            <div class="guardian-presence">
+              <div class="guardian-portraits" tabindex="0" aria-label="Gato, Guardião dos Legados, observando o cristal">
+                <img class="legacy-guardian guardian-idle" src="assets/img/Mascote/guardiao.png" alt="" loading="lazy">
+                <img class="legacy-guardian guardian-hover" src="assets/img/Mascote/guardiaoHover.png" alt="" loading="lazy">
+              </div>
+              <div class="guardian-copy"><span>Guardião dos Legados</span><p>“A chave escolhe quem está pronto para atravessar.”</p></div>
+            </div>
+            <div class="arcane-circle" aria-hidden="true"><i class="circle-ring ring-one"></i><i class="circle-ring ring-two"></i><i class="circle-sigil">◇</i></div>
+            <button class="crystal-key" type="button" aria-label="Ativar o cristal e abrir o Arquivo dos Legados" aria-expanded="false" aria-controls="reliquias">
+              <span class="crystal-aura" aria-hidden="true"></span><span class="crystal" aria-hidden="true"><img src="assets/img/cristal.png" alt=""></span><small>Toque o cristal</small>
+            </button>
+          </div>
+
+          <div class="portal-reward" aria-live="polite">
+            <span>O limiar foi aberto</span>
+            <strong>O Arquivo dos Legados aguarda</strong>
+            <button class="discover-legacies" type="button" aria-expanded="false" aria-controls="reliquias">Acessar o Arquivo dos Legados <b aria-hidden="true">↓</b></button>
+          </div>
+        </div>
+        <p class="portal-status visually-hidden" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="relic-library" id="reliquias" aria-labelledby="relics-title" data-archive-state="closed" hidden>
+        <div class="archive-reveal" aria-hidden="true">
+          <span class="archive-energy-streak"></span>
+          <div class="sealed-reliquary">
+            <i class="reliquary-fragment fragment-left"></i><i class="reliquary-fragment fragment-right"></i>
+            <span class="reliquary-seal">◇</span>
+            <strong>Arquivo</strong><small>Selado</small>
+          </div>
+        </div>
         <header class="library-heading">
           <span>Acervo do DevWizard</span>
           <h3 id="relics-title">Arquivo dos Legados</h3>
@@ -342,7 +376,11 @@
           <button class="relic-filter" type="button" data-filter="back-end" aria-pressed="false">Back-End</button>
           <button class="relic-filter" type="button" data-filter="outros" aria-pressed="false">Outros</button>
         </nav>
-        <div id="relic-grid" class="relic-grid" aria-live="polite"></div>
+        <div class="relic-row-shell">
+          <button class="relic-row-arrow relic-row-prev" type="button" aria-label="Ver relíquia anterior">←</button>
+          <div id="relic-grid" class="relic-grid" aria-live="polite" tabindex="0" aria-label="Galeria horizontal de relíquias"></div>
+          <button class="relic-row-arrow relic-row-next" type="button" aria-label="Ver próxima relíquia">→</button>
+        </div>
         <button class="load-more-relics" type="button" hidden>Mostrar mais <span aria-hidden="true">↓</span></button>
       </section>
 

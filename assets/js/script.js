@@ -90,13 +90,13 @@ const projetos = [
     icone: '&#9881;'
   },
   {
-    titulo: 'Lumen Design',
-    categoria: 'design',
+    titulo: 'Portifolio Alice',
+    categoria: 'front',
     categoriaLabel: 'Experiência & UI/UX',
     descricao: 'Design de interfaces centradas em experiência, estética e performance.',
-    techs: ['Figma', 'PS', 'AE', 'CSS'],
-    impacto: 'alto',
-    nivel: '04',
+    techs: ['React', 'Vite', 'Node Js'],
+    impacto: 'Medio',
+    nivel: '03',
     icone: '&#10000;'
   },
   {
@@ -126,7 +126,7 @@ const projectProfiles = [
   { id: 'nexus-vision', category: 'full-stack', phase: 'Legado', featured: true, year: '2026', role: 'Desenvolvimento Full-Stack', image: null, demo: null, github: null },
   { id: 'oraculo-ia', category: 'back-end', phase: 'Descoberta', featured: true, year: '2026', role: 'Arquitetura e Desenvolvimento', image: null, demo: null, github: null },
   { id: 'forge-system', category: 'back-end', phase: 'Construção', featured: true, year: '2025', role: 'Desenvolvimento Back-End', image: null, demo: null, github: null },
-  { id: 'lumen-design', category: 'front-end', phase: 'Descoberta', featured: false, year: '2025', role: 'UI/UX e Front-End', image: null, demo: null, github: null },
+  { id: 'Portifolio Alice', category: 'front-end', phase: 'Descoberta', featured: false, year: '2025', role: 'UI/UX e Front-End', image: null, demo: null, github: null },
   { id: 'devwizard-portfolio', category: 'front-end', phase: 'Construção', featured: false, year: '2026', role: 'Design e Desenvolvimento', image: null, demo: null, github: 'https://github.com/DevWizardMarcos/PortifolinoDev' },
   { id: 'connect-cnx', category: 'outros', phase: 'Legado', featured: false, year: '2025', role: 'Estratégia e Tecnologia', image: null, demo: null, github: null }
 ];
@@ -134,9 +134,9 @@ const projectProfiles = [
 // Fonte central de projetos. Novas relíquias exigem alteração apenas neste array.
 const projects = [
   { id:'savory', title:'Savory', image:'./assets/img/Projetos/Savory.png', shortDescription:'Experiência gastronômica digital para descoberta e exploração de receitas.', challenge:'Organizar a descoberta de receitas em uma experiência visual clara, convidativa e fácil de explorar.', construction:'A interface foi construída com foco na apresentação do conteúdo gastronômico, na hierarquia visual e na navegação responsiva.', legacy:'O projeto consolidou uma experiência digital com identidade própria para apresentar e explorar conteúdo gastronômico.', technologies:['React','Node','Chart.js','MongoDB'], contributions:['Interface','Responsividade'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Legado', year:2026, role:'Desenvolvimento Full-Stack', roleDescription:'Atuação no desenvolvimento da interface e da estrutura da experiência web.', accentColor:'#c69645', status:'completed', github:null, demo:null, featured:true, featuredOrder:1, icon:'&#8734;' },
-  { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.png', shortDescription:'Automação com IA para atendimento e apoio à tomada de decisões.', challenge:'Centralizar o atendimento e transformar informações em apoio prático para decisões, sem tornar o fluxo mais complexo.', construction:'A solução combina uma aplicação web em Flask, recursos de IA e um ambiente conteinerizado para organizar o fluxo de atendimento.', legacy:'A estrutura criada estabelece uma base evolutiva para automatizar o atendimento e apoiar decisões com informações organizadas.', technologies:['Python','GPT','Flask','Docker'], contributions:['Arquitetura da solução','Integração com IA'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', github:null, demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
-  { id:'forge-system', title:'Forge System', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
-  { id:'lumen-design', title:'Lumen Design', image:null, shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['Figma','Photoshop','After Effects','CSS'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Descoberta', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'coming-soon', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#10000;' },
+  { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.png', shortDescription:'Controle completo de laboratórios em uma única plataforma, conectando gestão, automação e gerenciamento remoto de computadores.', construction:'Criado a partir da necessidade de acompanhar e controlar o estado dos computadores da Infinity School de forma centralizada, reduzindo verificações manuais e facilitando a gestão dos laboratórios.', legacy:'Pensado para dar à Aline, nossa mascote, uma presença ativa no ecossistema da escola, permitindo que ela acompanhe e tenha controle sobre os computadores dos laboratórios de forma centralizada.', technologies:['Python','Fast API','SqlAlquemy','React','Vite','Node Js'], contributions:['Arquitetura da solução','Integração com IA'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', github:null, demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
+  { id:'Hacktohon', title:'Hacktohon', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
+  { id:'Portifolio Alice', title:'Portifolio Alice', image:'./assets/img/Projetos/Portifolio_Alice.png', shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['React','Vite','Node Js'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Descoberta', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'coming-soon', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#10000;' },
   { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:null, shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Construção', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'development', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:null, featured:false, featuredOrder:null, icon:'&#9670;' },
   { id:'connect-cnx', title:'Connect CNX', image:null, shortDescription:'Estratégia digital focada em crescimento orgânico e presença online.', challenge:'Fortalecer a presença digital da empresa e criar caminhos mensuráveis para o crescimento orgânico.', solution:'A estratégia integra SEO, análise de métricas e otimização de conversão para orientar as ações digitais.', technologies:['SEO','Analytics','Ads','CRO'], technicalHighlights:['Análise de métricas','Otimização de conversão'], category:'outros', categoryLabel:'Marketing Digital', phase:'Legado', year:2025, role:'Estratégia e Tecnologia', roleDescription:'Atuação na estratégia digital e no uso de tecnologia para acompanhar os resultados.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' }
 ];
@@ -237,28 +237,46 @@ function renderCards(filtro) {
   const grade = document.getElementById('relic-grid');
   if (!grade) return;
 
-  const filteredProjects = reliquias.filter(project => !project.featured && (filtro === 'todos' || project.category === filtro));
-  const visibleProjects = filteredProjects.slice(0, visibleRelicCount);
+  const desktopArchive = window.matchMedia('(min-width: 1024px)').matches;
+  const filteredProjects = reliquias.filter(project => (desktopArchive || !project.featured) && (filtro === 'todos' || project.category === filtro));
+  const visibleProjects = desktopArchive ? filteredProjects : filteredProjects.slice(0, visibleRelicCount);
   const loadMoreButton = document.querySelector('.load-more-relics');
 
-  grade.innerHTML = visibleProjects.length ? visibleProjects.map(project => `
-    <article class="relic-card" data-category="${project.category}">
-      <div class="relic-visual">${projectImage(project)}</div>
+  grade.innerHTML = visibleProjects.length ? visibleProjects.map((project, index) => {
+    const projectNumber = reliquias.findIndex(item => item.id === project.id) + 1;
+    const teamProject = project.teamProject === true || ['behorner-control', 'forge-system'].includes(project.id);
+    const featuredProject = Boolean(project.featuredLevel || project.featured);
+    const variant = featuredProject ? 'featured' : teamProject ? 'team' : 'solo';
+    const categoryGem = { 'front-end':'#4f9ee8', 'back-end':'#c94e58', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
+    const categoryGemImage = { 'front-end':'assets/img/Gemas/front.png', 'back-end':'assets/img/Gemas/back.png', 'full-stack':'assets/img/Gemas/fullstack.png' }[project.category];
+    return `
+    <article class="relic-card relic-card--${variant}${teamProject ? ' is-team-project' : ''}" data-category="${project.category}" style="--relic-accent:${project.accentColor || '#b9934c'};--category-gem:${categoryGem};--card-index:${index}">
+      <button class="relic-card-back" type="button" data-reveal-project="${project.id}" aria-label="Selecionar e revelar o projeto ${project.title}">
+        <img src="assets/img/card-back-dw-phoenix.png" alt="">
+      </button>
+      <div class="relic-card-front">
+      <header class="relic-card-top">
+        <div><span>Relíquia ${String(projectNumber).padStart(2,'0')}</span><small>${project.categoryLabel}${featuredProject ? ' · Relíquia Maior' : ''}</small></div>
+        ${categoryGemImage ? `<img class="category-gem-image" src="${categoryGemImage}" alt="Gema ${project.categoryLabel}">` : '<i class="category-gem" aria-hidden="true"></i>'}
+      </header>
+      <div class="relic-visual">${projectImage(project)}<span class="image-ornament" aria-hidden="true"></span></div>
       <div class="relic-content">
-        <span class="journey-phase">◇ Fase: ${project.phase}</span>
         <h4>${project.title}</h4>
-        <span class="relic-category">${project.categoryLabel}</span>
         <p>${project.shortDescription}</p>
+        <span class="relic-meta">${project.year} · ${project.phase}${featuredProject ? ' · Destaque do Arquivo' : ''}</span>
         <div class="relic-techs">${project.technologies.map(tech => `<span>${tech}</span>`).join('')}</div>
-        <button class="examine-relic archive-examine" type="button" data-project="${project.id}">Examinar <span aria-hidden="true">→</span></button>
+        ${teamProject ? `<span class="guild-seal" aria-label="Projeto desenvolvido em equipe">${project.teamEmblem ? `<img src="${project.teamEmblem}" alt="">` : '<b aria-hidden="true">◆</b>'} Forjado em Guilda</span>` : ''}
+        <button class="examine-relic archive-examine" type="button" data-project="${project.id}" aria-label="Examinar relíquia ${project.title}">Examinar Relíquia <span aria-hidden="true">→</span></button>
       </div>
-    </article>
-  `).join('') : '<p class="empty-relics">Nenhuma relíquia encontrada nesta categoria.</p>';
+      </div>
+    </article>`;
+  }).join('') : '<p class="empty-relics">Nenhuma relíquia encontrada nesta categoria.</p>';
   if (loadMoreButton) {
-    const hasMore = visibleRelicCount < filteredProjects.length;
+    const hasMore = !desktopArchive && visibleRelicCount < filteredProjects.length;
     loadMoreButton.hidden = !hasMore;
     loadMoreButton.setAttribute('aria-label', `Mostrar mais ${Math.min(LOAD_MORE_AMOUNT, filteredProjects.length - visibleRelicCount)} projetos`);
   }
+  if (desktopArchive) requestAnimationFrame(() => updateActiveArchiveCard(true));
 }
 
 renderShowcase();
@@ -282,17 +300,159 @@ document.querySelector('.load-more-relics')?.addEventListener('click', () => {
   renderCards(activeRelicFilter);
 });
 
-// Revelação progressiva do arquivo completo.
+// Ritual leve em quatro estados: idle, reação, ativação e recompensa.
+const portalScene = document.querySelector('.archive-threshold');
+const crystalKey = document.querySelector('.crystal-key');
 const discoverButton = document.querySelector('.discover-legacies');
 const relicLibrary = document.getElementById('reliquias');
+const portalStatus = document.querySelector('.portal-status');
+const archiveGrid = document.getElementById('relic-grid');
+const archiveDesktop = window.matchMedia('(min-width: 1024px)');
+let portalTimer;
+let archiveRevealTimer;
+let archiveOpened = false;
+let archiveScrollFrame = 0;
+let archiveInteractionState = 'idle';
+let selectedArchiveCard = null;
+let archiveInteractionTimer = 0;
+
+function setPortalState(state) {
+  if (!portalScene) return;
+  portalScene.dataset.portalState = state;
+}
+
+crystalKey?.addEventListener('pointerenter', () => {
+  if (portalScene?.dataset.portalState === 'idle') setPortalState('aware');
+});
+crystalKey?.addEventListener('pointerleave', () => {
+  if (portalScene?.dataset.portalState === 'aware') setPortalState('idle');
+});
+crystalKey?.addEventListener('focus', () => {
+  if (portalScene?.dataset.portalState === 'idle') setPortalState('aware');
+});
+crystalKey?.addEventListener('blur', () => {
+  if (portalScene?.dataset.portalState === 'aware') setPortalState('idle');
+});
+crystalKey?.addEventListener('click', () => {
+  if (!portalScene || ['activating', 'open'].includes(portalScene.dataset.portalState)) return;
+  window.clearTimeout(portalTimer);
+  setPortalState('activating');
+  crystalKey.disabled = true;
+  if (portalStatus) portalStatus.textContent = 'O cristal despertou. A energia percorre o salão em direção ao portal.';
+  portalTimer = window.setTimeout(() => {
+    setPortalState('open');
+    crystalKey.setAttribute('aria-expanded', 'true');
+    if (portalStatus) portalStatus.textContent = 'O portal foi aberto. O Arquivo dos Legados está acessível.';
+    discoverButton?.focus({ preventScroll: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 80 : 1800);
+});
+
+function updateActiveArchiveCard(centerFirst = false) {
+  if (!archiveGrid || !archiveDesktop.matches) return;
+  const cards = [...archiveGrid.querySelectorAll('.relic-card')];
+  if (!cards.length) return;
+  if (centerFirst) cards[0].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+  const center = archiveGrid.getBoundingClientRect().left + archiveGrid.clientWidth / 2;
+  let active = cards[0];
+  let nearest = Infinity;
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const distance = Math.abs(rect.left + rect.width / 2 - center);
+    if (distance < nearest) { nearest = distance; active = card; }
+  });
+  cards.forEach(card => {
+    const isCentered = card === active;
+    const isRevealed = card === selectedArchiveCard && ['flipping', 'revealed', 'opening-modal', 'modal-open', 'closing-modal'].includes(archiveInteractionState);
+    card.classList.toggle('is-centered', isCentered);
+    card.classList.toggle('is-active', isRevealed);
+    const front = card.querySelector('.relic-card-front');
+    const back = card.querySelector('.relic-card-back');
+    if (front) front.inert = !isRevealed;
+    if (back) back.tabIndex = isRevealed ? -1 : 0;
+  });
+}
+
+function moveArchive(direction) {
+  if (!archiveGrid || archiveInteractionState !== 'idle') return;
+  const active = archiveGrid.querySelector('.relic-card.is-centered');
+  const cards = [...archiveGrid.querySelectorAll('.relic-card')];
+  const index = Math.max(0, cards.indexOf(active));
+  cards[Math.min(cards.length - 1, Math.max(0, index + direction))]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+archiveGrid?.addEventListener('scroll', () => {
+  cancelAnimationFrame(archiveScrollFrame);
+  archiveScrollFrame = requestAnimationFrame(() => updateActiveArchiveCard());
+}, { passive: true });
+archiveGrid?.addEventListener('keydown', event => {
+  if (!archiveDesktop.matches || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+  event.preventDefault();
+  moveArchive(event.key === 'ArrowRight' ? 1 : -1);
+});
+archiveGrid?.addEventListener('click', event => {
+  const cardBack = event.target.closest('.relic-card-back');
+  if (!cardBack || !archiveDesktop.matches) return;
+  if (archiveInteractionState !== 'idle') return;
+  const card = cardBack.closest('.relic-card');
+  if (!card) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const projectId = cardBack.dataset.revealProject;
+  selectedArchiveCard = card;
+  archiveInteractionState = 'moving';
+  archiveGrid.classList.add('is-interacting');
+  card.classList.add('is-moving');
+  card.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+  window.clearTimeout(archiveInteractionTimer);
+  archiveInteractionTimer = window.setTimeout(() => {
+    archiveInteractionState = 'flipping';
+    card.classList.remove('is-moving');
+    updateActiveArchiveCard();
+    archiveInteractionTimer = window.setTimeout(() => {
+      archiveInteractionState = 'revealed';
+      updateActiveArchiveCard();
+      archiveInteractionTimer = window.setTimeout(() => {
+        archiveInteractionState = 'opening-modal';
+        openRelicDetails(projectId);
+        archiveInteractionState = 'modal-open';
+      }, reducedMotion ? 80 : 200);
+    }, reducedMotion ? 100 : 500);
+  }, reducedMotion ? 50 : 340);
+});
+document.querySelector('.relic-row-prev')?.addEventListener('click', () => moveArchive(-1));
+document.querySelector('.relic-row-next')?.addEventListener('click', () => moveArchive(1));
+
 discoverButton?.addEventListener('click', () => {
   const opening = relicLibrary?.hasAttribute('hidden');
   if (!relicLibrary) return;
+  if (archiveDesktop.matches && opening && !archiveOpened) {
+    archiveOpened = true;
+    relicLibrary.removeAttribute('hidden');
+    relicLibrary.dataset.archiveState = 'revealing';
+    discoverButton.disabled = true;
+    discoverButton.setAttribute('aria-expanded', 'true');
+    if (portalStatus) portalStatus.textContent = 'O relicário surgiu. A energia do portal está rompendo o selo do arquivo.';
+    relicLibrary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.clearTimeout(archiveRevealTimer);
+    archiveRevealTimer = window.setTimeout(() => {
+      relicLibrary.dataset.archiveState = 'open';
+      discoverButton.disabled = false;
+      discoverButton.firstChild.textContent = 'Fechar o Arquivo ';
+      if (portalStatus) portalStatus.textContent = 'O Arquivo dos Legados foi revelado. Explore as relíquias.';
+      updateActiveArchiveCard(true);
+      archiveGrid?.focus({ preventScroll: true });
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 120 : 1250);
+    return;
+  }
   relicLibrary.toggleAttribute('hidden', !opening);
+  relicLibrary.dataset.archiveState = opening ? 'open' : 'closed';
   discoverButton.setAttribute('aria-expanded', String(opening));
-  const portalAction = discoverButton.querySelector('small');
-  if (portalAction) portalAction.textContent = opening ? 'Fechar o arquivo' : 'Atravessar o portal';
+  discoverButton.firstChild.textContent = opening ? 'Fechar o Arquivo ' : 'Acessar o Arquivo dos Legados ';
   if (opening) relicLibrary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+archiveDesktop.addEventListener('change', () => {
+  renderCards(activeRelicFilter);
+  if (relicLibrary && !relicLibrary.hidden) relicLibrary.dataset.archiveState = 'open';
 });
 
 // Painel nativo e acessível para detalhes das relíquias.
@@ -322,6 +482,9 @@ function openRelicDetails(projectId) {
   if (!project || !relicDialog || !dialogContent) return;
   const relicNumber = project.featuredOrder || reliquias.findIndex(item => item.id === project.id) + 1;
   const statusLabel = projectStatus[project.status] || project.status;
+  const dialogGem = { 'front-end':'#4f9ee8', 'back-end':'#d44e59', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
+  const dialogGemImage = { 'front-end':'assets/img/Gemas/front.png', 'back-end':'assets/img/Gemas/back.png', 'full-stack':'assets/img/Gemas/fullstack.png' }[project.category];
+  const dialogGemMeaning = { 'front-end':'Interfaces & Experiência', 'back-end':'Lógica & Estrutura', 'full-stack':'Integração Completa', outros:'Especialidade Arcana' }[project.category];
   const fragments = [
     project.challenge && { id:'challenge', label:'Desafio', content:project.challenge },
     (project.construction || project.solution) && { id:'construction', label:'Construção', content:project.construction || project.solution },
@@ -335,14 +498,22 @@ function openRelicDetails(projectId) {
   ].filter(Boolean).join('');
 
   relicDialog.style.setProperty('--relic-accent', project.accentColor || '#b9934c');
+  relicDialog.style.setProperty('--dialog-gem', dialogGem);
+  relicDialog.dataset.category = project.category;
   dialogContent.innerHTML = `
     <header class="dialog-header relic-examination-header">
       <span class="dialog-eyebrow">Relíquia ${String(relicNumber).padStart(2,'0')} <i>·</i> ${project.chapter || 'Capítulo IV'} <i>·</i> ${project.year}</span>
+      <div class="dialog-classification" aria-label="Classificação ${project.categoryLabel}: ${dialogGemMeaning}">
+        <span class="dialog-gem-crest">${dialogGemImage ? `<img class="dialog-gem-image" src="${dialogGemImage}" alt="" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><i class="dialog-header-gem" hidden></i>` : '<i class="dialog-header-gem"></i>'}</span>
+        <span class="dialog-gem-meaning"><b>${project.categoryLabel}</b><small>${dialogGemMeaning}</small></span>
+      </div>
       <h3 id="dialog-title">${project.title}</h3>
       <p>${project.shortDescription}</p>
-      <div class="dialog-meta"><span>◆ ${project.categoryLabel}</span><i>·</i><span>${statusLabel}</span></div>
+      <div class="dialog-meta"><span><i class="dialog-category-mark" aria-hidden="true">◆</i>${project.categoryLabel}</span><i>·</i><span>${statusLabel}</span></div>
     </header>
-    <figure class="dialog-project-image">${projectImage(project)}</figure>
+    <div class="dialog-project-frame">
+      <figure class="dialog-project-image">${projectImage(project)}</figure>
+    </div>
     <div class="relic-seal" aria-hidden="true"><span>◆</span><small>Selo da relíquia</small></div>
     ${fragments.length ? `<section class="relic-fragments" data-fragments='${JSON.stringify(fragmentData)}'><h4>Examinar a relíquia</h4><div class="fragment-tabs" role="tablist" aria-label="Fragmentos da jornada">${fragmentTabs}</div><div id="fragment-panel" class="fragment-panel" role="tabpanel" tabindex="0" aria-labelledby="fragment-tab-${fragments[0].id}"><p>${fragments[0].content}</p></div></section>` : ''}
     <div class="dialog-mission">
@@ -403,4 +574,21 @@ relicDialog?.addEventListener('close', () => {
   relicDialog.classList.remove('is-closing');
   relicDialogTrigger?.focus();
   relicDialogTrigger = null;
+  if (archiveDesktop.matches && selectedArchiveCard && archiveInteractionState === 'modal-open') {
+    archiveInteractionState = 'closing-modal';
+    window.clearTimeout(archiveInteractionTimer);
+    archiveInteractionTimer = window.setTimeout(() => {
+      archiveInteractionState = 'returning';
+      selectedArchiveCard.classList.remove('is-active');
+      selectedArchiveCard.querySelector('.relic-card-front')?.setAttribute('inert', '');
+      const back = selectedArchiveCard.querySelector('.relic-card-back');
+      if (back) back.tabIndex = 0;
+      archiveInteractionTimer = window.setTimeout(() => {
+        selectedArchiveCard = null;
+        archiveInteractionState = 'idle';
+        archiveGrid?.classList.remove('is-interacting');
+        updateActiveArchiveCard();
+      }, 520);
+    }, 150);
+  }
 });

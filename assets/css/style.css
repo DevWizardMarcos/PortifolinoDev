@@ -471,6 +471,132 @@ html {
   }
 }
 
+/* Arquivo cinematográfico — experiência exclusiva de desktop */
+.archive-reveal,
+.relic-row-arrow { display: none }
+
+@media(min-width:1024px) {
+  .relic-library {
+    width: min(1320px, calc(100vw - 3rem));
+    min-height: 720px;
+    overflow: hidden;
+    isolation: isolate
+  }
+
+  .archive-reveal {
+    position: absolute;
+    z-index: 8;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 48%, rgba(128, 76, 151, .26), transparent 26%), rgba(7, 4, 11, .72);
+    opacity: 0
+  }
+
+  .sealed-reliquary {
+    position: relative;
+    width: 250px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .55rem;
+    border: 2px solid #a88145;
+    border-radius: 48% 48% 8px 8px / 17% 17% 8px 8px;
+    color: #ead4a3;
+    background: radial-gradient(circle at 50% 34%, rgba(126, 74, 151, .34), transparent 32%), linear-gradient(145deg, #24182c, #09060e 70%);
+    box-shadow: 0 0 0 7px #0a070d, 0 0 0 8px rgba(210, 169, 86, .35), 0 28px 65px #000, inset 0 0 45px rgba(128, 76, 151, .2);
+    transform: translateY(20px) scale(.82)
+  }
+
+  .sealed-reliquary::before,
+  .sealed-reliquary::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(218, 180, 103, .32);
+    border-radius: inherit
+  }
+  .sealed-reliquary::after { inset: 35% 12%; border-left: 0; border-right: 0; border-radius: 0 }
+  .reliquary-seal { position:relative; z-index:2; display:grid; place-items:center; width:70px; height:70px; border:1px solid #d4ae62; border-radius:50%; color:#f1d997; font-size:1.55rem; background:#160e1b; box-shadow:0 0 26px rgba(148,88,175,.55); transition:.2s }
+  .sealed-reliquary strong,.sealed-reliquary small{position:relative;z-index:2;font-family:Cinzel,serif;text-transform:uppercase;letter-spacing:.24em}.sealed-reliquary strong{font-size:.85rem}.sealed-reliquary small{color:#ad9878;font-size:.56rem}
+  .reliquary-fragment{position:absolute;z-index:4;top:0;bottom:0;width:50%;border:1px solid rgba(218,180,103,.42);transition:transform .22s ease,opacity .22s}.fragment-left{left:0;border-right:0}.fragment-right{right:0;border-left:0}
+  .archive-energy-streak{position:absolute;z-index:9;top:0;left:50%;width:3px;height:43%;opacity:0;background:linear-gradient(transparent,#bc83d2 65%,#f1ce83);box-shadow:0 0 16px #a66bc0;transform:translateX(-50%) scaleY(0);transform-origin:top}
+
+  .relic-library[data-archive-state="revealing"] .archive-reveal { visibility:visible; animation:revealCurtain 1.25s ease forwards }
+  .relic-library[data-archive-state="revealing"] .sealed-reliquary { animation:reliquarySequence 1.05s ease forwards }
+  .relic-library[data-archive-state="revealing"] .archive-energy-streak { animation:energyStrike .38s .24s ease forwards }
+  .relic-library[data-archive-state="revealing"] .reliquary-seal { animation:sealCharge .35s .38s ease forwards }
+  .relic-library[data-archive-state="revealing"] .fragment-left { animation:fragmentLeft .3s .58s ease forwards }
+  .relic-library[data-archive-state="revealing"] .fragment-right { animation:fragmentRight .3s .58s ease forwards }
+  .relic-library[data-archive-state="revealing"]~.relic-dialog + .legacy-continue { opacity:.3 }
+  .archive-threshold:has(+ .relic-library[data-archive-state="revealing"]) .guardian-portraits { animation:guardianWitness .55s .5s ease }
+
+  .relic-library .library-heading,
+  .relic-library .relic-filters,
+  .relic-library .relic-row-shell { transition:opacity .35s ease,transform .45s ease }
+  .relic-library[data-archive-state="revealing"] .library-heading,
+  .relic-library[data-archive-state="revealing"] .relic-filters { opacity:0; transform:translateY(14px) }
+
+  .relic-row-shell { position:relative; width:100%; margin-top:1.3rem }
+  .relic-grid {
+    display:flex;
+    gap:clamp(1.4rem,2.6vw,2.4rem);
+    width:100%;
+    padding:2rem max(calc(50% - 230px),2rem) 2.8rem;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:calc(50% - 230px);
+    scrollbar-width:thin;
+    scrollbar-color:#9d7541 rgba(255,255,255,.04);
+    cursor:grab
+  }
+  .relic-grid:active{cursor:grabbing}
+  .relic-grid:focus-visible{outline:1px solid #d9b66e;outline-offset:-4px}
+  .relic-grid .relic-card {
+    flex:0 0 390px;
+    min-height:470px;
+    scroll-snap-align:center;
+    opacity:.58;
+    transform:scale(.91);
+    filter:saturate(.72) contrast(.88);
+    transition:transform .32s ease,opacity .32s ease,filter .32s ease,border-color .3s,box-shadow .3s
+  }
+  .relic-grid .relic-card.is-active { opacity:1;transform:scale(1);filter:none;border-color:color-mix(in srgb,var(--relic-accent) 72%,#d5b46e);box-shadow:0 24px 58px #000,0 0 28px color-mix(in srgb,var(--relic-accent) 22%,transparent) }
+  .relic-grid .relic-visual { height:270px;overflow:hidden }
+  .relic-grid .relic-content>p { display:none }
+  .relic-grid .relic-techs { opacity:.7;transition:opacity .3s }
+  .relic-grid .archive-examine { opacity:0;transform:translateY(8px);transition:.25s }
+  .relic-grid .relic-card:hover{transform:translateY(-6px) scale(.94);border-color:var(--relic-accent)}
+  .relic-grid .relic-card.is-active:hover{transform:translateY(-6px) scale(1.01)}
+  .relic-grid .relic-card:hover .archive-examine,
+  .relic-grid .relic-card:focus-within .archive-examine { opacity:1;transform:none }
+  .relic-grid .relic-card:hover .relic-techs { opacity:1 }
+
+  .relic-row-arrow { position:absolute;z-index:5;top:50%;display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(221,183,105,.6);border-radius:50%;color:#f2dca8;background:rgba(13,8,18,.9);box-shadow:0 10px 25px #000;transform:translateY(-50%);transition:.25s }
+  .relic-row-arrow:hover,.relic-row-arrow:focus-visible{color:#1a101d;background:#dfbd75;transform:translateY(-50%) scale(1.06)}
+  .relic-row-prev{left:1rem}.relic-row-next{right:1rem}
+
+  .relic-library[data-archive-state="revealing"] .relic-grid .relic-card { animation:deckToRow 1.1s cubic-bezier(.25,.8,.25,1) both;animation-delay:calc(.52s + var(--card-index,0) * 35ms) }
+  .relic-library[data-archive-state="revealing"] .relic-row-arrow { opacity:0 }
+  .load-more-relics { display:none!important }
+}
+
+@keyframes revealCurtain{0%{opacity:0}18%,70%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes reliquarySequence{0%{opacity:0;transform:translateY(20px) scale(.82)}22%{opacity:1;transform:none}60%{transform:translateX(-1px)}63%{transform:translateX(1px)}72%{opacity:1;filter:brightness(1.35)}100%{opacity:0;transform:scale(1.08);filter:brightness(1.8)}}
+@keyframes energyStrike{0%{opacity:0;transform:translateX(-50%) scaleY(0)}35%{opacity:1}100%{opacity:1;transform:translateX(-50%) scaleY(1)}}
+@keyframes sealCharge{to{color:#fff4cf;transform:scale(1.14);box-shadow:0 0 55px #b274cf,inset 0 0 18px #e1bc72}}
+@keyframes fragmentLeft{to{opacity:0;transform:translate(-22px,-3px) rotate(-3deg)}}
+@keyframes fragmentRight{to{opacity:0;transform:translate(22px,3px) rotate(3deg)}}
+@keyframes guardianWitness{45%{transform:translateX(-5px) scale(.96)}}
+@keyframes deckToRow{0%{opacity:0;transform:translateX(calc((var(--card-index,0) - 2) * -45px)) scale(.5) rotate(calc((var(--card-index,0) - 2) * 4deg))}55%{opacity:.9;transform:translateX(calc((var(--card-index,0) - 2) * 12px)) scale(.82) rotate(calc((var(--card-index,0) - 2) * 3deg))}100%{opacity:.58;transform:scale(.91);filter:saturate(.72) contrast(.88)}}
+
+@media(min-width:1024px) and (prefers-reduced-motion:reduce){.relic-library[data-archive-state="revealing"] .archive-reveal{animation-duration:.12s}.relic-library[data-archive-state="revealing"] .sealed-reliquary{animation:none;opacity:1;transform:none}.relic-library[data-archive-state="revealing"] .archive-energy-streak,.relic-library[data-archive-state="revealing"] .reliquary-seal,.relic-library[data-archive-state="revealing"] .reliquary-fragment,.relic-library[data-archive-state="revealing"] .relic-grid .relic-card{animation:none}}
+
 /* Relicário arcano: vitrine uniforme e exame editorial da relíquia */
 .relic-showcase-grid .display-relic:nth-child(n),
 .relic-showcase-grid[data-count] .display-relic:nth-child(n),
@@ -642,8 +768,14 @@ html {
   left: 0;
 }
 
-.fragment-tab:hover { color: #d2c3aa }
-.fragment-tab:focus-visible { outline: 1px solid var(--relic-accent); outline-offset: 4px }
+.fragment-tab:hover {
+  color: #d2c3aa
+}
+
+.fragment-tab:focus-visible {
+  outline: 1px solid var(--relic-accent);
+  outline-offset: 4px
+}
 
 .fragment-panel {
   min-height: 96px;
@@ -665,8 +797,15 @@ html {
 }
 
 @keyframes fragmentReveal {
-  from { opacity: 0; transform: translateY(5px) }
-  to { opacity: 1; transform: none }
+  from {
+    opacity: 0;
+    transform: translateY(5px)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
 }
 
 .dialog-mission {
@@ -709,23 +848,70 @@ html {
 }
 
 @media(max-width:650px) {
+
   .relic-showcase-grid .display-relic:nth-child(n),
   .relic-showcase-grid[data-count] .display-relic:nth-child(n),
-  .primary-relic { width: min(360px, 100%) }
-  .artifact-image { height: 230px }
-  .relic-dialog { width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem) }
-  .relic-examination-header { padding-right: 2.5rem; text-align: left }
-  .relic-examination-header .dialog-meta { align-items: flex-start; justify-content: flex-start }
-  .dialog-project-image { height: min(62vw, 300px) }
-  .fragment-tabs { justify-content: space-between; gap: .4rem }
-  .fragment-tab { flex: 1; font-size: .55rem; letter-spacing: .08em }
-  .fragment-tab span { display: block; margin: 0 0 .35rem }
-  .dialog-mission { grid-template-columns: 1fr; gap: 1.5rem }
+  .primary-relic {
+    width: min(360px, 100%)
+  }
+
+  .artifact-image {
+    height: 230px
+  }
+
+  .relic-dialog {
+    width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 1rem)
+  }
+
+  .relic-examination-header {
+    padding-right: 2.5rem;
+    text-align: left
+  }
+
+  .relic-examination-header .dialog-meta {
+    align-items: flex-start;
+    justify-content: flex-start
+  }
+
+  .dialog-project-image {
+    height: min(62vw, 300px)
+  }
+
+  .fragment-tabs {
+    justify-content: space-between;
+    gap: .4rem
+  }
+
+  .fragment-tab {
+    flex: 1;
+    font-size: .55rem;
+    letter-spacing: .08em
+  }
+
+  .fragment-tab span {
+    display: block;
+    margin: 0 0 .35rem
+  }
+
+  .dialog-mission {
+    grid-template-columns: 1fr;
+    gap: 1.5rem
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  .fragment-panel.is-changing { animation: none }
-  .dialog-project-image, .dialog-project-image>img, .fragment-tab, .fragment-tab::after, .dialog-action span { transition: none }
+  .fragment-panel.is-changing {
+    animation: none
+  }
+
+  .dialog-project-image,
+  .dialog-project-image>img,
+  .fragment-tab,
+  .fragment-tab::after,
+  .dialog-action span {
+    transition: none
+  }
 }
 
 html,
@@ -749,7 +935,7 @@ body {
 }
 
 #banner {
-  background-image: url('../img/bannerPrincipal.png');
+  background-image: url('../img/bannerPrincipalDev.png');
   background-size: cover;
   background-position: center;
   min-height: 55vw;
@@ -3606,23 +3792,63 @@ nav {
   animation: relicBackdropOut .22s ease-in both
 }
 
-.relic-dialog::-webkit-scrollbar { width: 8px }
-.relic-dialog::-webkit-scrollbar-track { background: rgba(255, 255, 255, .025) }
-.relic-dialog::-webkit-scrollbar-thumb { border-radius: 8px; background: rgba(196, 160, 82, .32) }
+.relic-dialog::-webkit-scrollbar {
+  width: 8px
+}
+
+.relic-dialog::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, .025)
+}
+
+.relic-dialog::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(196, 160, 82, .32)
+}
 
 @keyframes relicDialogIn {
-  from { opacity: 0; transform: translateY(12px) scale(.98) }
-  to { opacity: 1; transform: none }
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.98)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
 }
 
 @keyframes relicDialogOut {
-  from { opacity: 1; transform: none }
-  to { opacity: 0; transform: translateY(12px) scale(.98) }
+  from {
+    opacity: 1;
+    transform: none
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(.98)
+  }
 }
 
-@keyframes relicBackdropIn { from { opacity: 0 } to { opacity: 1 } }
-@keyframes relicBackdropOut { from { opacity: 1 } to { opacity: 0 } }
+@keyframes relicBackdropIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
 }
+
+@keyframes relicBackdropOut {
+  from {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0
+  }
+}
+
 
 .dialog-close {
   position: sticky;
@@ -3641,7 +3867,12 @@ nav {
   transition: color .2s, border-color .2s, background .2s, transform .2s;
 }
 
-.dialog-close:hover { color: #fff0c8; border-color: #c8a656; background: #21152c; transform: rotate(4deg) }
+.dialog-close:hover {
+  color: #fff0c8;
+  border-color: #c8a656;
+  background: #21152c;
+  transform: rotate(4deg)
+}
 
 .dialog-close:focus-visible {
   outline: 1px solid #d0ad62;
@@ -3658,11 +3889,41 @@ nav {
   font: 700 clamp(1.6rem, 3.2vw, 2.45rem)/1.15 Cinzel, serif
 }
 
-.dialog-header { padding-right: 3rem }
-.dialog-header>p { max-width: 720px; margin: 0; color: #bdb1a1; font: 400 .95rem/1.65 Lora, serif }
-.dialog-eyebrow { color: #a88c55; font: 700 .65rem/1.4 Cinzel, serif; letter-spacing: .15em; text-transform: uppercase }
-.dialog-eyebrow i, .dialog-meta i { margin: 0 .3rem; color: #644251; font-style: normal }
-.dialog-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-top: .8rem; color: #9e9182; font: 700 .68rem/1.5 Cinzel, serif; letter-spacing: .06em }
+.dialog-header {
+  padding-right: 3rem
+}
+
+.dialog-header>p {
+  max-width: 720px;
+  margin: 0;
+  color: #bdb1a1;
+  font: 400 .95rem/1.65 Lora, serif
+}
+
+.dialog-eyebrow {
+  color: #a88c55;
+  font: 700 .65rem/1.4 Cinzel, serif;
+  letter-spacing: .15em;
+  text-transform: uppercase
+}
+
+.dialog-eyebrow i,
+.dialog-meta i {
+  margin: 0 .3rem;
+  color: #644251;
+  font-style: normal
+}
+
+.dialog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .8rem;
+  color: #9e9182;
+  font: 700 .68rem/1.5 Cinzel, serif;
+  letter-spacing: .06em
+}
 
 .relic-dialog h4 {
   margin: 0 0 .75rem;
@@ -3701,7 +3962,8 @@ nav {
   margin-top: 1.75rem
 }
 
-.dialog-story p, .dialog-role p {
+.dialog-story p,
+.dialog-role p {
   max-width: 58ch;
   margin: 0;
   color: #b7ad9f;
@@ -3717,46 +3979,196 @@ nav {
   border-top: 1px solid rgba(196, 160, 82, .17)
 }
 
-.dialog-role { display: flex; flex-direction: column; gap: .5rem }
-.dialog-role h4 { margin-bottom: .1rem }
-.dialog-role strong { color: #ead7b5; font: 700 1rem/1.4 Cinzel, serif }
+.dialog-role {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem
+}
 
-.dialog-list { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none }
-.dialog-list li { color: #bdb1a1; font: 400 .86rem/1.5 Lora, serif }
-.dialog-list li::before { content: '◆'; margin-right: .55rem; color: #8f4458; font-size: .55rem }
+.dialog-role h4 {
+  margin-bottom: .1rem
+}
 
-.dialog-technologies, .dialog-status { margin-top: 1.5rem }
-.dialog-technologies .relic-techs { gap: .5rem }
-.dialog-technologies .relic-techs span { padding: .38rem .68rem; border: 1px solid rgba(196, 160, 82, .28); border-radius: 4px; color: #d8c8aa; background: rgba(196, 160, 82, .06); font-size: .7rem }
-.dialog-status strong { color: #cfb779; font: 700 .76rem/1.4 Cinzel, serif; letter-spacing: .08em; text-transform: uppercase }
-.dialog-status strong span { margin-right: .35rem; color: #8f4458; font-size: .65rem }
+.dialog-role strong {
+  color: #ead7b5;
+  font: 700 1rem/1.4 Cinzel, serif
+}
 
-.dialog-actions { display: flex; gap: .75rem; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(196, 160, 82, .17) }
-.dialog-action { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; padding: .7rem 1.1rem; border: 1px solid #a98745; border-radius: 4px; font: 700 .68rem/1 Cinzel, serif; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: color .2s, background .2s, border-color .2s }
-.dialog-action.primary { color: #160e1d; background: #c3a45e }
-.dialog-action.secondary { color: #dbc89e; background: transparent }
-.dialog-action:hover { color: #fff4d7; border-color: #d3b66f; background: #3b2344 }
-.dialog-action:focus-visible { outline: 2px solid #e3c879; outline-offset: 3px }
+.dialog-list {
+  display: grid;
+  gap: .5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
 
-.dialog-footer { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; color: #706558; font: 700 .58rem/1 Cinzel, serif; letter-spacing: .16em; text-transform: uppercase }
-.dialog-footer::before, .dialog-footer::after { content: ''; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, rgba(196, 160, 82, .2)) }
-.dialog-footer::after { transform: scaleX(-1) }
+.dialog-list li {
+  color: #bdb1a1;
+  font: 400 .86rem/1.5 Lora, serif
+}
+
+.dialog-list li::before {
+  content: '◆';
+  margin-right: .55rem;
+  color: #8f4458;
+  font-size: .55rem
+}
+
+.dialog-technologies,
+.dialog-status {
+  margin-top: 1.5rem
+}
+
+.dialog-technologies .relic-techs {
+  gap: .5rem
+}
+
+.dialog-technologies .relic-techs span {
+  padding: .38rem .68rem;
+  border: 1px solid rgba(196, 160, 82, .28);
+  border-radius: 4px;
+  color: #d8c8aa;
+  background: rgba(196, 160, 82, .06);
+  font-size: .7rem
+}
+
+.dialog-status strong {
+  color: #cfb779;
+  font: 700 .76rem/1.4 Cinzel, serif;
+  letter-spacing: .08em;
+  text-transform: uppercase
+}
+
+.dialog-status strong span {
+  margin-right: .35rem;
+  color: #8f4458;
+  font-size: .65rem
+}
+
+.dialog-actions {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(196, 160, 82, .17)
+}
+
+.dialog-action {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: .7rem 1.1rem;
+  border: 1px solid #a98745;
+  border-radius: 4px;
+  font: 700 .68rem/1 Cinzel, serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .2s, background .2s, border-color .2s
+}
+
+.dialog-action.primary {
+  color: #160e1d;
+  background: #c3a45e
+}
+
+.dialog-action.secondary {
+  color: #dbc89e;
+  background: transparent
+}
+
+.dialog-action:hover {
+  color: #fff4d7;
+  border-color: #d3b66f;
+  background: #3b2344
+}
+
+.dialog-action:focus-visible {
+  outline: 2px solid #e3c879;
+  outline-offset: 3px
+}
+
+.dialog-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: #706558;
+  font: 700 .58rem/1 Cinzel, serif;
+  letter-spacing: .16em;
+  text-transform: uppercase
+}
+
+.dialog-footer::before,
+.dialog-footer::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(196, 160, 82, .2))
+}
+
+.dialog-footer::after {
+  transform: scaleX(-1)
+}
 
 @media(max-width:650px) {
-  .relic-dialog { width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem); border-radius: 7px }
-  #relic-dialog-content { padding: 1.25rem }
-  .dialog-header { padding-right: 2.7rem }
-  .dialog-meta i { display: none }
-  .dialog-meta { align-items: flex-start; flex-direction: column }
-  .dialog-project-image { height: min(56vw, 300px); margin-top: 1.25rem }
-  .dialog-story, .dialog-expertise { grid-template-columns: 1fr; gap: 1.5rem }
-  .dialog-actions { flex-direction: column }
-  .dialog-action { width: 100% }
+  .relic-dialog {
+    width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 1rem);
+    border-radius: 7px
+  }
+
+  #relic-dialog-content {
+    padding: 1.25rem
+  }
+
+  .dialog-header {
+    padding-right: 2.7rem
+  }
+
+  .dialog-meta i {
+    display: none
+  }
+
+  .dialog-meta {
+    align-items: flex-start;
+    flex-direction: column
+  }
+
+  .dialog-project-image {
+    height: min(56vw, 300px);
+    margin-top: 1.25rem
+  }
+
+  .dialog-story,
+  .dialog-expertise {
+    grid-template-columns: 1fr;
+    gap: 1.5rem
+  }
+
+  .dialog-actions {
+    flex-direction: column
+  }
+
+  .dialog-action {
+    width: 100%
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  .relic-dialog, .relic-dialog::backdrop, .relic-dialog.is-closing, .relic-dialog.is-closing::backdrop { animation: none }
-  .dialog-close, .dialog-action { transition: none }
+
+  .relic-dialog,
+  .relic-dialog::backdrop,
+  .relic-dialog.is-closing,
+  .relic-dialog.is-closing::backdrop {
+    animation: none
+  }
+
+  .dialog-close,
+  .dialog-action {
+    transition: none
+  }
 }
 
 @media(max-width:900px) {
@@ -4031,30 +4443,106 @@ nav {
 /* Mantém as regras finais do relicário acima das variações legadas do Salão. */
 .relic-showcase-grid .display-relic:nth-child(n),
 .relic-showcase-grid[data-count] .display-relic:nth-child(n),
-.primary-relic { width: min(360px, 100%) }
+.primary-relic {
+  width: min(360px, 100%)
+}
 
-.artifact-image { height: 245px; display: grid; place-items: center }
-.artifact-image>img { width: 100%; height: 100%; padding: 3px; object-fit: contain; object-position: center; transform: none }
-.display-relic:hover .artifact-image>img { transform: scale(1.01) }
+.artifact-image {
+  height: 245px;
+  display: grid;
+  place-items: center
+}
 
-.relic-dialog { width: min(1180px, 94vw); max-height: 92vh; --relic-accent: #b9934c }
-.relic-examination-header { max-width: 820px; margin-inline: auto; padding-right: 0; text-align: center }
-.relic-examination-header>p { margin-inline: auto }
-.relic-examination-header .dialog-meta { justify-content: center }
-.dialog-project-image { width: min(880px, 100%); height: clamp(270px, 40vw, 440px); display: grid; place-items: center; margin: 1.35rem auto 0 }
-.dialog-project-image>img { width: 100%; height: 100%; padding: 5px; object-fit: contain; object-position: center; filter: brightness(1.04) contrast(1.03) saturate(1.04) }
-.dialog-mission .dialog-technologies { margin-top: 0 }
-.dialog-actions { justify-content: center; margin-top: 1.35rem; padding-top: 1.2rem }
+.artifact-image>img {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  object-fit: contain;
+  object-position: center;
+  transform: none
+}
+
+.display-relic:hover .artifact-image>img {
+  transform: scale(1.01)
+}
+
+.relic-dialog {
+  width: min(1180px, 94vw);
+  max-height: 92vh;
+  --relic-accent: #b9934c
+}
+
+.relic-examination-header {
+  max-width: 820px;
+  margin-inline: auto;
+  padding-right: 0;
+  text-align: center
+}
+
+.relic-examination-header>p {
+  margin-inline: auto
+}
+
+.relic-examination-header .dialog-meta {
+  justify-content: center
+}
+
+.dialog-project-image {
+  width: min(880px, 100%);
+  height: clamp(270px, 40vw, 440px);
+  display: grid;
+  place-items: center;
+  margin: 1.35rem auto 0
+}
+
+.dialog-project-image>img {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  object-fit: contain;
+  object-position: center;
+  filter: brightness(1.04) contrast(1.03) saturate(1.04)
+}
+
+.dialog-mission .dialog-technologies {
+  margin-top: 0
+}
+
+.dialog-actions {
+  justify-content: center;
+  margin-top: 1.35rem;
+  padding-top: 1.2rem
+}
 
 @media(max-width:650px) {
+
   .relic-showcase-grid .display-relic:nth-child(n),
   .relic-showcase-grid[data-count] .display-relic:nth-child(n),
-  .primary-relic { width: min(360px, 100%) }
-  .artifact-image { height: 230px }
-  .relic-examination-header { padding-right: 2.5rem; text-align: left }
-  .relic-examination-header .dialog-meta { align-items: flex-start; justify-content: flex-start }
-  .dialog-project-image { height: min(62vw, 300px) }
-  .dialog-actions { flex-direction: column }
+  .primary-relic {
+    width: min(360px, 100%)
+  }
+
+  .artifact-image {
+    height: 230px
+  }
+
+  .relic-examination-header {
+    padding-right: 2.5rem;
+    text-align: left
+  }
+
+  .relic-examination-header .dialog-meta {
+    align-items: flex-start;
+    justify-content: flex-start
+  }
+
+  .dialog-project-image {
+    height: min(62vw, 300px)
+  }
+
+  .dialog-actions {
+    flex-direction: column
+  }
 }
 
 /* Travessia cinematográfica pelo Salão dos Legados */
@@ -4070,7 +4558,9 @@ nav {
     radial-gradient(circle at 50% 66%, rgba(125, 83, 58, .08), transparent 32%);
 }
 
-.legacy-container { width: min(1320px, 100%) }
+.legacy-container {
+  width: min(1320px, 100%)
+}
 
 .legacy-heading {
   min-height: min(88vh, 850px);
@@ -4086,7 +4576,9 @@ nav {
   background: linear-gradient(transparent, rgba(194, 158, 82, .48), transparent);
 }
 
-.legacy-enter { margin-top: 2rem }
+.legacy-enter {
+  margin-top: 2rem
+}
 
 .relic-showcase {
   min-height: 1720px;
@@ -4215,15 +4707,23 @@ nav {
   transition: transform .28s ease, filter .28s ease;
 }
 
-.display-relic header { min-height: 76px }
-.display-relic header span { color: color-mix(in srgb, var(--artifact-accent) 78%, #bba478) }
+.display-relic header {
+  min-height: 76px
+}
+
+.display-relic header span {
+  color: color-mix(in srgb, var(--artifact-accent) 78%, #bba478)
+}
+
 .display-relic header h4 {
   color: #f2e4c8;
   font-size: clamp(1.32rem, 2.25vw, 1.85rem);
   text-shadow: 0 4px 18px rgba(0, 0, 0, .46);
 }
 
-.primary-relic header h4 { font-size: clamp(1.6rem, 2.8vw, 2.15rem) }
+.primary-relic header h4 {
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem)
+}
 
 .artifact-wrap {
   width: 100%;
@@ -4243,8 +4743,13 @@ nav {
   opacity: .55;
 }
 
-.artifact-image { height: 335px }
-.primary-relic .artifact-image { height: 415px }
+.artifact-image {
+  height: 335px
+}
+
+.primary-relic .artifact-image {
+  height: 415px
+}
 
 .artifact-details {
   position: relative;
@@ -4260,7 +4765,9 @@ nav {
   color: #cbbfae;
 }
 
-.artifact-details .relic-techs { display: none }
+.artifact-details .relic-techs {
+  display: none
+}
 
 .examine-relic {
   margin-top: .75rem;
@@ -4306,7 +4813,10 @@ nav {
   box-shadow: 0 0 12px color-mix(in srgb, var(--artifact-accent) 45%, transparent);
 }
 
-.display-relic footer { margin-top: .15rem }
+.display-relic footer {
+  margin-top: .15rem
+}
+
 .display-relic footer,
 .display-relic footer b {
   color: #c1b7a9;
@@ -4335,16 +4845,24 @@ nav {
 }
 
 .relic-showcase-grid .display-relic:nth-child(2):hover,
-.relic-showcase-grid .display-relic:nth-child(2):focus-within { transform: translateY(calc(-3.2rem - 8px)) scale(1.015) }
+.relic-showcase-grid .display-relic:nth-child(2):focus-within {
+  transform: translateY(calc(-3.2rem - 8px)) scale(1.015)
+}
 
 .relic-showcase-grid .display-relic:nth-child(3):hover,
-.relic-showcase-grid .display-relic:nth-child(3):focus-within { transform: translateY(calc(2.8rem - 8px)) scale(1.015) }
+.relic-showcase-grid .display-relic:nth-child(3):focus-within {
+  transform: translateY(calc(2.8rem - 8px)) scale(1.015)
+}
 
 .relic-showcase-grid .display-relic:nth-child(4):hover,
-.relic-showcase-grid .display-relic:nth-child(4):focus-within { transform: translateY(calc(-.9rem - 8px)) scale(1.015) }
+.relic-showcase-grid .display-relic:nth-child(4):focus-within {
+  transform: translateY(calc(-.9rem - 8px)) scale(1.015)
+}
 
 .relic-showcase-grid .display-relic:nth-child(5):hover,
-.relic-showcase-grid .display-relic:nth-child(5):focus-within { transform: translateY(calc(.6rem - 8px)) scale(1.015) }
+.relic-showcase-grid .display-relic:nth-child(5):focus-within {
+  transform: translateY(calc(.6rem - 8px)) scale(1.015)
+}
 
 .guardian-passage {
   position: relative;
@@ -4453,19 +4971,52 @@ nav {
   transition: box-shadow .25s, transform .25s;
 }
 
-.archive-portal i b { font-size: 1.15rem }
-.archive-portal strong { color: #8e774e; font: 700 .58rem/1 Cinzel, serif; letter-spacing: .18em; text-transform: uppercase }
-.archive-portal>span { color: #e2d0ad; font: 700 1.25rem/1.25 Cinzel, serif; letter-spacing: .09em; text-transform: uppercase }
-.archive-portal small { margin-top: .6rem; color: #9e9282; font: 700 .57rem/1 Cinzel, serif; letter-spacing: .13em; text-transform: uppercase }
-.archive-portal:hover i { transform: translateY(-3px); box-shadow: 0 0 28px rgba(139, 91, 159, .2) }
-.archive-portal:focus-visible { outline: 2px solid #c5a65e; outline-offset: 6px }
+.archive-portal i b {
+  font-size: 1.15rem
+}
+
+.archive-portal strong {
+  color: #8e774e;
+  font: 700 .58rem/1 Cinzel, serif;
+  letter-spacing: .18em;
+  text-transform: uppercase
+}
+
+.archive-portal>span {
+  color: #e2d0ad;
+  font: 700 1.25rem/1.25 Cinzel, serif;
+  letter-spacing: .09em;
+  text-transform: uppercase
+}
+
+.archive-portal small {
+  margin-top: .6rem;
+  color: #9e9282;
+  font: 700 .57rem/1 Cinzel, serif;
+  letter-spacing: .13em;
+  text-transform: uppercase
+}
+
+.archive-portal:hover i {
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px rgba(139, 91, 159, .2)
+}
+
+.archive-portal:focus-visible {
+  outline: 2px solid #c5a65e;
+  outline-offset: 6px
+}
 
 .relic-library {
   margin-top: 1rem;
   box-shadow: 0 35px 80px rgba(0, 0, 0, .28);
 }
 
-.library-heading>p { margin: .9rem 0 0; color: #8f8578; font: 400 .9rem/1.6 Lora, serif }
+.library-heading>p {
+  margin: .9rem 0 0;
+  color: #8f8578;
+  font: 400 .9rem/1.6 Lora, serif
+}
 
 @media(max-width:1050px) {
   .relic-showcase {
@@ -4473,45 +5024,156 @@ nav {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 470px auto auto auto;
   }
-  .legacy-tree-core { grid-column: 1/-1; grid-row: 2 }
-  .legacy-tree-portrait { width: min(390px, 55vw) }
-  .relic-showcase-grid .display-relic:nth-child(1) { grid-column: 1/-1; grid-row: 4; width: min(560px, 100%) }
-  .relic-showcase-grid .display-relic:nth-child(2) { grid-column: 1; grid-row: 3; transform: none }
-  .relic-showcase-grid .display-relic:nth-child(3) { grid-column: 2; grid-row: 3; transform: none }
-  .relic-showcase-grid .display-relic:nth-child(4) { grid-column: 1; grid-row: 5; transform: none }
-  .relic-showcase-grid .display-relic:nth-child(5) { grid-column: 2; grid-row: 5; transform: none }
+
+  .legacy-tree-core {
+    grid-column: 1/-1;
+    grid-row: 2
+  }
+
+  .legacy-tree-portrait {
+    width: min(390px, 55vw)
+  }
+
+  .relic-showcase-grid .display-relic:nth-child(1) {
+    grid-column: 1/-1;
+    grid-row: 4;
+    width: min(560px, 100%)
+  }
+
+  .relic-showcase-grid .display-relic:nth-child(2) {
+    grid-column: 1;
+    grid-row: 3;
+    transform: none
+  }
+
+  .relic-showcase-grid .display-relic:nth-child(3) {
+    grid-column: 2;
+    grid-row: 3;
+    transform: none
+  }
+
+  .relic-showcase-grid .display-relic:nth-child(4) {
+    grid-column: 1;
+    grid-row: 5;
+    transform: none
+  }
+
+  .relic-showcase-grid .display-relic:nth-child(5) {
+    grid-column: 2;
+    grid-row: 5;
+    transform: none
+  }
+
   .relic-showcase-grid .display-relic:nth-child(2):hover,
   .relic-showcase-grid .display-relic:nth-child(3):hover,
   .relic-showcase-grid .display-relic:nth-child(4):hover,
-  .relic-showcase-grid .display-relic:nth-child(5):hover { transform: translateY(-8px) scale(1.015) }
+  .relic-showcase-grid .display-relic:nth-child(5):hover {
+    transform: translateY(-8px) scale(1.015)
+  }
 }
 
 @media(max-width:650px) {
-  .legacy-hall { padding: 0 1rem 3rem }
-  .legacy-heading { min-height: 82vh }
-  .relic-showcase { display: flex; min-height: auto; gap: 4.5rem; padding-top: 5rem }
-  .hall-stage-heading { order: 0 }
-  .legacy-tree-core { order: 1 }
-  .legacy-tree-portrait { width: min(340px, 88vw) }
-  .relic-showcase-grid { order: 2; gap: 4.5rem }
+  .legacy-hall {
+    padding: 0 1rem 3rem
+  }
+
+  .legacy-heading {
+    min-height: 82vh
+  }
+
+  .relic-showcase {
+    display: flex;
+    min-height: auto;
+    gap: 4.5rem;
+    padding-top: 5rem
+  }
+
+  .hall-stage-heading {
+    order: 0
+  }
+
+  .legacy-tree-core {
+    order: 1
+  }
+
+  .legacy-tree-portrait {
+    width: min(340px, 88vw)
+  }
+
+  .relic-showcase-grid {
+    order: 2;
+    gap: 4.5rem
+  }
+
   .relic-showcase-grid .display-relic:nth-child(n),
-  .relic-showcase-grid .display-relic:nth-child(1) { width: min(420px, 100%); transform: none }
-  .artifact-image, .primary-relic .artifact-image { height: 280px }
-  .artifact-details p { min-height: auto }
-  .root-lines { top: 22%; height: 72% }
-  .guardian-passage { min-height: 360px; align-items: center; flex-direction: column-reverse; gap: 1rem; padding-top: 2.8rem }
-  .guardian-copy { max-width: 95%; padding-bottom: 0; text-align: center }
-  .guardian-copy p { font-size: 1rem }
-  .guardian-passage .legacy-guardian { width: min(300px, 62vw) }
-  .archive-threshold { min-height: 480px }
-  .archive-portal { min-height: 360px }
-  .relic-library { padding: 2.5rem 1rem }
-  .relic-filters { flex-wrap: wrap; justify-content: center; overflow: visible }
+  .relic-showcase-grid .display-relic:nth-child(1) {
+    width: min(420px, 100%);
+    transform: none
+  }
+
+  .artifact-image,
+  .primary-relic .artifact-image {
+    height: 280px
+  }
+
+  .artifact-details p {
+    min-height: auto
+  }
+
+  .root-lines {
+    top: 22%;
+    height: 72%
+  }
+
+  .guardian-passage {
+    min-height: 360px;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    padding-top: 2.8rem
+  }
+
+  .guardian-copy {
+    max-width: 95%;
+    padding-bottom: 0;
+    text-align: center
+  }
+
+  .guardian-copy p {
+    font-size: 1rem
+  }
+
+  .guardian-passage .legacy-guardian {
+    width: min(300px, 62vw)
+  }
+
+  .archive-threshold {
+    min-height: 480px
+  }
+
+  .archive-portal {
+    min-height: 360px
+  }
+
+  .relic-library {
+    padding: 2.5rem 1rem
+  }
+
+  .relic-filters {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  .artifact-wrap { animation: none }
-  .archive-portal i { transition: none }
+  .artifact-wrap {
+    animation: none
+  }
+
+  .archive-portal i {
+    transition: none
+  }
 }
 
 /* Entrada e aproximação progressiva — primeira metade do Salão */
@@ -4600,9 +5262,21 @@ nav {
   transition: color .25s, border-color .25s, background .25s, transform .25s;
 }
 
-.legacy-enter strong { font: inherit; letter-spacing: inherit }
-.legacy-enter:hover { color: #fff0c8; border-color: #e0bd70; background: rgba(93, 59, 105, .34); transform: translateY(-2px) }
-.legacy-enter span { font-size: .9rem }
+.legacy-enter strong {
+  font: inherit;
+  letter-spacing: inherit
+}
+
+.legacy-enter:hover {
+  color: #fff0c8;
+  border-color: #e0bd70;
+  background: rgba(93, 59, 105, .34);
+  transform: translateY(-2px)
+}
+
+.legacy-enter span {
+  font-size: .9rem
+}
 
 .hall-scroll-hint {
   position: absolute;
@@ -4631,8 +5305,14 @@ nav {
   transform: translateY(calc((1 - var(--approach-progress)) * 28px));
 }
 
-.hall-stage-heading span { color: #c29c59 }
-.hall-stage-heading p { color: #c2b5a4; font-size: 1rem }
+.hall-stage-heading span {
+  color: #c29c59
+}
+
+.hall-stage-heading p {
+  color: #c2b5a4;
+  font-size: 1rem
+}
 
 .legacy-tree-core {
   position: sticky;
@@ -4648,7 +5328,9 @@ nav {
   text-shadow: 0 3px 16px rgba(0, 0, 0, .94);
 }
 
-.legacy-tree-core>span:last-child { color: #ad9b87 }
+.legacy-tree-core>span:last-child {
+  color: #ad9b87
+}
 
 .legacy-tree-portrait {
   filter: brightness(calc(.78 + var(--approach-progress) * .25));
@@ -4696,37 +5378,84 @@ nav {
 }
 
 @media(max-width:1050px) {
-  .legacy-tree-core { position: relative; top: auto }
-  .legacy-heading { min-height: 92svh }
+  .legacy-tree-core {
+    position: relative;
+    top: auto
+  }
+
+  .legacy-heading {
+    min-height: 92svh
+  }
 }
 
 @media(max-width:650px) {
-  .legacy-heading { min-height: 92svh; padding-inline: .5rem; opacity: 1; transform: none }
-  .legacy-heading h2 { font-size: clamp(2.65rem, 15vw, 4.4rem); letter-spacing: .045em }
-  .legacy-enter { min-width: min(240px, 88vw) }
-  .hall-scroll-hint { bottom: 1rem }
-  .hall-stage-heading { opacity: 1; transform: none }
-  .legacy-tree-core { transform: scale(calc(.9 + var(--approach-progress) * .1)) }
-  .display-relic .artifact-wrap { transform: none }
+  .legacy-heading {
+    min-height: 92svh;
+    padding-inline: .5rem;
+    opacity: 1;
+    transform: none
+  }
+
+  .legacy-heading h2 {
+    font-size: clamp(2.65rem, 15vw, 4.4rem);
+    letter-spacing: .045em
+  }
+
+  .legacy-enter {
+    min-width: min(240px, 88vw)
+  }
+
+  .hall-scroll-hint {
+    bottom: 1rem
+  }
+
+  .hall-stage-heading {
+    opacity: 1;
+    transform: none
+  }
+
+  .legacy-tree-core {
+    transform: scale(calc(.9 + var(--approach-progress) * .1))
+  }
+
+  .display-relic .artifact-wrap {
+    transform: none
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
+
   .hall-depth-layer,
   .legacy-heading,
   .hall-stage-heading,
   .legacy-tree-core,
-  .display-relic .artifact-wrap { transform: none }
+  .display-relic .artifact-wrap {
+    transform: none
+  }
+
   .legacy-heading,
-  .hall-stage-heading { opacity: 1 }
-  .display-relic { opacity: 1; filter: none; transition: none }
-  .legacy-enter { transition: none }
+  .hall-stage-heading {
+    opacity: 1
+  }
+
+  .display-relic {
+    opacity: 1;
+    filter: none;
+    transition: none
+  }
+
+  .legacy-enter {
+    transition: none
+  }
 }
 
 /* ==========================================================================
    Refinamento final — Portal Arcano e Arquivo dos Legados
    ========================================================================== */
 
-.archive-threshold { gap: 1.1rem }
+.archive-threshold {
+  gap: 1.1rem
+}
 
 .portal-kicker {
   color: #d3ac63;
@@ -4856,7 +5585,9 @@ nav {
   transition: box-shadow .35s ease, transform .35s ease;
 }
 
-.portal-core b { font-size: 1.3rem }
+.portal-core b {
+  font-size: 1.3rem
+}
 
 .archive-portal:hover .portal-glow,
 .archive-portal[aria-expanded="true"] .portal-glow {
@@ -4908,12 +5639,21 @@ nav {
 }
 
 @keyframes portalSpin {
-  to { transform: rotate(360deg) }
+  to {
+    transform: rotate(360deg)
+  }
 }
 
 @keyframes portalPulse {
-  0%, 100% { transform: scale(1) }
-  50% { transform: scale(1.07) }
+
+  0%,
+  100% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.07)
+  }
 }
 
 /* Arquivo dos Legados — contraste e hierarquia */
@@ -4942,7 +5682,9 @@ nav {
   text-shadow: 0 2px 14px rgba(0, 0, 0, .6);
 }
 
-.library-heading>span::after { content: '' }
+.library-heading>span::after {
+  content: ''
+}
 
 .library-heading h3 {
   margin: .9rem 0 0;
@@ -5012,17 +5754,26 @@ nav {
   box-shadow: 0 22px 46px rgba(0, 0, 0, .46), 0 0 26px rgba(150, 90, 190, .14);
 }
 
-.relic-card:hover::before { opacity: 1 }
+.relic-card:hover::before {
+  opacity: 1
+}
 
-.relic-card .journey-phase { color: #c39a54 }
-.relic-card .relic-category { color: #b39bd0 }
+.relic-card .journey-phase {
+  color: #c39a54
+}
+
+.relic-card .relic-category {
+  color: #b39bd0
+}
 
 .relic-content h4 {
   color: #f2e3c4;
   font-size: 1.12rem;
 }
 
-.relic-content>p { color: #c3b8a8 }
+.relic-content>p {
+  color: #c3b8a8
+}
 
 .relic-card .relic-techs span {
   color: #dcccae;
@@ -5048,7 +5799,9 @@ nav {
   letter-spacing: .16em;
 }
 
-.relic-card .relic-actions { padding-top: 1.1rem }
+.relic-card .relic-actions {
+  padding-top: 1.1rem
+}
 
 .relic-card .examine-relic {
   display: inline-flex;
@@ -5070,19 +5823,1098 @@ nav {
 }
 
 @media(max-width: 650px) {
-  .archive-portal { min-height: 400px; padding: 2.25rem 1.35rem 2rem }
-  .portal-frame { width: 138px; height: 138px }
-  .portal-core { width: 50px; height: 50px }
-  .library-heading h3 { font-size: clamp(2.2rem, 10vw, 3.1rem) }
+  .archive-portal {
+    min-height: 400px;
+    padding: 2.25rem 1.35rem 2rem
+  }
+
+  .portal-frame {
+    width: 138px;
+    height: 138px
+  }
+
+  .portal-core {
+    width: 50px;
+    height: 50px
+  }
+
+  .library-heading h3 {
+    font-size: clamp(2.2rem, 10vw, 3.1rem)
+  }
 }
 
 @media(prefers-reduced-motion: reduce) {
+
   .portal-glow,
   .portal-ring-outer,
-  .portal-ring-inner { animation: none }
+  .portal-ring-inner {
+    animation: none
+  }
 
   .archive-portal,
   .portal-core,
   .relic-card,
-  .examine-relic { transition: none }
+  .examine-relic {
+    transition: none
+  }
+}
+
+/* Microcena final — Portal do Arquivo dos Legados */
+.archive-threshold {
+  --portal-gold: #d8b66d;
+  --portal-violet: #8656a3;
+  position: relative;
+  min-height: auto;
+  margin: clamp(4rem, 9vw, 8rem) auto 0;
+  padding: clamp(2rem, 5vw, 4.5rem) 0 1rem;
+  isolation: isolate;
+}
+
+.portal-scene-copy {
+  position: relative;
+  z-index: 5;
+  text-align: center
+}
+
+.portal-scene-copy h3 {
+  margin: .65rem 0 .6rem;
+  color: #f4e2bc;
+  font: 700 clamp(1.8rem, 4vw, 3.5rem)/1.1 Cinzel, serif;
+  letter-spacing: .04em;
+  text-shadow: 0 7px 30px #000
+}
+
+.portal-scene {
+  position: relative;
+  width: min(1180px, 100%);
+  height: clamp(660px, 72vw, 820px);
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(210, 170, 90, .22);
+  border-radius: 48% 48% 18px 18px / 14% 14% 18px 18px;
+  background: radial-gradient(ellipse at 50% 32%, rgba(105, 66, 125, .3), transparent 37%), linear-gradient(180deg, #100a18 0%, #09060e 58%, #120c17 100%);
+  box-shadow: inset 0 0 100px #030205, 0 40px 90px rgba(0, 0, 0, .45);
+  perspective: 1100px
+}
+
+.portal-atmosphere {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .72), transparent 20% 80%, rgba(0, 0, 0, .72)), repeating-linear-gradient(90deg, transparent 0 14%, rgba(203, 161, 82, .045) 14.2%, transparent 14.5% 28%);
+  pointer-events: none
+}
+
+.ancient-portal {
+  position: absolute;
+  z-index: 1;
+  top: 7%;
+  left: 50%;
+  width: clamp(300px, 44%, 500px);
+  height: 62%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 25px 34px #000)
+}
+
+.portal-arch {
+  position: absolute;
+  inset: 4% 7% 0;
+  overflow: hidden;
+  border: clamp(10px, 1.5vw, 18px) double rgba(161, 125, 65, .55);
+  border-bottom-width: 14px;
+  border-radius: 50% 50% 4px 4px / 27% 27% 2px 2px;
+  background: #08050d;
+  box-shadow: 0 0 0 7px #17101c, 0 0 0 9px rgba(190, 149, 73, .28), inset 0 0 55px #000
+}
+
+.portal-spire {
+  position: absolute;
+  top: 13%;
+  bottom: -4%;
+  width: 15%;
+  background: linear-gradient(90deg, #08060b, #2b202e 48%, #0b080d);
+  border: 1px solid rgba(172, 133, 68, .26);
+  clip-path: polygon(50% 0, 100% 11%, 88% 100%, 12% 100%, 0 11%)
+}
+
+.portal-spire-left {
+  left: -6%
+}
+
+.portal-spire-right {
+  right: -6%
+}
+
+.portal-door {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  width: 50.5%;
+  background: linear-gradient(90deg, #0b080f, #2a1d2e 65%, #100b14);
+  transition: transform 1s cubic-bezier(.65, 0, .2, 1);
+  box-shadow: inset 0 0 30px #000
+}
+
+.portal-door::after {
+  content: '';
+  position: absolute;
+  inset: 12% 14%;
+  border: 1px solid rgba(205, 163, 82, .18);
+  border-radius: 50% 50% 3px 3px/22% 22% 3px 3px
+}
+
+.portal-door-left {
+  left: 0;
+  border-right: 1px solid #9f7645
+}
+
+.portal-door-right {
+  right: 0;
+  transform: scaleX(-1);
+  border-right: 1px solid #9f7645
+}
+
+.portal-seam {
+  position: absolute;
+  z-index: 6;
+  top: 13%;
+  bottom: 8%;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(transparent, #9e71b8 20% 80%, transparent);
+  opacity: .35;
+  box-shadow: 0 0 12px #9360ad
+}
+
+.portal-lock {
+  position: absolute;
+  z-index: 8;
+  top: 53%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--portal-gold);
+  border-radius: 50%;
+  color: #ebcf91;
+  background: #170f1c;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 24px rgba(129, 76, 156, .45), inset 0 0 17px rgba(211, 172, 93, .2);
+  transition: .5s ease
+}
+
+.portal-rune {
+  position: absolute;
+  z-index: 6;
+  color: rgba(224, 188, 112, .5);
+  text-shadow: 0 0 8px #8b579f
+}
+
+.rune-one {
+  top: 24%;
+  left: 16%
+}
+
+.rune-two {
+  top: 16%;
+  left: 48%
+}
+
+.rune-three {
+  top: 24%;
+  right: 16%
+}
+
+.archive-preview {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6%;
+  padding: 0 8% 15%;
+  opacity: 0;
+  background: radial-gradient(ellipse at 50% 75%, rgba(194, 144, 63, .34), transparent 52%), linear-gradient(180deg, #251334, #0a0710);
+  transition: opacity .8s .65s
+}
+
+.archive-preview::before {
+  content: '';
+  position: absolute;
+  inset: 9% 12% 34%;
+  border: 1px solid rgba(229, 194, 123, .4);
+  border-radius: 50% 50% 4px 4px/24% 24% 4px 4px;
+  box-shadow: inset 0 0 40px rgba(113, 66, 139, .5)
+}
+
+.archive-preview small {
+  position: absolute;
+  bottom: 5%;
+  color: #efdcae;
+  font: 700 clamp(.48rem, .8vw, .66rem)/1 Cinzel, serif;
+  letter-spacing: .2em;
+  text-transform: uppercase
+}
+
+.preview-card {
+  position: relative;
+  z-index: 1;
+  width: 24%;
+  height: 36%;
+  border: 1px solid rgba(226, 187, 109, .55);
+  background: linear-gradient(160deg, #50365e, #16101c);
+  box-shadow: 0 12px 22px #000
+}
+
+.preview-card-two {
+  height: 43%;
+  transform: translateY(-7%)
+}
+
+.energy-path {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 52%;
+  width: 44%;
+  height: 30%;
+  transform: translateX(-50%) perspective(450px) rotateX(64deg);
+  transform-origin: top;
+  opacity: .35
+}
+
+.energy-path i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(#a36fbd, transparent);
+  box-shadow: 0 0 8px #9b64b7
+}
+
+.energy-path i:first-child {
+  left: 17%;
+  transform: rotate(-25deg)
+}
+
+.energy-path i:nth-child(2) {
+  left: 50%
+}
+
+.energy-path i:last-child {
+  right: 17%;
+  transform: rotate(25deg)
+}
+
+.arcane-foreground {
+  position: absolute;
+  z-index: 3;
+  inset: auto 0 0;
+  height: 47%
+}
+
+.arcane-circle {
+  position: absolute;
+  left: 50%;
+  bottom: -11%;
+  width: clamp(310px, 48vw, 590px);
+  aspect-ratio: 2/1;
+  transform: translateX(-50%) rotateX(68deg);
+  border: 2px solid rgba(213, 174, 92, .45);
+  border-radius: 50%;
+  box-shadow: 0 0 35px rgba(126, 76, 151, .3), inset 0 0 38px rgba(132, 79, 157, .25)
+}
+
+.circle-ring {
+  position: absolute;
+  border: 1px dashed rgba(221, 184, 105, .6);
+  border-radius: 50%;
+  animation: portalSpin 34s linear infinite
+}
+
+.ring-one {
+  inset: 9%
+}
+
+.ring-two {
+  inset: 25%;
+  animation-direction: reverse;
+  animation-duration: 25s
+}
+
+.circle-sigil {
+  position: absolute;
+  inset: 34%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(145, 91, 171, .7);
+  border-radius: 50%;
+  color: #d9b96f;
+  font-style: normal
+}
+
+.crystal-key {
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  bottom: 23%;
+  width: 150px;
+  height: 190px;
+  padding: 0;
+  border: 0;
+  color: #ead9b5;
+  background: none;
+  transform: translateX(-50%);
+  cursor: pointer
+}
+
+.crystal {
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  width: 82px;
+  height: 108px;
+  transform: translateX(-50%);
+  background: none;
+  animation: crystalFloat 3.2s ease-in-out infinite;
+  transition: filter .3s
+}
+
+.crystal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(173, 110, 202, .7))
+}
+
+.crystal-aura {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(165, 104, 191, .38), transparent 67%);
+  transform: translate(-50%, -50%);
+  filter: blur(5px);
+  transition: .3s
+}
+
+.crystal-key small {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: max-content;
+  padding: .45rem .8rem;
+  border: 1px solid rgba(211, 172, 93, .4);
+  border-radius: 99px;
+  color: #e7d3a8;
+  background: rgba(8, 5, 12, .78);
+  transform: translateX(-50%);
+  font: 700 .56rem/1 Cinzel, serif;
+  letter-spacing: .15em;
+  text-transform: uppercase
+}
+
+.guardian-presence {
+  position: absolute;
+  z-index: 6;
+  left: clamp(.35rem, 1.1vw, .9rem);
+  bottom: .35rem;
+  display: flex;
+  align-items: center
+}
+.guardian-portraits {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(150px, 15vw, 190px);
+  outline: none;
+}
+.guardian-presence .legacy-guardian {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  filter:
+    saturate(.9)
+    contrast(1.08)
+    drop-shadow(0 24px 20px #000);
+  transition: opacity .35s ease, transform .45s ease;
+}
+.guardian-presence .guardian-hover {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+}
+.guardian-portraits:hover .guardian-idle,
+.guardian-portraits:focus-visible .guardian-idle { opacity: 0 }
+.guardian-portraits:hover .guardian-hover,
+.guardian-portraits:focus-visible .guardian-hover { opacity: 1 }
+.guardian-portraits:focus-visible {
+  border-radius: 45%;
+  box-shadow: 0 0 0 2px rgba(225, 190, 112, .72)
+}
+
+.guardian-presence .guardian-copy {
+  max-width: 230px;
+  padding: 0 0 18% .25rem;
+  text-align: left
+}
+
+.guardian-presence .guardian-copy p {
+  color: #e1d2b8;
+  font-size: clamp(.78rem, 1.2vw, 1rem)
+}
+
+.portal-reward {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 44%;
+  display: flex;
+  width: min(460px, 88%);
+  align-items: center;
+  flex-direction: column;
+  gap: .65rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -35%);
+  transition: .65s .9s
+}
+
+.portal-reward>span {
+  color: #d6b872;
+  font: 700 .58rem/1 Cinzel, serif;
+  letter-spacing: .2em;
+  text-transform: uppercase
+}
+
+.portal-reward strong {
+  color: #fff0cc;
+  font: 700 clamp(1.1rem, 2.5vw, 1.6rem)/1.25 Cinzel, serif;
+  text-shadow: 0 3px 18px #000
+}
+
+.portal-reward .discover-legacies {
+  min-height: 48px;
+  padding: .8rem 1.15rem;
+  border: 1px solid #e1be72;
+  border-radius: 4px;
+  color: #1b111e;
+  background: linear-gradient(135deg, #efd491, #b98945);
+  box-shadow: 0 0 28px rgba(217, 174, 90, .35);
+  font: 700 .65rem/1.25 Cinzel, serif;
+  letter-spacing: .1em;
+  text-transform: uppercase
+}
+
+.crystal-key:hover .crystal,
+.crystal-key:focus-visible .crystal {
+  filter: brightness(1.3);
+  animation-duration: 2s
+}
+
+.crystal-key:focus-visible {
+  outline: 2px solid #e2bd70;
+  outline-offset: 4px
+}
+
+.archive-threshold[data-portal-state="aware"] .portal-lock {
+  box-shadow: 0 0 36px rgba(159, 98, 188, .8), inset 0 0 20px rgba(225, 188, 110, .35)
+}
+
+.archive-threshold[data-portal-state="aware"] .guardian-portraits {
+  transform: translateX(-2px) scale(.98) rotate(-1deg);
+  transform-origin: left bottom
+}
+
+.archive-threshold[data-portal-state="activating"] .arcane-circle {
+  animation: circleAwaken .8s ease-in-out infinite alternate
+}
+
+.archive-threshold[data-portal-state="activating"] .energy-path {
+  opacity: 1;
+  filter: brightness(1.8)
+}
+
+.archive-threshold[data-portal-state="activating"] .crystal-key {
+  animation: crystalJourney 1.65s cubic-bezier(.55, .05, .3, 1) forwards;
+  pointer-events: none
+}
+
+.archive-threshold[data-portal-state="activating"] .crystal-key small {
+  opacity: 0
+}
+
+.archive-threshold[data-portal-state="open"] .portal-door-left {
+  transform: translateX(-94%)
+}
+
+.archive-threshold[data-portal-state="open"] .portal-door-right {
+  transform: translateX(94%) scaleX(-1)
+}
+
+.archive-threshold[data-portal-state="open"] .archive-preview {
+  opacity: 1
+}
+
+.archive-threshold[data-portal-state="open"] .portal-lock {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.8)
+}
+
+.archive-threshold[data-portal-state="open"] .portal-seam {
+  opacity: 1;
+  width: 12px;
+  filter: blur(3px)
+}
+
+.archive-threshold[data-portal-state="open"] .crystal-key {
+  opacity: 0;
+  pointer-events: none
+}
+
+.archive-threshold[data-portal-state="open"] .portal-reward {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%)
+}
+
+@keyframes crystalFloat {
+  50% {
+    transform: translate(-50%, -9px) rotate(2deg)
+  }
+}
+
+@keyframes circleAwaken {
+  to {
+    filter: brightness(2);
+    box-shadow: 0 0 60px rgba(158, 96, 185, .72), inset 0 0 48px rgba(206, 163, 85, .4)
+  }
+}
+
+@keyframes crystalJourney {
+  0% {
+    transform: translateX(-50%) scale(1)
+  }
+
+  45% {
+    transform: translate(-50%, -105px) scale(.72)
+  }
+
+  100% {
+    left: 50%;
+    bottom: 65%;
+    transform: translateX(-50%) scale(.28);
+    opacity: .15
+  }
+}
+
+@media(max-width:760px) {
+  .portal-scene {
+    height: 740px;
+    border-radius: 120px 120px 16px 16px/60px 60px 16px 16px
+  }
+
+  .ancient-portal {
+    top: 6%;
+    width: min(350px, 78%);
+    height: 52%
+  }
+
+  .arcane-foreground {
+    height: 50%
+  }
+
+  .arcane-circle {
+    bottom: 3%;
+    width: 430px
+  }
+
+  .crystal-key {
+    bottom: 28%
+  }
+
+  .guardian-presence {
+    left: .25rem;
+    bottom: .25rem;
+    display: block
+  }
+
+  .guardian-portraits {
+    width: min(165px, 38vw)
+  }
+
+  .guardian-presence .guardian-copy {
+    position: absolute;
+    left: 8px;
+    bottom: 100%;
+    width: 180px;
+    padding: 0
+  }
+
+  .guardian-presence .guardian-copy p {
+    margin-top: .4rem
+  }
+
+  .energy-path {
+    top: 44%;
+    width: 70%
+  }
+
+  .portal-reward {
+    top: 37%
+  }
+}
+
+@media(max-width:480px) {
+  .portal-scene-copy h3 {
+    font-size: 1.8rem
+  }
+
+  .portal-scene {
+    height: 690px
+  }
+
+  .ancient-portal {
+    width: 88%;
+    height: 49%
+  }
+
+  .portal-lock {
+    width: 52px;
+    height: 52px
+  }
+
+  .guardian-portraits {
+    width: 125px
+  }
+
+  .guardian-presence .guardian-copy {
+    bottom: calc(100% + .25rem);
+    width: 160px
+  }
+
+  .guardian-presence .guardian-copy p {
+    font-size: .72rem
+  }
+
+  .crystal-key {
+    bottom: 30%;
+    left: 72%
+  }
+
+  .arcane-circle {
+    left: 62%;
+    width: 390px
+  }
+
+  .portal-reward {
+    top: 35%
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+  .crystal,
+  .circle-ring {
+    animation: none
+  }
+
+  .portal-door,
+  .archive-preview,
+  .portal-reward {
+    transition-duration: .01ms
+  }
+
+  .archive-threshold[data-portal-state="activating"] .crystal-key {
+    animation: none
+  }
+}
+
+/* Sistema de cartas colecionáveis do Arquivo dos Legados */
+.relic-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: visible;
+  border: 1px solid color-mix(in srgb, var(--relic-accent) 42%, #806d54);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, transparent 12px, rgba(212, 174, 99, .18) 13px, transparent 14px) top left/42px 42px no-repeat,
+    linear-gradient(225deg, transparent 12px, rgba(212, 174, 99, .18) 13px, transparent 14px) top right/42px 42px no-repeat,
+    linear-gradient(160deg, rgba(29, 19, 36, .98), rgba(8, 5, 12, .99) 62%);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .46), inset 0 0 34px rgba(104, 63, 127, .09)
+}
+.relic-card::after { content:'';position:absolute;inset:7px;z-index:0;border:1px solid rgba(211,174,99,.13);border-radius:4px;pointer-events:none }
+.relic-card>* { position:relative;z-index:1 }
+.relic-card-top { display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.15rem 1.2rem .85rem;text-transform:uppercase }
+.relic-card-top div { display:flex;min-width:0;flex-direction:column;gap:.38rem }
+.relic-card-top span { color:#ead8b2;font:700 .66rem/1 Cinzel,serif;letter-spacing:.2em }
+.relic-card-top small { overflow:hidden;color:#bcae99;font:700 .53rem/1.35 Cinzel,serif;letter-spacing:.13em;text-overflow:ellipsis;white-space:nowrap }
+.category-gem { flex:0 0 auto;width:22px;height:30px;margin:.05rem .15rem 0 0;clip-path:polygon(50% 0,100% 28%,78% 82%,50% 100%,20% 82%,0 28%);background:linear-gradient(120deg,color-mix(in srgb,var(--category-gem) 62%,#fff),var(--category-gem) 46%,color-mix(in srgb,var(--category-gem) 58%,#000));filter:drop-shadow(0 0 8px var(--category-gem));box-shadow:inset 0 0 8px rgba(255,255,255,.35) }
+.relic-card .relic-visual { position:relative;height:clamp(245px,25vw,320px);margin:0 1.15rem;overflow:hidden;border:1px solid color-mix(in srgb,var(--relic-accent) 46%,#77644a);border-radius:4px;background:#09070d;box-shadow:inset 0 0 25px #000,0 12px 25px rgba(0,0,0,.28) }
+.relic-card .relic-visual::after { content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,3,8,.38));pointer-events:none;transition:background .3s }
+.relic-card .relic-visual>img { width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .45s ease }
+.relic-card .image-ornament { position:absolute;inset:8px;border:1px solid rgba(227,194,126,.16);pointer-events:none }
+.relic-card .relic-content { display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:1.15rem 1.2rem 1.25rem }
+.relic-card .relic-content h4 { margin:0;color:#f5e6c8;font:700 clamp(1.05rem,1.5vw,1.28rem)/1.25 Cinzel,serif;letter-spacing:.045em;text-shadow:0 3px 14px #000 }
+.relic-card .relic-content>p { display:-webkit-box;min-height:3.15em;margin:.65rem 0 .75rem;overflow:hidden;color:#cfc3b2;font:400 .86rem/1.55 Lora,serif;-webkit-box-orient:vertical;-webkit-line-clamp:2 }
+.relic-meta { margin-bottom:.85rem;color:#a9977d;font:700 .52rem/1.4 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase }
+.relic-card .relic-techs { display:flex;min-height:29px;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem;opacity:.9 }
+.relic-card .relic-techs span { padding:.28rem .48rem;border:1px solid rgba(208,171,96,.28);border-radius:2px;color:#ddcfb6;background:rgba(193,151,74,.07);font-size:.52rem;letter-spacing:.08em }
+.relic-card .archive-examine { width:100%;min-height:43px;justify-content:space-between;margin-top:auto;padding:.68rem .8rem;border:1px solid color-mix(in srgb,var(--relic-accent) 48%,#9b8057);border-radius:3px;color:#ead6ad;background:rgba(8,5,12,.72);font:700 .58rem/1 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase;opacity:1;transform:none }
+.relic-card:hover .relic-visual>img,.relic-card:focus-within .relic-visual>img { transform:scale(1.035);filter:saturate(1.08) contrast(1.04) }
+.relic-card:hover .archive-examine,.relic-card:focus-within .archive-examine { color:#fff1d0;border-color:var(--relic-accent);background:color-mix(in srgb,var(--relic-accent) 16%,#0b0710) }
+.relic-card .archive-examine:focus-visible { outline:2px solid var(--category-gem);outline-offset:3px }
+
+.guild-seal { display:inline-flex;align-items:center;gap:.6rem;align-self:flex-start;margin:-.15rem 1.2rem .85rem;padding:.48rem .72rem;border:1px solid color-mix(in srgb,var(--category-gem) 58%,#bda174);border-radius:3px;color:#eadcf0;background:linear-gradient(90deg,color-mix(in srgb,var(--category-gem) 20%,#120b18),rgba(18,11,24,.92));box-shadow:inset 0 0 14px color-mix(in srgb,var(--category-gem) 12%,transparent),0 5px 14px rgba(0,0,0,.3);font:700 .55rem/1 Cinzel,serif;letter-spacing:.15em;text-transform:uppercase }
+.guild-seal b { display:grid;place-items:center;width:22px;height:22px;border:1px solid color-mix(in srgb,var(--category-gem) 65%,#d2b474);border-radius:50%;color:#f0ddf7;background:#160d1d;font-size:.76rem;text-shadow:0 0 9px var(--category-gem) }
+.relic-card--team::before { content:'◇';position:absolute;z-index:2;right:1rem;top:49%;display:grid;place-items:center;width:34px;height:34px;border:1px solid color-mix(in srgb,var(--category-gem) 56%,#c8a764);border-radius:50%;color:#ead3f3;background:#120b18;box-shadow:0 0 18px color-mix(in srgb,var(--category-gem) 30%,transparent) }
+
+.relic-card--featured { border-width:2px;background:radial-gradient(circle at 50% 18%,color-mix(in srgb,var(--relic-accent) 14%,transparent),transparent 38%),linear-gradient(160deg,#281a31,#09060e 68%) }
+.relic-card--featured::before { content:'Destaque do Arquivo';position:absolute;z-index:3;top:-12px;left:50%;padding:.38rem .85rem;border:1px solid color-mix(in srgb,var(--relic-accent) 64%,#d7b66f);border-radius:99px;color:#f4dfb4;background:#100a16;box-shadow:0 0 18px color-mix(in srgb,var(--relic-accent) 22%,transparent);transform:translateX(-50%);font:700 .5rem/1 Cinzel,serif;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap }
+.relic-card--featured .category-gem { width:24px;height:33px }
+.relic-card--featured .relic-content h4 { font-size:clamp(1.2rem,1.7vw,1.48rem) }
+.relic-card--featured .relic-content>p { -webkit-line-clamp:3 }
+
+@media(min-width:1024px) {
+  .relic-grid .relic-card { flex-basis:460px;min-height:600px }
+  .relic-grid .relic-card--featured { flex-basis:460px;min-height:600px }
+  .relic-grid .relic-visual,
+  .relic-grid .relic-card--featured .relic-visual { height:315px }
+  .relic-grid .relic-card--featured { box-shadow:0 22px 54px rgba(0,0,0,.52),inset 0 0 42px color-mix(in srgb,var(--relic-accent) 12%,transparent) }
+  .relic-grid .archive-examine { opacity:.78 }
+  .relic-grid .relic-card:hover .archive-examine,
+  .relic-grid .relic-card:focus-within .archive-examine,
+  .relic-grid .relic-card.is-active .archive-examine { opacity:1 }
+}
+
+@media(max-width:1023px) {
+  .relic-card { min-height:560px }
+  .relic-card .relic-visual { height:250px }
+}
+
+@media(max-width:650px) {
+  .relic-card { min-height:0 }
+  .relic-card-top { padding:1rem 1rem .75rem }
+  .relic-card .relic-visual { height:220px;margin-inline:1rem }
+  .relic-card .relic-content { padding:1rem }
+  .relic-card .relic-content>p { min-height:auto }
+  .guild-seal { margin-left:1rem }
+}
+
+/* Correção de proporção — carta, arte e leitura do acervo */
+.relic-card {
+  width: min(100%, 340px);
+  min-height: 500px;
+  aspect-ratio: .68 / 1;
+  border: 1px solid color-mix(in srgb, var(--category-gem) 34%, #9b8057);
+  border-radius: 10px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 22%, color-mix(in srgb, var(--category-gem) 8%, transparent), transparent 34%),
+    linear-gradient(155deg, #23182b, #09060e 64%);
+}
+.relic-card::after {
+  inset: 6px;
+  border: 1px solid rgba(222, 187, 117, .22);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 3px rgba(5, 3, 8, .42)
+}
+.relic-card-top { min-height: 67px;padding:1rem 1rem .7rem }
+.relic-card-top span { color:#f0dfbd;font-size:.64rem }
+.relic-card-top small { max-width:245px;color:#d0c1aa;font-size:.53rem }
+.category-gem { width:26px;height:32px;margin-right:.1rem;filter:drop-shadow(0 0 10px var(--category-gem)) }
+.category-gem-image { display:block;flex:0 0 auto;width:34px;height:34px;margin-right:.05rem;object-fit:contain;filter:drop-shadow(0 0 8px color-mix(in srgb,var(--category-gem) 68%,transparent));transition:filter .3s ease,transform .3s ease }
+
+.relic-card .relic-visual,
+.relic-grid .relic-card .relic-visual,
+.relic-grid .relic-card--featured .relic-visual {
+  flex:0 0 auto;
+  width:auto;
+  height:auto;
+  aspect-ratio:3 / 2;
+  margin:0 1rem;
+  border:2px solid rgba(9,6,13,.95);
+  outline:1px solid color-mix(in srgb,var(--category-gem) 38%,#9f8255);
+  outline-offset:2px
+}
+.relic-card .relic-visual>img { object-fit:cover;object-position:center }
+.relic-card .relic-content { min-height:0;padding:1rem 1rem 1.05rem }
+.relic-card .relic-content h4 { display:-webkit-box;overflow:hidden;color:#fff0d2;font-size:clamp(1.08rem,1.4vw,1.3rem);line-height:1.18;-webkit-box-orient:vertical;-webkit-line-clamp:2 }
+.relic-card .relic-content>p { min-height:2.85em;margin:.5rem 0 .55rem;color:#d8cebd;font-size:.82rem;line-height:1.45;-webkit-line-clamp:2 }
+.relic-meta { margin-bottom:.55rem;color:#bcae96 }
+.relic-card .relic-techs { min-height:25px;gap:.3rem;margin:0 0 .65rem }
+.relic-card .relic-techs span { padding:.24rem .42rem;color:#eadfc9;font-size:.49rem }
+.relic-card .archive-examine { min-height:40px;margin-top:auto;color:#f2dfb8;border-color:color-mix(in srgb,var(--category-gem) 48%,#a48657);background:linear-gradient(90deg,rgba(31,20,38,.92),rgba(12,8,17,.96)) }
+
+.guild-seal {
+  min-height:22px;
+  margin:0 0 .55rem;
+  padding:0;
+  border:0;
+  color:#e2cdef;
+  background:none;
+  box-shadow:none;
+  font-size:.5rem
+}
+.guild-seal b,
+.guild-seal img { width:18px;height:18px;object-fit:contain }
+.guild-seal b { border-color:color-mix(in srgb,var(--category-gem) 58%,#c9a663);font-size:.55rem }
+.relic-card--team::before { display:none }
+
+.relic-card--featured {
+  width:min(100%,350px);
+  min-height:515px;
+  aspect-ratio:.68 / 1;
+  border:2px double color-mix(in srgb,var(--relic-accent) 72%,#d7b66f)
+}
+.relic-card--featured::before { top:8px;left:auto;right:48px;padding:.28rem .58rem;border:0;border-radius:2px;transform:none;background:rgba(17,10,23,.86);font-size:.43rem }
+.relic-card--featured .category-gem { width:28px;height:34px }
+
+@media(min-width:1024px) {
+  .relic-grid {
+    align-items:center;
+    gap:clamp(2rem,4vw,3.75rem);
+    padding-inline:max(calc(50% - 170px),2rem);
+    scroll-padding-inline:calc(50% - 170px)
+  }
+  .relic-grid .relic-card,
+  .relic-grid .relic-card--featured {
+    flex:0 0 300px;
+    width:300px;
+    min-height:390px;
+    aspect-ratio:auto;
+    opacity:.58;
+    transform:scale(.91);
+    filter:saturate(.68) brightness(.76) contrast(.9);
+    transition:flex-basis .34s ease,width .34s ease,min-height .34s ease,transform .34s ease,opacity .3s ease,filter .3s ease,border-color .3s ease,box-shadow .3s ease
+  }
+  .relic-grid .relic-card .relic-visual,
+  .relic-grid .relic-card--featured .relic-visual { aspect-ratio:3 / 2 }
+  .relic-grid .relic-card .relic-content { flex:0;padding-bottom:1.1rem }
+  .relic-grid .relic-card .relic-content>p,
+  .relic-grid .relic-card .relic-meta,
+  .relic-grid .relic-card .relic-techs,
+  .relic-grid .relic-card .guild-seal,
+  .relic-grid .relic-card .archive-examine {
+    max-height:0;
+    min-height:0;
+    margin-block:0;
+    padding-block:0;
+    overflow:hidden;
+    border-width:0;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(7px);
+    transition:max-height .24s ease,margin .24s ease,padding .24s ease,opacity .18s ease .02s,transform .24s ease,visibility 0s linear .24s
+  }
+  .relic-grid .relic-card .relic-content h4 { color:#e6d6b9;font-size:1rem }
+  .relic-grid .relic-card .category-gem,
+  .relic-grid .relic-card .category-gem-image { filter:drop-shadow(0 0 4px color-mix(in srgb,var(--category-gem) 52%,transparent)) }
+  .relic-grid .relic-card--featured::before { opacity:0;visibility:hidden;transition:opacity .2s ease .1s,visibility 0s linear .3s }
+
+  .relic-grid .relic-card.is-active,
+  .relic-grid .relic-card--featured.is-active {
+    flex-basis:340px;
+    width:340px;
+    min-height:500px;
+    opacity:1;
+    transform:scale(1.025);
+    filter:none;
+    border-color:color-mix(in srgb,var(--category-gem) 70%,#d6b46c);
+    box-shadow:0 28px 64px rgba(0,0,0,.58),0 0 34px color-mix(in srgb,var(--category-gem) 18%,transparent),inset 0 0 34px color-mix(in srgb,var(--category-gem) 8%,transparent)
+  }
+  .relic-grid .relic-card--featured.is-active { flex-basis:350px;width:350px;min-height:515px }
+  .relic-grid .relic-card--featured.is-active::before { opacity:1;visibility:visible;transition:opacity .2s ease .14s,visibility 0s }
+  .relic-grid .relic-card.is-active .relic-content { flex:1 }
+  .relic-grid .relic-card.is-active .relic-content h4 { color:#fff0d2;font-size:clamp(1.08rem,1.4vw,1.3rem) }
+  .relic-grid .relic-card.is-active .category-gem,
+  .relic-grid .relic-card.is-active .category-gem-image { animation:activeGemAwaken .38s ease both;filter:drop-shadow(0 0 11px var(--category-gem)) }
+  .relic-grid .relic-card.is-active .relic-content>p,
+  .relic-grid .relic-card.is-active .relic-meta,
+  .relic-grid .relic-card.is-active .relic-techs,
+  .relic-grid .relic-card.is-active .guild-seal,
+  .relic-grid .relic-card.is-active .archive-examine {
+    max-height:90px;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    transition:max-height .3s ease .08s,margin .25s ease .08s,padding .25s ease .08s,opacity .24s ease .12s,transform .28s ease .1s,visibility 0s
+  }
+  .relic-grid .relic-card.is-active .relic-content>p { min-height:2.85em;margin:.5rem 0 .55rem }
+  .relic-grid .relic-card.is-active .relic-meta { margin-bottom:.55rem }
+  .relic-grid .relic-card.is-active .relic-techs { min-height:25px;margin-bottom:.65rem }
+  .relic-grid .relic-card.is-active .guild-seal { min-height:22px;margin-bottom:.55rem }
+  .relic-grid .relic-card.is-active .archive-examine { min-height:40px;margin-top:auto;padding:.68rem .8rem;border-width:1px }
+  .relic-grid .relic-card:hover { opacity:.72;transform:translateY(-4px) scale(.92) }
+  .relic-grid .relic-card.is-active:hover { opacity:1;transform:translateY(-5px) scale(1.035) }
+}
+
+@keyframes activeGemAwaken {
+  0% { transform:scale(.88);filter:drop-shadow(0 0 3px var(--category-gem)) }
+  55% { transform:scale(1.1);filter:drop-shadow(0 0 15px var(--category-gem)) }
+  100% { transform:scale(1);filter:drop-shadow(0 0 11px var(--category-gem)) }
+}
+
+@media(max-width:1023px) {
+  .relic-card { width:100%;min-height:0;aspect-ratio:auto }
+  .relic-card--featured { width:100%;min-height:0;aspect-ratio:auto }
+}
+
+/* Duas faces — verso oficial DW e frente do projeto */
+.relic-card-front { display:flex;min-height:inherit;flex:1;flex-direction:column;border-radius:inherit;background:linear-gradient(155deg,#25192e,#09060e 64%) }
+.relic-card-back { display:none }
+
+@media(min-width:1024px) {
+  .relic-grid { perspective:1400px }
+  .relic-grid .relic-card,
+  .relic-grid .relic-card--featured {
+    min-height:450px;
+    overflow:visible;
+    border-color:rgba(169,126,73,.5);
+    background:#08050d;
+    transform-style:preserve-3d
+  }
+  .relic-grid .relic-card,
+  .relic-grid .relic-card--featured,
+  .relic-grid .relic-card:hover,
+  .relic-grid .relic-card.is-active { opacity:1 }
+  .relic-grid .relic-card { filter:brightness(.62) saturate(.78) contrast(.94);z-index:1 }
+  .relic-grid .relic-card.is-centered { filter:brightness(.78) saturate(.9);transform:scale(.94);z-index:2 }
+  .relic-grid .relic-card.is-moving { filter:brightness(.92) saturate(.98);transform:translateY(-6px) scale(.97);z-index:4;transition:transform .34s cubic-bezier(.22,.8,.3,1),filter .34s ease }
+  .relic-card-front,
+  .relic-card-back {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-radius:inherit;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    transition:transform .52s cubic-bezier(.2,.7,.25,1),opacity .22s ease
+  }
+  .relic-card-front { transform:rotateY(180deg);opacity:0;pointer-events:none }
+  .relic-card-back {
+    z-index:4;
+    display:block;
+    padding:0;
+    border:0;
+    cursor:pointer;
+    background:#08050d;
+    box-shadow:0 20px 48px rgba(0,0,0,.58),0 0 20px rgba(91,66,145,.18);
+    transform:rotateY(0);
+    opacity:1
+  }
+  .relic-card-back img { display:block;width:100%;height:100%;object-fit:cover }
+  .relic-card-back::after { content:'';position:absolute;inset:5px;border:1px solid rgba(224,180,101,.35);border-radius:7px;box-shadow:inset 0 0 24px rgba(13,7,20,.65);transition:box-shadow .25s,border-color .25s }
+  .relic-card-back:hover::after,
+  .relic-card-back:focus-visible::after { border-color:rgba(230,191,118,.72);box-shadow:inset 0 0 22px rgba(14,7,21,.45),0 0 20px rgba(127,84,178,.28) }
+  .relic-card-back:focus-visible { outline:2px solid #e0ba70;outline-offset:5px }
+  .relic-grid .relic-card:not(.is-active):hover { opacity:1;filter:saturate(.92) brightness(.76);transform:translateY(-5px) scale(.93) }
+
+  .relic-grid .relic-card.is-active,
+  .relic-grid .relic-card--featured.is-active { min-height:500px;filter:none;transform:scale(1.025);z-index:5 }
+  .relic-grid .relic-card.is-active .relic-card-back { transform:rotateY(-180deg);opacity:0;pointer-events:none }
+  .relic-grid .relic-card.is-active .relic-card-front { transform:rotateY(0);opacity:1;pointer-events:auto }
+  .relic-grid .relic-card.is-active::after { z-index:6 }
+  .relic-grid.is-interacting .relic-card-back,
+  .relic-row-shell:has(.relic-grid.is-interacting) .relic-row-arrow { pointer-events:none }
+}
+
+@media(min-width:1024px) and (prefers-reduced-motion:reduce) {
+  .relic-card-front,
+  .relic-card-back { transition:opacity .12s ease;transform:none }
+  .relic-grid .relic-card .relic-card-front { transform:none }
+}
+
+/* Modal — gemas de categoria e Guardião da Relíquia */
+.relic-examination-header { position:relative }
+.dialog-header-gem {
+  display:inline-block;
+  clip-path:polygon(50% 0,100% 28%,78% 82%,50% 100%,20% 82%,0 28%);
+  background:linear-gradient(120deg,color-mix(in srgb,var(--dialog-gem) 60%,#fff),var(--dialog-gem) 48%,color-mix(in srgb,var(--dialog-gem) 58%,#000));
+  filter:drop-shadow(0 0 7px var(--dialog-gem))
+}
+.dialog-classification {
+  position:absolute;
+  z-index:3;
+  top:-.45rem;
+  right:0;
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  pointer-events:none
+}
+.dialog-gem-crest {
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  border:1px solid rgba(195,158,92,.34);
+  border-radius:50%;
+  background:radial-gradient(circle,#211629,#0c0811 68%);
+  box-shadow:inset 0 0 12px rgba(215,174,98,.1),0 0 14px color-mix(in srgb,var(--dialog-gem) 13%,transparent)
+}
+.dialog-gem-crest::before,.dialog-gem-crest::after{content:'';position:absolute;top:50%;width:12px;height:1px;background:linear-gradient(90deg,transparent,#a98750)}
+.dialog-gem-crest::before{right:100%}.dialog-gem-crest::after{left:100%;transform:scaleX(-1)}
+.dialog-header-gem { width:22px;height:29px }
+.dialog-gem-image { display:block;width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 0 7px color-mix(in srgb,var(--dialog-gem) 62%,transparent)) }
+.dialog-gem-meaning { display:flex;align-items:flex-start;flex-direction:column;gap:.22rem;text-align:left }
+.dialog-gem-meaning b { color:color-mix(in srgb,var(--dialog-gem) 78%,#f2e2c3);font:700 .58rem/1 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 9px color-mix(in srgb,var(--dialog-gem) 32%,transparent) }
+.dialog-gem-meaning small { color:#bfb29e;font:400 .66rem/1.2 Lora,serif;white-space:nowrap }
+.relic-examination-header .dialog-eyebrow { padding-right:13rem }
+.relic-examination-header .dialog-meta span:first-child { display:inline-flex;align-items:center;gap:.55rem }
+.dialog-category-mark { color:var(--dialog-gem);font-size:.68rem;font-style:normal;text-shadow:0 0 8px color-mix(in srgb,var(--dialog-gem) 55%,transparent) }
+
+.dialog-project-frame {
+  position:relative;
+  margin:clamp(3.75rem,7vw,5.25rem) auto 0;
+  padding:.75rem;
+  border:1px solid color-mix(in srgb,var(--dialog-gem) 36%,#a88955);
+  border-radius:8px;
+  background:linear-gradient(150deg,#211629,#09060e);
+  box-shadow:0 22px 54px rgba(0,0,0,.46),inset 0 0 30px color-mix(in srgb,var(--dialog-gem) 8%,transparent)
+}
+.dialog-project-frame::before {
+  content:'';
+  position:absolute;
+  z-index:2;
+  top:-4px;
+  left:8%;
+  right:8%;
+  height:7px;
+  border:1px solid color-mix(in srgb,var(--dialog-gem) 48%,#c19b5e);
+  border-radius:50%;
+  background:linear-gradient(90deg,#17101d,color-mix(in srgb,var(--dialog-gem) 22%,#211429),#17101d);
+  box-shadow:0 0 13px color-mix(in srgb,var(--dialog-gem) 18%,transparent)
+}
+.dialog-project-frame .dialog-project-image { width:100%;margin:0;border-color:color-mix(in srgb,var(--dialog-gem) 34%,#967b53) }
+.relic-seal { margin-top:2rem }
+.relic-seal>span { color:var(--dialog-gem);text-shadow:0 0 12px var(--dialog-gem) }
+
+.fragment-tab[aria-selected="true"] { color:color-mix(in srgb,var(--dialog-gem) 72%,#f4dfb7) }
+.fragment-tab[aria-selected="true"] span { color:var(--dialog-gem);text-shadow:0 0 9px var(--dialog-gem) }
+.fragment-tab[aria-selected="true"]::after { background:linear-gradient(90deg,transparent,var(--dialog-gem),transparent);box-shadow:0 0 10px color-mix(in srgb,var(--dialog-gem) 54%,transparent) }
+.fragment-tab:focus-visible { outline-color:var(--dialog-gem) }
+
+@media(max-width:760px) {
+  .dialog-classification { top:-.2rem }
+  .dialog-gem-crest { width:42px;height:42px }
+  .dialog-header-gem { width:19px;height:25px }
+  .dialog-gem-image { width:30px;height:30px }
+  .dialog-gem-meaning small { display:none }
+  .relic-examination-header .dialog-eyebrow { padding-right:7.5rem }
+  .dialog-project-frame { margin-top:3.5rem;padding:.5rem }
 }
