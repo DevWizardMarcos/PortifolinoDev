@@ -191,7 +191,7 @@
           </div>
 
           <!-- Arsenal Principal: será populado via JS -->
-          <div id="arsenal-skills"></div>
+          <div id="legacy-arsenal-skills"></div>
 
           <div class="sobre-card">
             <span class="sobre-label">&#9670; Guilda Atual</span>
@@ -276,6 +276,28 @@
 
 
   <!-- Salão dos Legados -->
+  <section class="spell-library" id="arsenal-skills" aria-labelledby="spell-library-title" data-library-state="idle">
+    <div class="spell-library__atmosphere" aria-hidden="true"></div>
+    <header class="spell-library__header">
+      <span>Capítulo V</span>
+      <h2 id="spell-library-title">Biblioteca de Feitiços</h2>
+      <p>Conhecimentos reunidos ao longo da jornada.<br>Cada volume guarda uma escola de domínio técnico.</p>
+    </header>
+    <div class="spell-library__chamber">
+      <div class="spell-library__backdrop" aria-hidden="true"></div>
+      <div class="spell-library__fog" aria-hidden="true"></div>
+      <div class="spell-library__shelf-frame" aria-label="Estante de domínios técnicos">
+        <div class="spell-library__shelf" id="spell-book-shelf"></div>
+        <i class="spell-library__shelf-base" aria-hidden="true"></i>
+      </div>
+      <div class="spell-library__stage" aria-live="polite">
+        <div class="spell-invocation" id="spell-invocation" aria-hidden="true" hidden></div>
+        <div class="spell-grimoire" id="spell-grimoire" hidden></div>
+      </div>
+    </div>
+    <p class="spell-library__hint"><span aria-hidden="true">◇</span> Selecione um volume para consultar seus conhecimentos</p>
+  </section>
+
   <section id="Salao" class="legacy-hall" aria-labelledby="legacy-title">
     <div class="legacy-overlay" aria-hidden="true"></div>
     <div class="hall-depth-layers" aria-hidden="true">
@@ -315,15 +337,44 @@
 
         <div class="portal-scene">
           <div class="portal-atmosphere" aria-hidden="true"></div>
+          <div class="portal-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           <div class="ancient-portal" aria-hidden="true">
             <span class="portal-spire portal-spire-left"></span><span class="portal-spire portal-spire-right"></span>
             <div class="portal-arch">
               <div class="archive-preview">
+                <div class="portal-base-ritual" aria-hidden="true">
+                  <i class="ritual-mist"></i>
+                  <i class="ritual-beam"></i>
+                  <i class="ritual-arc ritual-arc-inner"></i>
+                  <i class="ritual-arc ritual-arc-middle"></i>
+                  <i class="ritual-arc ritual-arc-outer"></i>
+                  <i class="ritual-core">◇</i>
+                </div>
                 <span class="preview-vault"></span>
                 <span class="preview-card preview-card-one"></span><span class="preview-card preview-card-two"></span><span class="preview-card preview-card-three"></span>
                 <small>Arquivo dos Legados</small>
               </div>
-              <span class="portal-door portal-door-left"></span><span class="portal-door portal-door-right"></span>
+              <span class="portal-door portal-door-left">
+                <svg class="door-phoenix phoenix-blue" viewBox="0 0 180 330" role="presentation">
+                  <g class="phoenix-engraving">
+                    <path d="M151 220 C126 207 109 190 100 165 C89 134 67 103 34 78 C55 82 76 93 92 111 C83 80 89 49 110 24 C109 58 119 83 139 101 C126 99 116 101 108 108 C123 116 136 129 143 146 C126 136 112 133 99 137 C105 165 120 185 151 220Z"/>
+                    <path d="M101 136 C77 128 55 135 30 157 C56 151 75 154 91 167 C70 168 52 178 38 198 C62 186 83 185 104 195"/>
+                    <path d="M95 164 C78 194 73 227 79 263 C88 241 100 224 116 212 C106 242 108 270 124 299"/>
+                    <path d="M107 109 C117 102 129 104 136 114 C126 113 119 116 115 124"/>
+                    <path class="phoenix-eye" d="M127 111 l4 1"/>
+                  </g>
+                </svg>
+              </span><span class="portal-door portal-door-right">
+                <svg class="door-phoenix phoenix-red" viewBox="0 0 180 330" role="presentation">
+                  <g class="phoenix-engraving">
+                    <path d="M29 110 C55 119 74 138 83 163 C94 195 116 220 149 241 C129 242 108 235 91 220 C101 250 96 280 76 307 C76 274 66 250 47 232 C60 234 70 231 78 223 C63 216 49 203 42 187 C59 196 74 197 87 191 C79 164 62 139 29 110Z"/>
+                    <path d="M82 193 C106 201 129 192 153 168 C128 176 108 174 92 162 C113 159 130 147 142 126 C119 140 97 142 77 133"/>
+                    <path d="M87 218 C101 192 105 161 96 128 C90 149 79 165 64 178 C72 151 68 124 51 98"/>
+                    <path d="M77 223 C67 231 55 230 47 221 C57 221 64 217 68 209"/>
+                    <path class="phoenix-eye" d="M56 224 l-4 -1"/>
+                  </g>
+                </svg>
+              </span>
               <span class="portal-seam"></span>
               <span class="portal-lock"><b>◇</b></span>
               <span class="portal-rune rune-one">ᚱ</span><span class="portal-rune rune-two">ᛟ</span><span class="portal-rune rune-three">ᚨ</span>
@@ -335,8 +386,7 @@
           <div class="arcane-foreground">
             <div class="guardian-presence">
               <div class="guardian-portraits" tabindex="0" aria-label="Gato, Guardião dos Legados, observando o cristal">
-                <img class="legacy-guardian guardian-idle" src="assets/img/Mascote/guardiao.png" alt="" loading="lazy">
-                <img class="legacy-guardian guardian-hover" src="assets/img/Mascote/guardiaoHover.png" alt="" loading="lazy">
+                <img class="legacy-guardian guardian-image" src="assets/img/Mascote/guardiao.png" data-idle-src="assets/img/Mascote/guardiao.png" data-hover-src="assets/img/Mascote/guardiaoHover.png" data-open-src="assets/img/cat.png" alt="" loading="lazy">
               </div>
               <div class="guardian-copy"><span>Guardião dos Legados</span><p>“A chave escolhe quem está pronto para atravessar.”</p></div>
             </div>
@@ -349,7 +399,7 @@
           <div class="portal-reward" aria-live="polite">
             <span>O limiar foi aberto</span>
             <strong>O Arquivo dos Legados aguarda</strong>
-            <button class="discover-legacies" type="button" aria-expanded="false" aria-controls="reliquias">Acessar o Arquivo dos Legados <b aria-hidden="true">↓</b></button>
+            <button class="discover-legacies" type="button" aria-expanded="false" aria-controls="reliquias">Acessar o Arquivo dos Legados <b aria-hidden="true">→</b></button>
           </div>
         </div>
         <p class="portal-status visually-hidden" role="status" aria-live="polite"></p>
@@ -376,10 +426,14 @@
           <button class="relic-filter" type="button" data-filter="back-end" aria-pressed="false">Back-End</button>
           <button class="relic-filter" type="button" data-filter="outros" aria-pressed="false">Outros</button>
         </nav>
-        <div class="relic-row-shell">
-          <button class="relic-row-arrow relic-row-prev" type="button" aria-label="Ver relíquia anterior">←</button>
-          <div id="relic-grid" class="relic-grid" aria-live="polite" tabindex="0" aria-label="Galeria horizontal de relíquias"></div>
-          <button class="relic-row-arrow relic-row-next" type="button" aria-label="Ver próxima relíquia">→</button>
+        <div class="relic-row-shell corridor-shell">
+          <div class="corridor-vault" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div id="relic-grid" class="relic-grid relic-corridor" aria-live="polite" aria-label="Entrada do Corredor de Relíquias. Use as setas para navegar." tabindex="0"></div>
+          <div class="corridor-navigation" aria-label="Navegação do Corredor de Relíquias">
+            <button class="corridor-arrow corridor-prev" type="button" aria-label="Projeto anterior">←</button>
+            <p class="corridor-invitation">Explore o corredor</p>
+            <button class="corridor-arrow corridor-next" type="button" aria-label="Próximo projeto">→</button>
+          </div>
         </div>
         <button class="load-more-relics" type="button" hidden>Mostrar mais <span aria-hidden="true">↓</span></button>
       </section>

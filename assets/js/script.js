@@ -119,16 +119,113 @@ const projetos = [
     nivel: '04',
     icone: '&#9826;'
   },
+  {
+    titulo: 'Starbucks',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Code Stone',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Deadpool',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Garimpo',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'horizon',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'infinity Open',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Porfilio Alice',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Porfilio Alice',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Wayne',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
 ];
 
 // Metadados editoriais: fáceis de substituir quando screenshots e URLs reais estiverem disponíveis.
 const projectProfiles = [
-  { id: 'nexus-vision', category: 'full-stack', phase: 'Legado', featured: true, year: '2026', role: 'Desenvolvimento Full-Stack', image: null, demo: null, github: null },
-  { id: 'oraculo-ia', category: 'back-end', phase: 'Descoberta', featured: true, year: '2026', role: 'Arquitetura e Desenvolvimento', image: null, demo: null, github: null },
-  { id: 'forge-system', category: 'back-end', phase: 'Construção', featured: true, year: '2025', role: 'Desenvolvimento Back-End', image: null, demo: null, github: null },
-  { id: 'Portifolio Alice', category: 'front-end', phase: 'Descoberta', featured: false, year: '2025', role: 'UI/UX e Front-End', image: null, demo: null, github: null },
+  { id: 'savory', category: 'full-stack', phase: 'Legado', featured: true, year: '2026', role: 'Desenvolvimento Full-Stack', image: './assets/img/Projetos/Savory.png', demo: null, github: null },
+  { id: 'behorner-control', category: 'full-stack', phase: 'Descoberta', featured: true, year: '2026', role: 'Arquitetura e Desenvolvimento', image: './assets/img/Projetos/BannerInfinityControl.png', demo: null, github: null },
+  { id: 'Hacktohon', category: 'back-end', phase: 'Construção', featured: true, year: '2025', role: 'Desenvolvimento Back-End', image: './assets/img/Projetos/Hacktohon.png', demo: null, github: null },
+  { id: 'Portifolio Alice', category: 'front-end', phase: 'Descoberta', featured: false, year: '2025', role: 'UI/UX e Front-End', image: './assets/img/Projetos/Portifolio_Alice.png', demo: null, github: null },
   { id: 'devwizard-portfolio', category: 'front-end', phase: 'Construção', featured: false, year: '2026', role: 'Design e Desenvolvimento', image: null, demo: null, github: 'https://github.com/DevWizardMarcos/PortifolinoDev' },
-  { id: 'connect-cnx', category: 'outros', phase: 'Legado', featured: false, year: '2025', role: 'Estratégia e Tecnologia', image: null, demo: null, github: null }
+  { id: 'connect-cnx', category: 'outros', phase: 'Legado', featured: false, year: '2025', role: 'Estratégia e Tecnologia', image: null, demo: null, github: null },
+  { id: 'starbucks', category: 'outros', phase: 'Legado', featured: false, year: '2025', role: 'Projeto Pessoal', image: './assets/img/Projetos/StartBucks.PNG', demo: null, github: null },
+  { id: 'code-stone', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/CodeStone.png', demo: null, github: null },
+  { id: 'deadpool', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/deadpoo.jpg', demo: null, github: null },
+  { id: 'garimpo', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/garimpo.png', demo: null, github: null },
+  { id: 'horizon', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/horizon.png', demo: null, github: null },
+  { id: 'infinity-open', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/InfinityOpen.jpeg', demo: null, github: null },
+  { id: 'wayne', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/wayne.png', demo: null, github: null }
 ];
 
 // Fonte central de projetos. Novas relíquias exigem alteração apenas neste array.
@@ -138,7 +235,14 @@ const projects = [
   { id:'Hacktohon', title:'Hacktohon', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
   { id:'Portifolio Alice', title:'Portifolio Alice', image:'./assets/img/Projetos/Portifolio_Alice.png', shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['React','Vite','Node Js'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Descoberta', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'coming-soon', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#10000;' },
   { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:null, shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Construção', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'development', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:null, featured:false, featuredOrder:null, icon:'&#9670;' },
-  { id:'connect-cnx', title:'Connect CNX', image:null, shortDescription:'Estratégia digital focada em crescimento orgânico e presença online.', challenge:'Fortalecer a presença digital da empresa e criar caminhos mensuráveis para o crescimento orgânico.', solution:'A estratégia integra SEO, análise de métricas e otimização de conversão para orientar as ações digitais.', technologies:['SEO','Analytics','Ads','CRO'], technicalHighlights:['Análise de métricas','Otimização de conversão'], category:'outros', categoryLabel:'Marketing Digital', phase:'Legado', year:2025, role:'Estratégia e Tecnologia', roleDescription:'Atuação na estratégia digital e no uso de tecnologia para acompanhar os resultados.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' }
+  { id:'connect-cnx', title:'Connect CNX', image:null, shortDescription:'Estratégia digital focada em crescimento orgânico e presença online.', challenge:'Fortalecer a presença digital da empresa e criar caminhos mensuráveis para o crescimento orgânico.', solution:'A estratégia integra SEO, análise de métricas e otimização de conversão para orientar as ações digitais.', technologies:['SEO','Analytics','Ads','CRO'], technicalHighlights:['Análise de métricas','Otimização de conversão'], category:'outros', categoryLabel:'Marketing Digital', phase:'Legado', year:2025, role:'Estratégia e Tecnologia', roleDescription:'Atuação na estratégia digital e no uso de tecnologia para acompanhar os resultados.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'starbucks', title:'StarBucks', image:'./assets/img/Projetos/StartBucks.PNG', shortDescription:'Página temática inspirada na identidade visual da Starbucks.', challenge:'Reproduzir uma experiência de marca reconhecível usando uma interface responsiva e interativa.', solution:'A página foi construída com HTML, CSS e JavaScript, priorizando composição visual e adaptação a diferentes telas.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Layout responsivo','Interações nativas'], category:'outros', categoryLabel:'Projeto Pessoal', phase:'Legado', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e nas interações da página.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'code-stone', title:'Code Stone', image:'./assets/img/Projetos/CodeStone.png', shortDescription:'Experiência visual para uma página pessoal com identidade própria.', challenge:'Criar uma interface marcante mantendo leitura clara e navegação simples.', solution:'A composição combina estrutura semântica, estilos responsivos e interações leves em JavaScript.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Identidade visual','Layout responsivo'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na implementação da interface e na adaptação responsiva.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'deadpool', title:'Deadpool', image:'./assets/img/Projetos/deadpoo.jpg', shortDescription:'Página temática com direção visual inspirada no personagem Deadpool.', challenge:'Traduzir uma referência visual forte em uma experiência web funcional e responsiva.', solution:'A interface foi organizada em torno de contraste, hierarquia visual e componentes interativos.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Página temática','Interações nativas'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na criação da identidade visual e das interações da página.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'garimpo', title:'Garimpo', image:'./assets/img/Projetos/garimpo.png', shortDescription:'Interface digital para descoberta e apresentação de produtos.', challenge:'Organizar uma experiência de descoberta com foco em clareza e apelo visual.', solution:'A página usa uma estrutura responsiva para destacar conteúdos e facilitar a exploração.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Descoberta de conteúdo','Responsividade'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e na organização da experiência visual.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'horizon', title:'Horizon', image:'./assets/img/Projetos/horizon.png', shortDescription:'Experiência visual inspirada em exploração e novos horizontes.', challenge:'Construir uma página temática com presença visual sem perder usabilidade.', solution:'A interface combina seções bem definidas, imagens e comportamento responsivo.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Direção visual','Layout adaptável'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na estruturação da página e na implementação visual.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'infinity-open', title:'Infinity Open', image:'./assets/img/Projetos/InfinityOpen.jpeg', shortDescription:'Página institucional com foco em tecnologia e abertura de possibilidades.', challenge:'Apresentar uma proposta tecnológica de forma acessível e visualmente consistente.', solution:'A solução organiza o conteúdo em uma página responsiva com hierarquia e navegação claras.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Página institucional','Estrutura responsiva'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e na apresentação do conteúdo.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'wayne', title:'Wayne', image:'./assets/img/Projetos/wayne.png', shortDescription:'Página temática com estética inspirada no universo de Wayne.', challenge:'Criar uma experiência temática reconhecível com boa adaptação para diferentes telas.', solution:'O projeto utiliza composição visual, tipografia e interações simples para reforçar sua identidade.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Página temática','Identidade visual'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na criação da interface e na composição visual da experiência.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' }
 ];
 
 const reliquias = projects;
@@ -146,6 +250,7 @@ const INITIAL_VISIBLE = 6;
 const LOAD_MORE_AMOUNT = 6;
 let activeRelicFilter = 'todos';
 let visibleRelicCount = INITIAL_VISIBLE;
+let activeProjectIndex = 0;
 
 function projectImage(project, featured = false) {
   if (project.image) {
@@ -237,46 +342,56 @@ function renderCards(filtro) {
   const grade = document.getElementById('relic-grid');
   if (!grade) return;
 
-  const desktopArchive = window.matchMedia('(min-width: 1024px)').matches;
-  const filteredProjects = reliquias.filter(project => (desktopArchive || !project.featured) && (filtro === 'todos' || project.category === filtro));
-  const visibleProjects = desktopArchive ? filteredProjects : filteredProjects.slice(0, visibleRelicCount);
+  const filteredProjects = reliquias.filter(project => filtro === 'todos' || project.category === filtro);
   const loadMoreButton = document.querySelector('.load-more-relics');
+  const total = filteredProjects.length;
+  if (total) activeProjectIndex = ((activeProjectIndex % total) + total) % total;
 
-  grade.innerHTML = visibleProjects.length ? visibleProjects.map((project, index) => {
+  const slots = total >= 5
+    ? [['far-left', -2], ['near-left', -1], ['active', 0], ['near-right', 1], ['far-right', 2]]
+    : total === 4
+      ? [['near-left', -1], ['active', 0], ['near-right', 1], ['far-right', 2]]
+      : total === 3
+        ? [['near-left', -1], ['active', 0], ['near-right', 1]]
+        : total === 2
+          ? [['active', 0], ['near-right', 1]]
+          : total === 1 ? [['active', 0]] : [];
+
+  const visibleProjects = slots.map(([position, offset]) => ({
+    position,
+    offset,
+    project: filteredProjects[(activeProjectIndex + offset + total) % total]
+  }));
+
+  grade.innerHTML = visibleProjects.length ? visibleProjects.map(({ project, position, offset }, index) => {
     const projectNumber = reliquias.findIndex(item => item.id === project.id) + 1;
-    const teamProject = project.teamProject === true || ['behorner-control', 'forge-system'].includes(project.id);
-    const featuredProject = Boolean(project.featuredLevel || project.featured);
-    const variant = featuredProject ? 'featured' : teamProject ? 'team' : 'solo';
     const categoryGem = { 'front-end':'#4f9ee8', 'back-end':'#c94e58', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
-    const categoryGemImage = { 'front-end':'assets/img/Gemas/front.png', 'back-end':'assets/img/Gemas/back.png', 'full-stack':'assets/img/Gemas/fullstack.png' }[project.category];
+    const active = position === 'active';
+    const pedestalType = active ? 'noble' : position.startsWith('near') ? 'altar' : 'shadow';
     return `
-    <article class="relic-card relic-card--${variant}${teamProject ? ' is-team-project' : ''}" data-category="${project.category}" style="--relic-accent:${project.accentColor || '#b9934c'};--category-gem:${categoryGem};--card-index:${index}">
-      <button class="relic-card-back" type="button" data-reveal-project="${project.id}" aria-label="Selecionar e revelar o projeto ${project.title}">
-        <img src="assets/img/card-back-dw-phoenix.png" alt="">
-      </button>
-      <div class="relic-card-front">
-      <header class="relic-card-top">
-        <div><span>Relíquia ${String(projectNumber).padStart(2,'0')}</span><small>${project.categoryLabel}${featuredProject ? ' · Relíquia Maior' : ''}</small></div>
-        ${categoryGemImage ? `<img class="category-gem-image" src="${categoryGemImage}" alt="Gema ${project.categoryLabel}">` : '<i class="category-gem" aria-hidden="true"></i>'}
-      </header>
-      <div class="relic-visual">${projectImage(project)}<span class="image-ornament" aria-hidden="true"></span></div>
-      <div class="relic-content">
-        <h4>${project.title}</h4>
-        <p>${project.shortDescription}</p>
-        <span class="relic-meta">${project.year} · ${project.phase}${featuredProject ? ' · Destaque do Arquivo' : ''}</span>
-        <div class="relic-techs">${project.technologies.map(tech => `<span>${tech}</span>`).join('')}</div>
-        ${teamProject ? `<span class="guild-seal" aria-label="Projeto desenvolvido em equipe">${project.teamEmblem ? `<img src="${project.teamEmblem}" alt="">` : '<b aria-hidden="true">◆</b>'} Forjado em Guilda</span>` : ''}
-        <button class="examine-relic archive-examine" type="button" data-project="${project.id}" aria-label="Examinar relíquia ${project.title}">Examinar Relíquia <span aria-hidden="true">→</span></button>
-      </div>
+    <article class="corridor-relic corridor-relic--${position}" data-category="${project.category}" data-project-id="${project.id}" data-corridor-offset="${offset}" style="--relic-accent:${project.accentColor || categoryGem};--category-gem:${categoryGem};--corridor-index:${index}">
+      ${active ? `<button class="corridor-relic-frame corridor-active-trigger" type="button" data-project="${project.id}" aria-label="Examinar relíquia: ${project.title}">
+        <header><span>Relíquia ${String(projectNumber).padStart(2,'0')}</span><small>${project.categoryLabel}</small></header>
+        <div class="corridor-relic-visual">${projectImage(project)}<span aria-hidden="true"></span></div>
+        <div class="corridor-relic-copy">
+          <h4>${project.title}</h4>
+          <p>${project.shortDescription}</p>
+          <small>${project.year} · ${project.phase}</small>
+          <span class="corridor-examine">Examinar Relíquia <b aria-hidden="true">→</b></span>
+        </div>
+      </button>` : `<button class="corridor-relic-frame corridor-relic-back" type="button" data-corridor-offset="${offset}" aria-label="Selecionar relíquia ${project.title}">
+        <img src="assets/img/card-back-dw-phoenix.png" alt="" draggable="false">
+      </button>`}
+      <div class="corridor-pedestal corridor-pedestal--${pedestalType}" aria-hidden="true">
+        <i class="corridor-pedestal__top"></i>
+        <i class="corridor-pedestal__base"></i>
+        <i class="corridor-pedestal__ornament"></i>
       </div>
     </article>`;
   }).join('') : '<p class="empty-relics">Nenhuma relíquia encontrada nesta categoria.</p>';
-  if (loadMoreButton) {
-    const hasMore = !desktopArchive && visibleRelicCount < filteredProjects.length;
-    loadMoreButton.hidden = !hasMore;
-    loadMoreButton.setAttribute('aria-label', `Mostrar mais ${Math.min(LOAD_MORE_AMOUNT, filteredProjects.length - visibleRelicCount)} projetos`);
-  }
-  if (desktopArchive) requestAnimationFrame(() => updateActiveArchiveCard(true));
+  if (loadMoreButton) loadMoreButton.hidden = true;
+  const navigationDisabled = total < 2;
+  document.querySelectorAll('.corridor-arrow').forEach(button => { button.disabled = navigationDisabled; });
 }
 
 renderShowcase();
@@ -286,6 +401,7 @@ document.querySelector('.relic-filters')?.addEventListener('click', (e) => {
   const btn = e.target.closest('.relic-filter');
   if (!btn) return;
   activeRelicFilter = btn.dataset.filter;
+  activeProjectIndex = 0;
   visibleRelicCount = INITIAL_VISIBLE;
   document.querySelectorAll('.relic-filter').forEach(button => {
     const active = button === btn;
@@ -306,8 +422,14 @@ const crystalKey = document.querySelector('.crystal-key');
 const discoverButton = document.querySelector('.discover-legacies');
 const relicLibrary = document.getElementById('reliquias');
 const portalStatus = document.querySelector('.portal-status');
+const portalSceneTitle = document.getElementById('portal-scene-title');
+const portalLore = document.querySelector('.portal-lore');
+const guardianPortrait = document.querySelector('.guardian-portraits');
+const guardianImage = document.querySelector('.guardian-image');
 const archiveGrid = document.getElementById('relic-grid');
 const archiveDesktop = window.matchMedia('(min-width: 1024px)');
+let isPortalOpened = false;
+let guardianSwapTimer;
 let portalTimer;
 let archiveRevealTimer;
 let archiveOpened = false;
@@ -319,7 +441,55 @@ let archiveInteractionTimer = 0;
 function setPortalState(state) {
   if (!portalScene) return;
   portalScene.dataset.portalState = state;
+  if (state === 'activating' || state === 'open') isPortalOpened = true;
+  portalScene.dataset.portalAwakened = String(isPortalOpened);
+  portalScene.classList.toggle('portal--opened', isPortalOpened);
+  portalScene.classList.toggle('portal--dormant', !isPortalOpened);
+  renderGuardian(isPortalOpened);
+  if (portalSceneTitle) portalSceneTitle.textContent = state === 'open' ? 'O limiar foi aberto' : isPortalOpened ? 'O portal desperta' : 'O Arquivo está selado';
+  if (portalLore) portalLore.textContent = state === 'open' ? 'O Guardião autorizou a passagem. O Arquivo dos Legados aguarda.' : isPortalOpened ? 'As duas forças convergem e o selo começa a ceder.' : 'O cristal guarda a centelha capaz de despertar o acervo.';
 }
+
+function renderGuardian(opened) {
+  if (!guardianImage || !guardianPortrait) return;
+  if (opened) guardianPortrait.classList.remove('guardian--hovered');
+  const nextState = opened ? 'opened' : 'idle';
+  if (guardianPortrait.dataset.guardianState === nextState) return;
+  const nextSource = opened ? guardianImage.dataset.openSrc : guardianImage.dataset.idleSrc;
+  window.clearTimeout(guardianSwapTimer);
+
+  if (!guardianPortrait.dataset.guardianState) {
+    guardianImage.src = nextSource;
+    guardianPortrait.dataset.guardianState = nextState;
+    guardianPortrait.classList.toggle('guardian--awakened', opened);
+    guardianPortrait.classList.toggle('guardian--idle', !opened);
+    return;
+  }
+
+  guardianPortrait.classList.add('is-transforming');
+  guardianSwapTimer = window.setTimeout(() => {
+    guardianImage.src = nextSource;
+    guardianPortrait.dataset.guardianState = nextState;
+    guardianPortrait.classList.toggle('guardian--awakened', opened);
+    guardianPortrait.classList.toggle('guardian--idle', !opened);
+    const revealGuardian = () => requestAnimationFrame(() => requestAnimationFrame(() => guardianPortrait.classList.remove('is-transforming')));
+    if (guardianImage.complete) revealGuardian();
+    else guardianImage.addEventListener('load', revealGuardian, { once: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 260);
+}
+
+function previewGuardian(hovered) {
+  if (!guardianImage || !guardianPortrait || isPortalOpened || guardianPortrait.classList.contains('is-transforming')) return;
+  guardianImage.src = hovered ? guardianImage.dataset.hoverSrc : guardianImage.dataset.idleSrc;
+  guardianPortrait.classList.toggle('guardian--hovered', hovered);
+}
+
+setPortalState(portalScene?.dataset.portalState || 'idle');
+
+guardianPortrait?.addEventListener('pointerenter', () => previewGuardian(true));
+guardianPortrait?.addEventListener('pointerleave', () => previewGuardian(false));
+guardianPortrait?.addEventListener('focus', () => previewGuardian(true));
+guardianPortrait?.addEventListener('blur', () => previewGuardian(false));
 
 crystalKey?.addEventListener('pointerenter', () => {
   if (portalScene?.dataset.portalState === 'idle') setPortalState('aware');
@@ -380,46 +550,34 @@ function moveArchive(direction) {
   cards[Math.min(cards.length - 1, Math.max(0, index + direction))]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
 
-archiveGrid?.addEventListener('scroll', () => {
-  cancelAnimationFrame(archiveScrollFrame);
-  archiveScrollFrame = requestAnimationFrame(() => updateActiveArchiveCard());
-}, { passive: true });
+function navigateCorridor(step) {
+  const filteredProjects = reliquias.filter(project => activeRelicFilter === 'todos' || project.category === activeRelicFilter);
+  if (filteredProjects.length < 2) return;
+  activeProjectIndex = (activeProjectIndex + step + filteredProjects.length) % filteredProjects.length;
+  archiveGrid?.classList.remove('is-changing');
+  void archiveGrid?.offsetWidth;
+  archiveGrid?.classList.add('is-changing');
+  renderCards(activeRelicFilter);
+}
+
 archiveGrid?.addEventListener('keydown', event => {
-  if (!archiveDesktop.matches || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+  if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
   event.preventDefault();
-  moveArchive(event.key === 'ArrowRight' ? 1 : -1);
+  navigateCorridor(event.key === 'ArrowRight' ? 1 : -1);
 });
+
 archiveGrid?.addEventListener('click', event => {
-  const cardBack = event.target.closest('.relic-card-back');
-  if (!cardBack || !archiveDesktop.matches) return;
-  if (archiveInteractionState !== 'idle') return;
-  const card = cardBack.closest('.relic-card');
-  if (!card) return;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const projectId = cardBack.dataset.revealProject;
-  selectedArchiveCard = card;
-  archiveInteractionState = 'moving';
-  archiveGrid.classList.add('is-interacting');
-  card.classList.add('is-moving');
-  card.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
-  window.clearTimeout(archiveInteractionTimer);
-  archiveInteractionTimer = window.setTimeout(() => {
-    archiveInteractionState = 'flipping';
-    card.classList.remove('is-moving');
-    updateActiveArchiveCard();
-    archiveInteractionTimer = window.setTimeout(() => {
-      archiveInteractionState = 'revealed';
-      updateActiveArchiveCard();
-      archiveInteractionTimer = window.setTimeout(() => {
-        archiveInteractionState = 'opening-modal';
-        openRelicDetails(projectId);
-        archiveInteractionState = 'modal-open';
-      }, reducedMotion ? 80 : 200);
-    }, reducedMotion ? 100 : 500);
-  }, reducedMotion ? 50 : 340);
+  const activeTrigger = event.target.closest('.corridor-active-trigger');
+  if (activeTrigger) {
+    openRelicDetails(activeTrigger.dataset.project);
+    return;
+  }
+  const sideCard = event.target.closest('.corridor-relic-back');
+  if (sideCard) navigateCorridor(Number(sideCard.dataset.corridorOffset));
 });
-document.querySelector('.relic-row-prev')?.addEventListener('click', () => moveArchive(-1));
-document.querySelector('.relic-row-next')?.addEventListener('click', () => moveArchive(1));
+
+document.querySelector('.corridor-prev')?.addEventListener('click', () => navigateCorridor(-1));
+document.querySelector('.corridor-next')?.addEventListener('click', () => navigateCorridor(1));
 
 discoverButton?.addEventListener('click', () => {
   const opening = relicLibrary?.hasAttribute('hidden');
@@ -592,3 +750,164 @@ relicDialog?.addEventListener('close', () => {
     }, 150);
   }
 });
+
+// Biblioteca de Feitiços — domínios técnicos apresentados como grimórios.
+const spellDomains = [
+  {
+    id: 'front-end', title: 'Front-End', rune: '◇', accent: '#579cda', description: 'Interfaces, sistemas visuais e experiências digitais responsivas.',
+    technologies: [
+      { name: 'React', rank: 'Domínio principal', description: 'Interfaces componentizadas, gerenciamento de estado e experiências interativas.', projects: ['Savory', 'Behorner-Control', 'Portfólio Alice'] },
+      { name: 'JavaScript', rank: 'Domínio principal', description: 'Lógica de interface, DOM, consumo de APIs e interações nativas.', projects: ['DevWizard Portfolio', 'Code Stone', 'Infinity Open'] },
+      { name: 'HTML & CSS', rank: 'Domínio principal', description: 'Estrutura semântica, layouts responsivos, animações e sistemas visuais.', projects: ['DevWizard Portfolio', 'Garimpo', 'Horizon'] },
+      { name: 'Vite & SASS', rank: 'Experiência sólida', description: 'Fluxos modernos de desenvolvimento, organização de estilos e build otimizado.', projects: ['Portfólio Alice', 'Behorner-Control'] }
+    ]
+  },
+  {
+    id: 'back-end', title: 'Back-End', rune: 'ᚱ', accent: '#c75661', description: 'Serviços, regras de negócio, automações e integrações robustas.',
+    technologies: [
+      { name: 'Python', rank: 'Domínio principal', description: 'Serviços, automações, regras de negócio e aplicações orientadas a dados.', projects: ['Behorner-Control', 'Hacktohon'] },
+      { name: 'FastAPI', rank: 'Experiência sólida', description: 'APIs tipadas, documentação automática e integrações de alta clareza.', projects: ['Behorner-Control'] },
+      { name: 'Django & Flask', rank: 'Aplicação prática', description: 'Aplicações web, rotas, persistência e organização de serviços.', projects: ['Hacktohon', 'Projetos educacionais'] },
+      { name: 'Node.js', rank: 'Experiência sólida', description: 'Serviços JavaScript, integrações e suporte a aplicações full-stack.', projects: ['Savory', 'Portfólio Alice'] }
+    ]
+  },
+  {
+    id: 'data', title: 'Dados', rune: 'ᛟ', accent: '#b99b62', description: 'Modelagem, persistência e organização estratégica da informação.',
+    technologies: [
+      { name: 'SQL', rank: 'Experiência sólida', description: 'Modelagem relacional, consultas e organização consistente de informações.', projects: ['Hacktohon', 'Behorner-Control'] },
+      { name: 'MySQL', rank: 'Aplicação prática', description: 'Persistência para sistemas web e estruturas relacionais de negócio.', projects: ['Sistemas acadêmicos', 'APIs próprias'] },
+      { name: 'SQLite', rank: 'Aplicação prática', description: 'Persistência leve para protótipos, ferramentas e aplicações locais.', projects: ['Automações Python', 'Protótipos de APIs'] },
+      { name: 'MongoDB', rank: 'Em evolução', description: 'Estruturas documentais e dados flexíveis em experiências full-stack.', projects: ['Savory'] }
+    ]
+  },
+  {
+    id: 'tools', title: 'Ferramentas', rune: '⚒', accent: '#c59a52', description: 'Instrumentos que sustentam criação, colaboração e entrega técnica.',
+    technologies: [
+      { name: 'Git & GitHub', rank: 'Domínio principal', description: 'Versionamento, colaboração, revisão e manutenção da jornada do código.', projects: ['Todos os projetos principais'] },
+      { name: 'Figma', rank: 'Experiência sólida', description: 'Prototipação, direção visual e tradução de ideias em interfaces.', projects: ['Portfólio Alice', 'DevWizard Portfolio'] },
+      { name: 'Vite', rank: 'Experiência sólida', description: 'Ambientes front-end rápidos, builds modernos e organização de projetos.', projects: ['Savory', 'Behorner-Control'] },
+      { name: 'Notion', rank: 'Aplicação prática', description: 'Documentação, planejamento de entregas e organização do conhecimento.', projects: ['Gestão de projetos', 'Mentorias'] }
+    ]
+  },
+  {
+    id: 'full-stack', title: 'Full-Stack', rune: '∞', accent: '#9565d8', description: 'Visão completa do produto, da interface à arquitetura dos serviços.',
+    technologies: [
+      { name: 'Arquitetura Web', rank: 'Domínio principal', description: 'Integração entre interface, serviços, persistência e experiência final.', projects: ['Savory', 'Behorner-Control'] },
+      { name: 'APIs & Integrações', rank: 'Experiência sólida', description: 'Contratos de dados, comunicação entre camadas e serviços externos.', projects: ['Behorner-Control', 'Hacktohon'] },
+      { name: 'UX Responsiva', rank: 'Domínio principal', description: 'Experiências consistentes, acessíveis e adaptadas a diferentes telas.', projects: ['DevWizard Portfolio', 'Portfólio Alice'] },
+      { name: 'Deploy & Evolução', rank: 'Em evolução', description: 'Preparação de builds, publicação e manutenção incremental de produtos.', projects: ['Projetos autorais', 'Soluções para clientes'] }
+    ]
+  }
+];
+
+const spellLibrary = document.querySelector('.spell-library');
+const spellShelf = document.getElementById('spell-book-shelf');
+const spellGrimoire = document.getElementById('spell-grimoire');
+const spellInvocation = document.getElementById('spell-invocation');
+let activeBook = null;
+let activeSpellPage = 0;
+let spellOpeningTimer;
+
+function renderSpellShelf() {
+  if (!spellShelf) return;
+  spellShelf.innerHTML = spellDomains.map((domain, index) => `
+    <button class="spell-book${activeBook?.id === domain.id ? ' spell-book--active' : ''}" type="button" data-spell-book="${domain.id}" style="--book-accent:${domain.accent};--book-order:${index}" aria-label="Consultar grimório de ${domain.title}">
+      <span class="spell-book__bands" aria-hidden="true"></span>
+      <i aria-hidden="true">${domain.rune}</i>
+      <strong>${domain.title}</strong>
+      <small>Volume ${String(index + 1).padStart(2, '0')}</small>
+    </button>`).join('');
+}
+
+function renderSpellGrimoire(focusControl = false) {
+  if (!spellGrimoire || !activeBook) return;
+  const pageCount = Math.ceil(activeBook.technologies.length / 2);
+  const entries = activeBook.technologies.slice(activeSpellPage * 2, activeSpellPage * 2 + 2);
+  spellGrimoire.style.setProperty('--book-accent', activeBook.accent);
+  spellGrimoire.innerHTML = `
+    <button class="spell-grimoire__close" type="button" aria-label="Fechar grimório">×</button>
+    <header><span>${activeBook.rune} Escola de domínio</span><h3>Grimório do ${activeBook.title}</h3><p>${activeBook.description}</p><small>Página ${activeSpellPage + 1} de ${pageCount}</small></header>
+    <div class="spell-grimoire__spread">
+      ${entries.map((technology, index) => `<article class="spell-grimoire__page" data-page-side="${index ? 'right' : 'left'}">
+        <span class="spell-grimoire__folio">${String(activeSpellPage * 2 + index + 1).padStart(2, '0')}</span>
+        <h4>${technology.name}</h4><strong>${technology.rank}</strong><p>${technology.description}</p>
+        <div><small>Usado em</small><ul>${technology.projects.map(project => `<li>${project}</li>`).join('')}</ul></div>
+      </article>`).join('')}
+    </div>
+    <nav class="spell-grimoire__navigation" aria-label="Páginas do grimório">
+      <button type="button" data-spell-page="prev" ${activeSpellPage === 0 ? 'disabled' : ''}>‹ Página anterior</button>
+      <span aria-hidden="true">◇</span>
+      <button type="button" data-spell-page="next" ${activeSpellPage >= pageCount - 1 ? 'disabled' : ''}>Próxima página ›</button>
+    </nav>`;
+  spellGrimoire.hidden = false;
+  if (focusControl) spellGrimoire.querySelector('.spell-grimoire__close')?.focus();
+}
+
+function openSpellBook(bookId) {
+  const selected = spellDomains.find(domain => domain.id === bookId);
+  if (!selected || !spellLibrary) return;
+  window.clearTimeout(spellOpeningTimer);
+  activeBook = selected;
+  activeSpellPage = 0;
+  spellLibrary.dataset.libraryState = 'selecting';
+  renderSpellShelf();
+  if (spellInvocation) {
+    spellInvocation.style.setProperty('--book-accent', selected.accent);
+    spellInvocation.innerHTML = `<span></span><i>${selected.rune}</i><strong>${selected.title}</strong><small>Volume ${String(spellDomains.indexOf(selected) + 1).padStart(2, '0')}</small>`;
+    spellInvocation.hidden = false;
+  }
+  spellOpeningTimer = window.setTimeout(() => {
+    spellLibrary.dataset.libraryState = 'opening';
+    spellOpeningTimer = window.setTimeout(() => {
+      if (spellInvocation) spellInvocation.hidden = true;
+      renderSpellGrimoire(true);
+      spellLibrary.dataset.libraryState = 'open';
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 420);
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 520);
+}
+
+function closeSpellBook() {
+  if (!spellLibrary || !activeBook) return;
+  const returnId = activeBook.id;
+  spellLibrary.dataset.libraryState = 'closing';
+  if (spellInvocation) {
+    spellInvocation.innerHTML = `<span></span><i>${activeBook.rune}</i><strong>${activeBook.title}</strong><small>Retornando</small>`;
+    spellInvocation.style.setProperty('--book-accent', activeBook.accent);
+    spellInvocation.hidden = false;
+  }
+  spellGrimoire.hidden = true;
+  window.setTimeout(() => {
+    activeBook = null;
+    activeSpellPage = 0;
+    spellLibrary.dataset.libraryState = 'idle';
+    renderSpellShelf();
+    if (spellInvocation) spellInvocation.hidden = true;
+    spellShelf?.querySelector(`[data-spell-book="${returnId}"]`)?.focus();
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 30 : 280);
+}
+
+spellShelf?.addEventListener('click', event => {
+  const book = event.target.closest('[data-spell-book]');
+  if (book) openSpellBook(book.dataset.spellBook);
+});
+
+spellGrimoire?.addEventListener('click', event => {
+  if (event.target.closest('.spell-grimoire__close')) return closeSpellBook();
+  const pageButton = event.target.closest('[data-spell-page]');
+  if (!pageButton || !activeBook) return;
+  const pageCount = Math.ceil(activeBook.technologies.length / 2);
+  activeSpellPage = Math.max(0, Math.min(pageCount - 1, activeSpellPage + (pageButton.dataset.spellPage === 'next' ? 1 : -1)));
+  spellGrimoire.classList.remove('is-turning');
+  void spellGrimoire.offsetWidth;
+  spellGrimoire.classList.add('is-turning');
+  renderSpellGrimoire();
+});
+
+spellLibrary?.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && activeBook && spellLibrary.dataset.libraryState === 'open') {
+    event.preventDefault();
+    closeSpellBook();
+  }
+});
+
+renderSpellShelf();
