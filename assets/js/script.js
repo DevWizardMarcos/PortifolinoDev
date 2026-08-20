@@ -810,12 +810,16 @@ let spellOpeningTimer;
 
 function renderSpellShelf() {
   if (!spellShelf) return;
-  spellShelf.innerHTML = spellDomains.map((domain, index) => `
-    <button class="spell-book${activeBook?.id === domain.id ? ' spell-book--active' : ''}" type="button" data-spell-book="${domain.id}" style="--book-accent:${domain.accent};--book-order:${index}" aria-label="Consultar grimório de ${domain.title}">
-      <span class="spell-book__bands" aria-hidden="true"></span>
-      <i aria-hidden="true">${domain.rune}</i>
-      <strong>${domain.title}</strong>
-      <small>Volume ${String(index + 1).padStart(2, '0')}</small>
+  const coverByDomain = { 'front-end': 'front', 'back-end': 'back', data: 'dados', tools: 'ferramentas' };
+  // A ordem da estante é independente dos dados: Full-Stack permanece no trono central.
+  const shelfDomains = ['front-end', 'back-end', 'full-stack', 'data', 'tools']
+    .map(id => spellDomains.find(domain => domain.id === id));
+  spellShelf.innerHTML = shelfDomains.map((domain, index) => `
+    <button class="spell-book spell-book--${domain.id}${activeBook?.id === domain.id ? ' spell-book--active' : ''}" type="button" data-spell-book="${domain.id}" style="--book-accent:${domain.accent};--book-order:${index}" aria-label="Consultar grimório de ${domain.title}">
+      ${coverByDomain[domain.id]
+        ? `<img src="./assets/img/arcenal/${coverByDomain[domain.id]}.png" alt="Capa do grimório ${domain.title}" draggable="false">`
+        : `<span class="spell-book__cover" aria-hidden="true"><i>${domain.rune}</i><strong>${domain.title}</strong><small>Volume 05</small></span>`}
+      <span class="spell-book__label" aria-hidden="true">${domain.title}<small>Volume ${String(spellDomains.indexOf(domain) + 1).padStart(2, '0')}</small></span>
     </button>`).join('');
 }
 

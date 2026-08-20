@@ -4,70 +4,1448 @@
   box-sizing: border-box;
 }
 
-/* Biblioteca de Feitiços — experiência de domínios técnicos */
+/* Biblioteca de Feitiços: altar arcano (camada final de composição) */
 .spell-library {
-  --library-gold: #c8a35e;
-  position: relative;
-  min-height: 920px;
-  padding: clamp(5rem, 9vw, 8rem) clamp(1rem, 4vw, 3rem);
+  min-height: 980px;
+  padding: clamp(5rem, 8vw, 8rem) clamp(1rem, 3vw, 2.5rem);
   overflow: hidden;
-  isolation: isolate;
-  color: #eee2ca;
-  background: radial-gradient(ellipse at 50% 38%, rgba(92, 53, 111, .2), transparent 42%), linear-gradient(180deg, #09060e, #120b18 52%, #07050a)
+  background:
+    radial-gradient(
+      ellipse at 50% 55%,
+      rgba(93, 48, 119, 0.2),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #07050b 0%, #100918 42%, #050407 100%);
 }
-.spell-library__atmosphere {position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.7),transparent 24% 76%,rgba(0,0,0,.7)),repeating-linear-gradient(90deg,transparent 0 12%,rgba(196,154,78,.035) 12.2%,transparent 12.5% 24%)}
-.spell-library__header {position:relative;z-index:3;max-width:760px;margin:0 auto 2.5rem;text-align:center}
-.spell-library__header>span {color:#bd9860;font:700 .62rem/1 Cinzel,serif;letter-spacing:.28em;text-transform:uppercase}
-.spell-library__header h2 {margin:.75rem 0 .8rem;color:#f4e2bc;font:700 clamp(2rem,4.5vw,4rem)/1.05 Cinzel,serif;letter-spacing:.045em;text-shadow:0 8px 28px #000,0 0 20px rgba(126,76,151,.22)}
-.spell-library__header p {margin:0;color:#cbbfae;font:400 clamp(.9rem,1.25vw,1.05rem)/1.65 Lora,serif}
-.spell-library__chamber {position:relative;width:min(1160px,100%);min-height:620px;margin:auto;border:1px solid rgba(201,160,83,.2);border-radius:120px 120px 10px 10px/45px 45px 10px 10px;background:radial-gradient(ellipse at 50% 42%,rgba(104,61,124,.16),transparent 38%),linear-gradient(180deg,rgba(22,14,29,.94),rgba(7,5,10,.98));box-shadow:inset 0 0 80px #030205,0 30px 70px rgba(0,0,0,.4);perspective:1400px}
-.spell-library__shelf-frame {position:absolute;z-index:2;left:7%;right:7%;top:16%;height:315px;padding:2.5rem 5% 0;border:9px double rgba(132,96,53,.55);border-bottom-width:16px;border-radius:70px 70px 5px 5px/28px 28px 5px 5px;background:linear-gradient(180deg,#17101d,#0b0710);box-shadow:inset 0 20px 40px #050308,inset 0 -20px 30px rgba(66,42,28,.38),0 20px 35px #000;transition:filter .45s ease,transform .5s ease,opacity .4s ease}
-.spell-library__shelf-frame::before {content:'';position:absolute;inset:12px;border:1px solid rgba(198,154,78,.13);border-radius:55px 55px 2px 2px/20px 20px 2px 2px;pointer-events:none}
-.spell-library__shelf {position:relative;z-index:2;display:flex;height:240px;align-items:flex-end;justify-content:center;gap:clamp(.65rem,1.6vw,1.35rem)}
-.spell-library__shelf-base {position:absolute;z-index:3;left:-3%;right:-3%;bottom:-17px;height:29px;border:1px solid rgba(198,151,70,.42);clip-path:polygon(2% 0,98% 0,100% 45%,97% 100%,3% 100%,0 45%);background:linear-gradient(180deg,#493325,#1b1216 58%,#09070a);box-shadow:0 16px 24px #000,inset 0 2px rgba(234,197,119,.12)}
-.spell-book {position:relative;width:clamp(76px,9vw,106px);height:calc(190px + var(--book-order)*7px);max-height:224px;padding:1rem .55rem .75rem;border:1px solid color-mix(in srgb,var(--book-accent) 40%,#8d6e48);border-radius:5px 9px 3px 3px;color:#eadfc8;background:linear-gradient(90deg,#100b15,color-mix(in srgb,var(--book-accent) 15%,#291b2e) 18% 82%,#0c0910);box-shadow:8px 9px 15px rgba(0,0,0,.52),inset 5px 0 8px rgba(255,255,255,.025),inset -5px 0 8px rgba(0,0,0,.45);transform-origin:center bottom;cursor:pointer;transition:transform .34s cubic-bezier(.22,.75,.28,1),filter .3s ease,box-shadow .3s ease}
-.spell-book:nth-child(even){height:210px;transform:rotate(1deg)}.spell-book:nth-child(3){height:224px;transform:rotate(-1deg)}
-.spell-book__bands::before,.spell-book__bands::after {content:'';position:absolute;left:5px;right:5px;height:7px;border-block:1px solid color-mix(in srgb,var(--book-accent) 52%,#9c794b);background:rgba(7,5,10,.42)}
-.spell-book__bands::before{top:18px}.spell-book__bands::after{bottom:18px}
-.spell-book i {position:absolute;top:44px;left:50%;display:grid;width:30px;height:30px;place-items:center;border:1px solid color-mix(in srgb,var(--book-accent) 62%,#b99050);border-radius:50%;color:color-mix(in srgb,var(--book-accent) 75%,#f1d9a6);transform:translateX(-50%);font-style:normal;text-shadow:0 0 9px var(--book-accent);transition:.3s}
-.spell-book strong {position:absolute;top:90px;bottom:45px;left:50%;display:flex;align-items:center;justify-content:center;color:#eadcbc;transform:translateX(-50%);font:700 clamp(.55rem,.8vw,.69rem)/1.3 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl}
-.spell-book small {position:absolute;left:50%;bottom:29px;color:#988a75;transform:translateX(-50%);font:700 .42rem/1 Cinzel,serif;letter-spacing:.08em;white-space:nowrap}
-.spell-book:hover,.spell-book:focus-visible {filter:brightness(1.16) saturate(1.08);transform:translateY(-14px) scale(1.025);box-shadow:10px 18px 24px #000,0 0 18px color-mix(in srgb,var(--book-accent) 24%,transparent);outline:none}
-.spell-book:focus-visible {box-shadow:0 0 0 2px #0b0710,0 0 0 4px #d4ae64,10px 18px 24px #000}
-.spell-book--active {z-index:8;filter:brightness(1.2);transform:translateY(92px) scale(1.12)!important;box-shadow:0 24px 42px #000,0 0 28px color-mix(in srgb,var(--book-accent) 30%,transparent)}
-.spell-library__stage {position:absolute;z-index:5;inset:4% 4% 5%;display:grid;place-items:center;pointer-events:none}
-.spell-grimoire {position:relative;width:min(860px,92%);min-height:470px;padding:4.6rem 3rem 3.4rem;border:2px solid color-mix(in srgb,var(--book-accent) 35%,#a7804d);border-radius:8px 18px 18px 8px;background:linear-gradient(90deg,#d8c49e 0 49.7%,#a58d69 49.9% 50.1%,#dbc7a1 50.3%);box-shadow:0 32px 70px #000,0 0 38px color-mix(in srgb,var(--book-accent) 18%,transparent),inset 0 0 45px rgba(73,48,35,.25);pointer-events:auto;animation:grimoireOpen .52s cubic-bezier(.2,.75,.25,1) both}
-.spell-grimoire::before {content:'';position:absolute;inset:10px;border:1px solid rgba(88,62,40,.25);border-radius:5px 14px 14px 5px;pointer-events:none}.spell-grimoire::after{content:'';position:absolute;top:3%;bottom:3%;left:50%;width:2px;background:linear-gradient(transparent,rgba(76,52,38,.45) 12% 88%,transparent);box-shadow:0 0 8px rgba(74,48,32,.32)}
-.spell-grimoire__close {position:absolute;z-index:7;right:18px;top:15px;width:36px;height:36px;border:1px solid rgba(97,67,43,.38);border-radius:50%;color:#5c3d2d;background:rgba(232,212,171,.72);font-size:1.2rem;cursor:pointer}.spell-grimoire__close:hover,.spell-grimoire__close:focus-visible{color:#f5e8ce;background:#4b3049;outline:2px solid #8a6041;outline-offset:2px}
-.spell-grimoire>header {position:absolute;z-index:3;top:18px;left:10%;right:10%;text-align:center}.spell-grimoire>header span {color:#755148;font:700 .48rem/1 Cinzel,serif;letter-spacing:.2em;text-transform:uppercase}.spell-grimoire>header h3 {margin:.35rem 0 .2rem;color:#39262c;font:700 clamp(1rem,2vw,1.5rem)/1.15 Cinzel,serif;letter-spacing:.05em}.spell-grimoire>header small{color:#806a52;font:.52rem/1 Lora,serif}
-.spell-grimoire__spread {display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}.spell-grimoire__page {position:relative;min-width:0;color:#44342d}.spell-grimoire__folio{position:absolute;right:0;top:0;color:#9b7b54;font:.5rem/1 Cinzel,serif}.spell-grimoire__page h4{margin:.2rem 0 .3rem;color:#38242d;font:700 clamp(1.15rem,2vw,1.5rem)/1.2 Cinzel,serif}.spell-grimoire__page>strong{display:block;color:var(--book-accent);font:700 .56rem/1 Cinzel,serif;letter-spacing:.12em;text-transform:uppercase}.spell-grimoire__page>p{min-height:4.8em;margin:1rem 0;color:#544237;font:400 .88rem/1.58 Lora,serif}.spell-grimoire__page>div{padding-top:.85rem;border-top:1px solid rgba(89,62,39,.2)}.spell-grimoire__page>div small{color:#725742;font:700 .52rem/1 Cinzel,serif;letter-spacing:.14em;text-transform:uppercase}.spell-grimoire__page ul{margin:.65rem 0 0;padding:0;list-style:none}.spell-grimoire__page li{margin:.38rem 0;color:#514039;font:.76rem/1.35 Lora,serif}.spell-grimoire__page li::before{content:'◇';margin-right:.5rem;color:var(--book-accent);font-size:.48rem}
-.spell-grimoire__navigation {position:absolute;z-index:4;left:3rem;right:3rem;bottom:1.1rem;display:flex;align-items:center;justify-content:space-between}.spell-grimoire__navigation button{border:0;color:#604638;background:none;font:700 .54rem/1 Cinzel,serif;letter-spacing:.08em;cursor:pointer}.spell-grimoire__navigation button:hover:not(:disabled),.spell-grimoire__navigation button:focus-visible{color:#472a4c;transform:translateY(-2px);outline:none}.spell-grimoire__navigation button:disabled{opacity:.32;cursor:default}.spell-grimoire__navigation>span{color:var(--book-accent)}
-.spell-library__hint {position:absolute;left:50%;bottom:2rem;margin:0;color:#9f8c72;transform:translateX(-50%);font:700 .55rem/1 Cinzel,serif;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}.spell-library__hint span{margin-right:.55rem;color:#9b67b1}
-.spell-library[data-library-state="selecting"] .spell-library__shelf-frame,.spell-library[data-library-state="opening"] .spell-library__shelf-frame,.spell-library[data-library-state="open"] .spell-library__shelf-frame,.spell-library[data-library-state="closing"] .spell-library__shelf-frame{filter:brightness(.38) blur(1px);transform:translateZ(-170px) scale(.88)}
-.spell-library[data-library-state="open"] .spell-library__shelf-frame{opacity:.42}.spell-library[data-library-state="open"] .spell-library__hint{opacity:0}.spell-grimoire.is-turning .spell-grimoire__page{animation:spellPageTurn .32s ease both}
-@keyframes grimoireOpen{from{opacity:0;transform:perspective(900px) rotateX(12deg) scale(.72)}to{opacity:1;transform:none}}
-@keyframes spellPageTurn{from{opacity:.3;transform:translateX(8px)}}
-@media(max-width:760px){.spell-library{min-height:900px;padding-inline:.75rem}.spell-library__chamber{min-height:650px}.spell-library__shelf-frame{left:3%;right:3%;padding-inline:3%}.spell-library__shelf{gap:.35rem}.spell-book{width:16vw;min-width:54px}.spell-book strong{font-size:.48rem}.spell-grimoire{width:94%;min-height:535px;padding:4.6rem 1.4rem 3.5rem;background:linear-gradient(180deg,#d8c49e,#c7ad82)}.spell-grimoire::after{display:none}.spell-grimoire__spread{grid-template-columns:1fr;gap:1.5rem}.spell-grimoire__page:nth-child(2){padding-top:1rem;border-top:1px solid rgba(89,62,39,.2)}.spell-grimoire__page>p{min-height:auto}.spell-grimoire__navigation{left:1.25rem;right:1.25rem}.spell-library__hint{font-size:.45rem}}
-@media(prefers-reduced-motion:reduce){.spell-book,.spell-library__shelf-frame{transition-duration:.01ms}.spell-grimoire,.spell-grimoire.is-turning .spell-grimoire__page{animation:none}}
 
-.spell-library__backdrop,.spell-library__fog {position:absolute;z-index:3;inset:0;opacity:0;pointer-events:none;transition:opacity .5s ease}
-.spell-library__backdrop {background:radial-gradient(circle at 50% 52%,rgba(112,65,134,.16),rgba(3,2,6,.72) 66%)}
-.spell-library__fog {inset:26% 9% 7%;background:radial-gradient(ellipse at 50% 62%,rgba(148,88,173,.22),transparent 58%),radial-gradient(ellipse at 26% 65%,rgba(93,52,115,.16),transparent 45%),radial-gradient(ellipse at 76% 58%,rgba(114,62,136,.14),transparent 46%);filter:blur(18px);animation:spellFogDrift 8s ease-in-out infinite alternate}
-.spell-library[data-library-state="selecting"] .spell-library__backdrop,.spell-library[data-library-state="opening"] .spell-library__backdrop,.spell-library[data-library-state="open"] .spell-library__backdrop,.spell-library[data-library-state="closing"] .spell-library__backdrop{opacity:1}
-.spell-library[data-library-state="selecting"] .spell-library__fog,.spell-library[data-library-state="opening"] .spell-library__fog,.spell-library[data-library-state="open"] .spell-library__fog,.spell-library[data-library-state="closing"] .spell-library__fog{opacity:.92}
-.spell-invocation {position:relative;z-index:8;width:150px;height:270px;border:2px solid color-mix(in srgb,var(--book-accent) 42%,#b58c51);border-radius:7px 14px 5px 5px;color:#eadfc7;background:linear-gradient(90deg,#0c0910,color-mix(in srgb,var(--book-accent) 18%,#2c1d31) 18% 82%,#09070c);box-shadow:0 34px 65px #000,0 0 34px color-mix(in srgb,var(--book-accent) 28%,transparent),inset 7px 0 10px rgba(255,255,255,.025);transform-style:preserve-3d;animation:spellBookAdvance .52s cubic-bezier(.17,.78,.25,1) both}
-.spell-invocation::before,.spell-invocation::after{content:'';position:absolute;left:7px;right:7px;height:10px;border-block:1px solid color-mix(in srgb,var(--book-accent) 50%,#af854d)}.spell-invocation::before{top:22px}.spell-invocation::after{bottom:22px}
-.spell-invocation>span{position:absolute;inset:5px;border:1px solid rgba(221,181,106,.18);border-radius:4px 10px 3px 3px}.spell-invocation>i{position:absolute;top:55px;left:50%;display:grid;width:44px;height:44px;place-items:center;border:1px solid color-mix(in srgb,var(--book-accent) 64%,#c49b5b);border-radius:50%;color:#ead8ad;transform:translateX(-50%);font-style:normal;text-shadow:0 0 12px var(--book-accent)}.spell-invocation>strong{position:absolute;left:15px;right:15px;top:125px;color:#efe1c1;font:700 .72rem/1.4 Cinzel,serif;letter-spacing:.14em;text-align:center;text-transform:uppercase}.spell-invocation>small{position:absolute;left:0;right:0;bottom:45px;color:#a9987d;font:700 .48rem/1 Cinzel,serif;letter-spacing:.12em;text-align:center;text-transform:uppercase}
-.spell-library[data-library-state="opening"] .spell-invocation{animation:spellCoverOpen .42s cubic-bezier(.3,.05,.25,1) both}.spell-library[data-library-state="closing"] .spell-invocation{animation:spellBookReturn .28s ease-in both}
-.spell-grimoire>header p{max-width:520px;margin:.32rem auto;color:#715c49;font:italic .68rem/1.35 Lora,serif}.spell-grimoire>header small{display:block;margin-top:.22rem}
-.spell-grimoire {padding-top:5.8rem}
-.spell-library[data-library-state="selecting"] .spell-book:not(.spell-book--active),.spell-library[data-library-state="opening"] .spell-book:not(.spell-book--active){filter:brightness(.38) saturate(.5)}
-@keyframes spellBookAdvance{from{opacity:.15;transform:translateY(-105px) scale(.38) perspective(800px) rotateX(8deg)}70%{transform:translateY(6px) scale(1.04)}to{opacity:1;transform:none}}
-@keyframes spellCoverOpen{0%{opacity:1;transform:none}55%{transform:perspective(900px) rotateY(-16deg) scaleX(1.18)}100%{opacity:0;transform:perspective(900px) rotateY(-46deg) scaleX(2.65)}}
-@keyframes spellBookReturn{to{opacity:0;transform:translateY(-100px) scale(.38)}}
-@keyframes spellFogDrift{to{transform:translateX(2%) scaleX(1.06);filter:blur(21px)}}
-@media(prefers-reduced-motion:reduce){.spell-library__fog,.spell-invocation,.spell-library[data-library-state="opening"] .spell-invocation,.spell-library[data-library-state="closing"] .spell-invocation{animation:none}}
+.spell-library__header {
+  margin-bottom: 2rem;
+}
+.spell-library__header > span {
+  color: #c8a663;
+  letter-spacing: 0.32em;
+}
+.spell-library__header h2 {
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
+  letter-spacing: 0.06em;
+}
+.spell-library__header p {
+  max-width: 650px;
+  margin-inline: auto;
+}
 
+.spell-library__chamber {
+  width: min(1240px, 100%);
+  min-height: 650px;
+  overflow: hidden;
+  border: 1px solid rgba(199, 157, 83, 0.3);
+  border-radius: 150px 150px 8px 8px / 72px 72px 8px 8px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.55),
+      transparent 28% 72%,
+      rgba(0, 0, 0, 0.55)
+    ),
+    radial-gradient(
+      ellipse at 50% 46%,
+      rgba(84, 42, 110, 0.2),
+      transparent 46%
+    ),
+    linear-gradient(180deg, #17101f 0%, #08060c 72%);
+  box-shadow:
+    inset 0 0 110px #020103,
+    0 34px 80px rgba(0, 0, 0, 0.52);
+}
+
+.spell-library__chamber::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(216, 178, 105, 0.11);
+  border-radius: 140px 140px 3px 3px / 62px 62px 3px 3px;
+  pointer-events: none;
+}
+
+.spell-library__arch {
+  position: absolute;
+  inset: 5% 4% auto;
+  height: 430px;
+  opacity: 0.48;
+}
+.spell-library__arch::before,
+.spell-library__arch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 23%;
+  border: 1px solid rgba(173, 129, 69, 0.35);
+}
+.spell-library__arch::before {
+  left: 0;
+  border-radius: 80% 0 0;
+  border-right: 0;
+}
+.spell-library__arch::after {
+  right: 0;
+  border-radius: 0 80% 0 0;
+  border-left: 0;
+}
+.spell-library__arch span {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 82px;
+  height: 82px;
+  border: 1px solid rgba(193, 151, 80, 0.32);
+  transform: translateX(-50%) rotate(45deg);
+}
+.spell-library__arch span::after {
+  content: "✦";
+  position: absolute;
+  inset: 11px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(193, 151, 80, 0.22);
+  color: #8d659f;
+  font-style: normal;
+  transform: rotate(-45deg);
+}
+
+.spell-library__guardians {
+  position: absolute;
+  z-index: 3;
+  inset: 6% 0 6%;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+.spell-library__guardians img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.72));
+}
+.spell-flame {
+  position: absolute;
+  top: 15%;
+  width: 33px;
+  height: 55px;
+  border-radius: 68% 32% 66% 34% / 72% 38% 62% 28%;
+  transform: rotate(45deg);
+  animation: altarFlame 2.8s ease-in-out infinite alternate;
+}
+.spell-flame::before {
+  content: "";
+  position: absolute;
+  inset: 11px 9px 7px 12px;
+  border-radius: inherit;
+  background: #edf8ff;
+  opacity: 0.8;
+}
+.spell-flame::after {
+  content: "";
+  position: absolute;
+  inset: -25px;
+  border-radius: 50%;
+  filter: blur(15px);
+  opacity: 0.45;
+}
+.spell-flame b {
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: inherit;
+}
+.spell-flame--blue {
+  left: 16.8%;
+  background: linear-gradient(
+    135deg,
+    #e8fbff 5%,
+    #5bb8ff 40%,
+    #7747dc 75%,
+    transparent
+  );
+  box-shadow:
+    0 0 18px #557ee9,
+    0 0 42px rgba(93, 72, 210, 0.65);
+}
+.spell-flame--blue::after {
+  background: #4d6bd4;
+}
+.spell-flame--ember {
+  right: 16.8%;
+  background: linear-gradient(
+    135deg,
+    #fff4c9 5%,
+    #efad52 38%,
+    #c23a91 76%,
+    transparent
+  );
+  box-shadow:
+    0 0 18px #d66b9a,
+    0 0 42px rgba(222, 105, 80, 0.55);
+  animation-delay: -0.9s;
+}
+.spell-flame--ember::after {
+  background: #c34d82;
+}
+
+.spell-library__shelf-frame {
+  z-index: 4;
+  left: 19%;
+  right: 19%;
+  top: 23%;
+  height: 380px;
+  padding: 1rem 2.5% 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+.spell-library__shelf-frame::before {
+  display: none;
+}
+.spell-library__shelf {
+  height: 310px;
+  gap: clamp(0.1rem, 0.65vw, 0.55rem);
+  align-items: flex-end;
+}
+
+.spell-book,
+.spell-book:has(> img) {
+  flex: 0 1 112px;
+  width: clamp(76px, 8.4vw, 112px);
+  height: 268px;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  transform: rotate(0);
+}
+.spell-book:nth-child(1) {
+  height: 246px;
+  transform: rotate(-2deg);
+}
+.spell-book:nth-child(2) {
+  height: 261px;
+  transform: rotate(1.5deg);
+}
+.spell-book:nth-child(3) {
+  z-index: 4;
+  flex-basis: 136px;
+  width: clamp(96px, 10vw, 136px);
+  height: 304px;
+  margin-inline: 0.25rem;
+}
+.spell-book:nth-child(4) {
+  height: 263px;
+  transform: rotate(-1.5deg);
+}
+.spell-book:nth-child(5) {
+  height: 248px;
+  transform: rotate(2deg);
+}
+.spell-book > img {
+  object-fit: fill;
+  filter: drop-shadow(8px 12px 11px rgba(0, 0, 0, 0.78));
+}
+.spell-book:hover,
+.spell-book:focus-visible,
+.spell-book:has(> img):hover,
+.spell-book:has(> img):focus-visible {
+  z-index: 8;
+  filter: brightness(1.13) saturate(1.08);
+  transform: translateY(-14px) scale(1.035);
+  box-shadow: none;
+  outline: none;
+}
+.spell-book:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid #d5b46d;
+  box-shadow: 0 0 16px var(--book-accent);
+}
+
+.spell-book__cover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 2px solid #b69551;
+  border-radius: 6px 11px 5px 5px;
+  background: linear-gradient(90deg, #140d1e, #38234d 14% 86%, #0b0710);
+  box-shadow:
+    9px 15px 18px #000,
+    inset 6px 0 10px rgba(255, 255, 255, 0.05),
+    inset 0 0 30px #100818;
+}
+.spell-book__cover::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(225, 190, 111, 0.65);
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 28px,
+    rgba(216, 175, 91, 0.11) 29px 30px
+  );
+}
+.spell-book__cover::after {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  top: 31%;
+  aspect-ratio: 1;
+  border: 1px solid #c9a45d;
+  transform: rotate(45deg);
+  box-shadow: 0 0 22px rgba(149, 101, 216, 0.38);
+}
+.spell-book__cover i {
+  position: absolute;
+  z-index: 2;
+  top: 36%;
+  left: 50%;
+  color: #f0dba2;
+  transform: translate(-50%, -50%);
+  font:
+    400 2rem/1 Cinzel,
+    serif;
+  text-shadow: 0 0 12px var(--book-accent);
+}
+.spell-book__cover strong {
+  position: absolute;
+  z-index: 2;
+  top: 54%;
+  bottom: 20%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  color: #f0dfbd;
+  transform: translateX(-50%);
+  writing-mode: vertical-rl;
+  font:
+    700 0.7rem/1.2 Cinzel,
+    serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.spell-book__cover small {
+  position: absolute;
+  z-index: 2;
+  bottom: 8%;
+  left: 50%;
+  color: #cbb889;
+  transform: translateX(-50%);
+  font:
+    700 0.45rem/1 Cinzel,
+    serif;
+  white-space: nowrap;
+}
+.spell-book__label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 16px);
+  color: #cfc0a4;
+  transform: translateX(-50%);
+  font:
+    700 0.48rem/1 Cinzel,
+    serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.74;
+}
+.spell-book__label small {
+  display: block;
+  margin-top: 0.38rem;
+  color: #89775e;
+  font-size: 0.4rem;
+}
+
+.spell-library__dais {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: -8px;
+  width: 190px;
+  height: 68px;
+  border: 1px solid rgba(201, 159, 82, 0.5);
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, #38213f, #130d18 68%, #050407);
+  transform: translateX(-50%);
+  box-shadow:
+    0 22px 30px #000,
+    inset 0 2px rgba(242, 208, 134, 0.15);
+}
+.spell-library__sigil {
+  position: absolute;
+  z-index: -2;
+  left: 50%;
+  bottom: -92px;
+  display: grid;
+  width: 120px;
+  height: 120px;
+  place-items: center;
+  border: 1px solid rgba(177, 125, 190, 0.22);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.spell-library__sigil::before,
+.spell-library__sigil::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(201, 159, 82, 0.2);
+  transform: rotate(45deg);
+}
+.spell-library__sigil::after {
+  inset: 31px;
+  transform: rotate(0);
+}
+.spell-library__sigil span {
+  color: rgba(206, 168, 99, 0.46);
+  font:
+    400 1rem/1 Cinzel,
+    serif;
+}
+.spell-library__shelf-base {
+  left: -12%;
+  right: -12%;
+  bottom: -16px;
+  height: 34px;
+  background: linear-gradient(180deg, #6a4932, #28181d 55%, #080608);
+  border-color: rgba(220, 177, 95, 0.55);
+  box-shadow:
+    0 19px 30px #000,
+    inset 0 2px rgba(255, 220, 150, 0.16);
+}
+
+.spell-library__particles {
+  position: absolute;
+  z-index: 3;
+  inset: 8% 8% 12%;
+  pointer-events: none;
+}
+.spell-library__particles i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #cfab69;
+  box-shadow: 0 0 8px #ad74c8;
+  animation: altarMote 6s linear infinite;
+}
+.spell-library__particles i:nth-child(1) {
+  left: 28%;
+  top: 62%;
+  animation-delay: -1s;
+}
+.spell-library__particles i:nth-child(2) {
+  left: 39%;
+  top: 32%;
+  animation-delay: -4s;
+}
+.spell-library__particles i:nth-child(3) {
+  left: 49%;
+  top: 72%;
+  animation-delay: -2s;
+}
+.spell-library__particles i:nth-child(4) {
+  left: 61%;
+  top: 44%;
+  animation-delay: -5s;
+}
+.spell-library__particles i:nth-child(5) {
+  left: 72%;
+  top: 68%;
+  animation-delay: -3s;
+}
+.spell-library__particles i:nth-child(6) {
+  left: 55%;
+  top: 25%;
+  animation-delay: -0.5s;
+}
+
+.spell-library__stage {
+  z-index: 10;
+}
+.spell-library__hint {
+  bottom: 1.4rem;
+}
+.spell-library[data-library-state="selecting"] .spell-library__guardians,
+.spell-library[data-library-state="opening"] .spell-library__guardians,
+.spell-library[data-library-state="open"] .spell-library__guardians,
+.spell-library[data-library-state="closing"] .spell-library__guardians {
+  opacity: 0.25;
+  filter: blur(2px);
+  transform: scale(0.96);
+}
+.spell-library[data-library-state="selecting"] .spell-library__shelf-frame,
+.spell-library[data-library-state="opening"] .spell-library__shelf-frame,
+.spell-library[data-library-state="open"] .spell-library__shelf-frame,
+.spell-library[data-library-state="closing"] .spell-library__shelf-frame {
+  transform: translateZ(-170px) scale(0.86);
+}
+
+@keyframes altarFlame {
+  from {
+    transform: rotate(42deg) scale(0.92) skewY(-3deg);
+    filter: brightness(0.88);
+  }
+  to {
+    transform: rotate(48deg) scale(1.08) skewY(4deg);
+    filter: brightness(1.18);
+  }
+}
+@keyframes altarMote {
+  0% {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+  20%,
+  72% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+}
+
+@media (max-width: 900px) {
+  .spell-library {
+    min-height: 900px;
+  }
+  .spell-library__chamber {
+    min-height: 600px;
+  }
+  .spell-library__guardians {
+    inset: 10% -10% 5%;
+  }
+  .spell-flame--blue {
+    left: 11%;
+  }
+  .spell-flame--ember {
+    right: 11%;
+  }
+  .spell-library__shelf-frame {
+    left: 12%;
+    right: 12%;
+    top: 25%;
+  }
+}
+
+@media (max-width: 620px) {
+  .spell-library {
+    min-height: 820px;
+    padding-inline: 0.6rem;
+  }
+  .spell-library__header p br {
+    display: none;
+  }
+  .spell-library__chamber {
+    min-height: 545px;
+    border-radius: 70px 70px 6px 6px / 38px 38px 6px 6px;
+  }
+  .spell-library__guardians {
+    inset: 4% -32% 0;
+    opacity: 0.62;
+  }
+  .spell-flame {
+    top: 19%;
+    width: 22px;
+    height: 38px;
+  }
+  .spell-flame {
+    top: 16%;
+  }
+  .spell-flame--blue {
+    left: 22%;
+  }
+  .spell-flame--ember {
+    right: 22%;
+  }
+  .spell-library__shelf-frame {
+    left: 3%;
+    right: 3%;
+    top: 26%;
+    height: 320px;
+    padding-inline: 1%;
+  }
+  .spell-library__shelf {
+    height: 250px;
+    gap: 0;
+  }
+  .spell-book,
+  .spell-book:has(> img) {
+    flex-basis: 18.5%;
+    width: 18.5vw;
+    height: 205px;
+  }
+  .spell-book:nth-child(1),
+  .spell-book:nth-child(5) {
+    height: 180px;
+  }
+  .spell-book:nth-child(2),
+  .spell-book:nth-child(4) {
+    height: 193px;
+  }
+  .spell-book:nth-child(3) {
+    flex-basis: 22%;
+    width: 22vw;
+    height: 232px;
+    margin-inline: -1px;
+  }
+  .spell-book__cover strong {
+    font-size: 0.5rem;
+  }
+  .spell-book__cover small {
+    font-size: 0.34rem;
+  }
+  .spell-book__label {
+    display: none;
+  }
+  .spell-library__shelf-base {
+    left: -2%;
+    right: -2%;
+  }
+  .spell-library__dais {
+    width: 120px;
+    height: 52px;
+  }
+  .spell-library__sigil {
+    bottom: -70px;
+    width: 88px;
+    height: 88px;
+  }
+  .spell-library__hint {
+    width: 90%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .spell-grimoire {
+    min-height: 500px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spell-flame,
+  .spell-library__particles i {
+    animation: none;
+  }
+}
+
+/* Biblioteca de Feitiços — experiência de domínios técnicos */
+@layer spell-library-legacy {
+  .spell-library {
+    --library-gold: #c8a35e;
+    position: relative;
+    min-height: 920px;
+    padding: clamp(5rem, 9vw, 8rem) clamp(1rem, 4vw, 3rem);
+    overflow: hidden;
+    isolation: isolate;
+    color: #eee2ca;
+    background:
+      radial-gradient(
+        ellipse at 50% 38%,
+        rgba(92, 53, 111, 0.2),
+        transparent 42%
+      ),
+      linear-gradient(180deg, #09060e, #120b18 52%, #07050a);
+  }
+  .spell-library__atmosphere {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.7),
+        transparent 24% 76%,
+        rgba(0, 0, 0, 0.7)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 12%,
+        rgba(196, 154, 78, 0.035) 12.2%,
+        transparent 12.5% 24%
+      );
+  }
+  .spell-library__header {
+    position: relative;
+    z-index: 3;
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+  .spell-library__header > span {
+    color: #bd9860;
+    font:
+      700 0.62rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .spell-library__header h2 {
+    margin: 0.75rem 0 0.8rem;
+    color: #f4e2bc;
+    font:
+      700 clamp(2rem, 4.5vw, 4rem)/1.05 Cinzel,
+      serif;
+    letter-spacing: 0.045em;
+    text-shadow:
+      0 8px 28px #000,
+      0 0 20px rgba(126, 76, 151, 0.22);
+  }
+  .spell-library__header p {
+    margin: 0;
+    color: #cbbfae;
+    font:
+      400 clamp(0.9rem, 1.25vw, 1.05rem)/1.65 Lora,
+      serif;
+  }
+  .spell-library__chamber {
+    position: relative;
+    width: min(1160px, 100%);
+    min-height: 620px;
+    margin: auto;
+    border: 1px solid rgba(201, 160, 83, 0.2);
+    border-radius: 120px 120px 10px 10px/45px 45px 10px 10px;
+    background:
+      radial-gradient(
+        ellipse at 50% 42%,
+        rgba(104, 61, 124, 0.16),
+        transparent 38%
+      ),
+      linear-gradient(180deg, rgba(22, 14, 29, 0.94), rgba(7, 5, 10, 0.98));
+    box-shadow:
+      inset 0 0 80px #030205,
+      0 30px 70px rgba(0, 0, 0, 0.4);
+    perspective: 1400px;
+  }
+  .spell-library__shelf-frame {
+    position: absolute;
+    z-index: 2;
+    left: 7%;
+    right: 7%;
+    top: 16%;
+    height: 315px;
+    padding: 2.5rem 5% 0;
+    border: 9px double rgba(132, 96, 53, 0.55);
+    border-bottom-width: 16px;
+    border-radius: 70px 70px 5px 5px/28px 28px 5px 5px;
+    background: linear-gradient(180deg, #17101d, #0b0710);
+    box-shadow:
+      inset 0 20px 40px #050308,
+      inset 0 -20px 30px rgba(66, 42, 28, 0.38),
+      0 20px 35px #000;
+    transition:
+      filter 0.45s ease,
+      transform 0.5s ease,
+      opacity 0.4s ease;
+  }
+  .spell-library__shelf-frame::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(198, 154, 78, 0.13);
+    border-radius: 55px 55px 2px 2px/20px 20px 2px 2px;
+    pointer-events: none;
+  }
+  .spell-library__shelf {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 240px;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(0.65rem, 1.6vw, 1.35rem);
+  }
+  .spell-library__shelf-base {
+    position: absolute;
+    z-index: 3;
+    left: -3%;
+    right: -3%;
+    bottom: -17px;
+    height: 29px;
+    border: 1px solid rgba(198, 151, 70, 0.42);
+    clip-path: polygon(2% 0, 98% 0, 100% 45%, 97% 100%, 3% 100%, 0 45%);
+    background: linear-gradient(180deg, #493325, #1b1216 58%, #09070a);
+    box-shadow:
+      0 16px 24px #000,
+      inset 0 2px rgba(234, 197, 119, 0.12);
+  }
+  .spell-book {
+    position: relative;
+    width: clamp(76px, 9vw, 106px);
+    height: calc(190px + var(--book-order) * 7px);
+    max-height: 224px;
+    padding: 1rem 0.55rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--book-accent) 40%, #8d6e48);
+    border-radius: 5px 9px 3px 3px;
+    color: #eadfc8;
+    background: linear-gradient(
+      90deg,
+      #100b15,
+      color-mix(in srgb, var(--book-accent) 15%, #291b2e) 18% 82%,
+      #0c0910
+    );
+    box-shadow:
+      8px 9px 15px rgba(0, 0, 0, 0.52),
+      inset 5px 0 8px rgba(255, 255, 255, 0.025),
+      inset -5px 0 8px rgba(0, 0, 0, 0.45);
+    transform-origin: center bottom;
+    cursor: pointer;
+    transition:
+      transform 0.34s cubic-bezier(0.22, 0.75, 0.28, 1),
+      filter 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .spell-book:nth-child(even) {
+    height: 210px;
+    transform: rotate(1deg);
+  }
+  .spell-book:nth-child(3) {
+    height: 224px;
+    transform: rotate(-1deg);
+  }
+  .spell-book__bands::before,
+  .spell-book__bands::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    height: 7px;
+    border-block: 1px solid color-mix(in srgb, var(--book-accent) 52%, #9c794b);
+    background: rgba(7, 5, 10, 0.42);
+  }
+  .spell-book__bands::before {
+    top: 18px;
+  }
+  .spell-book__bands::after {
+    bottom: 18px;
+  }
+  .spell-book i {
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--book-accent) 62%, #b99050);
+    border-radius: 50%;
+    color: color-mix(in srgb, var(--book-accent) 75%, #f1d9a6);
+    transform: translateX(-50%);
+    font-style: normal;
+    text-shadow: 0 0 9px var(--book-accent);
+    transition: 0.3s;
+  }
+  .spell-book strong {
+    position: absolute;
+    top: 90px;
+    bottom: 45px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eadcbc;
+    transform: translateX(-50%);
+    font:
+      700 clamp(0.55rem, 0.8vw, 0.69rem)/1.3 Cinzel,
+      serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+  .spell-book small {
+    position: absolute;
+    left: 50%;
+    bottom: 29px;
+    color: #988a75;
+    transform: translateX(-50%);
+    font:
+      700 0.42rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .spell-book:hover,
+  .spell-book:focus-visible {
+    filter: brightness(1.16) saturate(1.08);
+    transform: translateY(-14px) scale(1.025);
+    box-shadow:
+      10px 18px 24px #000,
+      0 0 18px color-mix(in srgb, var(--book-accent) 24%, transparent);
+    outline: none;
+  }
+  .spell-book:focus-visible {
+    box-shadow:
+      0 0 0 2px #0b0710,
+      0 0 0 4px #d4ae64,
+      10px 18px 24px #000;
+  }
+  .spell-book:has(> img) {
+    width: clamp(92px, 11vw, 128px);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+  .spell-book > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(8px 10px 10px rgba(0, 0, 0, 0.65));
+    pointer-events: none;
+    user-select: none;
+  }
+  .spell-book:has(> img):hover,
+  .spell-book:has(> img):focus-visible {
+    box-shadow: none;
+  }
+  .spell-book--active {
+    z-index: 8;
+    filter: brightness(1.2);
+    transform: translateY(92px) scale(1.12) !important;
+    box-shadow:
+      0 24px 42px #000,
+      0 0 28px color-mix(in srgb, var(--book-accent) 30%, transparent);
+  }
+  .spell-library__stage {
+    position: absolute;
+    z-index: 5;
+    inset: 4% 4% 5%;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .spell-grimoire {
+    position: relative;
+    width: min(860px, 92%);
+    min-height: 470px;
+    padding: 4.6rem 3rem 3.4rem;
+    border: 2px solid color-mix(in srgb, var(--book-accent) 35%, #a7804d);
+    border-radius: 8px 18px 18px 8px;
+    background: linear-gradient(
+      90deg,
+      #d8c49e 0 49.7%,
+      #a58d69 49.9% 50.1%,
+      #dbc7a1 50.3%
+    );
+    box-shadow:
+      0 32px 70px #000,
+      0 0 38px color-mix(in srgb, var(--book-accent) 18%, transparent),
+      inset 0 0 45px rgba(73, 48, 35, 0.25);
+    pointer-events: auto;
+    animation: grimoireOpen 0.52s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+  }
+  .spell-grimoire::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(88, 62, 40, 0.25);
+    border-radius: 5px 14px 14px 5px;
+    pointer-events: none;
+  }
+  .spell-grimoire::after {
+    content: "";
+    position: absolute;
+    top: 3%;
+    bottom: 3%;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(
+      transparent,
+      rgba(76, 52, 38, 0.45) 12% 88%,
+      transparent
+    );
+    box-shadow: 0 0 8px rgba(74, 48, 32, 0.32);
+  }
+  .spell-grimoire__close {
+    position: absolute;
+    z-index: 7;
+    right: 18px;
+    top: 15px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(97, 67, 43, 0.38);
+    border-radius: 50%;
+    color: #5c3d2d;
+    background: rgba(232, 212, 171, 0.72);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .spell-grimoire__close:hover,
+  .spell-grimoire__close:focus-visible {
+    color: #f5e8ce;
+    background: #4b3049;
+    outline: 2px solid #8a6041;
+    outline-offset: 2px;
+  }
+  .spell-grimoire > header {
+    position: absolute;
+    z-index: 3;
+    top: 18px;
+    left: 10%;
+    right: 10%;
+    text-align: center;
+  }
+  .spell-grimoire > header span {
+    color: #755148;
+    font:
+      700 0.48rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .spell-grimoire > header h3 {
+    margin: 0.35rem 0 0.2rem;
+    color: #39262c;
+    font:
+      700 clamp(1rem, 2vw, 1.5rem)/1.15 Cinzel,
+      serif;
+    letter-spacing: 0.05em;
+  }
+  .spell-grimoire > header small {
+    color: #806a52;
+    font:
+      0.52rem/1 Lora,
+      serif;
+  }
+  .spell-grimoire__spread {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+  .spell-grimoire__page {
+    position: relative;
+    min-width: 0;
+    color: #44342d;
+  }
+  .spell-grimoire__folio {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #9b7b54;
+    font:
+      0.5rem/1 Cinzel,
+      serif;
+  }
+  .spell-grimoire__page h4 {
+    margin: 0.2rem 0 0.3rem;
+    color: #38242d;
+    font:
+      700 clamp(1.15rem, 2vw, 1.5rem)/1.2 Cinzel,
+      serif;
+  }
+  .spell-grimoire__page > strong {
+    display: block;
+    color: var(--book-accent);
+    font:
+      700 0.56rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .spell-grimoire__page > p {
+    min-height: 4.8em;
+    margin: 1rem 0;
+    color: #544237;
+    font:
+      400 0.88rem/1.58 Lora,
+      serif;
+  }
+  .spell-grimoire__page > div {
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(89, 62, 39, 0.2);
+  }
+  .spell-grimoire__page > div small {
+    color: #725742;
+    font:
+      700 0.52rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .spell-grimoire__page ul {
+    margin: 0.65rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .spell-grimoire__page li {
+    margin: 0.38rem 0;
+    color: #514039;
+    font:
+      0.76rem/1.35 Lora,
+      serif;
+  }
+  .spell-grimoire__page li::before {
+    content: "◇";
+    margin-right: 0.5rem;
+    color: var(--book-accent);
+    font-size: 0.48rem;
+  }
+  .spell-grimoire__navigation {
+    position: absolute;
+    z-index: 4;
+    left: 3rem;
+    right: 3rem;
+    bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .spell-grimoire__navigation button {
+    border: 0;
+    color: #604638;
+    background: none;
+    font:
+      700 0.54rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .spell-grimoire__navigation button:hover:not(:disabled),
+  .spell-grimoire__navigation button:focus-visible {
+    color: #472a4c;
+    transform: translateY(-2px);
+    outline: none;
+  }
+  .spell-grimoire__navigation button:disabled {
+    opacity: 0.32;
+    cursor: default;
+  }
+  .spell-grimoire__navigation > span {
+    color: var(--book-accent);
+  }
+  .spell-library__hint {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    margin: 0;
+    color: #9f8c72;
+    transform: translateX(-50%);
+    font:
+      700 0.55rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .spell-library__hint span {
+    margin-right: 0.55rem;
+    color: #9b67b1;
+  }
+  .spell-library[data-library-state="selecting"] .spell-library__shelf-frame,
+  .spell-library[data-library-state="opening"] .spell-library__shelf-frame,
+  .spell-library[data-library-state="open"] .spell-library__shelf-frame,
+  .spell-library[data-library-state="closing"] .spell-library__shelf-frame {
+    filter: brightness(0.38) blur(1px);
+    transform: translateZ(-170px) scale(0.88);
+  }
+  .spell-library[data-library-state="open"] .spell-library__shelf-frame {
+    opacity: 0.42;
+  }
+  .spell-library[data-library-state="open"] .spell-library__hint {
+    opacity: 0;
+  }
+  .spell-grimoire.is-turning .spell-grimoire__page {
+    animation: spellPageTurn 0.32s ease both;
+  }
+  @keyframes grimoireOpen {
+    from {
+      opacity: 0;
+      transform: perspective(900px) rotateX(12deg) scale(0.72);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes spellPageTurn {
+    from {
+      opacity: 0.3;
+      transform: translateX(8px);
+    }
+  }
+  @media (max-width: 760px) {
+    .spell-library {
+      min-height: 900px;
+      padding-inline: 0.75rem;
+    }
+    .spell-library__chamber {
+      min-height: 650px;
+    }
+    .spell-library__shelf-frame {
+      left: 3%;
+      right: 3%;
+      padding-inline: 3%;
+    }
+    .spell-library__shelf {
+      gap: 0.35rem;
+    }
+    .spell-book {
+      width: 16vw;
+      min-width: 54px;
+    }
+    .spell-book strong {
+      font-size: 0.48rem;
+    }
+    .spell-grimoire {
+      width: 94%;
+      min-height: 535px;
+      padding: 4.6rem 1.4rem 3.5rem;
+      background: linear-gradient(180deg, #d8c49e, #c7ad82);
+    }
+    .spell-grimoire::after {
+      display: none;
+    }
+    .spell-grimoire__spread {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .spell-grimoire__page:nth-child(2) {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(89, 62, 39, 0.2);
+    }
+    .spell-grimoire__page > p {
+      min-height: auto;
+    }
+    .spell-grimoire__navigation {
+      left: 1.25rem;
+      right: 1.25rem;
+    }
+    .spell-library__hint {
+      font-size: 0.45rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spell-book,
+    .spell-library__shelf-frame {
+      transition-duration: 0.01ms;
+    }
+    .spell-grimoire,
+    .spell-grimoire.is-turning .spell-grimoire__page {
+      animation: none;
+    }
+  }
+
+  .spell-library__backdrop,
+  .spell-library__fog {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .spell-library__backdrop {
+    background: radial-gradient(
+      circle at 50% 52%,
+      rgba(112, 65, 134, 0.16),
+      rgba(3, 2, 6, 0.72) 66%
+    );
+  }
+  .spell-library__fog {
+    inset: 26% 9% 7%;
+    background:
+      radial-gradient(
+        ellipse at 50% 62%,
+        rgba(148, 88, 173, 0.22),
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse at 26% 65%,
+        rgba(93, 52, 115, 0.16),
+        transparent 45%
+      ),
+      radial-gradient(
+        ellipse at 76% 58%,
+        rgba(114, 62, 136, 0.14),
+        transparent 46%
+      );
+    filter: blur(18px);
+    animation: spellFogDrift 8s ease-in-out infinite alternate;
+  }
+  .spell-library[data-library-state="selecting"] .spell-library__backdrop,
+  .spell-library[data-library-state="opening"] .spell-library__backdrop,
+  .spell-library[data-library-state="open"] .spell-library__backdrop,
+  .spell-library[data-library-state="closing"] .spell-library__backdrop {
+    opacity: 1;
+  }
+  .spell-library[data-library-state="selecting"] .spell-library__fog,
+  .spell-library[data-library-state="opening"] .spell-library__fog,
+  .spell-library[data-library-state="open"] .spell-library__fog,
+  .spell-library[data-library-state="closing"] .spell-library__fog {
+    opacity: 0.92;
+  }
+  .spell-invocation {
+    position: relative;
+    z-index: 8;
+    width: 150px;
+    height: 270px;
+    border: 2px solid color-mix(in srgb, var(--book-accent) 42%, #b58c51);
+    border-radius: 7px 14px 5px 5px;
+    color: #eadfc7;
+    background: linear-gradient(
+      90deg,
+      #0c0910,
+      color-mix(in srgb, var(--book-accent) 18%, #2c1d31) 18% 82%,
+      #09070c
+    );
+    box-shadow:
+      0 34px 65px #000,
+      0 0 34px color-mix(in srgb, var(--book-accent) 28%, transparent),
+      inset 7px 0 10px rgba(255, 255, 255, 0.025);
+    transform-style: preserve-3d;
+    animation: spellBookAdvance 0.52s cubic-bezier(0.17, 0.78, 0.25, 1) both;
+  }
+  .spell-invocation::before,
+  .spell-invocation::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    height: 10px;
+    border-block: 1px solid color-mix(in srgb, var(--book-accent) 50%, #af854d);
+  }
+  .spell-invocation::before {
+    top: 22px;
+  }
+  .spell-invocation::after {
+    bottom: 22px;
+  }
+  .spell-invocation > span {
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(221, 181, 106, 0.18);
+    border-radius: 4px 10px 3px 3px;
+  }
+  .spell-invocation > i {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--book-accent) 64%, #c49b5b);
+    border-radius: 50%;
+    color: #ead8ad;
+    transform: translateX(-50%);
+    font-style: normal;
+    text-shadow: 0 0 12px var(--book-accent);
+  }
+  .spell-invocation > strong {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 125px;
+    color: #efe1c1;
+    font:
+      700 0.72rem/1.4 Cinzel,
+      serif;
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .spell-invocation > small {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 45px;
+    color: #a9987d;
+    font:
+      700 0.48rem/1 Cinzel,
+      serif;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .spell-library[data-library-state="opening"] .spell-invocation {
+    animation: spellCoverOpen 0.42s cubic-bezier(0.3, 0.05, 0.25, 1) both;
+  }
+  .spell-library[data-library-state="closing"] .spell-invocation {
+    animation: spellBookReturn 0.28s ease-in both;
+  }
+  .spell-grimoire > header p {
+    max-width: 520px;
+    margin: 0.32rem auto;
+    color: #715c49;
+    font:
+      italic 0.68rem/1.35 Lora,
+      serif;
+  }
+  .spell-grimoire > header small {
+    display: block;
+    margin-top: 0.22rem;
+  }
+  .spell-grimoire {
+    padding-top: 5.8rem;
+  }
+  .spell-library[data-library-state="selecting"]
+    .spell-book:not(.spell-book--active),
+  .spell-library[data-library-state="opening"]
+    .spell-book:not(.spell-book--active) {
+    filter: brightness(0.38) saturate(0.5);
+  }
+  @keyframes spellBookAdvance {
+    from {
+      opacity: 0.15;
+      transform: translateY(-105px) scale(0.38) perspective(800px) rotateX(8deg);
+    }
+    70% {
+      transform: translateY(6px) scale(1.04);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes spellCoverOpen {
+    0% {
+      opacity: 1;
+      transform: none;
+    }
+    55% {
+      transform: perspective(900px) rotateY(-16deg) scaleX(1.18);
+    }
+    100% {
+      opacity: 0;
+      transform: perspective(900px) rotateY(-46deg) scaleX(2.65);
+    }
+  }
+  @keyframes spellBookReturn {
+    to {
+      opacity: 0;
+      transform: translateY(-100px) scale(0.38);
+    }
+  }
+  @keyframes spellFogDrift {
+    to {
+      transform: translateX(2%) scaleX(1.06);
+      filter: blur(21px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spell-library__fog,
+    .spell-invocation,
+    .spell-library[data-library-state="opening"] .spell-invocation,
+    .spell-library[data-library-state="closing"] .spell-invocation {
+      animation: none;
+    }
+  }
+}
 /* Navbar + Hero 2026 (isolado das demais sections) */
 html {
   scroll-behavior: smooth;
@@ -2495,7 +3873,7 @@ nav {
     serif;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55);
+  text-shadow: none;
 }
 
 .about-heading h2::after {
@@ -2591,16 +3969,6 @@ nav {
 
 .about-narrative {
   position: relative;
-}
-
-.narrative-mark {
-  position: absolute;
-  right: 0;
-  top: -3rem;
-  color: rgba(196, 164, 95, 0.09);
-  font:
-    700 5.5rem/1 Cinzel,
-    serif;
 }
 
 .about-narrative h3 {
@@ -2796,10 +4164,7 @@ nav {
     margin: auto;
   }
 
-  .narrative-mark {
-    top: -2rem;
-    font-size: 4rem;
-  }
+
 
   .about-narrative h3 {
     text-align: center;
@@ -2918,9 +4283,6 @@ nav {
   color: #9a9082;
 }
 
-.narrative-mark {
-  color: rgba(196, 164, 95, 0.07);
-}
 
 .about-narrative h3 {
   font-size: clamp(1.35rem, 2.3vw, 1.85rem);
@@ -3028,11 +4390,6 @@ nav {
     gap: 2.75rem;
   }
 
-  .narrative-mark {
-    right: 0.25rem;
-    top: -1.25rem;
-    font-size: 3.5rem;
-  }
 
   .about-motivation {
     margin-top: 3.5rem;
@@ -3626,22 +4983,39 @@ nav {
 .archive-threshold .portal-scene {
   background-color: #09060f;
   background-image:
-    radial-gradient(ellipse at 50% 48%, rgba(112, 61, 139, 0.08), transparent 44%),
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(112, 61, 139, 0.08),
+      transparent 44%
+    ),
     linear-gradient(180deg, rgba(5, 3, 10, 0.28), rgba(7, 4, 12, 0.5)),
-    url('../img/portal/portal.png');
+    url("../img/portal/portal.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: inset 0 0 115px rgba(2, 1, 5, 0.94), inset 0 -70px 90px rgba(4, 2, 8, 0.54), 0 40px 90px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    inset 0 0 115px rgba(2, 1, 5, 0.94),
+    inset 0 -70px 90px rgba(4, 2, 8, 0.54),
+    0 40px 90px rgba(0, 0, 0, 0.45);
 }
 
 .archive-threshold .portal-atmosphere {
   z-index: 0;
   background-image:
-    radial-gradient(ellipse at 50% 55%, transparent 0 28%, rgba(7, 4, 12, 0.08) 55%, rgba(3, 2, 7, 0.46) 100%),
-    linear-gradient(90deg, rgba(4, 2, 8, 0.42), transparent 22% 78%, rgba(4, 2, 8, 0.42)),
+    radial-gradient(
+      ellipse at 50% 55%,
+      transparent 0 28%,
+      rgba(7, 4, 12, 0.08) 55%,
+      rgba(3, 2, 7, 0.46) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(4, 2, 8, 0.42),
+      transparent 22% 78%,
+      rgba(4, 2, 8, 0.42)
+    ),
     linear-gradient(180deg, rgba(10, 6, 16, 0.04), rgba(8, 4, 13, 0.2)),
-    url('../img/portal.png');
+    url("../img/portal.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3650,10 +5024,20 @@ nav {
 
 .archive-threshold[data-portal-state="open"] .portal-atmosphere {
   background-image:
-    radial-gradient(ellipse at 50% 55%, transparent 0 34%, rgba(7, 4, 12, 0.06) 62%, rgba(3, 2, 7, 0.38) 100%),
-    linear-gradient(90deg, rgba(4, 2, 8, 0.34), transparent 24% 76%, rgba(4, 2, 8, 0.34)),
+    radial-gradient(
+      ellipse at 50% 55%,
+      transparent 0 34%,
+      rgba(7, 4, 12, 0.06) 62%,
+      rgba(3, 2, 7, 0.38) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(4, 2, 8, 0.34),
+      transparent 24% 76%,
+      rgba(4, 2, 8, 0.34)
+    ),
     linear-gradient(180deg, rgba(10, 6, 16, 0.02), rgba(8, 4, 13, 0.14)),
-    url('../img/portal.png');
+    url("../img/portal.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9922,4 +11306,1943 @@ button.corridor-relic-frame {
     margin-top: 3.5rem;
     padding: 0.5rem;
   }
+}
+
+/* Refinamento final da Biblioteca: um único eixo para título, altar e grimório. */
+.spell-library {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #eee2ca;
+}
+
+.spell-library__header {
+  position: relative;
+  z-index: 12;
+  display: block;
+  width: min(900px, 100%);
+  max-width: none;
+  margin: 0 auto clamp(2.75rem, 5vw, 4.25rem);
+  padding-inline: 1rem;
+  text-align: center;
+}
+
+.spell-library__header > span {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: #b99a59;
+  font:
+    700 0.65rem/1 Cinzel,
+    serif;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.spell-library__header h2 {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  color: #f0e4ca;
+  font:
+    700 clamp(2.35rem, 4.7vw, 4.35rem)/1.08 Cinzel,
+    serif;
+  letter-spacing: 0.09em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.58),
+    0 0 28px rgba(111, 70, 133, 0.13);
+}
+
+.spell-library__header h2::after {
+  content: "◆";
+  display: block;
+  margin: 0.9rem auto;
+  color: #7f2d43;
+  font-size: 0.48rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.spell-library__header p {
+  width: min(680px, 100%);
+  max-width: none;
+  margin: 0 auto;
+  color: #9e9487;
+  font:
+    italic 400 clamp(0.9rem, 1.3vw, 1.05rem)/1.65 Lora,
+    serif;
+  text-align: center;
+}
+
+.spell-library__chamber {
+  position: relative;
+  align-self: center;
+  width: min(1180px, calc(100% - 1rem));
+  margin: 0 auto;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.62),
+      transparent 24% 76%,
+      rgba(0, 0, 0, 0.62)
+    ),
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(107, 55, 132, 0.24),
+      transparent 43%
+    ),
+    linear-gradient(180deg, #17101f 0%, #0c0812 68%, #050407 100%);
+}
+
+.spell-library__chamber::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 4%;
+  right: 4%;
+  bottom: 0;
+  height: 38%;
+  background: linear-gradient(
+    transparent,
+    rgba(5, 3, 8, 0.22) 34%,
+    rgba(3, 2, 5, 0.88)
+  );
+  pointer-events: none;
+}
+
+.spell-library__guardians {
+  z-index: 3;
+  inset: 2% 0 0;
+  overflow: hidden;
+  opacity: 1;
+  filter: none;
+}
+
+.spell-library__guardians::after {
+  content: "";
+  position: absolute;
+  inset: auto 4% 0;
+  height: 28%;
+  background: linear-gradient(transparent, #08060b 82%);
+  pointer-events: none;
+}
+
+.spell-library__guardians img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.8));
+}
+
+/* Cada chama usa três línguas independentes e um halo separado. */
+.spell-flame {
+  top: 11.5%;
+  width: 42px;
+  height: 72px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  filter: none;
+  transform: none;
+  animation: none;
+}
+
+.spell-flame--blue {
+  left: 28%;
+}
+.spell-flame--ember {
+  right: 28%;
+}
+
+.spell-flame,
+.spell-flame::before,
+.spell-flame b {
+  clip-path: polygon(
+    50% 0,
+    67% 26%,
+    89% 48%,
+    82% 75%,
+    62% 100%,
+    35% 95%,
+    11% 73%,
+    16% 43%,
+    34% 20%
+  );
+}
+
+.spell-flame {
+  background: linear-gradient(
+    180deg,
+    #dffaff 2%,
+    #5abaff 36%,
+    #5d43d5 72%,
+    rgba(76, 39, 157, 0.08)
+  );
+  animation: spellFlameOuter 2.1s ease-in-out infinite alternate;
+}
+
+.spell-flame--ember {
+  background: linear-gradient(
+    180deg,
+    #fff0b8 2%,
+    #f3a347 35%,
+    #d8428c 72%,
+    rgba(136, 30, 111, 0.08)
+  );
+  animation-delay: -0.85s;
+}
+
+.spell-flame::before {
+  content: "";
+  position: absolute;
+  inset: 21px 11px 7px;
+  border-radius: 0;
+  background: linear-gradient(180deg, #fff 0%, #bcecff 42%, #725bf0 100%);
+  opacity: 0.92;
+  animation: spellFlameInner 1.45s ease-in-out infinite alternate;
+}
+
+.spell-flame--ember::before {
+  background: linear-gradient(180deg, #fffbe8 0%, #ffd77a 42%, #e0529d 100%);
+}
+
+.spell-flame::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -25px -34px;
+  border-radius: 50%;
+  clip-path: none;
+  background: radial-gradient(
+    circle,
+    rgba(83, 130, 255, 0.5),
+    rgba(101, 64, 208, 0.16) 45%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  opacity: 0.78;
+}
+
+.spell-flame--ember::after {
+  background: radial-gradient(
+    circle,
+    rgba(244, 139, 86, 0.48),
+    rgba(210, 52, 137, 0.17) 45%,
+    transparent 72%
+  );
+}
+
+.spell-flame b {
+  position: absolute;
+  inset: 12px 5px 18px 22px;
+  border: 0;
+  border-radius: 0;
+  background: inherit;
+  opacity: 0.66;
+  transform: rotate(9deg);
+  animation: spellFlameTongue 1.7s ease-in-out infinite alternate-reverse;
+}
+
+.spell-library__shelf-frame {
+  left: 50%;
+  right: auto;
+  top: 21%;
+  width: min(670px, 62%);
+  height: 405px;
+  padding: 0 1.25rem;
+  transform: translateX(-50%);
+}
+
+.spell-library__shelf {
+  width: 100%;
+  height: 328px;
+  margin: 0 auto;
+  gap: clamp(0.15rem, 0.7vw, 0.65rem);
+}
+
+.spell-book:nth-child(1),
+.spell-book:nth-child(5) {
+  height: 250px;
+}
+.spell-book:nth-child(2),
+.spell-book:nth-child(4) {
+  height: 270px;
+}
+.spell-book:nth-child(3) {
+  flex-basis: 154px;
+  width: clamp(116px, 11vw, 154px);
+  height: 330px;
+  margin-inline: 0.5rem;
+  filter: drop-shadow(0 0 15px rgba(149, 101, 216, 0.34));
+}
+
+.spell-book:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -13px -10px -6px;
+  border: 1px solid rgba(217, 177, 96, 0.45);
+  background: radial-gradient(
+    ellipse,
+    rgba(135, 78, 169, 0.16),
+    transparent 68%
+  );
+  box-shadow:
+    0 0 30px rgba(112, 67, 149, 0.18),
+    inset 0 0 18px rgba(210, 171, 94, 0.08);
+  pointer-events: none;
+}
+
+.spell-library__dais {
+  bottom: -18px;
+  width: 230px;
+  height: 84px;
+  border-color: rgba(220, 177, 95, 0.66);
+  background: linear-gradient(180deg, #50305a, #201327 58%, #09060d);
+}
+
+.spell-library__shelf-base {
+  left: 50%;
+  right: auto;
+  bottom: -23px;
+  width: min(820px, 122%);
+  height: 42px;
+  transform: translateX(-50%);
+}
+
+.spell-library__particles {
+  z-index: 5;
+}
+
+.spell-library[data-library-state="selecting"] .spell-library__shelf-frame,
+.spell-library[data-library-state="opening"] .spell-library__shelf-frame,
+.spell-library[data-library-state="open"] .spell-library__shelf-frame,
+.spell-library[data-library-state="closing"] .spell-library__shelf-frame {
+  transform: translateX(-50%) translateZ(-170px) scale(0.86);
+}
+
+@keyframes spellFlameOuter {
+  0% {
+    transform: translateY(2px) scale(0.9, 1) rotate(-2deg);
+    filter: brightness(0.92);
+  }
+  55% {
+    transform: translateY(-3px) scale(1.04, 1.1) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) scale(0.96, 1.05) rotate(-1deg);
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes spellFlameInner {
+  from {
+    transform: translateX(-2px) scale(0.88, 1.04) rotate(-5deg);
+  }
+  to {
+    transform: translateX(2px) scale(1.05, 0.9) rotate(5deg);
+  }
+}
+
+@keyframes spellFlameTongue {
+  from {
+    transform: translate(-2px, 3px) rotate(4deg) scale(0.82);
+  }
+  to {
+    transform: translate(2px, -4px) rotate(14deg) scale(1.08);
+  }
+}
+
+@media (max-width: 900px) {
+  .spell-library__chamber {
+    width: min(820px, calc(100% - 0.75rem));
+  }
+  .spell-library__guardians {
+    inset: 5% -11% 0;
+  }
+  .spell-flame {
+    top: 13%;
+  }
+  .spell-flame--blue {
+    left: 25.5%;
+  }
+  .spell-flame--ember {
+    right: 25.5%;
+  }
+  .spell-library__shelf-frame {
+    width: min(610px, 72%);
+    top: 23%;
+  }
+  .spell-book:nth-child(3) {
+    height: 310px;
+  }
+}
+
+@media (max-width: 620px) {
+  .spell-library {
+    min-height: 800px;
+    padding-inline: 0.5rem;
+  }
+  .spell-library__header {
+    margin-bottom: 2.5rem;
+    padding-inline: 0.75rem;
+  }
+  .spell-library__header h2 {
+    font-size: clamp(1.8rem, 9.3vw, 2.35rem);
+    line-height: 1.12;
+  }
+  .spell-library__header p {
+    max-width: 350px;
+  }
+  .spell-library__header p br {
+    display: initial;
+  }
+  .spell-library__chamber {
+    width: calc(100% - 0.5rem);
+    min-height: 535px;
+  }
+  .spell-library__guardians {
+    inset: 5% -30% 0;
+    opacity: 0.72;
+  }
+  .spell-flame {
+    top: 35%;
+    width: 27px;
+    height: 49px;
+  }
+  .spell-flame--blue {
+    left: 25%;
+  }
+  .spell-flame--ember {
+    right: 25%;
+  }
+  .spell-library__shelf-frame {
+    top: 29%;
+    width: 94%;
+    height: 315px;
+    padding-inline: 0.25rem;
+  }
+  .spell-library__shelf {
+    height: 252px;
+  }
+  .spell-book:nth-child(1),
+  .spell-book:nth-child(5) {
+    height: 178px;
+  }
+  .spell-book:nth-child(2),
+  .spell-book:nth-child(4) {
+    height: 195px;
+  }
+  .spell-book:nth-child(3) {
+    flex-basis: 24%;
+    width: 24vw;
+    height: 245px;
+    margin-inline: 0.2rem;
+  }
+  .spell-library__dais {
+    width: 140px;
+    height: 58px;
+  }
+  .spell-library__shelf-base {
+    width: 100%;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spell-flame,
+  .spell-flame::before,
+  .spell-flame b {
+    animation: none;
+  }
+}
+
+/* Biblioteca de Feitiços: nicho gótico e estados idle/awakened. */
+.spell-library__chamber {
+  --scene-response: 0;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(117, 70, 139, 0.18), transparent 34%),
+    linear-gradient(90deg, rgba(2, 1, 4, 0.72), transparent 22% 78%, rgba(2, 1, 4, 0.72)),
+    linear-gradient(180deg, #130d1a 0%, #0b0710 60%, #040306 100%);
+  transition: border-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+.spell-library__chamber:hover,
+.spell-library__chamber:focus-within,
+.spell-library:not([data-library-state="idle"]) .spell-library__chamber {
+  --scene-response: 1;
+  border-color: rgba(210, 169, 91, 0.4);
+  box-shadow:
+    inset 0 0 120px #020103,
+    inset 0 0 70px rgba(86, 44, 108, 0.12),
+    0 34px 80px rgba(0, 0, 0, 0.54);
+}
+
+.spell-library__architecture {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.spell-library__arch {
+  position: absolute;
+  inset: 5% 6% 7%;
+  height: auto;
+  opacity: 0.5;
+  border: 1px solid rgba(177, 137, 76, 0.12);
+  border-bottom: 0;
+  border-radius: 48% 48% 0 0 / 28% 28% 0 0;
+  box-shadow:
+    inset 0 0 42px rgba(0, 0, 0, 0.46),
+    0 0 36px rgba(81, 49, 101, calc(0.05 + var(--scene-response) * 0.08));
+  transition: opacity 0.45s ease, box-shadow 0.45s ease;
+}
+
+.spell-library__arch::before,
+.spell-library__arch::after {
+  top: 8%;
+  bottom: 0;
+  width: 28%;
+  border-color: rgba(185, 144, 78, 0.28);
+  background:
+    linear-gradient(90deg, rgba(194, 153, 84, 0.06), transparent 12%),
+    repeating-linear-gradient(0deg, transparent 0 48px, rgba(180, 137, 76, 0.055) 49px 50px);
+}
+
+.spell-library__arch::before {
+  border-radius: 100% 0 0;
+}
+
+.spell-library__arch::after {
+  border-radius: 0 100% 0 0;
+}
+
+.spell-library__arch > i:first-child,
+.spell-library__arch > i:last-child {
+  position: absolute;
+  top: 8%;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(transparent, rgba(190, 148, 81, 0.2) 25% 80%, transparent);
+}
+
+.spell-library__arch > i:first-child { left: 22%; }
+.spell-library__arch > i:last-child { right: 22%; }
+
+.spell-library__arch span {
+  top: 8%;
+  width: 74px;
+  height: 74px;
+  opacity: calc(0.5 + var(--scene-response) * 0.35);
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+.spell-library__chamber:hover .spell-library__arch span,
+.spell-library__chamber:focus-within .spell-library__arch span,
+.spell-library:not([data-library-state="idle"]) .spell-library__arch span {
+  filter: drop-shadow(0 0 10px rgba(139, 83, 169, 0.4));
+}
+
+.spell-library__column {
+  position: absolute;
+  top: 15%;
+  bottom: 7%;
+  width: clamp(48px, 7vw, 86px);
+  border-inline: 1px solid rgba(184, 141, 76, 0.15);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(91, 65, 99, 0.06) 45%, rgba(0, 0, 0, 0.58)),
+    repeating-linear-gradient(90deg, transparent 0 16%, rgba(194, 153, 87, 0.06) 17% 18%, transparent 19% 34%);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+  opacity: 0.62;
+}
+
+.spell-library__column::before,
+.spell-library__column::after {
+  content: "";
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 18px;
+  border: 1px solid rgba(185, 143, 78, 0.17);
+  background: #0c0810;
+}
+
+.spell-library__column::before { top: 0; }
+.spell-library__column::after { bottom: 0; }
+.spell-library__column--left { left: 8%; }
+.spell-library__column--right { right: 8%; }
+
+.spell-library__central-light {
+  position: absolute;
+  top: 8%;
+  bottom: 17%;
+  left: 50%;
+  width: min(330px, 32%);
+  background: linear-gradient(180deg, transparent, rgba(133, 82, 156, 0.11) 28% 72%, transparent);
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  filter: blur(14px);
+  opacity: calc(0.38 + var(--scene-response) * 0.34);
+  transform: translateX(-50%);
+  transition: opacity 0.45s ease, width 0.45s ease;
+}
+
+.spell-library__hands {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  transition: opacity 0.44s ease, filter 0.44s ease;
+}
+
+.spell-library__guardians .spell-library__hands--idle {
+  z-index: 1;
+  opacity: 0.72;
+  filter: brightness(0.61) saturate(0.58) contrast(1.12) drop-shadow(0 24px 24px rgba(0,0,0,.82));
+}
+
+.spell-library__guardians .spell-library__hands--awakened {
+  z-index: 2;
+  opacity: 0;
+  mix-blend-mode: normal;
+  filter: brightness(0.88) saturate(0.88) contrast(1.06);
+}
+
+.spell-library__chamber:hover .spell-library__hands--idle,
+.spell-library__chamber:focus-within .spell-library__hands--idle,
+.spell-library:not([data-library-state="idle"]) .spell-library__hands--idle {
+  opacity: 0.3;
+  filter: brightness(0.72) saturate(0.7) contrast(1.08);
+}
+
+.spell-library__chamber:hover .spell-library__hands--awakened,
+.spell-library__chamber:focus-within .spell-library__hands--awakened,
+.spell-library:not([data-library-state="idle"]) .spell-library__hands--awakened {
+  opacity: 0.92;
+  filter: brightness(0.94) saturate(0.94) contrast(1.04);
+}
+
+.spell-library:not([data-library-state="idle"]) .spell-library__guardians {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.spell-library__light-spill {
+  position: absolute;
+  z-index: 0;
+  top: 16%;
+  width: 27%;
+  height: 58%;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(34px);
+  transition: opacity 0.48s ease;
+}
+
+.spell-library__light-spill--blue {
+  left: 3%;
+  background: radial-gradient(ellipse, rgba(75, 91, 211, 0.2), transparent 68%);
+}
+
+.spell-library__light-spill--ember {
+  right: 3%;
+  background: radial-gradient(ellipse, rgba(196, 56, 125, 0.18), transparent 68%);
+}
+
+.spell-library__chamber:hover .spell-library__light-spill,
+.spell-library__chamber:focus-within .spell-library__light-spill,
+.spell-library:not([data-library-state="idle"]) .spell-library__light-spill {
+  opacity: 1;
+}
+
+.spell-flame { display: none; }
+
+.spell-library__floor-sigil {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -14px;
+  display: grid;
+  width: min(430px, 46%);
+  aspect-ratio: 2.25 / 1;
+  place-items: center;
+  border: 1px solid rgba(194, 153, 84, 0.19);
+  border-radius: 50%;
+  opacity: calc(0.34 + var(--scene-response) * 0.2);
+  transform: translateX(-50%) perspective(520px) rotateX(67deg);
+  box-shadow: inset 0 0 26px rgba(125, 74, 151, 0.12), 0 0 18px rgba(125, 74, 151, 0.09);
+  transition: opacity 0.45s ease, box-shadow 0.45s ease;
+  pointer-events: none;
+}
+
+.spell-library__floor-sigil::before,
+.spell-library__floor-sigil::after,
+.spell-library__floor-sigil i {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(174, 114, 190, 0.19);
+  border-radius: 50%;
+}
+
+.spell-library__floor-sigil::before { inset: 13%; }
+.spell-library__floor-sigil::after { inset: 27%; }
+.spell-library__floor-sigil i { inset: 19% 35%; border-radius: 0; transform: rotate(45deg); }
+.spell-library__floor-sigil span { color: rgba(211, 172, 97, 0.4); font: 700 .8rem/1 Cinzel, serif; }
+
+.spell-library__low-mist {
+  position: absolute;
+  z-index: 3;
+  right: 8%;
+  bottom: 6%;
+  left: 8%;
+  height: 130px;
+  overflow: hidden;
+  opacity: calc(0.28 + var(--scene-response) * 0.3);
+  filter: blur(13px);
+  mask-image: linear-gradient(transparent, #000 35% 75%, transparent);
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.spell-library__low-mist i {
+  position: absolute;
+  inset: 25% -8% auto;
+  height: 65%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(133, 91, 148, 0.2), transparent 65%);
+  animation: spellLowMist 9s ease-in-out infinite alternate;
+}
+
+.spell-library__low-mist i:last-child {
+  inset: 40% 5% auto;
+  opacity: 0.65;
+  animation-delay: -4s;
+  animation-direction: alternate-reverse;
+}
+
+.spell-library__shelf-frame {
+  z-index: 5;
+}
+
+.spell-library__shelf-base {
+  box-shadow:
+    0 19px 30px #000,
+    0 -8px 28px rgba(102, 62, 119, 0.1),
+    inset 0 2px rgba(255, 220, 150, 0.16);
+}
+
+.spell-book {
+  transition: transform 0.34s cubic-bezier(.22,.75,.28,1), filter 0.35s ease;
+}
+
+.spell-library__chamber:hover .spell-book,
+.spell-library__chamber:focus-within .spell-book {
+  filter: brightness(1.035);
+}
+
+.spell-library__chamber:hover .spell-book:nth-child(3),
+.spell-library__chamber:focus-within .spell-book:nth-child(3),
+.spell-library:not([data-library-state="idle"]) .spell-book:nth-child(3) {
+  filter: brightness(1.08) drop-shadow(0 0 18px rgba(149,101,216,.42));
+}
+
+@keyframes spellLowMist {
+  from { transform: translateX(-2%) scaleX(0.96); }
+  to { transform: translateX(2%) scaleX(1.04); }
+}
+
+@media (max-width: 900px) {
+  .spell-library__column--left { left: 4%; }
+  .spell-library__column--right { right: 4%; }
+  .spell-library__floor-sigil { width: min(390px, 56%); }
+}
+
+@media (max-width: 620px) {
+  .spell-library__arch { inset: 4% 3% 5%; }
+  .spell-library__column { width: 38px; opacity: 0.42; }
+  .spell-library__column--left { left: 1%; }
+  .spell-library__column--right { right: 1%; }
+  .spell-library__central-light { width: 44%; }
+  .spell-library__floor-sigil { bottom: 2%; width: 72%; }
+  .spell-library__low-mist { right: 2%; bottom: 8%; left: 2%; height: 95px; }
+}
+
+@media (hover: none) {
+  .spell-library__guardians .spell-library__hands--idle { opacity: 0.58; }
+  .spell-library__guardians .spell-library__hands--awakened { opacity: 0.16; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spell-library__hands,
+  .spell-library__light-spill,
+  .spell-library__central-light,
+  .spell-library__low-mist,
+  .spell-library__floor-sigil { transition-duration: 0.01ms; }
+  .spell-library__low-mist i { animation: none; }
+}
+
+/* Estado normal: Nicho de Biblioteca Ritual. */
+.spell-library[data-library-state="idle"] .spell-library__chamber {
+  border-color: rgba(178, 137, 73, 0.24);
+  background:
+    radial-gradient(ellipse at 50% 47%, rgba(104, 60, 126, 0.2) 0%, rgba(72, 36, 83, 0.08) 28%, transparent 52%),
+    radial-gradient(ellipse at 50% 108%, rgba(83, 43, 91, 0.13), transparent 52%),
+    linear-gradient(90deg, rgba(2, 4, 10, 0.86) 0%, rgba(15, 8, 20, 0.34) 24%, rgba(23, 11, 27, 0.12) 50%, rgba(15, 8, 20, 0.34) 76%, rgba(2, 4, 10, 0.86) 100%),
+    linear-gradient(180deg, #100b17 0%, #130a16 42%, #080710 72%, #030407 100%);
+  box-shadow:
+    inset 0 0 130px rgba(1, 2, 6, 0.92),
+    inset 0 1px rgba(224, 185, 108, 0.06),
+    0 34px 80px rgba(0, 0, 0, 0.5);
+}
+
+.spell-library__architecture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.34;
+  background:
+    repeating-linear-gradient(7deg, transparent 0 37px, rgba(223, 202, 179, 0.018) 38px, transparent 39px 77px),
+    repeating-linear-gradient(97deg, transparent 0 59px, rgba(187, 157, 130, 0.014) 60px, transparent 61px 121px),
+    radial-gradient(circle at 20% 36%, rgba(132, 107, 125, 0.04), transparent 16%),
+    radial-gradient(circle at 76% 64%, rgba(110, 83, 103, 0.035), transparent 18%);
+  filter: contrast(1.18);
+}
+
+.spell-library__architecture::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 3.5% 3.25% 4%;
+  border: 1px solid rgba(187, 145, 77, 0.13);
+  border-bottom-color: rgba(187, 145, 77, 0.07);
+  border-radius: 49% 49% 2px 2px / 26% 26% 2px 2px;
+  box-shadow:
+    inset 0 0 0 9px rgba(2, 3, 7, 0.14),
+    inset 0 0 0 10px rgba(181, 136, 72, 0.035),
+    inset 0 28px 54px rgba(0, 0, 0, 0.2);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__arch {
+  inset: 6% 8% 5%;
+  opacity: 0.58;
+  border-color: rgba(188, 146, 79, 0.17);
+  border-radius: 50% 50% 0 0 / 32% 32% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(107, 67, 124, 0.07), transparent 48%),
+    linear-gradient(180deg, rgba(36, 21, 40, 0.08), rgba(3, 3, 7, 0.18));
+  box-shadow:
+    inset 0 0 64px rgba(0, 0, 0, 0.5),
+    inset 0 1px rgba(218, 177, 101, 0.035),
+    0 0 42px rgba(77, 42, 91, 0.045);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__arch::before,
+.spell-library[data-library-state="idle"] .spell-library__arch::after {
+  top: 10%;
+  width: 30%;
+  border-color: rgba(187, 145, 79, 0.2);
+  opacity: 0.72;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__arch > i:first-child,
+.spell-library[data-library-state="idle"] .spell-library__arch > i:last-child {
+  opacity: 0.62;
+  background: linear-gradient(transparent, rgba(196, 153, 84, 0.16) 28% 82%, transparent);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__arch span {
+  opacity: 0.42;
+  border-color: rgba(193, 151, 80, 0.2);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__column {
+  opacity: 0.48;
+  border-color: rgba(181, 139, 75, 0.11);
+  background:
+    linear-gradient(90deg, rgba(0, 2, 7, 0.7), rgba(70, 46, 76, 0.045) 48%, rgba(0, 2, 7, 0.68)),
+    repeating-linear-gradient(90deg, transparent 0 17%, rgba(193, 151, 84, 0.04) 18% 19%, transparent 20% 35%);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__column::before,
+.spell-library[data-library-state="idle"] .spell-library__column::after {
+  border-color: rgba(185, 143, 78, 0.12);
+  background: linear-gradient(90deg, #06060b, #100a14 50%, #06060b);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__central-light {
+  top: 9%;
+  bottom: 14%;
+  width: min(360px, 34%);
+  opacity: 0.48;
+  background:
+    radial-gradient(ellipse at 50% 64%, rgba(142, 91, 162, 0.16), transparent 48%),
+    linear-gradient(180deg, transparent 4%, rgba(119, 74, 139, 0.05) 30%, rgba(130, 79, 150, 0.12) 68%, transparent 100%);
+  filter: blur(18px);
+  animation: ritualNicheBreathe 8s ease-in-out infinite alternate;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__low-mist {
+  right: 12%;
+  bottom: 5%;
+  left: 12%;
+  height: 112px;
+  opacity: 0.24;
+  filter: blur(16px);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__low-mist i {
+  background: radial-gradient(ellipse, rgba(121, 84, 133, 0.15), rgba(67, 51, 80, 0.06) 42%, transparent 68%);
+  animation-duration: 13s;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__floor-sigil {
+  opacity: 0.27;
+  border-color: rgba(192, 151, 84, 0.15);
+  box-shadow: inset 0 0 24px rgba(117, 72, 137, 0.08);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__particles {
+  opacity: 0.42;
+}
+
+@keyframes ritualNicheBreathe {
+  from { opacity: 0.41; transform: translateX(-50%) scaleX(0.97); }
+  to { opacity: 0.52; transform: translateX(-50%) scaleX(1.025); }
+}
+
+@media (max-width: 620px) {
+  .spell-library__architecture::after { inset: 2.5% 2% 3%; border-radius: 48% 48% 2px 2px / 19% 19% 2px 2px; }
+  .spell-library[data-library-state="idle"] .spell-library__arch { inset: 5% 4% 4%; border-radius: 48% 48% 0 0 / 20% 20% 0 0; }
+  .spell-library[data-library-state="idle"] .spell-library__central-light { width: 48%; opacity: 0.44; }
+  .spell-library[data-library-state="idle"] .spell-library__low-mist { right: 4%; left: 4%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spell-library[data-library-state="idle"] .spell-library__central-light { animation: none; }
+}
+
+/* Reestruturação: cenário gótico profundo, sem aparência de card. */
+.spell-library {
+  padding-inline: 0;
+  background:
+    radial-gradient(ellipse at 50% 67%, rgba(61, 31, 73, 0.16), transparent 38%),
+    linear-gradient(180deg, #07050b 0%, #09060d 50%, #040306 100%);
+}
+
+.spell-library__header {
+  padding-inline: 1.25rem;
+}
+
+.spell-library__chamber,
+.spell-library[data-library-state="idle"] .spell-library__chamber {
+  width: min(1440px, 100%);
+  min-height: 720px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.spell-library__chamber::after {
+  display: none;
+}
+
+.spell-library__scene-background {
+  position: absolute;
+  z-index: 0;
+  inset: -2% 0 -5%;
+  display: block;
+  width: 100%;
+  height: 107%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.78;
+  filter: brightness(0.72) saturate(0.72) contrast(1.04);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 8%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+  transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.spell-library__architecture::before {
+  z-index: 2;
+  inset: 0;
+  opacity: 1;
+  background:
+    radial-gradient(ellipse at 50% 56%, transparent 0 26%, rgba(3, 2, 7, 0.08) 50%, rgba(2, 2, 6, 0.72) 100%),
+    linear-gradient(90deg, rgba(1, 2, 6, 0.86), transparent 18% 82%, rgba(1, 2, 6, 0.86));
+  filter: none;
+}
+
+.spell-library__architecture::after {
+  z-index: 3;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(ellipse at 50% 57%, rgba(112, 68, 132, 0.1), transparent 31%),
+    linear-gradient(180deg, rgba(6, 4, 10, 0.2), transparent 20% 74%, rgba(3, 2, 5, 0.66));
+  box-shadow: none;
+}
+
+.spell-library__arch,
+.spell-library[data-library-state="idle"] .spell-library__arch {
+  z-index: 4;
+  inset: 5% 14% 8%;
+  opacity: 0.24;
+  border-color: rgba(205, 161, 88, 0.16);
+  border-radius: 50% 50% 0 0 / 42% 42% 0 0;
+  background: transparent;
+  box-shadow: inset 0 0 54px rgba(0, 0, 0, 0.28);
+}
+
+.spell-library__arch::before,
+.spell-library__arch::after,
+.spell-library[data-library-state="idle"] .spell-library__arch::before,
+.spell-library[data-library-state="idle"] .spell-library__arch::after {
+  opacity: 0.48;
+  border-color: rgba(204, 160, 87, 0.16);
+  background: none;
+}
+
+.spell-library__column {
+  z-index: 4;
+  top: 20%;
+  bottom: 2%;
+  opacity: 0.22;
+}
+
+.spell-library__column--left { left: 9%; }
+.spell-library__column--right { right: 9%; }
+
+.spell-library__central-light,
+.spell-library[data-library-state="idle"] .spell-library__central-light {
+  z-index: 5;
+  top: 13%;
+  bottom: 8%;
+  width: min(430px, 36%);
+  opacity: 0.56;
+  background:
+    radial-gradient(ellipse at 50% 58%, rgba(139, 83, 161, 0.22), rgba(91, 50, 112, 0.08) 42%, transparent 70%),
+    linear-gradient(180deg, transparent 8%, rgba(113, 67, 132, 0.04) 35%, rgba(126, 73, 148, 0.13) 75%, transparent);
+  filter: blur(22px);
+}
+
+.spell-library__guardians {
+  z-index: 6;
+  inset: 5% 5% 0;
+  overflow: visible;
+}
+
+.spell-library__guardians::after {
+  right: 0;
+  left: 0;
+  bottom: -1px;
+  height: 34%;
+  background: linear-gradient(transparent, rgba(5, 3, 8, 0.5) 66%, #050307 100%);
+}
+
+.spell-library__guardians .spell-library__hands--idle {
+  opacity: 0.68;
+  filter: brightness(0.52) saturate(0.54) contrast(1.14) drop-shadow(0 25px 28px rgba(0,0,0,.88));
+}
+
+.spell-library__shelf-frame {
+  z-index: 8;
+  top: 25%;
+  width: min(620px, 58%);
+  height: 430px;
+}
+
+.spell-library__shelf {
+  height: 342px;
+  gap: 0;
+}
+
+.spell-book:nth-child(1) {
+  height: 238px;
+  transform: translate(13px, 17px) scale(0.92) rotate(-2deg);
+}
+
+.spell-book:nth-child(2) {
+  height: 266px;
+  transform: translate(5px, 7px) scale(0.97) rotate(1deg);
+}
+
+.spell-book:nth-child(3) {
+  flex-basis: 164px;
+  width: clamp(124px, 11.5vw, 164px);
+  height: 348px;
+  margin-inline: 0.15rem;
+  filter: drop-shadow(0 0 20px rgba(139, 78, 164, 0.38));
+}
+
+.spell-book:nth-child(4) {
+  height: 266px;
+  transform: translate(-5px, 7px) scale(0.97) rotate(-1deg);
+}
+
+.spell-book:nth-child(5) {
+  height: 238px;
+  transform: translate(-13px, 17px) scale(0.92) rotate(2deg);
+}
+
+.spell-library__dais {
+  z-index: 1;
+  bottom: -44px;
+  width: 284px;
+  height: 132px;
+  overflow: visible;
+  border: 1px solid rgba(208, 164, 88, 0.45);
+  clip-path: polygon(20% 0, 80% 0, 94% 16%, 88% 72%, 100% 100%, 0 100%, 12% 72%, 6% 16%);
+  background:
+    radial-gradient(ellipse at 50% 16%, rgba(132, 75, 153, 0.32), transparent 46%),
+    linear-gradient(180deg, #42264a 0%, #1b111f 38%, #0a080e 100%);
+  box-shadow:
+    0 24px 42px rgba(0,0,0,.86),
+    inset 0 2px rgba(232, 192, 110, 0.12),
+    0 0 32px rgba(111, 60, 133, 0.18);
+}
+
+.spell-library__dais::before,
+.spell-library__dais::after,
+.spell-library__dais i {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border: 1px solid rgba(196, 151, 78, 0.28);
+  background: linear-gradient(180deg, #28172f, #0c0910);
+  transform: translateX(-50%);
+}
+
+.spell-library__dais::before { top: 14px; width: 86%; height: 72%; }
+.spell-library__dais::after { top: 29px; width: 68%; height: 54%; }
+.spell-library__dais i:first-child { top: -10px; width: 70%; height: 14px; }
+.spell-library__dais i:nth-child(2) { bottom: -9px; width: 104%; height: 13px; }
+.spell-library__dais span {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 22px;
+  color: rgba(211, 174, 102, 0.44);
+  transform: translateX(-50%);
+  font: 700 0.62rem/1 Cinzel, serif;
+}
+
+.spell-library__shelf-base {
+  bottom: -34px;
+  width: min(760px, 118%);
+  height: 48px;
+  border-color: rgba(196, 150, 80, 0.38);
+  background:
+    linear-gradient(90deg, #08070b, transparent 8% 92%, #08070b),
+    linear-gradient(180deg, #543825 0%, #26161d 34%, #0b080d 100%);
+  box-shadow:
+    0 25px 38px rgba(0,0,0,.9),
+    0 -8px 28px rgba(103, 61, 119, 0.14),
+    inset 0 2px rgba(236, 194, 111, 0.13);
+}
+
+.spell-library__low-mist,
+.spell-library[data-library-state="idle"] .spell-library__low-mist {
+  z-index: 7;
+  right: 9%;
+  bottom: 4%;
+  left: 9%;
+  height: 190px;
+  opacity: 0.43;
+  filter: blur(18px);
+  mask-image: linear-gradient(transparent 5%, #000 34% 78%, transparent 100%);
+}
+
+.spell-library__low-mist i,
+.spell-library[data-library-state="idle"] .spell-library__low-mist i {
+  inset: 28% -4% auto;
+  height: 74%;
+  background:
+    radial-gradient(ellipse at 50% 64%, rgba(157, 104, 169, 0.21), transparent 45%),
+    radial-gradient(ellipse, rgba(104, 83, 117, 0.15), transparent 68%);
+}
+
+.spell-library__floor-sigil {
+  z-index: 7;
+  bottom: -2%;
+  width: min(520px, 52%);
+}
+
+.spell-library__particles {
+  z-index: 9;
+  opacity: 0.34;
+}
+
+.spell-library__hint {
+  z-index: 12;
+}
+
+.spell-library__chamber:hover .spell-library__scene-background,
+.spell-library__chamber:focus-within .spell-library__scene-background,
+.spell-library:not([data-library-state="idle"]) .spell-library__scene-background {
+  opacity: 0.83;
+  filter: brightness(0.76) saturate(0.78) contrast(1.04);
+}
+
+@media (max-width: 900px) {
+  .spell-library__chamber,
+  .spell-library[data-library-state="idle"] .spell-library__chamber { min-height: 650px; }
+  .spell-library__scene-background { inset-inline: -12%; width: 124%; max-width: none; object-position: center 44%; }
+  .spell-library__guardians { inset: 7% -4% 0; }
+  .spell-library__shelf-frame { top: 27%; width: min(600px, 70%); }
+}
+
+@media (max-width: 620px) {
+  .spell-library__chamber,
+  .spell-library[data-library-state="idle"] .spell-library__chamber { width: 100%; min-height: 570px; }
+  .spell-library__scene-background { inset: 0 -48% -3%; width: 196%; height: 103%; object-position: center 60%; opacity: 0.66; }
+  .spell-library__architecture::before { background: linear-gradient(90deg,rgba(2,2,6,.72),transparent 22% 78%,rgba(2,2,6,.72)); }
+  .spell-library__arch { inset: 6% 4% 5%; opacity: 0.2; }
+  .spell-library__column { display: none; }
+  .spell-library__central-light,
+  .spell-library[data-library-state="idle"] .spell-library__central-light { width: 54%; }
+  .spell-library__guardians { inset: 8% -31% 0; }
+  .spell-library__shelf-frame { top: 29%; width: 94%; height: 330px; }
+  .spell-library__shelf { height: 260px; }
+  .spell-book:nth-child(1) { height: 172px; transform: translate(6px,10px) scale(.93) rotate(-2deg); }
+  .spell-book:nth-child(2) { height: 193px; transform: translate(2px,4px) rotate(1deg); }
+  .spell-book:nth-child(3) { flex-basis: 25%; width: 25vw; height: 252px; margin-inline: 0; }
+  .spell-book:nth-child(4) { height: 193px; transform: translate(-2px,4px) rotate(-1deg); }
+  .spell-book:nth-child(5) { height: 172px; transform: translate(-6px,10px) scale(.93) rotate(2deg); }
+  .spell-library__dais { bottom: -30px; width: 170px; height: 82px; }
+  .spell-library__dais::before { top: 9px; }
+  .spell-library__dais::after { top: 18px; }
+  .spell-library__dais span { bottom: 12px; font-size: .48rem; }
+  .spell-library__shelf-base { bottom: -28px; width: 98%; height: 38px; }
+  .spell-library__low-mist,
+  .spell-library[data-library-state="idle"] .spell-library__low-mist { right: 0; bottom: 4%; left: 0; height: 140px; opacity: .38; }
+  .spell-library__floor-sigil { width: 78%; }
+}
+
+/* Altar aberto: hierarquia centrada nos grimórios, sem molduras ou prateleira. */
+.spell-library__guardians {
+  inset: 8% -18% 0;
+}
+
+.spell-library__guardians::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3,2,6,.8), transparent 16% 84%, rgba(3,2,6,.8)),
+    linear-gradient(180deg, transparent 55%, rgba(4,3,7,.28) 75%, rgba(4,3,7,.88));
+  pointer-events: none;
+}
+
+.spell-library__guardians .spell-library__hands--idle {
+  opacity: 0.58;
+  filter: brightness(0.46) saturate(0.48) contrast(1.16) drop-shadow(0 26px 30px rgba(0,0,0,.9));
+}
+
+.spell-library__shelf-frame {
+  top: 26%;
+  width: min(570px, 54%);
+  height: 420px;
+  padding-inline: 0;
+}
+
+.spell-library__shelf {
+  height: 338px;
+  gap: 0;
+}
+
+.spell-book:nth-child(1),
+.spell-book:nth-child(5) {
+  height: 226px;
+}
+
+.spell-book:nth-child(2),
+.spell-book:nth-child(4) {
+  height: 252px;
+}
+
+.spell-book:nth-child(3) {
+  flex-basis: 158px;
+  width: clamp(122px, 11vw, 158px);
+  height: 342px;
+  margin-inline: 0.05rem;
+}
+
+.spell-book:nth-child(3)::before {
+  display: none;
+}
+
+.spell-library__shelf-base {
+  display: none;
+}
+
+.spell-library__dais {
+  z-index: 1;
+  bottom: -18px;
+  width: 196px;
+  height: 58px;
+  overflow: hidden;
+  border: 1px solid rgba(202, 157, 82, 0.34);
+  clip-path: polygon(17% 0,83% 0,94% 28%,88% 100%,12% 100%,6% 28%);
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(132,75,153,.28), transparent 58%),
+    linear-gradient(180deg,#35203b,#140e19 54%,#08070b);
+  box-shadow:
+    0 20px 34px rgba(0,0,0,.78),
+    inset 0 1px rgba(227,186,102,.12),
+    0 0 26px rgba(111,60,133,.16);
+}
+
+.spell-library__dais::before,
+.spell-library__dais::after,
+.spell-library__dais i {
+  display: none;
+}
+
+.spell-library__dais span {
+  bottom: 16px;
+  font-size: .5rem;
+  opacity: .66;
+}
+
+.spell-library__floor-sigil {
+  bottom: 0;
+  width: min(470px, 46%);
+  opacity: 0.32;
+}
+
+.spell-library__low-mist,
+.spell-library[data-library-state="idle"] .spell-library__low-mist {
+  bottom: 2%;
+  height: 170px;
+  opacity: 0.4;
+}
+
+/* Em repouso, hover não desperta mãos, chamas ou cenário. */
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within {
+  --scene-response: 0;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__hands--idle,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__hands--idle {
+  opacity: 0.58;
+  filter: brightness(0.46) saturate(0.48) contrast(1.16) drop-shadow(0 26px 30px rgba(0,0,0,.9));
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__hands--awakened,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__hands--awakened,
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__light-spill,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__light-spill {
+  opacity: 0;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__scene-background,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__scene-background {
+  opacity: 0.78;
+  filter: brightness(0.72) saturate(0.72) contrast(1.04);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__arch span,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__arch span {
+  filter: none;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-book,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-book {
+  filter: none;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-book:nth-child(3):not(:hover),
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-book:nth-child(3):not(:focus-visible) {
+  filter: drop-shadow(0 0 20px rgba(139,78,164,.38));
+}
+
+/* Somente o volume apontado responde antes do clique. */
+.spell-library[data-library-state="idle"] .spell-book:hover,
+.spell-library[data-library-state="idle"] .spell-book:focus-visible {
+  z-index: 12;
+  filter: brightness(1.14) saturate(1.06) drop-shadow(0 0 16px color-mix(in srgb,var(--book-accent) 38%,transparent));
+  transform: translateY(-16px) scale(1.045);
+}
+
+@media (max-width: 900px) {
+  .spell-library__guardians { inset: 9% -23% 0; }
+  .spell-library__shelf-frame { width: min(560px, 66%); }
+}
+
+@media (max-width: 620px) {
+  .spell-library__guardians { inset: 10% -39% 0; }
+  .spell-library__shelf-frame { top: 30%; width: 90%; }
+  .spell-book:nth-child(1),.spell-book:nth-child(5) { height: 166px; }
+  .spell-book:nth-child(2),.spell-book:nth-child(4) { height: 188px; }
+  .spell-book:nth-child(3) { flex-basis: 24%; width: 24vw; height: 248px; }
+  .spell-library__dais { bottom: -10px; width: 128px; height: 42px; }
+  .spell-library__dais span { bottom: 11px; font-size: .4rem; }
+  .spell-library__floor-sigil { width: 72%; }
+}
+
+@media (hover: none) {
+  .spell-library[data-library-state="idle"] .spell-library__guardians .spell-library__hands--idle { opacity: 0.52; }
+  .spell-library[data-library-state="idle"] .spell-library__guardians .spell-library__hands--awakened { opacity: 0; }
+}
+
+/* Direção final: altar autoral sem imagem de fundo. */
+.spell-library {
+  background:
+    radial-gradient(ellipse at 50% 67%, rgba(72, 38, 87, 0.18), transparent 38%),
+    linear-gradient(180deg, #07050b 0%, #0b0710 55%, #040306 100%);
+}
+
+.spell-library__chamber,
+.spell-library[data-library-state="idle"] .spell-library__chamber {
+  width: min(1240px, 100%);
+  min-height: 680px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.spell-library__architecture {
+  background:
+    radial-gradient(ellipse at 50% 51%, rgba(118,68,139,.18) 0%,rgba(72,37,86,.06) 31%,transparent 57%),
+    radial-gradient(ellipse at 50% 105%,rgba(98,58,111,.12),transparent 50%),
+    linear-gradient(90deg,rgba(2,3,8,.72),transparent 24% 76%,rgba(2,3,8,.72)),
+    linear-gradient(180deg,rgba(18,10,24,.46),rgba(7,6,12,.72));
+  -webkit-mask-image: radial-gradient(ellipse 76% 72% at 50% 55%,#000 48%,rgba(0,0,0,.78) 70%,transparent 100%);
+  mask-image: radial-gradient(ellipse 76% 72% at 50% 55%,#000 48%,rgba(0,0,0,.78) 70%,transparent 100%);
+}
+
+.spell-library__architecture::before {
+  z-index: 0;
+  inset: 0;
+  opacity: 0.46;
+  background:
+    repeating-linear-gradient(6deg, transparent 0 43px, rgba(207,185,163,.018) 44px, transparent 45px 91px),
+    repeating-linear-gradient(96deg, transparent 0 69px, rgba(187,156,129,.014) 70px, transparent 71px 139px),
+    radial-gradient(ellipse at 50% 44%, rgba(108,69,122,.06), transparent 47%);
+}
+
+.spell-library__architecture::after {
+  z-index: 5;
+  background:
+    linear-gradient(90deg, rgba(1,2,6,.86), transparent 18% 82%, rgba(1,2,6,.86)),
+    linear-gradient(180deg, rgba(4,3,8,.24), transparent 22% 75%, rgba(3,2,6,.68));
+}
+
+.spell-library__arch,
+.spell-library[data-library-state="idle"] .spell-library__arch {
+  z-index: 2;
+  inset: 5% 13% 5%;
+  opacity: 0.54;
+  border: 1px solid rgba(193,150,81,.18);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0 / 37% 37% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(104,62,121,.07), transparent 50%),
+    linear-gradient(180deg, rgba(29,17,35,.08), rgba(2,3,7,.18));
+  box-shadow:
+    inset 0 0 0 14px rgba(3,3,8,.12),
+    inset 0 0 0 15px rgba(191,147,78,.035),
+    inset 0 0 75px rgba(0,0,0,.48);
+}
+
+.spell-library__arch::before,
+.spell-library__arch::after,
+.spell-library[data-library-state="idle"] .spell-library__arch::before,
+.spell-library[data-library-state="idle"] .spell-library__arch::after {
+  top: 9%;
+  bottom: 0;
+  width: 31%;
+  opacity: 0.58;
+  border-color: rgba(193,149,80,.18);
+  background: linear-gradient(90deg,rgba(188,145,79,.035),transparent 15%);
+}
+
+.spell-library__arch span {
+  opacity: 0.34;
+}
+
+.spell-library__column {
+  z-index: 3;
+  top: 22%;
+  bottom: 4%;
+  opacity: 0.34;
+}
+
+.spell-library__central-light,
+.spell-library[data-library-state="idle"] .spell-library__central-light {
+  z-index: 4;
+  top: 15%;
+  bottom: 9%;
+  width: min(350px, 31%);
+  opacity: 0.48;
+  background: radial-gradient(ellipse at 50% 59%,rgba(143,84,165,.2),rgba(101,55,121,.07) 43%,transparent 72%);
+  filter: blur(22px);
+}
+
+.spell-library__guardians {
+  z-index: 6;
+  inset: 10% -19% 0;
+}
+
+.spell-library__guardians::before {
+  background:
+    linear-gradient(90deg,rgba(3,2,6,.9),transparent 17% 83%,rgba(3,2,6,.9)),
+    linear-gradient(180deg,transparent 52%,rgba(4,3,7,.28) 76%,rgba(4,3,7,.9));
+}
+
+.spell-library__guardians .spell-library__hands--idle {
+  opacity: 0.5;
+  filter: brightness(.42) saturate(.44) contrast(1.17) drop-shadow(0 27px 32px rgba(0,0,0,.92));
+}
+
+.spell-library__shelf-frame {
+  z-index: 8;
+  top: 25%;
+  width: min(548px, 52%);
+  height: 410px;
+}
+
+.spell-library__shelf {
+  height: 326px;
+}
+
+.spell-book:nth-child(1),
+.spell-book:nth-child(5) {
+  height: 216px;
+}
+
+.spell-book:nth-child(2),
+.spell-book:nth-child(4) {
+  height: 242px;
+}
+
+.spell-book:nth-child(3) {
+  flex-basis: 154px;
+  width: clamp(120px,10.5vw,154px);
+  height: 332px;
+  filter: drop-shadow(0 0 17px rgba(139,78,164,.34));
+}
+
+.spell-library__altar-platform {
+  position: absolute;
+  z-index: 3;
+  top: 326px;
+  left: 50%;
+  display: block;
+  width: min(620px, 116%);
+  height: 18px;
+  border: 1px solid rgba(197,151,79,.32);
+  clip-path: polygon(3% 0,97% 0,100% 48%,96% 100%,4% 100%,0 48%);
+  background: linear-gradient(180deg,#483021 0%,#20141a 44%,#08070b 100%);
+  box-shadow: 0 15px 26px rgba(0,0,0,.78), inset 0 1px rgba(230,190,107,.12);
+  transform: translateX(-50%);
+}
+
+.spell-library__dais {
+  bottom: 27px;
+  width: 176px;
+  height: 50px;
+}
+
+.spell-library__dais span {
+  bottom: 13px;
+}
+
+.spell-library__floor-sigil {
+  bottom: 1%;
+  width: min(430px,44%);
+  opacity: .29;
+}
+
+.spell-library__low-mist,
+.spell-library[data-library-state="idle"] .spell-library__low-mist {
+  z-index: 7;
+  right: 10%;
+  bottom: 1%;
+  left: 10%;
+  height: 160px;
+  opacity: .36;
+}
+
+.spell-library__particles {
+  opacity: .28;
+}
+
+/* Hover lateral: destaca o alvo e reduz apenas os outros volumes. */
+.spell-library[data-library-state="idle"] .spell-library__shelf:has(.spell-book:hover) .spell-book:not(:hover) {
+  filter: brightness(.76) saturate(.78);
+  opacity: .82;
+}
+
+.spell-library[data-library-state="idle"] .spell-book:hover,
+.spell-library[data-library-state="idle"] .spell-book:focus-visible {
+  opacity: 1;
+  filter: brightness(1.15) saturate(1.06) drop-shadow(0 0 17px color-mix(in srgb,var(--book-accent) 38%,transparent));
+  transform: translateY(-15px) scale(1.045);
+}
+
+/* O Full-Stack responde com halo e apenas um vestígio de energia nas mãos. */
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:hover) .spell-library__central-light {
+  opacity: .66;
+  filter: blur(19px);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:hover) .spell-library__hands--awakened {
+  opacity: .13;
+  filter: brightness(.68) saturate(.72) contrast(1.05);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:hover) .spell-library__light-spill {
+  opacity: .12;
+}
+
+@media (max-width:900px) {
+  .spell-library__chamber,
+  .spell-library[data-library-state="idle"] .spell-library__chamber { min-height: 620px; }
+  .spell-library__guardians { inset: 11% -25% 0; }
+  .spell-library__shelf-frame { width: min(530px,65%); }
+}
+
+@media (max-width:620px) {
+  .spell-library__chamber,
+  .spell-library[data-library-state="idle"] .spell-library__chamber { min-height: 550px; }
+  .spell-library__arch { inset: 7% 4% 4%; border-radius: 48% 48% 0 0 / 23% 23% 0 0; }
+  .spell-library__guardians { inset: 12% -41% 0; }
+  .spell-library__shelf-frame { top: 29%; width: 89%; height: 330px; }
+  .spell-library__shelf { height: 254px; }
+  .spell-book:nth-child(1),.spell-book:nth-child(5) { height: 158px; }
+  .spell-book:nth-child(2),.spell-book:nth-child(4) { height: 182px; }
+  .spell-book:nth-child(3) { flex-basis:24%; width:24vw; height:244px; }
+  .spell-library__altar-platform { top:254px; width:98%; height:14px; }
+  .spell-library__dais { bottom:62px; width:122px; height:38px; }
+  .spell-library__dais span { bottom:10px; }
+  .spell-library__floor-sigil { width:70%; }
+}
+
+/* Correção estrutural: coleção ampla, esculturas laterais e pedestal mínimo. */
+.spell-library {
+  background:
+    radial-gradient(ellipse at 50% 68%,rgba(79,40,92,.2),transparent 34%),
+    linear-gradient(90deg,rgba(18,5,15,.32),transparent 24% 76%,rgba(18,5,15,.32)),
+    linear-gradient(180deg,#07050b 0%,#0b0710 58%,#040306 100%);
+}
+
+.spell-library__chamber,
+.spell-library[data-library-state="idle"] .spell-library__chamber {
+  min-height: 680px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.spell-library__architecture {
+  background: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.spell-library__architecture::before {
+  opacity: .32;
+  background:
+    radial-gradient(ellipse at 50% 55%,rgba(123,70,142,.13),transparent 46%),
+    repeating-linear-gradient(8deg,transparent 0 54px,rgba(204,181,160,.012) 55px,transparent 56px 110px);
+}
+
+.spell-library__architecture::after {
+  background:
+    linear-gradient(90deg,rgba(4,2,7,.5),transparent 20% 80%,rgba(4,2,7,.5)),
+    linear-gradient(180deg,transparent 62%,rgba(4,3,7,.42));
+}
+
+.spell-library__arch,
+.spell-library[data-library-state="idle"] .spell-library__arch {
+  inset: 7% 10% 6%;
+  opacity: .34;
+  border-color: rgba(191,147,79,.12);
+  box-shadow: inset 0 0 72px rgba(0,0,0,.3);
+}
+
+.spell-library__column {
+  opacity: .16;
+}
+
+.spell-library__central-light,
+.spell-library[data-library-state="idle"] .spell-library__central-light {
+  width: min(390px,34%);
+  opacity: .5;
+}
+
+.spell-library__guardians {
+  inset: 8% 0 0;
+}
+
+.spell-library__hands--left {
+  clip-path: inset(0 50% 0 0);
+  transform: translateX(-14%);
+}
+
+.spell-library__hands--right {
+  clip-path: inset(0 0 0 50%);
+  transform: translateX(14%);
+}
+
+.spell-library__guardians .spell-library__hands--idle {
+  opacity: .46;
+  filter: brightness(.42) saturate(.43) contrast(1.15) drop-shadow(0 28px 32px rgba(0,0,0,.92));
+}
+
+.spell-library__guardians::before {
+  background:
+    linear-gradient(90deg,rgba(3,2,6,.7),transparent 12% 88%,rgba(3,2,6,.7)),
+    linear-gradient(180deg,transparent 48%,rgba(4,3,7,.16) 72%,rgba(4,3,7,.82));
+}
+
+.spell-library__shelf-frame {
+  top: 24%;
+  width: min(610px,57%);
+  height: 420px;
+}
+
+.spell-library__shelf {
+  height: 330px;
+}
+
+.spell-book,
+.spell-book:has(>img) {
+  background: radial-gradient(ellipse at 50% 99%,rgba(0,0,0,.74),transparent 52%);
+}
+
+.spell-book:nth-child(1) {
+  height: 250px;
+  transform: translate(7px,8px) rotate(-1deg);
+}
+
+.spell-book:nth-child(2) {
+  height: 264px;
+  transform: translate(3px,3px) rotate(.5deg);
+}
+
+.spell-book:nth-child(3) {
+  flex-basis: 154px;
+  width: clamp(120px,10.5vw,154px);
+  height: 330px;
+}
+
+.spell-book:nth-child(4) {
+  height: 264px;
+  transform: translate(-3px,3px) rotate(-.5deg);
+}
+
+.spell-book:nth-child(5) {
+  height: 250px;
+  transform: translate(-7px,8px) rotate(1deg);
+}
+
+.spell-library__dais {
+  position: absolute;
+  z-index: 2;
+  top: 326px;
+  bottom: auto;
+  left: 50%;
+  width: 184px;
+  height: 19px;
+  overflow: visible;
+  border: 1px solid rgba(203,158,83,.3);
+  border-radius: 50%;
+  clip-path: none;
+  background:
+    radial-gradient(ellipse at 50% 0,rgba(133,76,153,.24),transparent 62%),
+    linear-gradient(180deg,#2d1b32,#0d0a11);
+  box-shadow: 0 15px 25px rgba(0,0,0,.76),0 0 18px rgba(111,60,133,.14),inset 0 1px rgba(226,186,103,.1);
+  transform: translateX(-50%);
+}
+
+.spell-library__dais::before,
+.spell-library__dais::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  display: block;
+  border: 1px solid rgba(193,149,79,.2);
+  border-radius: 50%;
+  background: linear-gradient(180deg,#221628,#09080c);
+  transform: translateX(-50%);
+}
+
+.spell-library__dais::before {
+  top: -7px;
+  width: 72%;
+  height: 9px;
+}
+
+.spell-library__dais::after {
+  top: 11px;
+  width: 88%;
+  height: 10px;
+}
+
+.spell-library__dais span,
+.spell-library__sigil,
+.spell-library__floor-sigil,
+.spell-library__altar-platform,
+.spell-library__shelf-base {
+  display: none;
+}
+
+.spell-library__low-mist,
+.spell-library[data-library-state="idle"] .spell-library__low-mist {
+  right: 8%;
+  bottom: 0;
+  left: 8%;
+  height: 150px;
+  opacity: .32;
+}
+
+.spell-library__particles {
+  opacity: .2;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__hands--idle,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__hands--idle {
+  opacity: .46;
+  filter: brightness(.42) saturate(.43) contrast(1.15) drop-shadow(0 28px 32px rgba(0,0,0,.92));
+}
+
+.spell-library[data-library-state="idle"] .spell-library__shelf:has(.spell-book:hover) .spell-book:not(:hover) {
+  opacity: .86;
+  filter: brightness(.8) saturate(.82);
+}
+
+.spell-library[data-library-state="idle"] .spell-book:hover,
+.spell-library[data-library-state="idle"] .spell-book:focus-visible {
+  opacity: 1;
+  transform: translateY(-14px) scale(1.04);
+}
+
+@media (max-width:900px) {
+  .spell-library__hands--left { transform: translateX(-17%); }
+  .spell-library__hands--right { transform: translateX(17%); }
+  .spell-library__shelf-frame { width:min(590px,68%); }
+}
+
+@media (max-width:620px) {
+  .spell-library__chamber,
+  .spell-library[data-library-state="idle"] .spell-library__chamber { min-height:560px; }
+  .spell-library__hands--left { transform:translateX(-8%); }
+  .spell-library__hands--right { transform:translateX(8%); }
+  .spell-library__guardians .spell-library__hands--idle {
+    opacity:.5;
+    filter:brightness(.48) saturate(.46) contrast(1.13) drop-shadow(0 24px 28px rgba(0,0,0,.9));
+  }
+  .spell-library__shelf-frame { top:29%; width:92%; height:340px; }
+  .spell-library__shelf { height:258px; }
+  .spell-book:nth-child(1),.spell-book:nth-child(5) { height:190px; }
+  .spell-book:nth-child(2),.spell-book:nth-child(4) { height:198px; }
+  .spell-book:nth-child(3) { flex-basis:25%; width:25vw; height:250px; }
+  .spell-library__dais { top:254px; width:128px; height:14px; }
+  .spell-library__dais::before { top:-5px; height:7px; }
+  .spell-library__dais::after { top:8px; height:8px; }
+}
+
+/* Correções pontuais: sem véu preto e awakened somente após clique. */
+.spell-library__chamber::before,
+.spell-library__guardians::before {
+  display: none;
+}
+
+.spell-library__architecture::after {
+  background: radial-gradient(ellipse at 50% 58%,rgba(86,48,101,.055),transparent 62%);
+}
+
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:hover) .spell-library__hands--awakened,
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:focus-visible) .spell-library__hands--awakened,
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:hover) .spell-library__light-spill,
+.spell-library[data-library-state="idle"] .spell-library__chamber:has(.spell-book--full-stack:focus-visible) .spell-library__light-spill {
+  opacity: 0;
+}
+
+.spell-book--full-stack .spell-book__label {
+  display: none;
+}
+
+/* A imagem normal não participa da cena depois que o grimório é ativado. */
+.spell-library:not([data-library-state="idle"]) .spell-library__hands--idle {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Mantém apenas mãos e mangas; o fade termina antes dos pilares do PNG. */
+.spell-library__hands {
+  -webkit-mask-image: linear-gradient(to bottom,#000 0 44%,rgba(0,0,0,.96) 46%,transparent 52%);
+  mask-image: linear-gradient(to bottom,#000 0 44%,rgba(0,0,0,.96) 46%,transparent 52%);
+}
+
+/* Mãos baixas nas laterais, com respiro antes e depois da coleção. */
+.spell-library__hands--left {
+  transform: translate(-14%,28%);
+}
+
+.spell-library__hands--right {
+  transform: translate(14%,28%);
+}
+
+@media (max-width:900px) {
+  .spell-library__hands--left { transform:translate(-17%,27%); }
+  .spell-library__hands--right { transform:translate(17%,27%); }
+}
+
+@media (max-width:620px) {
+  .spell-library__hands--left { transform:translate(-8%,24%); }
+  .spell-library__hands--right { transform:translate(8%,24%); }
+}
+
+/* Remove véus pretos do altar fechado; o backdrop do modal permanece intacto. */
+.spell-library[data-library-state="idle"] {
+  background: #09070d;
+}
+
+.spell-library__guardians::after {
+  display: none;
+}
+
+.spell-library[data-library-state="idle"] .spell-book,
+.spell-library[data-library-state="idle"] .spell-book:has(>img) {
+  background: transparent;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__atmosphere,
+.spell-library[data-library-state="idle"] .spell-library__architecture::before,
+.spell-library[data-library-state="idle"] .spell-library__architecture::after {
+  display: none;
+}
+
+.spell-library[data-library-state="idle"] .spell-library__guardians .spell-library__hands--idle,
+.spell-library[data-library-state="idle"] .spell-library__chamber:hover .spell-library__hands--idle,
+.spell-library[data-library-state="idle"] .spell-library__chamber:focus-within .spell-library__hands--idle {
+  filter: brightness(.46) saturate(.46) contrast(1.12);
+}
+
+.spell-library[data-library-state="idle"] .spell-book > img {
+  filter: none;
 }
