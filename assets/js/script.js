@@ -800,6 +800,246 @@ const spellDomains = [
   }
 ];
 
+// Cada entrada descreve uma tecnologia sem acoplar o conteúdo ao HTML do livro.
+// Para usar um avatar definitivo, basta preencher `avatar` com o caminho da imagem.
+const grimoireEntries = {
+  React: {
+    school: 'Artes da Interface', volume: 'I', record: '04', avatar: null, sigil: 'R',
+    anatomy: [
+      { term: 'Componentes', note: 'Partes reutilizáveis da interface.' },
+      { term: 'Estado', note: 'Dados que conduzem cada mudança visual.' },
+      { term: 'Props', note: 'Contratos entre entidades da árvore.' },
+      { term: 'Contexto', note: 'Conhecimento partilhado sem prop drilling.' }
+    ],
+    concepts: ['Componentes', 'Estado', 'Props', 'Context API', 'Rotas'],
+    fieldNotes: {
+      Savory: 'Componentização, rotas e consumo de uma fonte externa de receitas.',
+      'Behorner-Control': 'Interfaces de controle conectadas aos serviços da plataforma.',
+      'Portfólio Alice': 'Composição responsiva e organização da experiência em componentes.'
+    },
+    archivistNote: 'React se tornou uma das ferramentas centrais na construção das minhas interfaces.'
+  },
+  JavaScript: {
+    school: 'Artes da Interface', volume: 'I', record: '07', avatar: null, sigil: 'JS',
+    anatomy: [
+      { term: 'Eventos', note: 'Sinais que despertam uma interação.' },
+      { term: 'DOM', note: 'A árvore viva da página.' },
+      { term: 'Funções', note: 'Rituais pequenos, nomeados e reutilizáveis.' },
+      { term: 'Promises', note: 'Pactos com operações assíncronas.' }
+    ],
+    concepts: ['DOM', 'Eventos', 'Funções', 'APIs', 'Assincronicidade'],
+    fieldNotes: {
+      'DevWizard Portfolio': 'Interações narrativas, navegação e componentes orientados por dados.',
+      'Code Stone': 'Comportamentos nativos aplicados a uma página temática.',
+      'Infinity Open': 'Controle da experiência responsiva sem dependências pesadas.'
+    },
+    archivistNote: 'É a linguagem que conecta estrutura, movimento e resposta nas experiências que construo.'
+  },
+  'HTML & CSS': {
+    school: 'Artes da Interface', volume: 'I', record: '09', avatar: null, sigil: '</>',
+    anatomy: [
+      { term: 'Semântica', note: 'A estrutura que dá significado ao conteúdo.' },
+      { term: 'Cascata', note: 'Regras visuais organizadas por contexto.' },
+      { term: 'Layout', note: 'Grids e fluxos que sustentam a composição.' },
+      { term: 'Acessibilidade', note: 'Caminhos claros para diferentes formas de uso.' }
+    ],
+    concepts: ['Semântica', 'Grid', 'Flexbox', 'Responsividade', 'Acessibilidade'],
+    archivistNote: 'A base de cada interface: sólida o bastante para sustentar identidade e interação.'
+  },
+  'Vite & SASS': {
+    school: 'Artes da Interface', volume: 'I', record: '12', avatar: null, sigil: 'V',
+    anatomy: [
+      { term: 'Build', note: 'Transforma as fontes em artefatos de entrega.' },
+      { term: 'Módulos', note: 'Separa responsabilidades e dependências.' },
+      { term: 'Tokens', note: 'Valores que mantêm o sistema visual coeso.' }
+    ],
+    concepts: ['Build', 'Módulos', 'Variáveis', 'Mixins', 'Otimização'],
+    archivistNote: 'Ferramentas que tornam a oficina front-end mais rápida, previsível e organizada.'
+  },
+  Python: {
+    school: 'Ofícios do Servidor', volume: 'II', record: '03', avatar: null, sigil: 'Py',
+    anatomy: [
+      { term: 'Módulos', note: 'Conhecimento separado por responsabilidade.' },
+      { term: 'Objetos', note: 'Estado e comportamento reunidos.' },
+      { term: 'Tipagem', note: 'Pistas que tornam contratos mais claros.' },
+      { term: 'Automação', note: 'Tarefas repetidas transformadas em processos.' }
+    ],
+    concepts: ['Funções', 'Objetos', 'Módulos', 'Tipagem', 'Automação'],
+    fieldNotes: {
+      'Behorner-Control': 'Base de serviços, automações e regras para controle dos laboratórios.',
+      Hacktohon: 'Lógica de servidor e processamento dos fluxos da plataforma.'
+    },
+    archivistNote: 'Python passou de linguagem de estudo a instrumento recorrente para serviços e automação.'
+  },
+  FastAPI: {
+    school: 'Ofícios do Servidor', volume: 'II', record: '06', avatar: null, sigil: 'API',
+    anatomy: [
+      { term: 'Rotas', note: 'Portais nomeados para cada recurso.' },
+      { term: 'Schemas', note: 'Contratos que validam toda mensagem.' },
+      { term: 'Dependências', note: 'Recursos compartilhados sob controle.' },
+      { term: 'OpenAPI', note: 'Mapa vivo dos caminhos disponíveis.' }
+    ],
+    concepts: ['Rotas', 'Pydantic', 'Dependências', 'OpenAPI', 'Async'],
+    fieldNotes: {
+      'Behorner-Control': 'API tipada para integrar gestão, agentes e controle remoto.'
+    },
+    archivistNote: 'FastAPI trouxe clareza aos contratos e velocidade à construção dos meus serviços.'
+  },
+  'Django & Flask': {
+    school: 'Ofícios do Servidor', volume: 'II', record: '08', avatar: null, sigil: 'DF',
+    anatomy: [
+      { term: 'Rotas', note: 'Direcionam cada requisição ao seu destino.' },
+      { term: 'Modelos', note: 'Representam as regras e os registros do domínio.' },
+      { term: 'Views', note: 'Orquestram entrada, decisão e resposta.' }
+    ],
+    concepts: ['MVC', 'ORM', 'Templates', 'Rotas', 'Autenticação'],
+    archivistNote: 'Dois caminhos para transformar regras de negócio em aplicações web consistentes.'
+  },
+  'Node.js': {
+    school: 'Ofícios do Servidor', volume: 'II', record: '11', avatar: null, sigil: 'N',
+    anatomy: [
+      { term: 'Runtime', note: 'JavaScript operando além do navegador.' },
+      { term: 'Event loop', note: 'Coordena tarefas sem bloquear o fluxo.' },
+      { term: 'Pacotes', note: 'Artefatos compartilhados pelo ecossistema.' }
+    ],
+    concepts: ['Runtime', 'Event loop', 'Módulos', 'APIs', 'NPM'],
+    archivistNote: 'A ponte que mantém a mesma linguagem entre interface, ferramentas e serviços.'
+  },
+  SQL: {
+    school: 'Escola dos Dados', volume: 'III', record: '02', avatar: null, sigil: 'SQL',
+    anatomy: [
+      { term: 'Tabelas', note: 'Coleções estruturadas de registros.' },
+      { term: 'Chaves', note: 'Identificam e conectam entidades.' },
+      { term: 'Consultas', note: 'Perguntas precisas feitas ao arquivo.' },
+      { term: 'Relações', note: 'Vínculos que preservam o contexto.' }
+    ],
+    concepts: ['Tabelas', 'Colunas', 'Registros', 'Chaves', 'Relações'],
+    fieldNotes: {
+      Hacktohon: 'Consultas e estrutura relacional para os processos empresariais.',
+      'Behorner-Control': 'Modelagem dos equipamentos, laboratórios e eventos do sistema.'
+    },
+    archivistNote: 'SQL deixou de ser apenas consulta e passou a fazer parte da arquitetura dos meus sistemas.'
+  },
+  MySQL: {
+    school: 'Escola dos Dados', volume: 'III', record: '05', avatar: null, sigil: 'MY',
+    anatomy: [
+      { term: 'Schema', note: 'O mapa formal do domínio persistido.' },
+      { term: 'Índices', note: 'Atalhos para localizar registros.' },
+      { term: 'Transações', note: 'Mudanças tratadas como uma unidade segura.' }
+    ],
+    concepts: ['Schemas', 'Índices', 'Joins', 'Transações', 'Constraints'],
+    archivistNote: 'Um arquivo relacional confiável para transformar regras de negócio em dados duráveis.'
+  },
+  SQLite: {
+    school: 'Escola dos Dados', volume: 'III', record: '07', avatar: null, sigil: 'SQ',
+    anatomy: [
+      { term: 'Arquivo único', note: 'Toda a base preservada num artefato portátil.' },
+      { term: 'Consultas', note: 'A linguagem relacional sem um servidor dedicado.' },
+      { term: 'Transações', note: 'Consistência mesmo em estruturas leves.' }
+    ],
+    concepts: ['Portabilidade', 'SQL', 'Transações', 'Protótipos', 'Persistência local'],
+    archivistNote: 'Minha escolha para protótipos e ferramentas que pedem persistência simples e confiável.'
+  },
+  MongoDB: {
+    school: 'Escola dos Dados', volume: 'III', record: '10', avatar: null, sigil: 'M',
+    anatomy: [
+      { term: 'Documentos', note: 'Registros flexíveis agrupados por contexto.' },
+      { term: 'Coleções', note: 'Conjuntos de documentos relacionados.' },
+      { term: 'Agregações', note: 'Etapas que transformam e resumem informação.' }
+    ],
+    concepts: ['Documentos', 'Coleções', 'Índices', 'Agregações', 'Schemas flexíveis'],
+    archivistNote: 'Uma alternativa documental para domínios que evoluem com estruturas menos rígidas.'
+  },
+  'Git & GitHub': {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '01', avatar: null, sigil: 'G',
+    anatomy: [
+      { term: 'Commit', note: 'Um ponto preservado na história.' },
+      { term: 'Branch', note: 'Um caminho paralelo de experimentação.' },
+      { term: 'Merge', note: 'A reunião consciente de duas jornadas.' },
+      { term: 'Review', note: 'Leitura crítica antes da integração.' }
+    ],
+    concepts: ['Commit', 'Branch', 'Merge', 'Pull Request', 'Histórico'],
+    archivistNote: 'Git é o registro de decisões que torna cada projeto rastreável e colaborativo.'
+  },
+  Figma: {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '04', avatar: null, sigil: 'F',
+    anatomy: [
+      { term: 'Frames', note: 'Territórios onde a interface toma forma.' },
+      { term: 'Componentes', note: 'Padrões visuais reutilizáveis.' },
+      { term: 'Auto layout', note: 'Regras que preservam ritmo e adaptação.' },
+      { term: 'Protótipo', note: 'Uma simulação do caminho do usuário.' }
+    ],
+    concepts: ['Frames', 'Componentes', 'Auto layout', 'Variantes', 'Protótipos'],
+    archivistNote: 'O espaço onde composição, sistema visual e fluxo são testados antes da construção.'
+  },
+  Vite: {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '07', avatar: null, sigil: 'V',
+    anatomy: [
+      { term: 'Dev server', note: 'Oficina rápida para ciclos de criação.' },
+      { term: 'HMR', note: 'Atualiza módulos sem interromper o trabalho.' },
+      { term: 'Bundle', note: 'Prepara os artefatos para entrega.' }
+    ],
+    concepts: ['Dev server', 'HMR', 'Módulos', 'Build', 'Plugins'],
+    archivistNote: 'Reduz o intervalo entre uma decisão de interface e sua validação no navegador.'
+  },
+  Notion: {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '09', avatar: null, sigil: 'N',
+    anatomy: [
+      { term: 'Páginas', note: 'Unidades de conhecimento conectadas.' },
+      { term: 'Bases', note: 'Registros organizados por propriedades.' },
+      { term: 'Visões', note: 'Leituras diferentes da mesma informação.' }
+    ],
+    concepts: ['Documentação', 'Bases', 'Planejamento', 'Registros', 'Colaboração'],
+    archivistNote: 'Meu arquivo de apoio para preservar contexto, decisões e próximos passos.'
+  },
+  'Arquitetura Web': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '01', avatar: null, sigil: '∞',
+    anatomy: [
+      { term: 'Interface', note: 'A superfície onde a solução encontra pessoas.' },
+      { term: 'Serviços', note: 'Regras e operações que sustentam o produto.' },
+      { term: 'Dados', note: 'A memória persistente do sistema.' },
+      { term: 'Contratos', note: 'Acordos claros entre cada camada.' }
+    ],
+    concepts: ['Camadas', 'Contratos', 'Serviços', 'Persistência', 'Observabilidade'],
+    fieldNotes: {
+      Savory: 'Integração entre descoberta de conteúdo, interface e persistência.',
+      'Behorner-Control': 'Arquitetura que une agentes, API, banco e painel de operação.'
+    },
+    archivistNote: 'A visão do sistema inteiro orienta minhas decisões mesmo quando atuo em uma única camada.'
+  },
+  'APIs & Integrações': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '04', avatar: null, sigil: 'API',
+    anatomy: [
+      { term: 'Contrato', note: 'Define a forma de cada mensagem.' },
+      { term: 'Recurso', note: 'Entidade exposta por uma rota.' },
+      { term: 'Autorização', note: 'Controla quem atravessa cada portal.' },
+      { term: 'Resposta', note: 'Retorno previsível para cada solicitação.' }
+    ],
+    concepts: ['REST', 'JSON', 'Autenticação', 'Validação', 'Tratamento de erros'],
+    archivistNote: 'Integrações bem definidas mantêm sistemas diferentes trabalhando como uma única solução.'
+  },
+  'UX Responsiva': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '07', avatar: null, sigil: 'UX',
+    anatomy: [
+      { term: 'Fluxo', note: 'O caminho necessário para cumprir uma tarefa.' },
+      { term: 'Hierarquia', note: 'Orienta o olhar e reduz dúvida.' },
+      { term: 'Adaptação', note: 'Preserva a experiência em diferentes telas.' }
+    ],
+    concepts: ['Fluxos', 'Hierarquia', 'Breakpoints', 'Acessibilidade', 'Feedback'],
+    archivistNote: 'Responsividade é preservar intenção e legibilidade, não apenas reduzir dimensões.'
+  },
+  'Deploy & Evolução': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '10', avatar: null, sigil: '↑',
+    anatomy: [
+      { term: 'Build', note: 'Consolida a versão pronta para entrega.' },
+      { term: 'Ambiente', note: 'Configura o contexto de execução.' },
+      { term: 'Versão', note: 'Marca um estado verificável do produto.' }
+    ],
+    concepts: ['Build', 'Ambientes', 'Versionamento', 'Entrega', 'Manutenção'],
+    archivistNote: 'Publicar é apenas o começo de um ciclo contínuo de observação e melhoria.'
+  }
+};
+
 const spellLibrary = document.querySelector('.spell-library');
 const spellShelf = document.getElementById('spell-book-shelf');
 const spellGrimoire = document.getElementById('spell-grimoire');
@@ -823,25 +1063,131 @@ function renderSpellShelf() {
     </button>`).join('');
 }
 
+function normalizeGrimoireLabel(value) {
+  return String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]/gi, '')
+    .toLowerCase();
+}
+
+function findGrimoireProject(projectName) {
+  const normalizedName = normalizeGrimoireLabel(projectName);
+  return projects.find(project => {
+    const normalizedTitle = normalizeGrimoireLabel(project.title);
+    return normalizedTitle === normalizedName || normalizedTitle.includes(normalizedName) || normalizedName.includes(normalizedTitle);
+  });
+}
+
+function getGrimoireEntry(technology, domain, index) {
+  const customEntry = grimoireEntries[technology.name] || {};
+  return {
+    name: technology.name,
+    school: customEntry.school || `Escola de ${domain.title}`,
+    volume: customEntry.volume || String(spellDomains.indexOf(domain) + 1),
+    record: customEntry.record || String(index + 1).padStart(2, '0'),
+    avatar: customEntry.avatar || null,
+    sigil: customEntry.sigil || domain.rune,
+    level: technology.rank,
+    description: technology.description,
+    anatomy: customEntry.anatomy || [
+      { term: 'Fundamento', note: technology.description },
+      { term: 'Aplicação', note: 'Conhecimento aplicado em experiências e sistemas reais.' }
+    ],
+    concepts: customEntry.concepts || [technology.name, domain.title, 'Prática', 'Evolução'],
+    fieldNotes: customEntry.fieldNotes || {},
+    projectNames: technology.projects || [],
+    archivistNote: customEntry.archivistNote || `${technology.name} permanece em estudo contínuo dentro da escola de ${domain.title}.`
+  };
+}
+
+function renderGrimoireProject(projectName, entry, index) {
+  const project = findGrimoireProject(projectName);
+  const note = project?.shortDescription || entry.fieldNotes[projectName] || entry.description;
+  const observation = entry.fieldNotes[projectName] || `Aplicação de ${entry.name} em contexto prático.`;
+  return `
+    <li class="grimoire__project-entry">
+      <div class="grimoire__project-copy">
+        <span class="grimoire__project-number">Registro ${String(index + 1).padStart(2, '0')}</span>
+        <h4>${project?.title || projectName}</h4>
+        <p>${note}</p>
+        <q>${observation}</q>
+      </div>
+      <figure class="grimoire__project-sketch${project?.image ? ' has-image' : ''}" aria-label="Espaço para gravura do projeto ${project?.title || projectName}">
+        ${project?.image
+          ? `<img src="${project.image}" alt="Registro visual do projeto ${project.title}" loading="lazy">`
+          : `<span aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>`}
+      </figure>
+    </li>`;
+}
+
 function renderSpellGrimoire(focusControl = false) {
   if (!spellGrimoire || !activeBook) return;
-  const pageCount = Math.ceil(activeBook.technologies.length / 2);
-  const entries = activeBook.technologies.slice(activeSpellPage * 2, activeSpellPage * 2 + 2);
+  const pageCount = activeBook.technologies.length;
+  const technology = activeBook.technologies[activeSpellPage];
+  const entry = getGrimoireEntry(technology, activeBook, activeSpellPage);
+  const anatomy = entry.anatomy.slice(0, 4);
+  const projectsToRender = entry.projectNames.slice(0, 4);
   spellGrimoire.style.setProperty('--book-accent', activeBook.accent);
+  spellGrimoire.classList.add('grimoire');
   spellGrimoire.innerHTML = `
-    <button class="spell-grimoire__close" type="button" aria-label="Fechar grimório">×</button>
-    <header><span>${activeBook.rune} Escola de domínio</span><h3>Grimório do ${activeBook.title}</h3><p>${activeBook.description}</p><small>Página ${activeSpellPage + 1} de ${pageCount}</small></header>
-    <div class="spell-grimoire__spread">
-      ${entries.map((technology, index) => `<article class="spell-grimoire__page" data-page-side="${index ? 'right' : 'left'}">
-        <span class="spell-grimoire__folio">${String(activeSpellPage * 2 + index + 1).padStart(2, '0')}</span>
-        <h4>${technology.name}</h4><strong>${technology.rank}</strong><p>${technology.description}</p>
-        <div><small>Usado em</small><ul>${technology.projects.map(project => `<li>${project}</li>`).join('')}</ul></div>
-      </article>`).join('')}
+    <button class="spell-grimoire__close grimoire__close" type="button" aria-label="Fechar grimório">
+      <span aria-hidden="true">✦</span>
+    </button>
+    <div class="spell-grimoire__spread grimoire__spread">
+      <article class="spell-grimoire__page grimoire__page grimoire__page--left">
+        <header class="grimoire__page-header">
+          <span class="grimoire__folio">Bestiário ${String(activeSpellPage + 1).padStart(2, '0')}</span>
+          <h3 class="grimoire__technology-title">${entry.name}</h3>
+          <p class="grimoire__school">${entry.school}</p>
+          <small>Volume ${entry.volume} · Registro ${entry.record}</small>
+        </header>
+
+        <section class="grimoire__study" aria-label="Anatomia de ${entry.name}">
+          <figure class="grimoire__avatar${entry.avatar ? ' has-image' : ''}">
+            ${entry.avatar
+              ? `<img src="${entry.avatar}" alt="Entidade visual de ${entry.name}">`
+              : `<span class="grimoire__avatar-sigil" aria-hidden="true">${entry.sigil}</span><figcaption>Retrato em catalogação</figcaption>`}
+          </figure>
+          <div class="grimoire__anatomy">
+            ${anatomy.map((item, index) => `<div class="grimoire__anatomy-note" style="--note-index:${index}">
+              <strong>${item.term}</strong><span>${item.note}</span>
+            </div>`).join('')}
+          </div>
+          <div class="grimoire__diagram" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </section>
+
+        <div class="grimoire__left-footer">
+          <section class="grimoire__concepts">
+            <h4>Princípios catalogados</h4>
+            <ul>${entry.concepts.slice(0, 5).map(concept => `<li>${concept}</li>`).join('')}</ul>
+          </section>
+          <div class="grimoire__seal" aria-label="Selo do domínio ${activeBook.title}">
+            <span aria-hidden="true">${activeBook.rune}</span>
+            <small>${activeBook.title}</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="spell-grimoire__page grimoire__page grimoire__page--right">
+        <header class="grimoire__field-header">
+          <span>Caderno do arquivista</span>
+          <h3>Registro de Campo</h3>
+          <p>Onde este conhecimento foi colocado à prova.</p>
+        </header>
+        <ol class="grimoire__field-log">
+          ${projectsToRender.map((projectName, index) => renderGrimoireProject(projectName, entry, index)).join('')}
+        </ol>
+        <aside class="grimoire__archivist-note">
+          <span>Nota do arquivista</span>
+          <p>“${entry.archivistNote}”</p>
+        </aside>
+      </article>
     </div>
-    <nav class="spell-grimoire__navigation" aria-label="Páginas do grimório">
-      <button type="button" data-spell-page="prev" ${activeSpellPage === 0 ? 'disabled' : ''}>‹ Página anterior</button>
-      <span aria-hidden="true">◇</span>
-      <button type="button" data-spell-page="next" ${activeSpellPage >= pageCount - 1 ? 'disabled' : ''}>Próxima página ›</button>
+    <nav class="spell-grimoire__navigation grimoire__navigation" aria-label="Tecnologias do grimório">
+      <button type="button" data-spell-page="prev" ${activeSpellPage === 0 ? 'disabled' : ''}>‹ registro anterior</button>
+      <span>${activeSpellPage + 1} / ${pageCount}</span>
+      <button type="button" data-spell-page="next" ${activeSpellPage >= pageCount - 1 ? 'disabled' : ''}>próximo registro ›</button>
     </nav>`;
   spellGrimoire.hidden = false;
   if (focusControl) spellGrimoire.querySelector('.spell-grimoire__close')?.focus();
@@ -899,7 +1245,7 @@ spellGrimoire?.addEventListener('click', event => {
   if (event.target.closest('.spell-grimoire__close')) return closeSpellBook();
   const pageButton = event.target.closest('[data-spell-page]');
   if (!pageButton || !activeBook) return;
-  const pageCount = Math.ceil(activeBook.technologies.length / 2);
+  const pageCount = activeBook.technologies.length;
   activeSpellPage = Math.max(0, Math.min(pageCount - 1, activeSpellPage + (pageButton.dataset.spellPage === 'next' ? 1 : -1)));
   spellGrimoire.classList.remove('is-turning');
   void spellGrimoire.offsetWidth;

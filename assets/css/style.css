@@ -13246,3 +13246,789 @@ button.corridor-relic-frame {
 .spell-library[data-library-state="idle"] .spell-book > img {
   filter: none;
 }
+
+/* Grimório aberto: bestiário técnico e registro de campo. */
+.spell-library:not([data-library-state="idle"]) .spell-library__chamber {
+  min-height: 760px;
+}
+
+.spell-library:not([data-library-state="idle"]) .spell-library__stage {
+  inset: 1.5% 1.5% 2%;
+}
+
+.spell-grimoire.grimoire {
+  width: min(1120px, 96%);
+  height: min(680px, calc(100vh - 64px));
+  min-height: 620px;
+  padding: 13px 13px 48px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 3px 5px 7px 4px;
+  background: linear-gradient(90deg, #211217, #321c20 48%, #1b0f14 52%, #2c181d);
+  box-shadow:
+    0 38px 80px rgba(0, 0, 0, .82),
+    0 0 38px color-mix(in srgb, var(--book-accent) 18%, transparent),
+    inset 0 0 0 1px rgba(190, 139, 76, .35),
+    inset 0 0 32px rgba(0, 0, 0, .7);
+}
+
+.spell-grimoire.grimoire::before {
+  inset: 7px;
+  border: 1px solid rgba(190, 139, 76, .2);
+  border-radius: 2px;
+}
+
+.spell-grimoire.grimoire::after {
+  z-index: 5;
+  top: 13px;
+  bottom: 47px;
+  left: 50%;
+  width: 34px;
+  background:
+    linear-gradient(90deg,
+      rgba(63, 39, 26, .05),
+      rgba(52, 31, 21, .28) 35%,
+      rgba(36, 20, 17, .42) 49%,
+      rgba(255, 245, 210, .12) 53%,
+      rgba(57, 35, 23, .22) 73%,
+      rgba(63, 39, 26, .04));
+  box-shadow: none;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.grimoire .grimoire__spread {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+}
+
+.grimoire .grimoire__page {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  padding: 31px 41px 27px;
+  overflow: hidden;
+  color: #382d26;
+  background:
+    linear-gradient(105deg, rgba(108, 75, 42, .07), transparent 22%),
+    radial-gradient(circle at 19% 12%, rgba(112, 77, 43, .06) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 68%, rgba(87, 58, 36, .05) 0 1px, transparent 2px),
+    linear-gradient(180deg, #e8d9b8, #e2d0aa 57%, #dbc69d);
+  background-size: auto, 23px 27px, 31px 29px, auto;
+  box-shadow: inset 0 0 34px rgba(80, 52, 31, .22);
+}
+
+.grimoire .grimoire__page::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 11px 12px;
+  border: 1px solid rgba(94, 67, 42, .16);
+  pointer-events: none;
+}
+
+.grimoire .grimoire__page::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  opacity: .38;
+  background:
+    linear-gradient(94deg, transparent 0 96%, rgba(81, 53, 34, .08)),
+    repeating-linear-gradient(2deg, transparent 0 18px, rgba(91, 61, 38, .018) 19px);
+  pointer-events: none;
+}
+
+.grimoire .grimoire__page--left {
+  clip-path: polygon(.8% 1%, 99.7% 0, 100% 99.5%, 1.1% 100%, 0 73%, .5% 38%);
+  box-shadow: inset -28px 0 35px rgba(72, 45, 27, .17), inset 0 0 34px rgba(80, 52, 31, .2);
+}
+
+.grimoire .grimoire__page--right {
+  clip-path: polygon(.3% 0, 99.2% 1%, 100% 39%, 99.4% 76%, 98.9% 100%, 0 99.5%);
+  box-shadow: inset 28px 0 35px rgba(72, 45, 27, .15), inset 0 0 34px rgba(80, 52, 31, .2);
+}
+
+.grimoire .grimoire__page > * {
+  position: relative;
+  z-index: 2;
+}
+
+.grimoire__close.spell-grimoire__close {
+  z-index: 10;
+  top: 22px;
+  right: 22px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(91, 53, 41, .48);
+  border-radius: 50%;
+  color: #5a2e32;
+  background: #c9aa72;
+  box-shadow: inset 0 0 0 3px rgba(85, 48, 37, .14), 0 2px 8px rgba(51, 30, 23, .25);
+  font: 400 .85rem/1 Cinzel, serif;
+}
+
+.grimoire__close.spell-grimoire__close::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(91, 53, 41, .42);
+  border-radius: 50%;
+}
+
+.grimoire__close.spell-grimoire__close:hover,
+.grimoire__close.spell-grimoire__close:focus-visible {
+  color: #f0dfbd;
+  background: #59303d;
+  outline: 2px solid color-mix(in srgb, var(--book-accent) 55%, #7b563d);
+  outline-offset: 3px;
+  transform: rotate(12deg);
+}
+
+.grimoire__page-header {
+  padding: 0 0 10px 4px;
+  border-bottom: 1px solid rgba(68, 48, 34, .32);
+  text-align: left;
+}
+
+.grimoire__folio,
+.grimoire__field-header > span {
+  display: block;
+  color: #765d48;
+  font: 700 .48rem/1.2 Cinzel, serif;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.grimoire__technology-title {
+  margin: 5px 0 1px;
+  color: #2f2220;
+  font: 700 clamp(1.55rem, 2.4vw, 2.25rem)/1 Cinzel, serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.grimoire__school {
+  margin: 0;
+  color: color-mix(in srgb, var(--book-accent) 64%, #4c372d);
+  font: 700 .58rem/1.4 Cinzel, serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.grimoire__page-header small {
+  display: block;
+  margin-top: 4px;
+  color: #796552;
+  font: italic .63rem/1.2 Lora, serif;
+}
+
+.grimoire__study {
+  position: relative;
+  height: 310px;
+  margin-top: 8px;
+}
+
+.grimoire__avatar {
+  position: absolute;
+  z-index: 3;
+  top: 28px;
+  left: 50%;
+  width: 170px;
+  height: 205px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 49% 51% 47% 53% / 44% 48% 52% 56%;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--book-accent) 13%, transparent), transparent 64%),
+    radial-gradient(circle at center, transparent 53%, rgba(83, 58, 38, .18) 54% 55%, transparent 56%);
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.grimoire__avatar::before,
+.grimoire__avatar::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(74, 53, 39, .38);
+  border-radius: 50%;
+}
+
+.grimoire__avatar::before {
+  inset: 12px 3px 8px;
+  transform: rotate(7deg);
+}
+
+.grimoire__avatar::after {
+  inset: 22px 14px 17px 8px;
+  border-style: dashed;
+  opacity: .48;
+  transform: rotate(-9deg);
+}
+
+.grimoire__avatar.has-image img {
+  width: 88%;
+  height: 91%;
+  object-fit: contain;
+  filter: sepia(.18) contrast(.96) drop-shadow(0 7px 7px rgba(46, 31, 22, .2));
+}
+
+.grimoire__avatar-sigil {
+  color: color-mix(in srgb, var(--book-accent) 54%, #433329);
+  font: 700 clamp(2rem, 4vw, 3.6rem)/1 Cinzel, serif;
+  opacity: .7;
+  transform: rotate(2deg);
+}
+
+.grimoire__avatar figcaption {
+  position: absolute;
+  bottom: 13px;
+  color: #745f4b;
+  font: italic .52rem/1.2 Lora, serif;
+  letter-spacing: .04em;
+}
+
+.grimoire__anatomy {
+  position: absolute;
+  inset: 0;
+}
+
+.grimoire__anatomy-note {
+  position: absolute;
+  width: 128px;
+  color: #554439;
+  font: .59rem/1.28 Lora, serif;
+}
+
+.grimoire__anatomy-note strong {
+  display: block;
+  color: #3f3029;
+  font: 700 .53rem/1.2 Cinzel, serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.grimoire__anatomy-note span {
+  display: block;
+  margin-top: 2px;
+}
+
+.grimoire__anatomy-note::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  width: 56px;
+  height: 1px;
+  background: rgba(83, 56, 38, .45);
+  transform-origin: center;
+}
+
+.grimoire__anatomy-note:nth-child(1) { top: 16px; left: 0; transform: rotate(-2deg); }
+.grimoire__anatomy-note:nth-child(1)::after { left: 86%; transform: rotate(18deg); }
+.grimoire__anatomy-note:nth-child(2) { top: 43px; right: -1px; text-align: right; transform: rotate(1deg); }
+.grimoire__anatomy-note:nth-child(2)::after { right: 88%; transform: rotate(-14deg); }
+.grimoire__anatomy-note:nth-child(3) { bottom: 24px; left: 4px; transform: rotate(1deg); }
+.grimoire__anatomy-note:nth-child(3)::after { left: 88%; transform: rotate(-22deg); }
+.grimoire__anatomy-note:nth-child(4) { right: 0; bottom: 19px; text-align: right; transform: rotate(-1deg); }
+.grimoire__anatomy-note:nth-child(4)::after { right: 88%; transform: rotate(19deg); }
+
+.grimoire__diagram {
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 112px;
+  height: 39px;
+  opacity: .28;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.grimoire__diagram::before,
+.grimoire__diagram::after {
+  content: "";
+  position: absolute;
+  inset: 7px 12px;
+  border: 1px solid #664b38;
+  border-radius: 50%;
+}
+
+.grimoire__diagram::after {
+  inset: 2px 34px;
+  border-style: dashed;
+}
+
+.grimoire__diagram i {
+  position: absolute;
+  z-index: 1;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #604632;
+  border-radius: 50%;
+  background: #dfcda7;
+}
+
+.grimoire__diagram i:nth-child(1) { left: 10px; top: 17px; }
+.grimoire__diagram i:nth-child(2) { left: 44px; top: 4px; }
+.grimoire__diagram i:nth-child(3) { right: 43px; bottom: 3px; }
+.grimoire__diagram i:nth-child(4) { right: 9px; top: 17px; }
+
+.grimoire .grimoire__left-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 17px;
+  align-items: end;
+  padding: 9px 3px 0;
+  border-top: 1px solid rgba(79, 55, 38, .27);
+}
+
+.grimoire__concepts h4 {
+  margin: 0 0 7px;
+  color: #4b382f;
+  font: 700 .52rem/1.2 Cinzel, serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.grimoire__concepts ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grimoire__concepts li {
+  margin: 0;
+  color: #4e3f35;
+  font: italic .63rem/1.3 Lora, serif;
+}
+
+.grimoire__concepts li::before {
+  content: "◇";
+  margin-right: 4px;
+  color: var(--book-accent);
+  font-size: .45rem;
+}
+
+.grimoire__seal {
+  width: 68px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border: 1px solid color-mix(in srgb, var(--book-accent) 58%, #6a4c38);
+  border-radius: 50%;
+  color: color-mix(in srgb, var(--book-accent) 62%, #51382d);
+  transform: rotate(-7deg);
+  opacity: .82;
+}
+
+.grimoire__seal::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed currentColor;
+  border-radius: 50%;
+}
+
+.grimoire__seal span {
+  font: 700 1rem/1 Cinzel, serif;
+}
+
+.grimoire .grimoire__seal small {
+  max-width: 52px;
+  margin-top: 3px;
+  font: 700 .34rem/1.1 Cinzel, serif;
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.grimoire__field-header {
+  margin-right: 41px;
+  padding: 0 0 12px 5px;
+  border-bottom: 1px solid rgba(68, 48, 34, .32);
+}
+
+.grimoire__field-header h3 {
+  margin: 6px 0 2px;
+  color: #30231f;
+  font: 700 clamp(1.25rem, 2vw, 1.75rem)/1.1 Cinzel, serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.grimoire__field-header p {
+  margin: 0;
+  color: #715e4d;
+  font: italic .65rem/1.3 Lora, serif;
+}
+
+.grimoire__field-log {
+  margin: 9px 0 0;
+  padding: 0 3px 0 6px;
+  list-style: none;
+}
+
+.grimoire__project-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px;
+  gap: 14px;
+  min-height: 102px;
+  margin: 0;
+  padding: 10px 0 9px;
+  border-bottom: 1px solid rgba(78, 54, 37, .22);
+}
+
+.grimoire .grimoire__project-entry::before {
+  content: none;
+}
+
+.grimoire__project-entry:nth-child(even) {
+  padding-left: 10px;
+  transform: rotate(-.25deg);
+}
+
+.grimoire__project-number {
+  color: color-mix(in srgb, var(--book-accent) 58%, #6c4e3c);
+  font: 700 .43rem/1.2 Cinzel, serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.grimoire__project-copy h4 {
+  margin: 3px 0 3px;
+  color: #382822;
+  font: 700 .78rem/1.2 Cinzel, serif;
+  letter-spacing: 0;
+}
+
+.grimoire__project-copy p {
+  margin: 0;
+  color: #54443a;
+  font: .61rem/1.35 Lora, serif;
+}
+
+.grimoire__project-copy q {
+  display: block;
+  margin-top: 5px;
+  color: #705749;
+  font: italic .58rem/1.3 Lora, serif;
+  transform: rotate(-.2deg);
+}
+
+.grimoire__project-sketch {
+  position: relative;
+  width: 72px;
+  height: 70px;
+  align-self: center;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(75, 52, 36, .28);
+  background: rgba(93, 65, 39, .045);
+  box-shadow: 3px 3px 0 rgba(78, 52, 34, .08);
+  transform: rotate(2deg);
+}
+
+.grimoire__project-entry:nth-child(even) .grimoire__project-sketch {
+  transform: rotate(-2deg);
+}
+
+.grimoire__project-sketch::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(75, 52, 36, .2);
+}
+
+.grimoire__project-sketch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(.48) saturate(.62) contrast(.83);
+  opacity: .78;
+}
+
+.grimoire__project-sketch span {
+  color: #725947;
+  font: 700 1.2rem/1 Cinzel, serif;
+  opacity: .5;
+}
+
+.grimoire .grimoire__archivist-note {
+  position: absolute;
+  right: 44px;
+  bottom: 29px;
+  left: 45px;
+  padding: 9px 13px 7px;
+  border-top: 1px solid rgba(72, 50, 35, .34);
+  border-bottom: 1px solid rgba(72, 50, 35, .17);
+  transform: rotate(-.35deg);
+}
+
+.grimoire__archivist-note::before {
+  content: "✧";
+  position: absolute;
+  top: 8px;
+  left: -8px;
+  color: var(--book-accent);
+  font-size: .65rem;
+}
+
+.grimoire__archivist-note span {
+  color: #553e31;
+  font: 700 .44rem/1.2 Cinzel, serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.grimoire__archivist-note p {
+  margin: 3px 0 0;
+  color: #5d493c;
+  font: italic .65rem/1.35 Lora, serif;
+}
+
+.grimoire .grimoire__navigation {
+  z-index: 8;
+  right: 35px;
+  bottom: 15px;
+  left: 35px;
+}
+
+.grimoire .grimoire__navigation button {
+  padding: 2px 4px;
+  border-bottom: 1px solid transparent;
+  color: #bda47e;
+  font: italic .63rem/1.2 Lora, serif;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+.grimoire .grimoire__navigation button:hover:not(:disabled),
+.grimoire .grimoire__navigation button:focus-visible {
+  color: #ead7b1;
+  border-bottom-color: var(--book-accent);
+  transform: none;
+}
+
+.grimoire .grimoire__navigation button:disabled {
+  opacity: .24;
+}
+
+.grimoire .grimoire__navigation > span {
+  color: #8f7458;
+  font: 700 .43rem/1 Cinzel, serif;
+  letter-spacing: .12em;
+}
+
+.spell-grimoire.grimoire.is-turning .grimoire__page {
+  animation: grimoireRecordChange .2s ease both;
+}
+
+@keyframes grimoireRecordChange {
+  from { opacity: .68; }
+}
+
+@media (max-width: 900px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber {
+    min-height: 700px;
+  }
+
+  .spell-grimoire.grimoire {
+    width: 98%;
+    height: 640px;
+    min-height: 600px;
+  }
+
+  .grimoire .grimoire__page {
+    padding: 27px 28px 24px;
+  }
+
+  .grimoire__study {
+    height: 306px;
+  }
+
+  .grimoire__avatar {
+    width: 145px;
+    height: 185px;
+  }
+
+  .grimoire__anatomy-note {
+    width: 104px;
+    font-size: .53rem;
+  }
+
+  .grimoire__anatomy-note::after {
+    width: 38px;
+  }
+
+  .grimoire .grimoire__archivist-note {
+    right: 31px;
+    left: 33px;
+  }
+}
+
+@media (max-width: 680px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber {
+    min-height: 1120px;
+  }
+
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage {
+    inset: 10px 4px 12px;
+    align-items: start;
+  }
+
+  .spell-grimoire.grimoire {
+    width: 100%;
+    height: auto;
+    min-height: 1040px;
+    padding: 9px 9px 48px;
+    overflow: visible;
+    background: linear-gradient(180deg, #2b181d, #1c1014);
+  }
+
+  .spell-grimoire.grimoire::after {
+    display: none;
+  }
+
+  .grimoire .grimoire__spread {
+    height: auto;
+    display: block;
+  }
+
+  .grimoire .grimoire__page {
+    height: auto;
+    min-height: 545px;
+    padding: 28px 25px 27px;
+    clip-path: polygon(.6% .5%, 99.2% 0, 100% 39%, 99.3% 100%, .8% 99.6%, 0 62%);
+  }
+
+  .grimoire .grimoire__page--left {
+    padding-bottom: 23px;
+    box-shadow: inset 0 -18px 25px rgba(72, 45, 27, .15), inset 0 0 30px rgba(80, 52, 31, .18);
+  }
+
+  .grimoire .grimoire__page--right {
+    min-height: 500px;
+    box-shadow: inset 0 18px 25px rgba(72, 45, 27, .14), inset 0 0 30px rgba(80, 52, 31, .18);
+  }
+
+  .grimoire__close.spell-grimoire__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    bottom: auto;
+    border-color: rgba(214, 174, 104, .52);
+    color: #e3c58e;
+    background: #4b2833;
+  }
+
+  .grimoire__study {
+    height: 310px;
+  }
+
+  .grimoire__avatar {
+    width: 155px;
+    height: 192px;
+  }
+
+  .grimoire__anatomy-note {
+    width: 105px;
+  }
+
+  .grimoire__left-footer {
+    margin-top: 2px;
+  }
+
+  .grimoire__field-header {
+    margin-right: 34px;
+  }
+
+  .grimoire__field-log {
+    margin-bottom: 14px;
+  }
+
+  .grimoire__project-entry {
+    min-height: 104px;
+  }
+
+  .grimoire .grimoire__archivist-note {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin: 15px 5px 0;
+  }
+
+  .grimoire .grimoire__navigation {
+    position: absolute;
+    right: 66px;
+    bottom: 15px;
+    left: 18px;
+    padding: 4px 0;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber {
+    min-height: 1190px;
+  }
+
+  .spell-grimoire.grimoire {
+    min-height: 1110px;
+  }
+
+  .grimoire .grimoire__page {
+    padding-inline: 20px;
+  }
+
+  .grimoire__technology-title {
+    font-size: 1.45rem;
+  }
+
+  .grimoire__study {
+    height: 322px;
+  }
+
+  .grimoire__avatar {
+    width: 142px;
+    height: 180px;
+  }
+
+  .grimoire__anatomy-note {
+    width: 93px;
+    font-size: .5rem;
+  }
+
+  .grimoire__anatomy-note::after {
+    width: 28px;
+  }
+
+  .grimoire__seal {
+    width: 60px;
+  }
+
+  .grimoire__project-entry {
+    grid-template-columns: minmax(0, 1fr) 62px;
+    gap: 9px;
+  }
+
+  .grimoire__project-sketch {
+    width: 60px;
+    height: 62px;
+  }
+
+  .grimoire .grimoire__navigation button {
+    font-size: .56rem;
+  }
+}
