@@ -231,8 +231,8 @@ const projectProfiles = [
 // Fonte central de projetos. Novas relíquias exigem alteração apenas neste array.
 const projects = [
   { id:'savory', title:'Savory', image:'./assets/img/Projetos/Savory.png', shortDescription:'Experiência gastronômica digital para descoberta e exploração de receitas.', challenge:'Organizar a descoberta de receitas em uma experiência visual clara, convidativa e fácil de explorar.', construction:'A interface foi construída com foco na apresentação do conteúdo gastronômico, na hierarquia visual e na navegação responsiva.', legacy:'O projeto consolidou uma experiência digital com identidade própria para apresentar e explorar conteúdo gastronômico.', technologies:['React','Node','Chart.js','MongoDB'], contributions:['Interface','Responsividade'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Legado', year:2026, role:'Desenvolvimento Full-Stack', roleDescription:'Atuação no desenvolvimento da interface e da estrutura da experiência web.', accentColor:'#c69645', status:'completed', github:null, demo:null, featured:true, featuredOrder:1, icon:'&#8734;' },
-  { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.png', shortDescription:'Controle completo de laboratórios em uma única plataforma, conectando gestão, automação e gerenciamento remoto de computadores.', construction:'Criado a partir da necessidade de acompanhar e controlar o estado dos computadores da Infinity School de forma centralizada, reduzindo verificações manuais e facilitando a gestão dos laboratórios.', legacy:'Pensado para dar à Aline, nossa mascote, uma presença ativa no ecossistema da escola, permitindo que ela acompanhe e tenha controle sobre os computadores dos laboratórios de forma centralizada.', technologies:['Python','Fast API','SqlAlquemy','React','Vite','Node Js'], contributions:['Arquitetura da solução','Integração com IA'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', github:null, demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
-  { id:'Hacktohon', title:'Hacktohon', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
+  { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.png', shortDescription:'Controle completo de laboratórios em uma única plataforma, conectando gestão, automação e gerenciamento remoto de computadores.', construction:'Criado a partir da necessidade de acompanhar e controlar o estado dos computadores da Infinity School de forma centralizada, reduzindo verificações manuais e facilitando a gestão dos laboratórios.', legacy:'Pensado para dar à Aline, nossa mascote, uma presença ativa no ecossistema da escola, permitindo que ela acompanhe e tenha controle sobre os computadores dos laboratórios de forma centralizada.', technologies:['Python','Fast API','SqlAlquemy','React','Vite','Node Js'], contributions:['Arquitetura da solução','Integração com IA'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', guild:true, github:null, demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
+  { id:'Hacktohon', title:'Hacktohon', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', guild:true, github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
   { id:'Portifolio Alice', title:'Portifolio Alice', image:'./assets/img/Projetos/Portifolio_Alice.png', shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['React','Vite','Node Js'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Descoberta', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'coming-soon', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#10000;' },
   { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:null, shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Construção', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'development', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:null, featured:false, featuredOrder:null, icon:'&#9670;' },
   { id:'connect-cnx', title:'Connect CNX', image:null, shortDescription:'Estratégia digital focada em crescimento orgânico e presença online.', challenge:'Fortalecer a presença digital da empresa e criar caminhos mensuráveis para o crescimento orgânico.', solution:'A estratégia integra SEO, análise de métricas e otimização de conversão para orientar as ações digitais.', technologies:['SEO','Analytics','Ads','CRO'], technicalHighlights:['Análise de métricas','Otimização de conversão'], category:'outros', categoryLabel:'Marketing Digital', phase:'Legado', year:2025, role:'Estratégia e Tecnologia', roleDescription:'Atuação na estratégia digital e no uso de tecnologia para acompanhar os resultados.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
@@ -272,10 +272,15 @@ function projectActions(project, featured = false) {
   return `<div class="relic-actions ${featured ? 'featured-actions' : ''}">${demo}${github}</div>`;
 }
 
+function projectGem(project) {
+  const source = { 'front-end':'assets/img/Gemas/front.png', 'back-end':'assets/img/Gemas/back.png', 'full-stack':'assets/img/Gemas/fullstack.png' }[project.category];
+  return source ? `<img class="project-gem" src="${source}" alt="Gema ${project.categoryLabel}">` : '<span class="project-gem project-gem--other" aria-hidden="true">◆</span>';
+}
+
 function renderShowcase() {
   const container = document.getElementById('relic-showcase');
   if (!container) return;
-  const featuredProjects = reliquias.filter(project => project.featured).sort((a,b) => a.featuredOrder - b.featuredOrder).slice(0,5);
+  const featuredProjects = reliquias.filter(project => project.featured).sort((a,b) => a.featuredOrder - b.featuredOrder).slice(0,3);
   container.dataset.count = String(featuredProjects.length);
   container.innerHTML = featuredProjects.map((project, index) => `
     <article class="display-relic ${project.featuredOrder === 1 ? 'primary-relic' : ''}" style="--artifact-accent:${project.accentColor || '#b9934c'}">
@@ -311,7 +316,7 @@ function observeHallRelics(container) {
 }
 
 // Profundidade progressiva do Salão, sem parallax pesado ou dependências.
-const legacyHall = document.getElementById('Salao');
+const legacyHall = document.getElementById('legados');
 const legacyApproach = document.getElementById('exposicao-legados');
 let hallFramePending = false;
 
@@ -371,11 +376,13 @@ function renderCards(filtro) {
     return `
     <article class="corridor-relic corridor-relic--${position}" data-category="${project.category}" data-project-id="${project.id}" data-corridor-offset="${offset}" style="--relic-accent:${project.accentColor || categoryGem};--category-gem:${categoryGem};--corridor-index:${index}">
       ${active ? `<button class="corridor-relic-frame corridor-active-trigger" type="button" data-project="${project.id}" aria-label="Examinar relíquia: ${project.title}">
-        <header><span>Relíquia ${String(projectNumber).padStart(2,'0')}</span><small>${project.categoryLabel}</small></header>
+        <header><span>Relíquia ${String(projectNumber).padStart(2,'0')}</span><small>${projectGem(project)}${project.categoryLabel}</small></header>
         <div class="corridor-relic-visual">${projectImage(project)}<span aria-hidden="true"></span></div>
         <div class="corridor-relic-copy">
           <h4>${project.title}</h4>
           <p>${project.shortDescription}</p>
+          ${project.guild ? '<span class="guild-seal">Forjado em Guilda</span>' : ''}
+          <div class="corridor-tags">${project.technologies.slice(0,3).map(tech => `<span>${tech}</span>`).join('')}</div>
           <small>${project.year} · ${project.phase}</small>
           <span class="corridor-examine">Examinar Relíquia <b aria-hidden="true">→</b></span>
         </div>
@@ -428,6 +435,11 @@ const guardianPortrait = document.querySelector('.guardian-portraits');
 const guardianImage = document.querySelector('.guardian-image');
 const archiveGrid = document.getElementById('relic-grid');
 const archiveDesktop = window.matchMedia('(min-width: 1024px)');
+const legacyWorld = document.getElementById('legados');
+const legacyHallPanel = legacyWorld?.querySelector('[data-legacy-panel="hall"]');
+const legacyBackButton = legacyWorld?.querySelector('.legacy-back');
+let legacyState = 'hall';
+let stateBeforeProject = 'hall';
 let isPortalOpened = false;
 let guardianSwapTimer;
 let portalTimer;
@@ -438,9 +450,27 @@ let archiveInteractionState = 'idle';
 let selectedArchiveCard = null;
 let archiveInteractionTimer = 0;
 
+function setLegacyState(nextState) {
+  legacyState = nextState;
+  if (!legacyWorld) return;
+  legacyWorld.dataset.legacyState = nextState;
+  const archiveVisible = ['transitioning', 'archive', 'returning'].includes(nextState) || (nextState === 'project' && stateBeforeProject === 'archive');
+  if (relicLibrary) {
+    relicLibrary.toggleAttribute('hidden', !archiveVisible);
+    relicLibrary.setAttribute('aria-hidden', String(!archiveVisible));
+    relicLibrary.inert = nextState !== 'archive' && !(nextState === 'project' && stateBeforeProject === 'archive');
+  }
+  if (legacyHallPanel) {
+    const hallHidden = nextState === 'archive' || (nextState === 'project' && stateBeforeProject === 'archive');
+    legacyHallPanel.setAttribute('aria-hidden', String(hallHidden));
+    legacyHallPanel.inert = hallHidden || nextState === 'transitioning';
+  }
+}
+
 function setPortalState(state) {
   if (!portalScene) return;
   portalScene.dataset.portalState = state;
+  if (state !== 'idle' && !['archive', 'project', 'transitioning', 'returning'].includes(legacyState)) setLegacyState('threshold');
   if (state === 'activating' || state === 'open') isPortalOpened = true;
   portalScene.dataset.portalAwakened = String(isPortalOpened);
   portalScene.classList.toggle('portal--opened', isPortalOpened);
@@ -580,37 +610,41 @@ document.querySelector('.corridor-prev')?.addEventListener('click', () => naviga
 document.querySelector('.corridor-next')?.addEventListener('click', () => navigateCorridor(1));
 
 discoverButton?.addEventListener('click', () => {
-  const opening = relicLibrary?.hasAttribute('hidden');
-  if (!relicLibrary) return;
-  if (archiveDesktop.matches && opening && !archiveOpened) {
-    archiveOpened = true;
-    relicLibrary.removeAttribute('hidden');
-    relicLibrary.dataset.archiveState = 'revealing';
-    discoverButton.disabled = true;
-    discoverButton.setAttribute('aria-expanded', 'true');
-    if (portalStatus) portalStatus.textContent = 'O relicário surgiu. A energia do portal está rompendo o selo do arquivo.';
-    relicLibrary.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    window.clearTimeout(archiveRevealTimer);
-    archiveRevealTimer = window.setTimeout(() => {
-      relicLibrary.dataset.archiveState = 'open';
-      discoverButton.disabled = false;
-      discoverButton.firstChild.textContent = 'Fechar o Arquivo ';
-      if (portalStatus) portalStatus.textContent = 'O Arquivo dos Legados foi revelado. Explore as relíquias.';
-      updateActiveArchiveCard(true);
-      archiveGrid?.focus({ preventScroll: true });
-    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 120 : 1250);
-    return;
-  }
-  relicLibrary.toggleAttribute('hidden', !opening);
-  relicLibrary.dataset.archiveState = opening ? 'open' : 'closed';
-  discoverButton.setAttribute('aria-expanded', String(opening));
-  discoverButton.firstChild.textContent = opening ? 'Fechar o Arquivo ' : 'Acessar o Arquivo dos Legados ';
-  if (opening) relicLibrary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!relicLibrary || legacyState === 'transitioning') return;
+  archiveOpened = true;
+  setLegacyState('transitioning');
+  relicLibrary.dataset.archiveState = 'revealing';
+  discoverButton.disabled = true;
+  discoverButton.setAttribute('aria-expanded', 'true');
+  if (portalStatus) portalStatus.textContent = 'A passagem foi iniciada. O Arquivo dos Legados está surgindo.';
+  window.clearTimeout(archiveRevealTimer);
+  archiveRevealTimer = window.setTimeout(() => {
+    setLegacyState('archive');
+    relicLibrary.dataset.archiveState = 'open';
+    discoverButton.disabled = false;
+    if (portalStatus) portalStatus.textContent = 'O Arquivo dos Legados foi revelado. Explore as relíquias.';
+    updateActiveArchiveCard(true);
+    archiveGrid?.focus({ preventScroll: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 100 : 1100);
+});
+
+legacyBackButton?.addEventListener('click', () => {
+  if (!relicLibrary || legacyState !== 'archive') return;
+  setLegacyState('returning');
+  relicLibrary.dataset.archiveState = 'closing';
+  window.clearTimeout(archiveRevealTimer);
+  archiveRevealTimer = window.setTimeout(() => {
+    setLegacyState('threshold');
+    relicLibrary.dataset.archiveState = 'closed';
+    discoverButton?.setAttribute('aria-expanded', 'false');
+    legacyHallPanel?.removeAttribute('aria-hidden');
+    discoverButton?.focus({ preventScroll: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 100 : 700);
 });
 
 archiveDesktop.addEventListener('change', () => {
   renderCards(activeRelicFilter);
-  if (relicLibrary && !relicLibrary.hidden) relicLibrary.dataset.archiveState = 'open';
+  if (relicLibrary && legacyState === 'archive') relicLibrary.dataset.archiveState = 'open';
 });
 
 // Painel nativo e acessível para detalhes das relíquias.
@@ -638,6 +672,7 @@ function closeRelicDetails() {
 function openRelicDetails(projectId) {
   const project = reliquias.find(item => item.id === projectId);
   if (!project || !relicDialog || !dialogContent) return;
+  stateBeforeProject = legacyState === 'archive' ? 'archive' : legacyState === 'threshold' ? 'threshold' : 'hall';
   const relicNumber = project.featuredOrder || reliquias.findIndex(item => item.id === project.id) + 1;
   const statusLabel = projectStatus[project.status] || project.status;
   const dialogGem = { 'front-end':'#4f9ee8', 'back-end':'#d44e59', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
@@ -681,6 +716,7 @@ function openRelicDetails(projectId) {
     ${actions ? `<nav class="dialog-actions" aria-label="Ações do projeto">${actions}</nav>` : ''}
     <footer class="dialog-footer"><span>Registro da jornada</span></footer>`;
   relicDialogTrigger = document.activeElement;
+  setLegacyState('project');
   relicDialog.showModal();
   relicDialog.scrollTop = 0;
   relicDialog.focus();
@@ -721,7 +757,7 @@ function activateFragment(tab) {
   panel.classList.add('is-changing');
 }
 
-document.getElementById('Salao')?.addEventListener('click', event => {
+document.getElementById('legados')?.addEventListener('click', event => {
   const trigger = event.target.closest('.examine-relic');
   if (trigger) openRelicDetails(trigger.dataset.project);
 });
@@ -730,6 +766,7 @@ relicDialog?.addEventListener('click', event => { if (event.target === relicDial
 relicDialog?.addEventListener('cancel', event => { event.preventDefault(); closeRelicDetails(); });
 relicDialog?.addEventListener('close', () => {
   relicDialog.classList.remove('is-closing');
+  setLegacyState(stateBeforeProject);
   relicDialogTrigger?.focus();
   relicDialogTrigger = null;
   if (archiveDesktop.matches && selectedArchiveCard && archiveInteractionState === 'modal-open') {

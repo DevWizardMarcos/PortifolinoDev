@@ -26,7 +26,7 @@
         <div class="hero-menu" id="hero-menu">
           <ul class="hero-links">
             <li><a class="active" href="#sobre-mim">Jornada</a></li><li><a href="#arsenal-skills">Arsenal</a></li>
-            <li><a href="#sessaoProjetos">Legados</a></li><li><a href="#sobre-mim">Sobre</a></li><li><a href="#contato">Contato</a></li>
+            <li><a href="#legados">Legados</a></li><li><a href="#sobre-mim">Sobre</a></li><li><a href="#contato">Contato</a></li>
           </ul>
           <div class="social-links" aria-label="Redes sociais">
             <a href="https://github.com/DevWizardMarcos" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.3-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.1-.12-.3-.52-1.47.11-3.06 0 0 .97-.31 3.16 1.18a10.95 10.95 0 0 1 5.75 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg></a>
@@ -43,7 +43,7 @@
         <h1>Marcos Simões</h1>
         <p class="hero-role">Front-End Developer</p>
         <p class="hero-description">Interfaces modernas onde design,<br>código e experiência se encontram.</p>
-        <div class="hero-actions"><a class="btnIncio" href="#sobre-mim">Explorar jornada</a><a class="btnProjetos" href="#sessaoProjetos">Ver projetos</a></div>
+        <div class="hero-actions"><a class="btnIncio" href="#sobre-mim">Explorar jornada</a><a class="btnProjetos" href="#legados">Ver projetos</a></div>
         <div class="hero-xp" aria-label="Nível de experiência"><div><span>Nível 26</span><span>70%</span></div><i><b></b></i><small>Experiência</small></div>
       </div>
       <a class="scroll-cue" href="#sobre-mim"><span>Scroll para iniciar a jornada</span><b aria-hidden="true">↓</b></a>
@@ -123,7 +123,7 @@
         </ul>
       </div>
 
-      <a class="journey-marker" href="#Salao" aria-label="Ir para o início da jornada">
+      <a class="journey-marker" href="#legados" aria-label="Ir para o Salão dos Legados">
         <span class="journey-gem" aria-hidden="true">◇</span>
         <i aria-hidden="true"></i>
         <strong>Início da<br>Jornada</strong>
@@ -310,13 +310,14 @@
     <p class="spell-library__hint"><span aria-hidden="true">◇</span> Selecione um volume para consultar seus conhecimentos</p>
   </section>
 
-  <section id="Salao" class="legacy-hall" aria-labelledby="legacy-title">
+  <section id="legados" class="legacy-hall legacy-world" aria-labelledby="legacy-title" data-legacy-state="hall">
     <div class="legacy-overlay" aria-hidden="true"></div>
     <div class="hall-depth-layers" aria-hidden="true">
       <i class="hall-depth-layer hall-depth-far"></i>
       <i class="hall-depth-layer hall-depth-near"></i>
     </div>
-    <div class="legacy-container">
+    <div class="legacy-container legacy-world__stage">
+      <div class="legacy-world__panel legacy-world__panel--hall" data-legacy-panel="hall">
       <header class="legacy-heading" id="salao-header">
         <span class="legacy-chapter">Capítulo IV</span>
         <h2 id="legacy-title">Salão dos Legados</h2>
@@ -325,22 +326,22 @@
         <small class="hall-scroll-hint">Role para iniciar a travessia</small>
       </header>
 
-      <section class="relic-showcase" id="exposicao-legados" aria-labelledby="tree-title">
+      <div class="relic-showcase" id="exposicao-legados" role="region" aria-labelledby="tree-title">
         <header class="hall-stage-heading">
-          <span>Etapa I · Aproximação</span>
-          <p>Adentre o núcleo onde cada conquista ganhou forma.</p>
+          <span>Etapa I · Destaques do Salão</span>
+          <p>Três relíquias centrais revelam os marcos desta jornada.</p>
         </header>
         <div class="legacy-tree-core">
           <span class="tree-rune" aria-hidden="true">◇</span>
-          <h3 id="tree-title">Árvore dos Legados</h3>
+          <h3 id="tree-title">Relíquias em Destaque</h3>
           <div class="legacy-tree-portrait"><img src="assets/img/avataSalao.jpeg" alt="Árvore dos Legados, núcleo das relíquias" loading="lazy"></div>
           <span>Núcleo Arcano</span>
         </div>
         <div class="root-lines" aria-hidden="true"></div>
         <div id="relic-showcase" class="relic-showcase-grid"></div>
-      </section>
+      </div>
 
-      <section class="archive-threshold" aria-labelledby="portal-scene-title" data-portal-state="idle">
+      <div class="archive-threshold" role="region" aria-labelledby="portal-scene-title" data-portal-state="idle">
         <header class="portal-scene-copy">
           <span class="portal-kicker">Etapa final · O limiar</span>
           <h3 id="portal-scene-title">O Arquivo está selado</h3>
@@ -415,9 +416,10 @@
           </div>
         </div>
         <p class="portal-status visually-hidden" role="status" aria-live="polite"></p>
-      </section>
+      </div>
+      </div>
 
-      <section class="relic-library" id="reliquias" aria-labelledby="relics-title" data-archive-state="closed" hidden>
+      <div class="legacy-world__panel legacy-world__panel--archive relic-library" id="reliquias" role="region" aria-labelledby="relics-title" data-legacy-panel="archive" data-archive-state="closed" hidden>
         <div class="archive-reveal" aria-hidden="true">
           <span class="archive-energy-streak"></span>
           <div class="sealed-reliquary">
@@ -427,9 +429,10 @@
           </div>
         </div>
         <header class="library-heading">
-          <span>Acervo do DevWizard</span>
+          <button class="legacy-back" type="button" aria-label="Voltar ao Salão dos Legados">← Voltar ao Salão</button>
+          <span class="legacy-breadcrumb">Salão dos Legados <i aria-hidden="true">/</i> Arquivo</span>
           <h3 id="relics-title">Arquivo dos Legados</h3>
-          <p>Registros de projetos preservados ao longo da jornada.</p>
+          <p>Registros preservados ao longo da jornada.</p>
         </header>
         <nav class="relic-filters" aria-label="Filtrar projetos">
           <button class="relic-filter active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
@@ -448,9 +451,9 @@
           </div>
         </div>
         <button class="load-more-relics" type="button" hidden>Mostrar mais <span aria-hidden="true">↓</span></button>
-      </section>
+      </div>
 
-      <dialog class="relic-dialog" id="relic-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <dialog class="relic-dialog legacy-project-modal" id="relic-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
         <button class="dialog-close" type="button" aria-label="Fechar detalhes do projeto">×</button>
         <div id="relic-dialog-content"></div>
       </dialog>
@@ -461,9 +464,9 @@
     </div>
   </section>
 
-  <!-- Versão anterior preservada, fora da apresentação -->
-    <section class="legacy-projects-archive" hidden aria-hidden="true">
-      <div id="sessaoSalao">
+  <!-- Marcação histórica mantida apenas como referência inerte. -->
+    <template data-retired-legacy-markup="first">
+      <div id="legacy-hall-retired-a">
         <div class="salao-conteudo-central">
           <h2>Salão dos</h2>
           <h1>Legados</h1>
@@ -474,14 +477,14 @@
 
 
 
-      <section id="sessaoProjetos">
+      <section id="legacy-projects-retired-a">
         <div
           class="d-flex justify-content-center align-items-center flex-column"
         >
           <h1>Reliquias do Legado</h1>
           <session id="card-projetos">
             <nav id="sessaoSelecoes">
-              <ul class="d-flex gap-5" id="elementoSelecionar">
+              <ul class="d-flex gap-5" id="legacy-filters-retired-a">
                 <button><a href="">Todos</a></button>
                 <button><a href="">Front</a></button>
                 <button><a href="">Back</a></button>
@@ -552,19 +555,18 @@
           </div>
         </div>
       </section>
-    </section>
+    </template>
 
 
 
 
-  <!--Sessao Salão dos Legados-->
-  <section class="legacy-projects-archive" hidden aria-hidden="true">
-    <div id="sessaoSalao">
+  <template data-retired-legacy-markup="second">
+    <div id="legacy-hall-retired-b">
       <div class="salao-conteudo-central">
         <h2>~ Salão dos ~</h2>
         <h1>Legados</h1>
         <p>Cada projeto é uma marca. Cada marca é um legado.</p>
-        <a href="#sessaoProjetos" class="btn-salao">&#10022; Explorar Legados &#10022;</a>
+        <a href="#legados" class="btn-salao">&#10022; Explorar Legados &#10022;</a>
       </div>
       <div class="salao-card-lateral">
         <div class="salao-card-icone">
@@ -577,11 +579,11 @@
     </div>
 
     <!-- Relíquias do Legado -->
-    <div id="sessaoProjetos">
+    <div id="legacy-projects-retired-b">
       <div class="d-flex flex-column align-items-center gap-4 w-100" >
         <h1 class="reliquias-titulo">Relíquias do Legado</h1>
         <nav>
-          <ul class="d-flex gap-4 flex-wrap justify-content-center list-unstyled mb-0" id="elementoSelecionar">
+          <ul class="d-flex gap-4 flex-wrap justify-content-center list-unstyled mb-0" id="legacy-filters-retired-b">
             <li><button class="filtro-btn ativo" data-filter="todos"> Todos</button></li>
             <li><button class="filtro-btn" data-filter="sistemas">Sistemas</button></li>
             <li><button class="filtro-btn" data-filter="automacoes">Automações</button></li>
@@ -633,7 +635,7 @@
         <p class="impacto-quote">O futuro ainda está sendo escrito.<br>E cada projeto é uma linha dessa história.</p>
       </div>
     </div>
-  </section>
+  </template>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
