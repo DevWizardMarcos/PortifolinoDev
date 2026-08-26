@@ -13,6 +13,8 @@ export class RendererManager {
     this.instance.setSize(sizes.width, sizes.height)
     this.instance.setPixelRatio(sizes.pixelRatio)
     this.instance.outputColorSpace = THREE.SRGBColorSpace
+    this.instance.toneMapping = THREE.AgXToneMapping
+    this.instance.toneMappingExposure = 1
     this.instance.shadowMap.enabled = false
 
     this.instance.domElement.classList.add('experience-canvas')

@@ -28,6 +28,11 @@ const FLOAT_SPEED = 1.4
 const FLOAT_AMPLITUDE = 0.15
 const EMBLEM_MARGIN = 1.1
 
+// Distâncias (jogador x castelo) usadas para esconder o emblema gigante
+// quando o modo exploração aproxima a câmera do castelo.
+const NEAR_FADE_DISTANCE = 6
+const FAR_FADE_DISTANCE = 11
+
 // Pedra compartilhada entre castelos (só telhados/emblemas variam por reino).
 const stoneMaterial = new THREE.MeshStandardMaterial({ color: 0x8d8478, roughness: 0.95, metalness: 0.05 })
 const darkStoneMaterial = new THREE.MeshStandardMaterial({ color: 0x5b544a, roughness: 0.95, metalness: 0.05 })
@@ -323,6 +328,14 @@ export class MarkersController {
     const { group: castle, topHeight } = buildCastle(reino)
     wrapper.add(castle)
 
+    // Esfera de colisão do castelo (para o CollisionManager no modo
+    // exploração) — calculada a partir da geometria real, sem hardcode
+    // por variante. `castle` já está posicionado no mundo (via `wrapper`),
+    // então o Box3 sai direto em coordenadas de mundo.
+    const footprintSphere = new THREE.Box3().setFromObject(castle).getBoundingSphere(new THREE.Sphere())
+    const collisionCenter = new THREE.Vector3(footprintSphere.center.x, 0, footprintSphere.center.z)
+    const collisionRadius = footprintSphere.radius
+
     const emblemHeight = topHeight + EMBLEM_MARGIN
 
     const emblemAnchor = new THREE.Group()
@@ -352,19 +365,34 @@ export class MarkersController {
       light,
       baseY: emblemHeight,
       phase: Math.random() * Math.PI * 2,
+      collisionCenter,
+      collisionRadius,
     })
   }
 
   // Chamado a cada frame — o emblema flutua, gira devagar e pulsa.
-  update(elapsed) {
+  // `playerPosition` (THREE.Vector3, opcional) só é passado no modo
+  // exploração: perto de um castelo o emblema gigante some (evita "bola
+  // flutuante" cobrindo a visão na porta do reino); longe, some no ar como
+  // no modo mapa.
+  update(elapsed, playerPosition = null) {
     for (const marker of this.markers) {
       const offset = Math.sin(elapsed * FLOAT_SPEED + marker.phase) * FLOAT_AMPLITUDE
       marker.wrapper.position.y = marker.baseY + offset
       marker.mesh.material.rotation = elapsed * 0.3 + marker.phase
 
       const pulse = 0.85 + Math.sin(elapsed * 2 + marker.phase) * 0.15
-      marker.light.intensity = 1.4 * pulse
-      marker.glow.material.opacity = 0.8 * pulse
+      let visibility = 1
+
+      if (playerPosition) {
+        const [x, z] = marker.reino.posicao
+        const distance = Math.hypot(playerPosition.x - x, playerPosition.z - z)
+        visibility = THREE.MathUtils.smoothstep(distance, NEAR_FADE_DISTANCE, FAR_FADE_DISTANCE)
+      }
+
+      marker.light.intensity = 1.4 * pulse * visibility
+      marker.glow.material.opacity = 0.8 * pulse * visibility
+      marker.mesh.material.opacity = visibility
     }
   }
 

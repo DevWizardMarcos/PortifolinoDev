@@ -7,9 +7,15 @@
 // =============================================================
 
 import * as THREE from 'three'
+import gsap from 'gsap'
 
 const STAR_COUNT = 600
 const STAR_RADIUS = 90
+
+// Densidade padrão do mapa (visão geral) vs. exploração (mais densa perto
+// do chão, reforça profundidade sem esconder castelos/faróis no horizonte).
+const FOG_DENSITY_MAP = 0.013
+const FOG_DENSITY_EXPLORATION = 0.028
 
 function createStarfield() {
   const positions = new Float32Array(STAR_COUNT * 3)
@@ -49,12 +55,19 @@ export class SceneManager {
 
     // Neblina mais sutil que antes — o mapa fica mais iluminado/legível,
     // mas ainda com profundidade e clima misterioso nas bordas.
-    this.scene.fog = new THREE.FogExp2(0x140b1c, 0.013)
+    this.scene.fog = null
 
-    this.scene.add(createStarfield())
   }
 
   add(object) {
     this.scene.add(object)
+  }
+
+  // Chamado ao entrar/sair do modo exploração — anima a densidade da
+  // neblina em vez de trocar seca (evita um "pop" visual no corte).
+  setFogDensity(mode, { duration = 1.5 } = {}) {
+    if (!this.scene.fog) return
+    const target = mode === 'exploration' ? FOG_DENSITY_EXPLORATION : FOG_DENSITY_MAP
+    gsap.to(this.scene.fog, { density: target, duration, ease: 'power2.inOut' })
   }
 }

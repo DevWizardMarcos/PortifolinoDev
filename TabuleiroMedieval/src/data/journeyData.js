@@ -23,6 +23,7 @@ export const journeyPoints = [
     links: [{ label: 'Ver projeto', url: '#' }],
     posicao: [-14, 5],
     cor: 0x9b5de5, // roxo de destaque do reino — troque para diferenciar cada reino
+    beaconColor: 0x6a5cff, // farol azul/violeta
   },
   {
     id: 'ms-negocios',
@@ -37,6 +38,7 @@ export const journeyPoints = [
     links: [{ label: 'Ver projeto', url: '#' }],
     posicao: [-7, -5.5],
     cor: 0x7b2cbf,
+    beaconColor: 0xf0d999, // farol dourado
   },
   {
     id: 'infinity-school',
@@ -51,6 +53,7 @@ export const journeyPoints = [
     links: [{ label: 'Ver projeto', url: '#' }],
     posicao: [0, 6],
     cor: 0xc77dff,
+    beaconColor: 0xff4d4d, // farol vermelho
   },
   {
     id: 'dreams',
@@ -65,6 +68,7 @@ export const journeyPoints = [
     links: [{ label: 'Ver projeto', url: '#' }],
     posicao: [7, -5.5],
     cor: 0x9d4edd,
+    beaconColor: 0xff4dc4, // farol magenta
   },
   {
     id: 'cnx',
@@ -79,6 +83,7 @@ export const journeyPoints = [
     links: [{ label: 'Ver projeto', url: '#' }],
     posicao: [14, 5],
     cor: 0x5a189a,
+    beaconColor: 0x7b2cff, // farol roxo/azul
   },
 ]
 
@@ -122,3 +127,26 @@ export const magicGlowColor = 0x9b5de5
 // Posição [x, z] da Árvore Central ("Núcleo da Criação") — o hub de onde
 // todas as estradas partem em direção a cada reino.
 export const hubPosition = [0, 0.4]
+
+// Posição [x, z] de último recurso do spawn do jogador no modo exploração,
+// usada apenas se o world.glb não tiver um objeto GAME_PlayerSpawn/
+// PLAYER_SPAWN (ver Experience.resolveSpawnPosition) — hoje o world.glb já
+// tem esse objeto, então este fallback raramente entra em ação.
+export const playerSpawnFallback = [0, hubPosition[1] + 3.6]
+
+// Fragmentos de memória (POIs) — exemplo funcional único por enquanto.
+// `posicao` aqui é só metadado de conteúdo; a posição real no mundo é
+// escolhida pelo Experience perto de um ponto de interesse do world.glb.
+// EDITE AQUI para adicionar mais fragmentos da sua trajetória.
+export const memories = [
+  {
+    id: 'memory-origem',
+    titulo: 'Fragmento de Memória',
+    subtitulo: 'O início da jornada',
+    descricao:
+      'Antes dos reinos e castelos, havia só curiosidade: a primeira linha de código escrita sem saber exatamente o que ela faria. Esse mapa é a trajetória construída a partir dali.',
+    tecnologias: [],
+    links: [],
+    posicao: [-4, 2.2],
+  },
+]

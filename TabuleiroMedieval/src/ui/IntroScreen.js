@@ -30,9 +30,18 @@ export class IntroScreen {
     `
 
     const button = el.querySelector('.intro-screen__button')
+    button.disabled = true
+    button.textContent = 'Carregando o mundo...'
     button.addEventListener('click', () => this.handleEnter())
 
     return el
+  }
+
+  setReady() {
+    const button = this.element.querySelector('.intro-screen__button')
+    if (!button) return
+    button.disabled = false
+    button.textContent = BUTTON_LABEL
   }
 
   handleEnter() {

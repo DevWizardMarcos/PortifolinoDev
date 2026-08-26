@@ -45,4 +45,8 @@ export class Navigation {
   show() {
     this.element.classList.remove('navigation--hidden')
   }
+
+  hide() {
+    this.element.classList.add('navigation--hidden')
+  }
 }

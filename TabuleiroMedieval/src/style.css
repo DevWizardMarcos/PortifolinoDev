@@ -114,6 +114,12 @@ canvas.experience-canvas {
   box-shadow: 0 0 34px rgba(199, 125, 255, 0.55);
 }
 
+.intro-screen__button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+  transform: none;
+}
+
 /* -------------------------------------------------------------
    Navegação superior
    ------------------------------------------------------------- */
@@ -353,6 +359,236 @@ canvas.experience-canvas {
 }
 
 /* -------------------------------------------------------------
+   Explorar o Mundo (botão do modo mapa)
+   ------------------------------------------------------------- */
+
+.explore-button {
+  position: fixed;
+  left: 50%;
+  bottom: 2.6rem;
+  z-index: 30;
+  transform: translateX(-50%);
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-gold-strong), var(--color-gold));
+  border: 1px solid rgba(199, 125, 255, 0.5);
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(155, 93, 229, 0.4);
+  transition: opacity 0.5s ease, transform 0.3s ease, box-shadow 0.25s ease;
+}
+
+.explore-button:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 0 34px rgba(199, 125, 255, 0.6);
+}
+
+.explore-button--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(12px);
+}
+
+/* -------------------------------------------------------------
+   Modo exploração — portão de Pointer Lock + lembrete de controles
+   ------------------------------------------------------------- */
+
+.controls-hint {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  text-align: center;
+  background: rgba(6, 4, 10, 0.55);
+  transition: opacity 0.6s ease;
+}
+
+.controls-hint--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controls-hint--locked {
+  background: transparent;
+  pointer-events: none;
+}
+
+.controls-hint--locked .controls-hint__lock-btn {
+  display: none;
+}
+
+.controls-hint__lock-btn {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-gold-strong), var(--color-gold));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.9rem 2.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(217, 192, 124, 0.35);
+}
+
+.controls-hint__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.6rem;
+  background: rgba(20, 14, 10, 0.7);
+  border: 1px solid rgba(217, 192, 124, 0.3);
+  border-radius: 6px;
+}
+
+.controls-hint__row {
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+}
+
+.controls-hint__row span {
+  display: inline-block;
+  min-width: 4.5rem;
+  color: var(--color-gold-strong);
+  font-family: var(--font-title);
+  letter-spacing: 0.06em;
+  margin-right: 0.5rem;
+}
+
+/* -------------------------------------------------------------
+   Mira discreta
+   ------------------------------------------------------------- */
+
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 25;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--color-gold-strong);
+  box-shadow: 0 0 6px rgba(240, 217, 153, 0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.crosshair--hidden {
+  opacity: 0;
+}
+
+/* -------------------------------------------------------------
+   Prompt de interação ("[E] ...")
+   ------------------------------------------------------------- */
+
+.interaction-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: 14%;
+  z-index: 30;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  background: rgba(20, 14, 10, 0.8);
+  border: 1px solid rgba(217, 192, 124, 0.45);
+  border-radius: 999px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.interaction-prompt--hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+  pointer-events: none;
+}
+
+.interaction-prompt__key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  color: var(--color-bg);
+  background: var(--color-gold-strong);
+  border-radius: 4px;
+}
+
+.interaction-prompt__label {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+/* -------------------------------------------------------------
+   Banner de descoberta (nome do reino ao entrar na zona)
+   ------------------------------------------------------------- */
+
+.discovery-banner {
+  position: fixed;
+  top: 14%;
+  left: 50%;
+  z-index: 30;
+  transform: translate(-50%, -8px);
+  text-align: center;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.discovery-banner--hidden {
+  opacity: 0;
+  transform: translate(-50%, -18px);
+  pointer-events: none;
+}
+
+.discovery-banner__title {
+  display: block;
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-strong);
+  text-shadow: 0 0 24px rgba(155, 93, 229, 0.6);
+}
+
+.discovery-banner__subtitle {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--color-purple-strong);
+}
+
+/* -------------------------------------------------------------
+   Debug overlay (?debug=1)
+   ------------------------------------------------------------- */
+
+.debug-overlay {
+  position: fixed;
+  top: 4.5rem;
+  left: 1rem;
+  z-index: 55;
+  padding: 0.6rem 0.8rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #9effa8;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(158, 255, 168, 0.35);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------
    Responsivo
    ------------------------------------------------------------- */
 
@@ -371,5 +607,11 @@ canvas.experience-canvas {
 
   .intro-screen__frame {
     padding: 2.2rem 1.6rem;
+  }
+
+  /* Modo exploração é desktop-only por enquanto (sem joystick mobile) —
+     ExploreButton.js já não mostra o botão, isso é só reforço visual. */
+  .explore-button {
+    display: none;
   }
 }

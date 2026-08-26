@@ -19,8 +19,8 @@ export class ControlsManager {
     this.controls.dampingFactor = 0.08
 
     // Zoom limitado — não deixa aproximar demais nem afastar até perder o mapa.
-    this.controls.minDistance = 8
-    this.controls.maxDistance = 32
+    this.controls.minDistance = 10
+    this.controls.maxDistance = 160
 
     // Rotação vertical limitada: nunca vira por baixo do mapa nem fica
     // totalmente de topo (mantém a leitura "isométrica" da cena).
