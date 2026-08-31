@@ -14225,3 +14225,518 @@ button.corridor-relic-frame {
     transition-property: opacity !important;
   }
 }
+
+/* Registro React: anatomia técnica + competências profissionais. */
+.grimoire--professional .grimoire__study { height: 344px; }
+
+.grimoire--professional .grimoire__avatar {
+  top: 66px;
+  width: 168px;
+  height: 188px;
+  background:
+    linear-gradient(90deg, transparent 49.7%, rgba(63, 91, 101, .2) 50%, transparent 50.3%),
+    linear-gradient(transparent 49.7%, rgba(63, 91, 101, .2) 50%, transparent 50.3%),
+    radial-gradient(circle, color-mix(in srgb, var(--book-accent) 11%, transparent), transparent 65%),
+    radial-gradient(circle at center, transparent 55%, rgba(83, 58, 38, .2) 55.5% 56%, transparent 56.5%);
+}
+
+.grimoire--professional .grimoire__avatar.has-image img {
+  width: 86%;
+  height: auto;
+  filter: saturate(.88) contrast(.96) drop-shadow(0 4px 4px rgba(33, 79, 96, .2));
+}
+
+.grimoire--professional .grimoire__anatomy-note { width: 142px; font-size: .56rem; line-height: 1.3; }
+.grimoire--professional .grimoire__anatomy-note strong { color: #332822; font-size: .54rem; }
+.grimoire--professional .grimoire__anatomy-note:nth-child(1) { top: 14px; left: 0; }
+.grimoire--professional .grimoire__anatomy-note:nth-child(1)::after { left: 82%; width: 70px; transform: rotate(22deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(2) { top: 15px; right: 0; text-align: right; }
+.grimoire--professional .grimoire__anatomy-note:nth-child(2)::after { right: 82%; width: 70px; transform: rotate(-21deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(3) { top: 143px; left: 0; }
+.grimoire--professional .grimoire__anatomy-note:nth-child(3)::after { left: 91%; width: 48px; transform: rotate(4deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(4) { top: 142px; right: 0; bottom: auto; text-align: right; }
+.grimoire--professional .grimoire__anatomy-note:nth-child(4)::after { right: 91%; width: 48px; transform: rotate(-4deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(5) { bottom: 5px; left: 9px; transform: rotate(1deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(5)::after { left: 82%; width: 64px; transform: rotate(-22deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(6) { right: 8px; bottom: 5px; text-align: right; transform: rotate(-1deg); }
+.grimoire--professional .grimoire__anatomy-note:nth-child(6)::after { right: 82%; width: 64px; transform: rotate(22deg); }
+
+.grimoire--professional .grimoire__diagram { bottom: 84px; width: 218px; height: 90px; opacity: .22; }
+.grimoire--professional .grimoire__diagram::before { inset: 7px 13px; }
+.grimoire--professional .grimoire__diagram::after { inset: 0 60px; }
+.grimoire--professional .grimoire__left-footer { padding-top: 8px; }
+.grimoire--professional .grimoire__concepts ul { gap: 3px 12px; }
+.grimoire--professional .grimoire__concepts li { font-style: normal; font-size: .59rem; }
+
+.grimoire__competencies { margin-top: 9px; }
+.grimoire__competencies > h4,
+.grimoire__reactivity h4,
+.grimoire__ecosystem h4 {
+  margin: 0 0 6px;
+  color: #4b382f;
+  font: 700 .49rem/1.2 Cinzel, serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.grimoire__competency-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 19px;
+}
+
+.grimoire__competency {
+  position: relative;
+  min-width: 0;
+  padding: 5px 2px 5px 10px;
+  border-bottom: 1px solid rgba(78, 54, 37, .18);
+  transform: rotate(calc((var(--competency-index) - 3) * .035deg));
+}
+
+.grimoire__competency::before {
+  content: "◇";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  color: var(--book-accent);
+  font-size: .45rem;
+}
+
+.grimoire__competency h5 {
+  margin: 0 0 2px;
+  color: #382822;
+  font: 700 .54rem/1.2 Cinzel, serif;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+
+.grimoire__competency p { margin: 0; color: #55443a; font: .54rem/1.28 Lora, serif; }
+
+.grimoire__practical-grid {
+  display: grid;
+  grid-template-columns: 1.04fr .96fr;
+  gap: 17px;
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(68, 48, 34, .27);
+}
+
+.grimoire__reactivity { min-width: 0; }
+.grimoire__reactivity-flow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 3px 0 5px;
+  color: #40332b;
+}
+
+.grimoire__reactivity-flow span { font: 700 .43rem/1.2 Cinzel, serif; text-transform: uppercase; }
+.grimoire__reactivity-flow i {
+  color: color-mix(in srgb, var(--book-accent) 68%, #5b4335);
+  font: normal .62rem/1 Lora, serif;
+  transform: rotate(-90deg);
+}
+.grimoire__reactivity-flow .grimoire__loop { margin-left: -2px; font-size: .8rem; transform: none; }
+.grimoire__reactivity > p,
+.grimoire__classification p { margin: 0; color: #5b493c; font: .53rem/1.3 Lora, serif; }
+.grimoire__practical-notes { display: grid; gap: 7px; }
+.grimoire__ecosystem ul { display: flex; flex-wrap: wrap; gap: 2px 8px; margin: 0; padding: 0; list-style: none; }
+.grimoire__ecosystem li { color: #4f4036; font: .51rem/1.35 Lora, serif; }
+.grimoire__ecosystem li::before { content: "·"; margin-right: 4px; color: var(--book-accent); font-weight: 700; }
+
+.grimoire__classification {
+  padding: 6px 8px;
+  border: 1px solid rgba(76, 54, 39, .25);
+  transform: rotate(.35deg);
+}
+.grimoire__classification span { display: block; color: #715b49; font: 700 .4rem/1.2 Cinzel, serif; letter-spacing: .11em; text-transform: uppercase; }
+.grimoire__classification strong { display: block; margin: 2px 0; color: color-mix(in srgb, var(--book-accent) 64%, #443229); font: 700 .58rem/1.2 Cinzel, serif; text-transform: uppercase; }
+
+.grimoire--professional .grimoire__archivist-note {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  margin: 9px 2px 0;
+  padding: 7px 10px 6px;
+}
+.grimoire--professional .grimoire__archivist-note p { font-size: .58rem; line-height: 1.3; }
+.grimoire__sheet-navigation { display: none; }
+
+@media (max-width: 900px) and (min-width: 681px) {
+  .grimoire--professional .grimoire__anatomy-note { width: 112px; font-size: .49rem; }
+  .grimoire--professional .grimoire__anatomy-note:nth-child(1)::after,
+  .grimoire--professional .grimoire__anatomy-note:nth-child(2)::after { width: 50px; }
+  .grimoire__competency-list { column-gap: 11px; }
+  .grimoire__competency p,
+  .grimoire__reactivity > p,
+  .grimoire__classification p { font-size: .49rem; }
+}
+
+@media (max-width: 680px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber:has(.grimoire--professional) { min-height: 850px; }
+  .spell-grimoire.grimoire--professional { min-height: 790px; padding-bottom: 84px; }
+  .grimoire--professional .grimoire__page { display: none; min-height: 690px; }
+  .grimoire--professional[data-active-sheet="0"] .grimoire__page--left,
+  .grimoire--professional[data-active-sheet="1"] .grimoire__page--right { display: block; }
+  .grimoire--professional .grimoire__study { height: 390px; }
+  .grimoire--professional .grimoire__avatar { top: 92px; }
+  .grimoire--professional .grimoire__anatomy-note { width: 112px; font-size: .52rem; }
+  .grimoire--professional .grimoire__anatomy-note:nth-child(3),
+  .grimoire--professional .grimoire__anatomy-note:nth-child(4) { top: 175px; }
+  .grimoire--professional .grimoire__diagram { bottom: 100px; }
+
+  .grimoire__sheet-navigation {
+    position: absolute;
+    z-index: 9;
+    right: 22px;
+    bottom: 47px;
+    left: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .grimoire__sheet-navigation button {
+    padding: 4px 2px;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    color: #9e8464;
+    background: transparent;
+    font: 700 .49rem/1.2 Cinzel, serif;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .grimoire__sheet-navigation button[aria-current="page"] { color: #e2c897; border-bottom-color: var(--book-accent); }
+  .grimoire__sheet-navigation span { color: var(--book-accent); transform: rotate(-90deg); }
+}
+
+@media (max-width: 430px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber:has(.grimoire--professional) { min-height: 920px; }
+  .spell-grimoire.grimoire--professional { min-height: 860px; }
+  .grimoire--professional .grimoire__page { min-height: 760px; }
+  .grimoire--professional .grimoire__avatar { width: 134px; }
+  .grimoire--professional .grimoire__anatomy-note { width: 96px; font-size: .48rem; }
+  .grimoire--professional .grimoire__anatomy-note::after { max-width: 36px; }
+  .grimoire__competency-list { column-gap: 9px; }
+  .grimoire__competency { padding-left: 8px; }
+  .grimoire__competency h5 { font-size: .48rem; }
+  .grimoire__competency p,
+  .grimoire__reactivity > p,
+  .grimoire__classification p { font-size: .47rem; }
+  .grimoire__practical-grid { gap: 10px; }
+  .grimoire__reactivity-flow { flex-wrap: wrap; }
+}
+
+/* Biblioteca aberta: painel horizontal de tecnologias. */
+.spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 940px; }
+.spell-library:not([data-library-state="idle"]) .spell-library__stage {
+  position: relative;
+  z-index: 20;
+  inset: auto;
+  min-height: 930px;
+  padding-top: 535px;
+  display: grid;
+  place-items: start center;
+}
+.spell-library:not([data-library-state="idle"]) .spell-library__shelf-frame {
+  top: 160px;
+  opacity: 1;
+  filter: none;
+  transform: translateX(-50%);
+}
+.spell-library:not([data-library-state="idle"]) .spell-book { opacity: .72; }
+.spell-library:not([data-library-state="idle"]) .spell-book--active {
+  z-index: 12;
+  opacity: 1;
+  filter: brightness(1.08) saturate(1.04) drop-shadow(0 0 18px color-mix(in srgb, var(--book-accent) 48%, transparent));
+}
+.spell-library:not([data-library-state="idle"]) .spell-book--active:nth-child(1) { transform: translate(7px, 2px) scale(1.02) rotate(-1deg) !important; }
+.spell-library:not([data-library-state="idle"]) .spell-book--active:nth-child(2) { transform: translate(3px, -3px) scale(1.02) rotate(.5deg) !important; }
+.spell-library:not([data-library-state="idle"]) .spell-book--active:nth-child(3) { transform: translateY(-7px) scale(1.02) !important; }
+.spell-library:not([data-library-state="idle"]) .spell-book--active:nth-child(4) { transform: translate(-3px, -3px) scale(1.02) rotate(-.5deg) !important; }
+.spell-library:not([data-library-state="idle"]) .spell-book--active:nth-child(5) { transform: translate(-7px, 2px) scale(1.02) rotate(1deg) !important; }
+.spell-library:not([data-library-state="idle"]) .spell-library__guardians {
+  opacity: .72;
+  filter: none;
+  transform: none;
+}
+.spell-library:not([data-library-state="idle"]) .spell-library__hands--idle {
+  visibility: visible;
+  opacity: .46;
+}
+.spell-library:not([data-library-state="idle"]) .spell-library__hands--awakened {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.spell-grimoire.skill-carousel-modal {
+  position: relative;
+  inset: auto;
+  width: min(1100px, 82vw);
+  height: 380px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+.spell-grimoire.skill-carousel-modal::before,
+.spell-grimoire.skill-carousel-modal::after { content: none; }
+
+.skill-carousel-modal__panel {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  min-height: 0;
+  padding: 29px 64px 25px;
+  overflow: hidden;
+  border: 1px solid rgba(202, 159, 84, .58);
+  border-radius: 12px 32px 12px 32px;
+  color: #eee4d3;
+  background: radial-gradient(circle at center, rgba(45, 24, 61, .88), rgba(10, 7, 16, .97) 70%);
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, .78),
+    0 0 34px color-mix(in srgb, var(--book-accent) 22%, transparent),
+    inset 0 0 0 7px rgba(204, 162, 91, .04),
+    inset 0 0 60px rgba(0, 0, 0, .6);
+  animation: skillPanelOpen .42s cubic-bezier(.2, .78, .24, 1) both;
+}
+.skill-carousel-modal__panel::before,
+.skill-carousel-modal__panel::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.skill-carousel-modal__panel::before {
+  inset: 10px;
+  border: 1px solid rgba(213, 173, 101, .17);
+  border-radius: 8px 25px 8px 25px;
+}
+.skill-carousel-modal__panel::after {
+  inset: 0;
+  opacity: .26;
+  background:
+    linear-gradient(90deg, transparent, rgba(197, 151, 80, .14) 50%, transparent),
+    radial-gradient(circle at 8% 20%, rgba(255,255,255,.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 78%, rgba(255,255,255,.18) 0 1px, transparent 2px);
+  background-size: auto, 37px 31px, 43px 39px;
+}
+
+.skill-carousel-modal--closing { animation: skillModalClose .3s ease both !important; }
+.skill-panel--switching .skill-carousel__item,
+.skill-panel--switching .skill-carousel__dots { opacity: 0; transition: opacity .14s ease; }
+.skill-panel--refresh .skill-carousel-modal__panel { animation: skillContentIn .22s ease both; }
+.skill-panel:not(.skill-panel--refresh) .skill-carousel__item {
+  animation: skillLogoIn .34s ease backwards;
+  animation-delay: calc(90ms + var(--skill-distance) * 45ms);
+}
+.skill-panel--refresh .skill-carousel__item {
+  animation: skillLogoIn .2s ease backwards;
+  animation-delay: calc(var(--skill-distance) * 24ms);
+}
+.skill-carousel-modal__header { position: relative; z-index: 2; text-align: center; }
+.skill-carousel-modal__header h3 {
+  margin: 0;
+  color: #d5b374;
+  font: 700 clamp(.78rem, 1.35vw, 1rem)/1.2 Cinzel, serif;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--book-accent) 28%, transparent);
+}
+.skill-carousel-modal__close {
+  position: absolute;
+  z-index: 5;
+  top: 19px;
+  right: 21px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(211, 169, 91, .68);
+  border-radius: 50%;
+  color: #d8bc87;
+  background: #17101d;
+  box-shadow: inset 0 0 0 3px rgba(205, 160, 83, .06), 0 0 12px rgba(138, 76, 159, .2);
+  font: 300 1.25rem/1 Cinzel, serif;
+  cursor: pointer;
+}
+.skill-carousel-modal__close:hover,
+.skill-carousel-modal__close:focus-visible {
+  color: #fff1d1;
+  border-color: #e0b96f;
+  outline: 2px solid color-mix(in srgb, var(--book-accent) 58%, transparent);
+  outline-offset: 3px;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--book-accent) 42%, transparent);
+}
+
+.skill-carousel-modal__body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 46px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 13px;
+}
+.skill-carousel { position: relative; min-width: 0; height: 238px; overflow: hidden; perspective: 900px; }
+.skill-carousel__track { position: relative; width: 100%; height: 100%; }
+.skill-carousel__item {
+  position: absolute;
+  z-index: calc(8 - var(--skill-distance));
+  top: 50%;
+  left: 50%;
+  width: 154px;
+  min-height: 174px;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0;
+  border: 0;
+  border-radius: 0;
+  color: #cbbba5;
+  background: transparent;
+  opacity: calc(1 - var(--skill-distance) * .23);
+  filter: saturate(.82);
+  transform:
+    translate(calc(-50% + var(--skill-offset) * 184px), -50%)
+    rotateY(calc(var(--skill-offset) * -8deg))
+    scale(calc(1 - var(--skill-distance) * .17));
+  transition: transform .36s ease, opacity .3s ease, filter .3s ease, border-color .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
+.skill-carousel__item[aria-hidden="true"] { visibility: hidden; pointer-events: none; }
+.skill-carousel__item--active {
+  color: #f4e8d2;
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  transform: translate(-50%, -50%) scale(1.18);
+}
+.skill-carousel__item--active::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--book-accent) 22%, transparent), transparent 67%);
+  filter: blur(7px);
+  pointer-events: none;
+}
+.skill-carousel__item:focus-visible { outline: 2px solid #dfb66a; outline-offset: 4px; }
+.skill-carousel__symbol { width: 138px; height: 138px; display: grid; place-items: center; filter: drop-shadow(0 8px 10px rgba(0,0,0,.38)); }
+.skill-carousel__symbol svg,
+.skill-carousel__symbol img { width: 100%; height: 100%; object-fit: contain; overflow: visible; }
+
+.skill-carousel__arrow {
+  position: relative;
+  z-index: 4;
+  width: 44px;
+  height: 52px;
+  border: 1px solid rgba(203, 162, 91, .36);
+  border-radius: 50%;
+  color: #d5b779;
+  background: rgba(16, 10, 22, .7);
+  font: 300 2rem/1 Cinzel, serif;
+  cursor: pointer;
+}
+.skill-carousel__arrow:hover,
+.skill-carousel__arrow:focus-visible {
+  color: #fff0ca;
+  border-color: #ddb66b;
+  outline: 2px solid color-mix(in srgb, var(--book-accent) 48%, transparent);
+  outline-offset: 3px;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--book-accent) 34%, transparent);
+}
+
+.skill-carousel__dots { position: relative; z-index: 3; display: flex; justify-content: center; gap: 9px; }
+.skill-carousel__dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 1px solid #9e8155;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.skill-carousel__dots button[aria-current="true"] {
+  border-color: color-mix(in srgb, var(--book-accent) 75%, #e4bc6f);
+  background: color-mix(in srgb, var(--book-accent) 72%, #d7ad62);
+  box-shadow: 0 0 9px color-mix(in srgb, var(--book-accent) 58%, transparent);
+}
+
+@keyframes skillPanelOpen {
+  from { opacity: 0; transform: translateY(-10px) scale(.98); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes skillModalClose {
+  to { opacity: 0; transform: translateY(8px) scale(.98); }
+}
+@keyframes skillContentIn {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+@keyframes skillLogoIn {
+  from { opacity: 0; }
+}
+
+@media (max-width: 760px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 890px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__shelf-frame { top: 145px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage { min-height: 880px; padding-top: 510px; }
+  .spell-grimoire.skill-carousel-modal { width: 90vw; height: 350px; }
+  .skill-carousel-modal__panel { width: 100%; height: 350px; min-height: 0; padding: 28px 42px 22px; }
+  .skill-carousel-modal__body { grid-template-columns: 38px minmax(0, 1fr) 38px; gap: 3px; }
+  .skill-carousel__arrow { width: 36px; height: 46px; }
+  .skill-carousel { height: 218px; }
+  .skill-carousel__item {
+    width: 136px;
+    min-height: 176px;
+    transform:
+      translate(calc(-50% + var(--skill-offset) * 122px), -50%)
+      rotateY(calc(var(--skill-offset) * -7deg))
+      scale(calc(1 - var(--skill-distance) * .2));
+  }
+  .skill-carousel__item--active { transform: translate(-50%, -50%) scale(1.18); }
+  .skill-carousel__symbol { width: 102px; height: 102px; }
+}
+
+@media (max-width: 620px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 820px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage { min-height: 810px; padding-top: 440px; }
+}
+
+@media (max-width: 480px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 790px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__shelf-frame { top: 130px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage { min-height: 780px; padding-top: 435px; }
+  .spell-grimoire.skill-carousel-modal { width: calc(100% - 14px); height: 340px; }
+  .skill-carousel-modal__panel { width: 100%; height: 340px; min-height: 0; padding: 31px 10px 20px; border-radius: 9px 22px 9px 22px; }
+  .skill-carousel-modal__close { position: absolute; top: 14px; right: 14px; }
+  .skill-carousel-modal__header h3 { font-size: 1.2rem; }
+  .skill-carousel-modal__body { grid-template-columns: 34px minmax(0, 1fr) 34px; margin-top: 14px; }
+  .skill-carousel__arrow { width: 32px; height: 42px; font-size: 1.55rem; }
+  .skill-carousel__item {
+    width: 126px;
+    min-height: 158px;
+    transform:
+      translate(calc(-50% + var(--skill-offset) * 104px), -50%)
+      scale(calc(1 - var(--skill-distance) * .22));
+  }
+  .skill-carousel__item--active { transform: translate(-50%, -50%) scale(1.16); }
+  .skill-carousel__symbol { width: 96px; height: 96px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-carousel-modal__panel,
+  .skill-carousel-modal--closing { animation-duration: 1ms !important; }
+  .skill-carousel__item { transition-duration: 1ms; }
+}

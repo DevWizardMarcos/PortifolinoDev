@@ -793,7 +793,7 @@ const spellDomains = [
   {
     id: 'front-end', title: 'Front-End', rune: '◇', accent: '#579cda', description: 'Interfaces, sistemas visuais e experiências digitais responsivas.',
     technologies: [
-      { name: 'React', rank: 'Domínio principal', description: 'Interfaces componentizadas, gerenciamento de estado e experiências interativas.', projects: ['Savory', 'Behorner-Control', 'Portfólio Alice'] },
+      { name: 'React', rank: 'Domínio principal', description: 'Interfaces componentizadas, gerenciamento de estado e experiências interativas.', projects: [] },
       { name: 'JavaScript', rank: 'Domínio principal', description: 'Lógica de interface, DOM, consumo de APIs e interações nativas.', projects: ['DevWizard Portfolio', 'Code Stone', 'Infinity Open'] },
       { name: 'HTML & CSS', rank: 'Domínio principal', description: 'Estrutura semântica, layouts responsivos, animações e sistemas visuais.', projects: ['DevWizard Portfolio', 'Garimpo', 'Horizon'] },
       { name: 'Vite & SASS', rank: 'Experiência sólida', description: 'Fluxos modernos de desenvolvimento, organização de estilos e build otimizado.', projects: ['Portfólio Alice', 'Behorner-Control'] }
@@ -841,20 +841,37 @@ const spellDomains = [
 // Para usar um avatar definitivo, basta preencher `avatar` com o caminho da imagem.
 const grimoireEntries = {
   React: {
-    school: 'Artes da Interface', volume: 'I', record: '04', avatar: null, sigil: 'R',
+    school: 'Artes da Interface', volume: 'I', record: '04',
+    avatar: null, sigil: 'React',
+    domain: 'Front-End',
+    classification: 'Domínio principal',
     anatomy: [
       { term: 'Componentes', note: 'Partes reutilizáveis da interface.' },
-      { term: 'Estado', note: 'Dados que conduzem cada mudança visual.' },
-      { term: 'Props', note: 'Contratos entre entidades da árvore.' },
-      { term: 'Contexto', note: 'Conhecimento partilhado sem prop drilling.' }
+      { term: 'State', note: 'Dados internos que provocam atualização visual.' },
+      { term: 'Props', note: 'Dados transmitidos entre componentes.' },
+      { term: 'Context API', note: 'Estado compartilhado entre diferentes partes da aplicação.' },
+      { term: 'Hooks', note: 'Estado, efeitos, referências e lógica reutilizável.' },
+      { term: 'Rotas', note: 'Navegação entre diferentes áreas da aplicação.' }
     ],
-    concepts: ['Componentes', 'Estado', 'Props', 'Context API', 'Rotas'],
-    fieldNotes: {
-      Savory: 'Componentização, rotas e consumo de uma fonte externa de receitas.',
-      'Behorner-Control': 'Interfaces de controle conectadas aos serviços da plataforma.',
-      'Portfólio Alice': 'Composição responsiva e organização da experiência em componentes.'
+    concepts: ['Componentização', 'State', 'Props', 'Context API', 'Hooks', 'Rotas'],
+    competencies: [
+      { title: 'Componentização', description: 'Criação de componentes reutilizáveis e interfaces divididas em partes independentes.' },
+      { title: 'Gerenciamento de estado', description: 'Controle de estados locais e compartilhados com hooks e Context API.' },
+      { title: 'React Router', description: 'Estruturação da navegação e das rotas entre telas da aplicação.' },
+      { title: 'Consumo de APIs', description: 'Integração com APIs REST usando fetch, async e tratamento de respostas.' },
+      { title: 'Formulários e eventos', description: 'Controle de inputs, validações, eventos e interações do usuário.' },
+      { title: 'Renderização condicional', description: 'Conteúdo exibido conforme estado, permissões ou dados.' },
+      { title: 'Responsividade', description: 'Interfaces adaptáveis para desktop, tablet e mobile.' },
+      { title: 'Organização de componentes', description: 'Separação de responsabilidades e estrutura reutilizável.' }
+    ],
+    reactivity: {
+      title: 'Fluxo de reatividade',
+      steps: ['State', 'Render', 'Interface', 'Interação', 'Novo state'],
+      description: 'Mudanças de estado provocam novas renderizações e atualizam a interface conforme os dados da aplicação.'
     },
-    archivistNote: 'React se tornou uma das ferramentas centrais na construção das minhas interfaces.'
+    ecosystem: ['React', 'Vite', 'React Router', 'Context API', 'Fetch / APIs REST', 'JavaScript', 'CSS', 'Tailwind CSS'],
+    practice: 'Uso recorrente na construção de interfaces, aplicações SPA e experiências interativas.',
+    archivistNote: 'React é uma das principais tecnologias que utilizo para estruturar interfaces componentizadas, estados, rotas e integrações com APIs.'
   },
   JavaScript: {
     school: 'Artes da Interface', volume: 'I', record: '07', avatar: null, sigil: 'JS',
@@ -1077,26 +1094,88 @@ const grimoireEntries = {
   }
 };
 
+const skillIcon = id => `./assets/img/skill-symbols.svg#${id}`;
+
+// A biblioteca visual é controlada somente por estes grupos e tecnologias.
+const skillGroups = {
+  'front-end': {
+    id: 'front-end', title: 'Front-End', rune: '◇', accent: '#579cda', initialIndex: 4,
+    technologies: [
+      { id: 'html', name: 'HTML', image: skillIcon('html') },
+      { id: 'css', name: 'CSS', image: skillIcon('css') },
+      { id: 'javascript', name: 'JavaScript', image: skillIcon('javascript') },
+      { id: 'typescript', name: 'TypeScript', image: skillIcon('typescript') },
+      { id: 'react', name: 'React', image: skillIcon('react') },
+      { id: 'tailwind', name: 'Tailwind CSS', image: skillIcon('tailwind') },
+      { id: 'bootstrap', name: 'Bootstrap', image: skillIcon('bootstrap') }
+    ]
+  },
+  'back-end': {
+    id: 'back-end', title: 'Back-End', rune: '⚙', accent: '#c75661', initialIndex: 1,
+    technologies: [
+      { id: 'node', name: 'Node.js', image: skillIcon('node') },
+      { id: 'python', name: 'Python', image: skillIcon('python') },
+      { id: 'fastapi', name: 'FastAPI', image: skillIcon('fastapi') },
+      { id: 'flask', name: 'Flask', image: skillIcon('flask') }
+    ]
+  },
+  'full-stack': {
+    id: 'full-stack', title: 'Full-Stack', rune: '∞', accent: '#9565d8', initialIndex: 2,
+    technologies: [
+      { id: 'typescript', name: 'TypeScript', image: skillIcon('typescript') },
+      { id: 'react', name: 'React', image: skillIcon('react') },
+      { id: 'node', name: 'Node.js', image: skillIcon('node') },
+      { id: 'python', name: 'Python', image: skillIcon('python') },
+      { id: 'fastapi', name: 'FastAPI', image: skillIcon('fastapi') },
+      { id: 'sql', name: 'SQL', image: skillIcon('sql') }
+    ]
+  },
+  data: {
+    id: 'data', title: 'Dados', rune: '▤', accent: '#b99b62', initialIndex: 1,
+    technologies: [
+      { id: 'sql', name: 'SQL', image: skillIcon('sql') },
+      { id: 'mysql', name: 'MySQL', image: skillIcon('mysql') },
+      { id: 'sqlite', name: 'SQLite', image: skillIcon('sqlite') },
+      { id: 'mongodb', name: 'MongoDB', image: skillIcon('mongodb') }
+    ]
+  },
+  tools: {
+    id: 'tools', title: 'Ferramentas', rune: '⚒', accent: '#c59a52', initialIndex: 2,
+    technologies: [
+      { id: 'git', name: 'Git', image: skillIcon('git') },
+      { id: 'github', name: 'GitHub', image: skillIcon('github') },
+      { id: 'vite', name: 'Vite', image: skillIcon('vite') },
+      { id: 'figma', name: 'Figma', image: skillIcon('figma') },
+      { id: 'notion', name: 'Notion', image: skillIcon('notion') }
+    ]
+  }
+};
+
 const spellLibrary = document.querySelector('.spell-library');
 const spellShelf = document.getElementById('spell-book-shelf');
 const spellGrimoire = document.getElementById('spell-grimoire');
 const spellInvocation = document.getElementById('spell-invocation');
-let activeBook = null;
-let activeSpellPage = 0;
+let activeSkillGroup = null;
+let activeTechnologyIndex = 0;
+let isSkillModalOpen = false;
 let spellOpeningTimer;
+let skillSwitchTimer;
+let skillModalTrigger = null;
+let skillSwipeStartX = null;
+let skillWheelLocked = false;
 
 function renderSpellShelf() {
   if (!spellShelf) return;
   const coverByDomain = { 'front-end': 'front', 'back-end': 'back', data: 'dados', tools: 'ferramentas' };
   // A ordem da estante é independente dos dados: Full-Stack permanece no trono central.
   const shelfDomains = ['front-end', 'back-end', 'full-stack', 'data', 'tools']
-    .map(id => spellDomains.find(domain => domain.id === id));
+    .map(id => skillGroups[id]);
   spellShelf.innerHTML = shelfDomains.map((domain, index) => `
-    <button class="spell-book spell-book--${domain.id}${activeBook?.id === domain.id ? ' spell-book--active' : ''}" type="button" data-spell-book="${domain.id}" style="--book-accent:${domain.accent};--book-order:${index}" aria-label="Consultar grimório de ${domain.title}">
+    <button class="spell-book spell-book--${domain.id}${activeSkillGroup?.id === domain.id ? ' spell-book--active' : ''}" type="button" data-spell-book="${domain.id}" style="--book-accent:${domain.accent};--book-order:${index}" aria-label="Explorar tecnologias de ${domain.title}" aria-controls="spell-grimoire" aria-expanded="${isSkillModalOpen && activeSkillGroup?.id === domain.id}" ${activeSkillGroup?.id === domain.id ? 'aria-current="true"' : ''}>
       ${coverByDomain[domain.id]
         ? `<img src="./assets/img/arcenal/${coverByDomain[domain.id]}.png" alt="Capa do grimório ${domain.title}" draggable="false">`
         : `<span class="spell-book__cover" aria-hidden="true"><i>${domain.rune}</i><strong>${domain.title}</strong><small>Volume 05</small></span>`}
-      <span class="spell-book__label" aria-hidden="true">${domain.title}<small>Volume ${String(spellDomains.indexOf(domain) + 1).padStart(2, '0')}</small></span>
+      <span class="spell-book__label" aria-hidden="true">${domain.title}<small>Volume ${String(index + 1).padStart(2, '0')}</small></span>
     </button>`).join('');
 }
 
@@ -1132,6 +1211,12 @@ function getGrimoireEntry(technology, domain, index) {
       { term: 'Aplicação', note: 'Conhecimento aplicado em experiências e sistemas reais.' }
     ],
     concepts: customEntry.concepts || [technology.name, domain.title, 'Prática', 'Evolução'],
+    domain: customEntry.domain || domain.title,
+    classification: customEntry.classification || technology.rank,
+    competencies: customEntry.competencies || null,
+    reactivity: customEntry.reactivity || null,
+    ecosystem: customEntry.ecosystem || [],
+    practice: customEntry.practice || technology.description,
     fieldNotes: customEntry.fieldNotes || {},
     projectNames: technology.projects || [],
     archivistNote: customEntry.archivistNote || `${technology.name} permanece em estudo contínuo dentro da escola de ${domain.title}.`
@@ -1158,15 +1243,67 @@ function renderGrimoireProject(projectName, entry, index) {
     </li>`;
 }
 
-function renderSpellGrimoire(focusControl = false) {
+function renderLegacySpellGrimoire(focusControl = false) {
   if (!spellGrimoire || !activeBook) return;
   const pageCount = activeBook.technologies.length;
   const technology = activeBook.technologies[activeSpellPage];
   const entry = getGrimoireEntry(technology, activeBook, activeSpellPage);
-  const anatomy = entry.anatomy.slice(0, 4);
+  const anatomy = entry.anatomy.slice(0, entry.competencies ? 6 : 4);
   const projectsToRender = entry.projectNames.slice(0, 4);
   spellGrimoire.style.setProperty('--book-accent', activeBook.accent);
   spellGrimoire.classList.add('grimoire');
+  spellGrimoire.classList.toggle('grimoire--professional', Boolean(entry.competencies));
+  spellGrimoire.dataset.activeSheet = String(activeGrimoireSheet);
+  const rightPageContent = entry.competencies ? `
+        <header class="grimoire__field-header grimoire__practice-header">
+          <span>Caderno do arquivista</span>
+          <h3>Domínio prático</h3>
+          <p>Competências aplicadas na construção de interfaces modernas.</p>
+        </header>
+        <section class="grimoire__competencies" aria-labelledby="react-competencies-title">
+          <h4 id="react-competencies-title">Competências principais</h4>
+          <div class="grimoire__competency-list">
+            ${entry.competencies.map((item, index) => `<article class="grimoire__competency" style="--competency-index:${index}">
+              <h5>${item.title}</h5><p>${item.description}</p>
+            </article>`).join('')}
+          </div>
+        </section>
+        <div class="grimoire__practical-grid">
+          <section class="grimoire__reactivity" aria-labelledby="reactivity-title">
+            <h4 id="reactivity-title">${entry.reactivity.title}</h4>
+            <div class="grimoire__reactivity-flow" aria-label="${entry.reactivity.steps.join(' para ')}">
+              ${entry.reactivity.steps.map((step, index) => `<span>${step}</span>${index < entry.reactivity.steps.length - 1 ? '<i aria-hidden="true">↓</i>' : '<i class="grimoire__loop" aria-hidden="true">↺</i>'}`).join('')}
+            </div>
+            <p>${entry.reactivity.description}</p>
+          </section>
+          <div class="grimoire__practical-notes">
+            <section class="grimoire__ecosystem">
+              <h4>Ecossistema</h4>
+              <ul>${entry.ecosystem.map(item => `<li>${item}</li>`).join('')}</ul>
+            </section>
+            <section class="grimoire__classification">
+              <span>Nível de atuação</span>
+              <strong>${entry.classification}</strong>
+              <p>${entry.practice}</p>
+            </section>
+          </div>
+        </div>
+        <aside class="grimoire__archivist-note">
+          <span>Nota do arquivista</span>
+          <p>“${entry.archivistNote}”</p>
+        </aside>` : `
+        <header class="grimoire__field-header">
+          <span>Caderno do arquivista</span>
+          <h3>Registro de Campo</h3>
+          <p>Onde este conhecimento foi colocado à prova.</p>
+        </header>
+        <ol class="grimoire__field-log">
+          ${projectsToRender.map((projectName, index) => renderGrimoireProject(projectName, entry, index)).join('')}
+        </ol>
+        <aside class="grimoire__archivist-note">
+          <span>Nota do arquivista</span>
+          <p>“${entry.archivistNote}”</p>
+        </aside>`;
   spellGrimoire.innerHTML = `
     <button class="spell-grimoire__close grimoire__close" type="button" aria-label="Fechar grimório">
       <span aria-hidden="true">✦</span>
@@ -1196,8 +1333,8 @@ function renderSpellGrimoire(focusControl = false) {
 
         <div class="grimoire__left-footer">
           <section class="grimoire__concepts">
-            <h4>Princípios catalogados</h4>
-            <ul>${entry.concepts.slice(0, 5).map(concept => `<li>${concept}</li>`).join('')}</ul>
+            <h4>${entry.competencies ? 'Fundamentos' : 'Princípios catalogados'}</h4>
+            <ul>${entry.concepts.slice(0, entry.competencies ? 6 : 5).map(concept => `<li>${concept}</li>`).join('')}</ul>
           </section>
           <div class="grimoire__seal" aria-label="Selo do domínio ${activeBook.title}">
             <span aria-hidden="true">${activeBook.rune}</span>
@@ -1207,20 +1344,14 @@ function renderSpellGrimoire(focusControl = false) {
       </article>
 
       <article class="spell-grimoire__page grimoire__page grimoire__page--right">
-        <header class="grimoire__field-header">
-          <span>Caderno do arquivista</span>
-          <h3>Registro de Campo</h3>
-          <p>Onde este conhecimento foi colocado à prova.</p>
-        </header>
-        <ol class="grimoire__field-log">
-          ${projectsToRender.map((projectName, index) => renderGrimoireProject(projectName, entry, index)).join('')}
-        </ol>
-        <aside class="grimoire__archivist-note">
-          <span>Nota do arquivista</span>
-          <p>“${entry.archivistNote}”</p>
-        </aside>
+        ${rightPageContent}
       </article>
     </div>
+    ${entry.competencies ? `<nav class="grimoire__sheet-navigation" aria-label="Páginas do registro React">
+      <button type="button" data-grimoire-sheet="0" ${activeGrimoireSheet === 0 ? 'aria-current="page"' : ''}>React / Anatomia</button>
+      <span aria-hidden="true">↓</span>
+      <button type="button" data-grimoire-sheet="1" ${activeGrimoireSheet === 1 ? 'aria-current="page"' : ''}>Domínio prático</button>
+    </nav>` : ''}
     <nav class="spell-grimoire__navigation grimoire__navigation" aria-label="Tecnologias do grimório">
       <button type="button" data-spell-page="prev" ${activeSpellPage === 0 ? 'disabled' : ''}>‹ registro anterior</button>
       <span>${activeSpellPage + 1} / ${pageCount}</span>
@@ -1230,47 +1361,152 @@ function renderSpellGrimoire(focusControl = false) {
   if (focusControl) spellGrimoire.querySelector('.spell-grimoire__close')?.focus();
 }
 
+function getSkillOffset(index, activeIndex, count) {
+  let offset = (index - activeIndex + count) % count;
+  if (offset > count / 2) offset -= count;
+  return offset;
+}
+
+function renderSpellGrimoire(focusTarget = null, isCategorySwitch = false) {
+  if (!spellGrimoire || !activeSkillGroup) return;
+  const technologies = activeSkillGroup.technologies;
+  const activeTechnology = technologies[activeTechnologyIndex];
+
+  spellGrimoire.className = `spell-grimoire skill-panel skill-panel--open skill-carousel-modal skill-carousel-modal--open${isCategorySwitch ? ' skill-panel--refresh' : ''}`;
+  spellGrimoire.style.setProperty('--book-accent', activeSkillGroup.accent);
+  spellGrimoire.setAttribute('role', 'region');
+  spellGrimoire.removeAttribute('aria-modal');
+  spellGrimoire.setAttribute('aria-labelledby', 'skill-panel-title');
+  spellGrimoire.setAttribute('aria-hidden', 'false');
+  spellGrimoire.innerHTML = `
+    <section class="skill-panel__frame skill-carousel-modal__panel" data-skill-panel>
+      <button class="skill-panel__close skill-carousel-modal__close" type="button" aria-label="Fechar tecnologias de ${activeSkillGroup.title}">
+        <span aria-hidden="true">×</span>
+      </button>
+      <header class="skill-panel__header skill-carousel-modal__header">
+        <h3 id="skill-panel-title">◇ ${activeSkillGroup.title} ◇</h3>
+      </header>
+      <div class="skill-carousel-modal__body">
+        <button class="skill-carousel__arrow skill-carousel__prev" type="button" data-skill-direction="-1" aria-label="Tecnologia anterior">‹</button>
+        <div class="skill-carousel" role="listbox" aria-label="Tecnologias de ${activeSkillGroup.title}" aria-activedescendant="skill-${activeTechnology.id}">
+          <div class="skill-carousel__track">
+            ${technologies.map((technology, index) => {
+              const offset = getSkillOffset(index, activeTechnologyIndex, technologies.length);
+              const isActive = index === activeTechnologyIndex;
+              const isVisible = Math.abs(offset) <= 2;
+              return `<button
+                id="skill-${technology.id}"
+                class="skill-carousel__item${isActive ? ' skill-carousel__item--active' : ''}"
+                type="button"
+                role="option"
+                aria-selected="${isActive}"
+                aria-label="${technology.name}"
+                data-skill-index="${index}"
+                style="--skill-offset:${offset};--skill-distance:${Math.abs(offset)}"
+                ${isVisible ? '' : 'aria-hidden="true" tabindex="-1"'}>
+                <span class="skill-carousel__symbol" aria-hidden="true">
+                  ${technology.image.includes('#')
+                    ? `<svg viewBox="0 0 96 96" focusable="false"><use href="${technology.image}"></use></svg>`
+                    : `<img src="${technology.image}" alt="" draggable="false">`}
+                </span>
+              </button>`;
+            }).join('')}
+          </div>
+        </div>
+        <button class="skill-carousel__arrow skill-carousel__next" type="button" data-skill-direction="1" aria-label="Próxima tecnologia">›</button>
+      </div>
+      <nav class="skill-carousel__dots" aria-label="Escolher tecnologia">
+        ${technologies.map((technology, index) => `<button type="button" data-skill-index="${index}" aria-label="Mostrar ${technology.name}" ${index === activeTechnologyIndex ? 'aria-current="true"' : ''}></button>`).join('')}
+      </nav>
+    </section>`;
+  spellGrimoire.hidden = false;
+
+  if (focusTarget === 'close') spellGrimoire.querySelector('.skill-carousel-modal__close')?.focus();
+  if (focusTarget === 'active') spellGrimoire.querySelector('.skill-carousel__item--active')?.focus();
+}
+
+function setActiveTechnology(nextIndex, focusActive = true) {
+  if (!activeSkillGroup) return;
+  const count = activeSkillGroup.technologies.length;
+  activeTechnologyIndex = (nextIndex + count) % count;
+  const items = [...spellGrimoire.querySelectorAll('.skill-carousel__item')];
+  items.forEach((item, index) => {
+    const offset = getSkillOffset(index, activeTechnologyIndex, count);
+    const isActive = index === activeTechnologyIndex;
+    const isVisible = Math.abs(offset) <= 2;
+    item.style.setProperty('--skill-offset', offset);
+    item.style.setProperty('--skill-distance', Math.abs(offset));
+    item.classList.toggle('skill-carousel__item--active', isActive);
+    item.setAttribute('aria-selected', String(isActive));
+    item.toggleAttribute('aria-hidden', !isVisible);
+    item.tabIndex = isVisible ? 0 : -1;
+  });
+  const activeTechnology = activeSkillGroup.technologies[activeTechnologyIndex];
+  spellGrimoire.querySelector('.skill-carousel')?.setAttribute('aria-activedescendant', `skill-${activeTechnology.id}`);
+  spellGrimoire.querySelectorAll('.skill-carousel__dots [data-skill-index]').forEach((dot, index) => {
+    if (index === activeTechnologyIndex) dot.setAttribute('aria-current', 'true');
+    else dot.removeAttribute('aria-current');
+  });
+  if (focusActive) spellGrimoire.querySelector('.skill-carousel__item--active')?.focus();
+}
+
 function openSpellBook(bookId) {
-  const selected = spellDomains.find(domain => domain.id === bookId);
+  const selected = skillGroups[bookId];
   if (!selected || !spellLibrary) return;
   window.clearTimeout(spellOpeningTimer);
-  activeBook = selected;
-  activeSpellPage = 0;
+  window.clearTimeout(skillSwitchTimer);
+
+  if (isSkillModalOpen) {
+    if (activeSkillGroup?.id === selected.id) return;
+    skillModalTrigger = spellShelf?.querySelector(`[data-spell-book="${bookId}"]`) || document.activeElement;
+    activeSkillGroup = selected;
+    activeTechnologyIndex = 0;
+    spellGrimoire.classList.add('skill-panel--switching');
+    renderSpellShelf();
+    spellShelf?.querySelector(`[data-spell-book="${bookId}"]`)?.focus();
+    skillSwitchTimer = window.setTimeout(() => {
+      renderSpellGrimoire(null, true);
+      spellLibrary.dataset.libraryState = 'open';
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 150);
+    return;
+  }
+
+  skillModalTrigger = spellShelf?.querySelector(`[data-spell-book="${bookId}"]`) || document.activeElement;
+  activeSkillGroup = selected;
+  activeTechnologyIndex = 0;
+  isSkillModalOpen = true;
   spellLibrary.dataset.libraryState = 'selecting';
   renderSpellShelf();
-  if (spellInvocation) {
-    spellInvocation.style.setProperty('--book-accent', selected.accent);
-    spellInvocation.innerHTML = `<span></span><i>${selected.rune}</i><strong>${selected.title}</strong><small>Volume ${String(spellDomains.indexOf(selected) + 1).padStart(2, '0')}</small>`;
-    spellInvocation.hidden = false;
-  }
+  if (spellInvocation) spellInvocation.hidden = true;
   spellOpeningTimer = window.setTimeout(() => {
     spellLibrary.dataset.libraryState = 'opening';
-    spellOpeningTimer = window.setTimeout(() => {
-      if (spellInvocation) spellInvocation.hidden = true;
-      renderSpellGrimoire(true);
-      spellLibrary.dataset.libraryState = 'open';
-    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 420);
-  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 520);
+    renderSpellGrimoire('close');
+    spellLibrary.dataset.libraryState = 'open';
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 40);
 }
 
 function closeSpellBook() {
-  if (!spellLibrary || !activeBook) return;
-  const returnId = activeBook.id;
+  if (!spellLibrary || !activeSkillGroup) return;
+  const returnId = activeSkillGroup.id;
+  const returnTarget = skillModalTrigger;
+  window.clearTimeout(spellOpeningTimer);
+  window.clearTimeout(skillSwitchTimer);
+  isSkillModalOpen = false;
   spellLibrary.dataset.libraryState = 'closing';
-  if (spellInvocation) {
-    spellInvocation.innerHTML = `<span></span><i>${activeBook.rune}</i><strong>${activeBook.title}</strong><small>Retornando</small>`;
-    spellInvocation.style.setProperty('--book-accent', activeBook.accent);
-    spellInvocation.hidden = false;
-  }
-  spellGrimoire.hidden = true;
+  spellGrimoire.setAttribute('aria-hidden', 'true');
+  spellGrimoire.classList.add('skill-carousel-modal--closing');
   window.setTimeout(() => {
-    activeBook = null;
-    activeSpellPage = 0;
+    spellGrimoire.hidden = true;
+    spellGrimoire.className = 'spell-grimoire';
+    activeSkillGroup = null;
+    activeTechnologyIndex = 0;
     spellLibrary.dataset.libraryState = 'idle';
     renderSpellShelf();
     if (spellInvocation) spellInvocation.hidden = true;
-    spellShelf?.querySelector(`[data-spell-book="${returnId}"]`)?.focus();
-  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 30 : 280);
+    const refreshedBook = spellShelf?.querySelector(`[data-spell-book="${returnId}"]`);
+    (refreshedBook || returnTarget)?.focus();
+    skillModalTrigger = null;
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 30 : 300);
 }
 
 spellShelf?.addEventListener('click', event => {
@@ -1279,22 +1515,46 @@ spellShelf?.addEventListener('click', event => {
 });
 
 spellGrimoire?.addEventListener('click', event => {
-  if (event.target.closest('.spell-grimoire__close')) return closeSpellBook();
-  const pageButton = event.target.closest('[data-spell-page]');
-  if (!pageButton || !activeBook) return;
-  const pageCount = activeBook.technologies.length;
-  activeSpellPage = Math.max(0, Math.min(pageCount - 1, activeSpellPage + (pageButton.dataset.spellPage === 'next' ? 1 : -1)));
-  spellGrimoire.classList.remove('is-turning');
-  void spellGrimoire.offsetWidth;
-  spellGrimoire.classList.add('is-turning');
-  renderSpellGrimoire();
+  if (event.target.closest('.skill-carousel-modal__close')) return closeSpellBook();
+  const directionButton = event.target.closest('[data-skill-direction]');
+  if (directionButton) return setActiveTechnology(activeTechnologyIndex + Number(directionButton.dataset.skillDirection));
+  const technologyButton = event.target.closest('[data-skill-index]');
+  if (technologyButton) setActiveTechnology(Number(technologyButton.dataset.skillIndex));
 });
 
 spellLibrary?.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && activeBook && spellLibrary.dataset.libraryState === 'open') {
+  if (!isSkillModalOpen || spellLibrary.dataset.libraryState !== 'open') return;
+  if (event.key === 'Escape') {
     event.preventDefault();
     closeSpellBook();
+    return;
+  }
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault();
+    setActiveTechnology(activeTechnologyIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    return;
   }
 });
+
+spellGrimoire?.addEventListener('wheel', event => {
+  if (!isSkillModalOpen || skillWheelLocked || Math.abs(event.deltaX) + Math.abs(event.deltaY) < 12) return;
+  event.preventDefault();
+  skillWheelLocked = true;
+  setActiveTechnology(activeTechnologyIndex + (event.deltaX + event.deltaY > 0 ? 1 : -1));
+  window.setTimeout(() => { skillWheelLocked = false; }, 260);
+}, { passive: false });
+
+spellGrimoire?.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'mouse') skillSwipeStartX = event.clientX;
+});
+
+spellGrimoire?.addEventListener('pointerup', event => {
+  if (skillSwipeStartX === null) return;
+  const distance = event.clientX - skillSwipeStartX;
+  skillSwipeStartX = null;
+  if (Math.abs(distance) > 42) setActiveTechnology(activeTechnologyIndex + (distance < 0 ? 1 : -1));
+});
+
+spellGrimoire?.addEventListener('pointercancel', () => { skillSwipeStartX = null; });
 
 renderSpellShelf();
