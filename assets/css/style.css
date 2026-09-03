@@ -1264,15 +1264,15 @@
     transition: opacity 0.5s ease;
   }
   .spell-library__backdrop {
-    background: radial-gradient(
+    /* background: radial-gradient(
       circle at 50% 52%,
       rgba(112, 65, 134, 0.16),
       rgba(3, 2, 6, 0.72) 66%
-    );
+    ); */
   }
   .spell-library__fog {
     inset: 26% 9% 7%;
-    background:
+    /* background:
       radial-gradient(
         ellipse at 50% 62%,
         rgba(148, 88, 173, 0.22),
@@ -1287,7 +1287,7 @@
         ellipse at 76% 58%,
         rgba(114, 62, 136, 0.14),
         transparent 46%
-      );
+      ); */
     filter: blur(18px);
     animation: spellFogDrift 8s ease-in-out infinite alternate;
   }
@@ -11793,10 +11793,7 @@ button.corridor-relic-frame {
 .spell-library:not([data-library-state="idle"]) .spell-library__chamber {
   --scene-response: 1;
   border-color: rgba(210, 169, 91, 0.4);
-  box-shadow:
-    inset 0 0 120px #020103,
-    inset 0 0 70px rgba(86, 44, 108, 0.12),
-    0 34px 80px rgba(0, 0, 0, 0.54);
+  /* box-shadow: inset 0 0 120px #000000, inset 0 0 70px rgba(86, 44, 108, 0.12), 0 34px 80px rgba(0, 0, 0, 0.54); */
 }
 
 .spell-library__architecture {
@@ -11967,12 +11964,12 @@ button.corridor-relic-frame {
 
 .spell-library__light-spill--blue {
   left: 3%;
-  background: radial-gradient(ellipse, rgba(75, 91, 211, 0.2), transparent 68%);
+  /* background: radial-gradient(ellipse, rgba(75, 91, 211, 0.2), transparent 68%); */
 }
 
 .spell-library__light-spill--ember {
   right: 3%;
-  background: radial-gradient(ellipse, rgba(196, 56, 125, 0.18), transparent 68%);
+  /* background: radial-gradient(ellipse, rgba(196, 56, 125, 0.18), transparent 68%); */
 }
 
 .spell-library__chamber:hover .spell-library__light-spill,
@@ -14463,12 +14460,12 @@ button.corridor-relic-frame {
   transform: none;
 }
 .spell-library:not([data-library-state="idle"]) .spell-library__hands--idle {
-  visibility: visible;
-  opacity: .46;
-}
-.spell-library:not([data-library-state="idle"]) .spell-library__hands--awakened {
   visibility: hidden;
   opacity: 0;
+}
+.spell-library:not([data-library-state="idle"]) .spell-library__hands--awakened {
+  visibility: visible;
+  opacity: .72;
 }
 
 .spell-grimoire.skill-carousel-modal {
@@ -14491,42 +14488,20 @@ button.corridor-relic-frame {
 .spell-grimoire.skill-carousel-modal::after { content: none; }
 
 .skill-carousel-modal__panel {
-  position: relative;
   width: 100%;
   height: 380px;
   min-height: 0;
   padding: 29px 64px 25px;
   overflow: hidden;
-  border: 1px solid rgba(202, 159, 84, .58);
   border-radius: 12px 32px 12px 32px;
   color: #eee4d3;
-  background: radial-gradient(circle at center, rgba(45, 24, 61, .88), rgba(10, 7, 16, .97) 70%);
-  box-shadow:
-    0 32px 70px rgba(0, 0, 0, .78),
-    0 0 34px color-mix(in srgb, var(--book-accent) 22%, transparent),
-    inset 0 0 0 7px rgba(204, 162, 91, .04),
-    inset 0 0 60px rgba(0, 0, 0, .6);
+  background: transparent;
+  box-shadow: none;
   animation: skillPanelOpen .42s cubic-bezier(.2, .78, .24, 1) both;
 }
 .skill-carousel-modal__panel::before,
 .skill-carousel-modal__panel::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-.skill-carousel-modal__panel::before {
-  inset: 10px;
-  border: 1px solid rgba(213, 173, 101, .17);
-  border-radius: 8px 25px 8px 25px;
-}
-.skill-carousel-modal__panel::after {
-  inset: 0;
-  opacity: .26;
-  background:
-    linear-gradient(90deg, transparent, rgba(197, 151, 80, .14) 50%, transparent),
-    radial-gradient(circle at 8% 20%, rgba(255,255,255,.22) 0 1px, transparent 2px),
-    radial-gradient(circle at 91% 78%, rgba(255,255,255,.18) 0 1px, transparent 2px);
-  background-size: auto, 37px 31px, 43px 39px;
+  content: none;
 }
 
 .skill-carousel-modal--closing { animation: skillModalClose .3s ease both !important; }
@@ -14635,6 +14610,15 @@ button.corridor-relic-frame {
 .skill-carousel__symbol { width: 138px; height: 138px; display: grid; place-items: center; filter: drop-shadow(0 8px 10px rgba(0,0,0,.38)); }
 .skill-carousel__symbol svg,
 .skill-carousel__symbol img { width: 100%; height: 100%; object-fit: contain; overflow: visible; }
+
+/* Ajuste óptico: esta arte ocupa mais área que os demais logotipos. */
+#skill-javascript .skill-carousel__symbol img {
+  transform: translateY(-16px) scale(.6);
+}
+
+#skill-git .skill-carousel__symbol img {
+  transform: translateY(-10px) scale(.72);
+}
 
 .skill-carousel__arrow {
   position: relative;

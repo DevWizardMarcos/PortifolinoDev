@@ -1101,29 +1101,32 @@ const skillGroups = {
   'front-end': {
     id: 'front-end', title: 'Front-End', rune: '◇', accent: '#579cda', initialIndex: 4,
     technologies: [
-      { id: 'html', name: 'HTML', image: skillIcon('html') },
-      { id: 'css', name: 'CSS', image: skillIcon('css') },
-      { id: 'javascript', name: 'JavaScript', image: skillIcon('javascript') },
-      { id: 'typescript', name: 'TypeScript', image: skillIcon('typescript') },
-      { id: 'react', name: 'React', image: skillIcon('react') },
-      { id: 'tailwind', name: 'Tailwind CSS', image: skillIcon('tailwind') },
-      { id: 'bootstrap', name: 'Bootstrap', image: skillIcon('bootstrap') }
+      { id: 'html', name: 'HTML', image: './assets/img/arcenal/Stacks/Html.png' },
+      { id: 'css', name: 'CSS', image: './assets/img/arcenal/Stacks/Css.png' },
+      { id: 'javascript', name: 'JavaScript', image: './assets/img/arcenal/Stacks/Js.png' },
+      { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript.png' },
+      { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.png' },
+      { id: 'tailwind', name: 'Tailwind CSS', image: './assets/img/arcenal/Stacks/tailwind.png' },
+      { id: 'bootstrap', name: 'Bootstrap', image: './assets/img/arcenal/Stacks/bootstrap.png' },
+      { id: 'sass', name: 'Sass', image: './assets/img/arcenal/Stacks/Sass.png' }
     ]
   },
   'back-end': {
     id: 'back-end', title: 'Back-End', rune: '⚙', accent: '#c75661', initialIndex: 1,
     technologies: [
-      { id: 'node', name: 'Node.js', image: skillIcon('node') },
-      { id: 'python', name: 'Python', image: skillIcon('python') },
-      { id: 'fastapi', name: 'FastAPI', image: skillIcon('fastapi') },
-      { id: 'flask', name: 'Flask', image: skillIcon('flask') }
+      { id: 'node', name: 'Node.js', image:  './assets/img/arcenal/Stacks/node.png'  },
+      { id: 'python', name: 'Python', image: './assets/img/arcenal/Stacks/python.png'  },
+      { id: 'fastapi', name: 'FastAPI', image: './assets/img/arcenal/Stacks/FastApi.png' },
+      { id: 'flask', name: 'Flask', image: '/assets/img/arcenal/Stacks/flask.png' },
+      { id: 'streamlit', name: 'Streamlit', image: '/assets/img/arcenal/Stacks/Streamlit.png' },
+      { id: 'flet', name: 'Flet', image: '/assets/img/arcenal/Stacks/Flet.png' }
     ]
   },
   'full-stack': {
     id: 'full-stack', title: 'Full-Stack', rune: '∞', accent: '#9565d8', initialIndex: 2,
     technologies: [
-      { id: 'typescript', name: 'TypeScript', image: skillIcon('typescript') },
-      { id: 'react', name: 'React', image: skillIcon('react') },
+      { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript-transparent.png' },
+      { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.png' },
       { id: 'node', name: 'Node.js', image: skillIcon('node') },
       { id: 'python', name: 'Python', image: skillIcon('python') },
       { id: 'fastapi', name: 'FastAPI', image: skillIcon('fastapi') },
@@ -1133,20 +1136,20 @@ const skillGroups = {
   data: {
     id: 'data', title: 'Dados', rune: '▤', accent: '#b99b62', initialIndex: 1,
     technologies: [
-      { id: 'sql', name: 'SQL', image: skillIcon('sql') },
-      { id: 'mysql', name: 'MySQL', image: skillIcon('mysql') },
-      { id: 'sqlite', name: 'SQLite', image: skillIcon('sqlite') },
-      { id: 'mongodb', name: 'MongoDB', image: skillIcon('mongodb') }
-    ]
+      { id: 'mysql', name: 'MySQL', image:'./assets/img/arcenal/Stacks/MsqlWorkbank.png' },
+      { id: 'sqlite', name: 'SQLite', image: './assets/img/arcenal/Stacks/Sqlite3.png' }
+      ]
   },
   tools: {
     id: 'tools', title: 'Ferramentas', rune: '⚒', accent: '#c59a52', initialIndex: 2,
     technologies: [
-      { id: 'git', name: 'Git', image: skillIcon('git') },
-      { id: 'github', name: 'GitHub', image: skillIcon('github') },
-      { id: 'vite', name: 'Vite', image: skillIcon('vite') },
-      { id: 'figma', name: 'Figma', image: skillIcon('figma') },
-      { id: 'notion', name: 'Notion', image: skillIcon('notion') }
+      { id: 'git', name: 'Git', image:  './assets/img/arcenal/Stacks/git.png'  },
+      { id: 'github', name: 'GitHub', image: './assets/img/arcenal/Stacks/github.png'},
+      { id: 'vite', name: 'Vite', image:'./assets/img/arcenal/Stacks/vite.png' },
+      { id: 'figma', name: 'Figma', image: './assets/img/arcenal/Stacks/figma.png' },
+      { id: 'notion', name: 'Notion', image: './assets/img/arcenal/Stacks/notion.png' },
+      { id: 'firebase', name: 'Notion', image: './assets/img/arcenal/Stacks/firebase.png' },
+      { id: 'vscode', name: 'VsCode', image: './assets/img/arcenal/Stacks/VsCode.png' }
     ]
   }
 };
