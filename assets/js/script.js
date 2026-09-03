@@ -1106,7 +1106,7 @@ const skillGroups = {
       { id: 'javascript', name: 'JavaScript', image: './assets/img/arcenal/Stacks/Js.png' },
       { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript.png' },
       { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.png' },
-      { id: 'tailwind', name: 'Tailwind CSS', image: './assets/img/arcenal/Stacks/TailWind.png },
+      { id: 'tailwind', name: 'Tailwind CSS', image: './assets/img/arcenal/Stacks/TailWind.png' },
       { id: 'bootstrap', name: 'Bootstrap', image: './assets/img/arcenal/Stacks/bootstrap.png' },
       { id: 'sass', name: 'Sass', image: './assets/img/arcenal/Stacks/Sass.png' }
     ]
@@ -1117,9 +1117,9 @@ const skillGroups = {
       { id: 'node', name: 'Node.js', image:  './assets/img/arcenal/Stacks/node.png'  },
       { id: 'python', name: 'Python', image: './assets/img/arcenal/Stacks/python.png'  },
       { id: 'fastapi', name: 'FastAPI', image: './assets/img/arcenal/Stacks/FastApi.png' },
-      { id: 'flask', name: 'Flask', image: '/assets/img/arcenal/Stacks/flask.png' },
-      { id: 'streamlit', name: 'Streamlit', image: '/assets/img/arcenal/Stacks/Streamlit.png' },
-      { id: 'flet', name: 'Flet', image: '/assets/img/arcenal/Stacks/Flet.png' }
+      { id: 'flask', name: 'Flask', image: './assets/img/arcenal/Stacks/flask.png' },
+      { id: 'streamlit', name: 'Streamlit', image: './assets/img/arcenal/Stacks/Streamlit.png' },
+      { id: 'flet', name: 'Flet', image: './assets/img/arcenal/Stacks/Flet.png' }
     ]
   },
   'full-stack': {
