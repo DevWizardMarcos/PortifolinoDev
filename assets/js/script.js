@@ -1106,7 +1106,7 @@ const skillGroups = {
       { id: 'javascript', name: 'JavaScript', image: './assets/img/arcenal/Stacks/Js.png' },
       { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript.png' },
       { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.png' },
-      { id: 'tailwind', name: 'Tailwind CSS', image: './assets/img/arcenal/Stacks/tailwind.png' },
+      { id: 'tailwind', name: 'Tailwind CSS', image: './assets/img/arcenal/Stacks/TailWind.png },
       { id: 'bootstrap', name: 'Bootstrap', image: './assets/img/arcenal/Stacks/bootstrap.png' },
       { id: 'sass', name: 'Sass', image: './assets/img/arcenal/Stacks/Sass.png' }
     ]
