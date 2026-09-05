@@ -234,7 +234,7 @@ const projects = [
   { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.png', shortDescription:'Controle completo de laboratórios em uma única plataforma, conectando gestão, automação e gerenciamento remoto de computadores.', construction:'Criado a partir da necessidade de acompanhar e controlar o estado dos computadores da Infinity School de forma centralizada, reduzindo verificações manuais e facilitando a gestão dos laboratórios.', legacy:'Pensado para dar à Aline, nossa mascote, uma presença ativa no ecossistema da escola, permitindo que ela acompanhe e tenha controle sobre os computadores dos laboratórios de forma centralizada.', technologies:['Python','Fast API','SqlAlquemy','React','Vite','Node Js'], contributions:['Arquitetura da solução','Integração com IA'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', guild:true, github:null, demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
   { id:'Hacktohon', title:'Hacktohon', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', guild:true, github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
   { id:'Portifolio Alice', title:'Portifolio Alice', image:'./assets/img/Projetos/Portifolio_Alice.png', shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['React','Vite','Node Js'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Descoberta', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'coming-soon', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#10000;' },
-  { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:null, shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Construção', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'development', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:null, featured:false, featuredOrder:null, icon:'&#9670;' },
+  { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:'./assets/img/Projetos/DevWizard.png', shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Construção', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'development', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:null, featured:false, featuredOrder:null, icon:'&#9670;' },
   { id:'connect-cnx', title:'Connect CNX', image:null, shortDescription:'Estratégia digital focada em crescimento orgânico e presença online.', challenge:'Fortalecer a presença digital da empresa e criar caminhos mensuráveis para o crescimento orgânico.', solution:'A estratégia integra SEO, análise de métricas e otimização de conversão para orientar as ações digitais.', technologies:['SEO','Analytics','Ads','CRO'], technicalHighlights:['Análise de métricas','Otimização de conversão'], category:'outros', categoryLabel:'Marketing Digital', phase:'Legado', year:2025, role:'Estratégia e Tecnologia', roleDescription:'Atuação na estratégia digital e no uso de tecnologia para acompanhar os resultados.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
   { id:'starbucks', title:'StarBucks', image:'./assets/img/Projetos/StartBucks.PNG', shortDescription:'Página temática inspirada na identidade visual da Starbucks.', challenge:'Reproduzir uma experiência de marca reconhecível usando uma interface responsiva e interativa.', solution:'A página foi construída com HTML, CSS e JavaScript, priorizando composição visual e adaptação a diferentes telas.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Layout responsivo','Interações nativas'], category:'outros', categoryLabel:'Projeto Pessoal', phase:'Legado', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e nas interações da página.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
   { id:'code-stone', title:'Code Stone', image:'./assets/img/Projetos/CodeStone.png', shortDescription:'Experiência visual para uma página pessoal com identidade própria.', challenge:'Criar uma interface marcante mantendo leitura clara e navegação simples.', solution:'A composição combina estrutura semântica, estilos responsivos e interações leves em JavaScript.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Identidade visual','Layout responsivo'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na implementação da interface e na adaptação responsiva.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
@@ -242,7 +242,15 @@ const projects = [
   { id:'garimpo', title:'Garimpo', image:'./assets/img/Projetos/garimpo.png', shortDescription:'Interface digital para descoberta e apresentação de produtos.', challenge:'Organizar uma experiência de descoberta com foco em clareza e apelo visual.', solution:'A página usa uma estrutura responsiva para destacar conteúdos e facilitar a exploração.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Descoberta de conteúdo','Responsividade'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e na organização da experiência visual.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
   { id:'horizon', title:'Horizon', image:'./assets/img/Projetos/horizon.png', shortDescription:'Experiência visual inspirada em exploração e novos horizontes.', challenge:'Construir uma página temática com presença visual sem perder usabilidade.', solution:'A interface combina seções bem definidas, imagens e comportamento responsivo.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Direção visual','Layout adaptável'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na estruturação da página e na implementação visual.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
   { id:'infinity-open', title:'Infinity Open', image:'./assets/img/Projetos/InfinityOpen.jpeg', shortDescription:'Página institucional com foco em tecnologia e abertura de possibilidades.', challenge:'Apresentar uma proposta tecnológica de forma acessível e visualmente consistente.', solution:'A solução organiza o conteúdo em uma página responsiva com hierarquia e navegação claras.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Página institucional','Estrutura responsiva'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e na apresentação do conteúdo.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
-  { id:'wayne', title:'Wayne', image:'./assets/img/Projetos/wayne.png', shortDescription:'Página temática com estética inspirada no universo de Wayne.', challenge:'Criar uma experiência temática reconhecível com boa adaptação para diferentes telas.', solution:'O projeto utiliza composição visual, tipografia e interações simples para reforçar sua identidade.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Página temática','Identidade visual'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na criação da interface e na composição visual da experiência.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' }
+  { id:'wayne', title:'Wayne', image:'./assets/img/Projetos/wayne.png', shortDescription:'Página temática com estética inspirada no universo de Wayne.', challenge:'Criar uma experiência temática reconhecível com boa adaptação para diferentes telas.', solution:'O projeto utiliza composição visual, tipografia e interações simples para reforçar sua identidade.', technologies:['HTML','CSS','JavaScript'], technicalHighlights:['Página temática','Identidade visual'], category:'front-end', categoryLabel:'Projeto Pessoal', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na criação da interface e na composição visual da experiência.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'projeto-choronos', title:'Projeto Choronos', image:null, shortDescription:'Aplicação Pomodoro para organização de ciclos de foco e descanso.', technologies:['React','Vite','Node.js'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:'—', role:'Desenvolvimento Front-End', roleDescription:'Projeto desenvolvido com React e o ecossistema Vite.', status:'completed', github:'https://github.com/DevWizardMarcos/Projeto-Choronos-Pomodoro', demo:null, featured:false, featuredOrder:null, icon:'&#9201;' },
+  { id:'aulas-flex', title:'Aulas Flex', image:null, shortDescription:'Projeto para organização e gerenciamento de aulas.', technologies:['Python','MySQL','SQL'], category:'back-end', categoryLabel:'Back-End', phase:'Registro', year:'—', role:'Desenvolvimento Back-End', roleDescription:'Projeto desenvolvido com Python e banco de dados relacional.', status:'completed', github:'https://github.com/DevWizardMarcos/Aulas-flex-com-o-Instrutor-Ms-', demo:null, featured:false, featuredOrder:null, icon:'&#9776;' },
+  { id:'api-financeira-python', title:'API Financeira Python', image:'./assets/img/Projetos/API.png', shortDescription:'API financeira desenvolvida em Python.', technologies:['Python'], category:'back-end', categoryLabel:'Back-End', phase:'Registro', year:'—', role:'Desenvolvimento Back-End', roleDescription:'Responsável pela implementação da API em Python.', status:'completed', github:'https://github.com/DevWizardMarcos/Projeto-API-financeira-Python', demo:null, featured:false, featuredOrder:null, icon:'&#36;' },
+  { id:'projeto-pizzaria', title:'Projeto Pizzaria', image:null, shortDescription:'Aplicação full-stack para uma pizzaria.', technologies:['React','Vite','Python','FastAPI'], category:'full-stack', categoryLabel:'Full-Stack', phase:'Registro', year:'—', role:'Desenvolvimento Full-Stack', roleDescription:'Projeto integrando interface React e serviços em Python.', status:'completed', github:'https://github.com/DevWizardMarcos/Projeto_Pizzaria', demo:null, featured:false, featuredOrder:null, icon:'&#9673;' },
+  { id:'dashboard-dados-reais', title:'Dashboard de Dados Reais', image:null, shortDescription:'Dashboard para apresentação e visualização de dados reais.', technologies:['React','Vite','TypeScript'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:'—', role:'Desenvolvimento Front-End', roleDescription:'Interface de dados desenvolvida com React e TypeScript.', status:'completed', github:'https://github.com/DevWizardMarcos/Dashboard-de-dados-reais', demo:null, featured:false, featuredOrder:null, icon:'&#9638;' },
+  { id:'game-project-if', title:'Game Project IF', image:null, shortDescription:'Projeto de jogo construído com tecnologias web.', technologies:['Node.js','HTML','CSS','JavaScript'], category:'full-stack', categoryLabel:'Full-Stack', phase:'Registro', year:'—', role:'Desenvolvimento Web', roleDescription:'Projeto desenvolvido com JavaScript, Node.js, HTML e CSS.', status:'completed', github:'https://github.com/DevWizardMarcos/Game-project-IF', demo:null, featured:false, featuredOrder:null, icon:'&#9823;' },
+  { id:'interativa', title:'Interativa', image:null, shortDescription:'Experiência web interativa desenvolvida com tecnologias nativas.', technologies:['HTML','CSS','JavaScript'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:'—', role:'Desenvolvimento Front-End', roleDescription:'Projeto construído com HTML, CSS e JavaScript.', status:'completed', github:'https://github.com/DevWizardMarcos/interativa', demo:null, featured:false, featuredOrder:null, icon:'&#10022;' },
+  { id:'amigo-fiel', title:'Amigo Fiel', image:null, shortDescription:'Projeto web desenvolvido com HTML e CSS.', technologies:['HTML','CSS'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:'—', role:'Desenvolvimento Front-End', roleDescription:'Responsável pela estrutura e pela apresentação visual do projeto.', status:'completed', github:'https://github.com/DevWizardMarcos/Amigo-Fiel', demo:null, featured:false, featuredOrder:null, icon:'&#9829;' }
 ];
 
 const reliquias = projects;
@@ -651,6 +659,7 @@ archiveDesktop.addEventListener('change', () => {
 const relicDialog = document.getElementById('relic-dialog');
 const dialogContent = document.getElementById('relic-dialog-content');
 let relicDialogTrigger = null;
+let activeRelicProject = null;
 
 const projectStatus = {
   development: 'Em desenvolvimento',
@@ -671,9 +680,19 @@ function closeRelicDetails() {
 
 function openRelicDetails(projectId) {
   const project = reliquias.find(item => item.id === projectId);
-  if (!project || !relicDialog || !dialogContent) return;
+  if (!project || !relicDialog || !dialogContent || !window.LegacyBook) return;
   stateBeforeProject = legacyState === 'archive' ? 'archive' : legacyState === 'threshold' ? 'threshold' : 'hall';
   const relicNumber = project.featuredOrder || reliquias.findIndex(item => item.id === project.id) + 1;
+  activeRelicProject = project;
+  relicDialog.style.setProperty('--relic-accent', project.accentColor || '#b9934c');
+  relicDialog.dataset.category = project.category;
+  dialogContent.innerHTML = window.LegacyBook.render(project, relicNumber);
+  relicDialogTrigger = document.activeElement;
+  setLegacyState('project');
+  relicDialog.showModal();
+  relicDialog.scrollTop = 0;
+  relicDialog.focus();
+  /* Renderizador anterior preservado no histórico do Git; mantido inativo durante a migração.
   const statusLabel = projectStatus[project.status] || project.status;
   const dialogGem = { 'front-end':'#4f9ee8', 'back-end':'#d44e59', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
   const dialogGemImage = { 'front-end':'assets/img/Gemas/front.png', 'back-end':'assets/img/Gemas/back.png', 'full-stack':'assets/img/Gemas/fullstack.png' }[project.category];
@@ -720,15 +739,24 @@ function openRelicDetails(projectId) {
   relicDialog.showModal();
   relicDialog.scrollTop = 0;
   relicDialog.focus();
+  */
 }
 
 dialogContent?.addEventListener('click', event => {
+  if (event.target.closest('[data-book-tab]')) {
+    window.LegacyBook?.handleClick(event, activeRelicProject);
+    return;
+  }
   const tab = event.target.closest('.fragment-tab');
   if (!tab) return;
   activateFragment(tab);
 });
 
 dialogContent?.addEventListener('keydown', event => {
+  if (event.target.closest('[data-book-tab]')) {
+    window.LegacyBook?.handleKeydown(event, activeRelicProject);
+    return;
+  }
   const tab = event.target.closest('.fragment-tab');
   if (!tab || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
   const tabs = [...dialogContent.querySelectorAll('.fragment-tab')];
@@ -757,6 +785,8 @@ function activateFragment(tab) {
   panel.classList.add('is-changing');
 }
 
+dialogContent?.addEventListener('error', event => window.LegacyBook?.handleImageError(event), true);
+
 document.getElementById('legados')?.addEventListener('click', event => {
   const trigger = event.target.closest('.examine-relic');
   if (trigger) openRelicDetails(trigger.dataset.project);
@@ -766,6 +796,7 @@ relicDialog?.addEventListener('click', event => { if (event.target === relicDial
 relicDialog?.addEventListener('cancel', event => { event.preventDefault(); closeRelicDetails(); });
 relicDialog?.addEventListener('close', () => {
   relicDialog.classList.remove('is-closing');
+  activeRelicProject = null;
   setLegacyState(stateBeforeProject);
   relicDialogTrigger?.focus();
   relicDialogTrigger = null;
@@ -1125,12 +1156,13 @@ const skillGroups = {
   'full-stack': {
     id: 'full-stack', title: 'Full-Stack', rune: '∞', accent: '#9565d8', initialIndex: 2,
     technologies: [
-      { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript-transparent.png' },
+      { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript.png' },
       { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.png' },
-      { id: 'node', name: 'Node.js', image: skillIcon('node') },
-      { id: 'python', name: 'Python', image: skillIcon('python') },
-      { id: 'fastapi', name: 'FastAPI', image: skillIcon('fastapi') },
-      { id: 'sql', name: 'SQL', image: skillIcon('sql') }
+      { id: 'node', name: 'Node.js', image:  './assets/img/arcenal/Stacks/node.png'  },
+      { id: 'python', name: 'Python', image: './assets/img/arcenal/Stacks/python.png'  },
+      { id: 'fastapi', name: 'FastAPI', image: './assets/img/arcenal/Stacks/FastApi.png'  },
+      { id: 'mysql', name: 'MySQL', image:'./assets/img/arcenal/Stacks/MsqlWorkbank.png' },
+      { id: 'sqlite', name: 'SQLite', image: './assets/img/arcenal/Stacks/Sqlite3.png' }
     ]
   },
   data: {
