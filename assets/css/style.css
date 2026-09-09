@@ -14774,3 +14774,33 @@ button.corridor-relic-frame {
 @media (max-width: 620px) {
   .spell-library .spell-grimoire.skill-carousel-modal { margin-top: 32px; }
 }
+
+/* Biblioteca aberta: as stacks ficam abaixo das mãos, sem cobri-las.
+   A caixa das mãos é fixada na altura atual (recortando antes do pedestal)
+   para não descer junto com a câmara, que cresce para acomodar o carrossel. */
+.spell-library:not([data-library-state="idle"]) .spell-library__guardians {
+  top: 77px;
+  bottom: auto;
+  height: 886px;
+  overflow: hidden;
+}
+.spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 1400px; }
+.spell-library:not([data-library-state="idle"]) .spell-library__stage {
+  min-height: 1400px;
+  padding-top: 939px;
+}
+@media (max-width: 760px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__guardians { top: 72px; height: 835px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 1310px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage { min-height: 1310px; padding-top: 883px; }
+}
+@media (max-width: 620px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__guardians { top: 66px; height: 756px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 1220px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage { min-height: 1220px; padding-top: 810px; }
+}
+@media (max-width: 480px) {
+  .spell-library:not([data-library-state="idle"]) .spell-library__guardians { top: 64px; height: 742px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__chamber { min-height: 1195px; }
+  .spell-library:not([data-library-state="idle"]) .spell-library__stage { min-height: 1195px; padding-top: 794px; }
+}
