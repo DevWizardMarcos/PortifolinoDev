@@ -14752,36 +14752,21 @@ button.corridor-relic-frame {
   background: transparent !important;
   box-shadow: none !important;
 }
-/* As duas metades permanecem dentro da cena, sem deslocar os dedos para fora. */
+/* Mãos abaixo dos livros: pontas dos dedos na altura da base dos volumes. */
 .spell-library .spell-library__hands--left,
 .spell-library .spell-library__hands--right {
-  transform: translateY(calc(28% + 90px));
+  transform: translateY(calc(28% + 228px));
 }
 @media (max-width: 900px) {
   .spell-library .spell-library__hands--left,
-  .spell-library .spell-library__hands--right { transform: translateY(calc(24% + 65px)); }
+  .spell-library .spell-library__hands--right { transform: translateY(calc(24% + 155px)); }
+}
+@media (max-width: 620px) {
+  .spell-library .spell-library__hands--left,
+  .spell-library .spell-library__hands--right { transform: translateY(calc(24% + 45px)); }
 }
 /* Retira a base sombreada que atravessava a capa do volume central. */
 .spell-library .spell-library__dais { display: none; }
-
-/* Poça de luz violeta sob o Full-Stack, como um holofote no chão. */
-.spell-library .spell-library__shelf-frame::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  bottom: -18px;
-  width: 320px;
-  height: 190px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(146, 104, 224, 0.5), rgba(96, 62, 168, 0.22) 46%, transparent 74%);
-  filter: blur(4px);
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-@media (max-width: 620px) {
-  .spell-library .spell-library__shelf-frame::after { width: 220px; height: 140px; }
-}
-
 /* Respiro entre a base dos livros e o título das tecnologias. */
 .spell-library .spell-grimoire.skill-carousel-modal {
   margin-top: 48px;
