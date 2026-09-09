@@ -1,6 +1,8 @@
 /* Composição editorial exclusiva de Sobre; preserva os links para #sobre-mim. */
 .author-transition,
-#sobre-mim.author-section { --author-background: #09070d; }
+#sobre-mim.author-section {
+  --author-background: #09070d;
+}
 .author-transition {
   --transition-height: clamp(180px, 16vw, 240px);
   position: relative;
@@ -9,8 +11,18 @@
   margin-top: calc(-1 * var(--transition-height));
   pointer-events: none;
   background:
-    linear-gradient(to bottom, transparent 0%, rgba(9, 7, 13, .2) 25%, rgba(9, 7, 13, .7) 65%, var(--author-background) 100%),
-    radial-gradient(ellipse at 27% 65%, rgba(86, 68, 142, .05), transparent 65%);
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(9, 7, 13, 0.2) 25%,
+      rgba(9, 7, 13, 0.7) 65%,
+      var(--author-background) 100%
+    ),
+    radial-gradient(
+      ellipse at 27% 65%,
+      rgba(86, 68, 142, 0.05),
+      transparent 65%
+    );
 }
 #sobre-mim.author-section {
   --author-gold: #c8a663;
@@ -29,33 +41,80 @@
   column-gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
 }
-.author-heading { grid-column: 2; grid-row: 1; padding-top: 1rem; }
+.author-heading {
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 1rem;
+}
 .author-chapter {
   display: block;
   margin-bottom: 1.1rem;
   color: var(--author-gold);
-  font: 700 .7rem/1.5 Cinzel, serif;
-  letter-spacing: .3em;
+  font:
+    700 0.7rem/1.5 Cinzel,
+    serif;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 .author-heading h2 {
   margin: 0;
   color: #d9bd78;
-  font: 700 clamp(1.8rem, 3vw, 2.8rem)/1.2 Cinzel, serif;
-  letter-spacing: .06em;
+  font:
+    700 clamp(1.8rem, 3vw, 2.8rem)/1.2 Cinzel,
+    serif;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.author-ornament { display: flex; align-items: center; gap: .75rem; margin: 1.35rem 0 2rem; color: var(--author-gold); font-size: .8rem; opacity: .65; }
-.author-ornament span { width: 4.5rem; height: 1px; background: currentColor; }
-.author-ornament span:last-child { width: 2rem; }
-.author-art { grid-column: 1; grid-row: 1 / 3; align-self: center; min-width: 0; margin: 0; position: relative; }
+.author-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.35rem 0 2rem;
+  color: var(--author-gold);
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+.author-ornament span {
+  width: 4.5rem;
+  height: 1px;
+  background: currentColor;
+}
+.author-ornament span:last-child {
+  width: 2rem;
+}
+.author-art {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: center;
+  min-width: 0;
+  margin: 0;
+  position: relative;
+}
 .author-art-blend {
   overflow: hidden;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, rgba(0,0,0,.9) 58%, transparent 74%);
-  mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, rgba(0,0,0,.9) 58%, transparent 74%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 47%,
+    #000 42%,
+    rgba(0, 0, 0, 0.9) 58%,
+    transparent 74%
+  );
+  mask-image: radial-gradient(
+    ellipse at 50% 47%,
+    #000 42%,
+    rgba(0, 0, 0, 0.9) 58%,
+    transparent 74%
+  );
 }
-.author-art img { display: block; width: 100%; height: auto; object-fit: contain; }
-.author-art-motion { position: relative; transform: none; }
+.author-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.author-art-motion {
+  position: relative;
+  transform: none;
+}
 @media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   /* O JS interpola --parallax-x/y quadro a quadro; só a escala usa transição CSS. */
   .author-art-motion {
@@ -64,11 +123,17 @@
     transition: scale 700ms ease-out;
     will-change: translate;
   }
-  .author-art-blend.is-parallax-active { --parallax-scale: 1.01; }
+  .author-art-blend.is-parallax-active {
+    --parallax-scale: 1.01;
+  }
 }
 
 /* ---- Vida na cena: recortes da própria arte, mascarados ---- */
-.author-art-life { position: absolute; inset: 0; pointer-events: none; }
+.author-art-life {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 .author-layer {
   position: absolute;
   left: calc(var(--x) * 100%);
@@ -88,21 +153,51 @@
 }
 /* Olhos: só a íris (zona sólida) se desloca; o degradê funde com a pálpebra. */
 .author-eye {
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 72%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 50%,
+    #000 40%,
+    transparent 72%
+  );
   mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 72%);
 }
-.author-eye > img { transform: translate3d(var(--eye-x, 0px), var(--eye-y, 0px), 0); will-change: transform; }
+.author-eye > img {
+  transform: translate3d(var(--eye-x, 0px), var(--eye-y, 0px), 0);
+  will-change: transform;
+}
 /* Fênix e tela: a arte "screen" sobre si mesma clareia só os brilhos, respirando devagar. */
 .author-glow {
   mix-blend-mode: screen;
-  opacity: var(--glow-rest, .16);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 48%, #000 28%, transparent 68%);
+  opacity: var(--glow-rest, 0.16);
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 48%,
+    #000 28%,
+    transparent 68%
+  );
   mask-image: radial-gradient(ellipse at 50% 48%, #000 28%, transparent 68%);
 }
-.author-glow--blue { --glow-rest: .14; --glow-peak: .34; animation: authorBreath 5.2s ease-in-out -1.3s infinite alternate; }
-.author-glow--red { --glow-rest: .14; --glow-peak: .32; animation: authorBreath 6.1s ease-in-out -3.7s infinite alternate; }
-.author-glow--screen { --glow-rest: .12; --glow-peak: .22; animation: authorBreath 7.3s ease-in-out -2.2s infinite alternate; }
-@keyframes authorBreath { from { opacity: var(--glow-rest); } to { opacity: var(--glow-peak); } }
+.author-glow--blue {
+  --glow-rest: 0.14;
+  --glow-peak: 0.34;
+  animation: authorBreath 5.2s ease-in-out -1.3s infinite alternate;
+}
+.author-glow--red {
+  --glow-rest: 0.14;
+  --glow-peak: 0.32;
+  animation: authorBreath 6.1s ease-in-out -3.7s infinite alternate;
+}
+.author-glow--screen {
+  --glow-rest: 0.12;
+  --glow-peak: 0.22;
+  animation: authorBreath 7.3s ease-in-out -2.2s infinite alternate;
+}
+@keyframes authorBreath {
+  from {
+    opacity: var(--glow-rest);
+  }
+  to {
+    opacity: var(--glow-peak);
+  }
+}
 /* Pontos de energia: poucos, lentos, perto das fênix. */
 .author-mote {
   position: absolute;
@@ -114,53 +209,181 @@
   opacity: 0;
   animation: authorMote var(--md) linear var(--ms) infinite;
 }
-.author-mote--blue { background: #8cc0ff; box-shadow: 0 0 6px 1px rgba(90, 150, 255, .7); }
-.author-mote--red { background: #ff8aa0; box-shadow: 0 0 6px 1px rgba(255, 90, 120, .7); }
+.author-mote--blue {
+  background: #8cc0ff;
+  box-shadow: 0 0 6px 1px rgba(90, 150, 255, 0.7);
+}
+.author-mote--red {
+  background: #ff8aa0;
+  box-shadow: 0 0 6px 1px rgba(255, 90, 120, 0.7);
+}
 @keyframes authorMote {
-  0% { opacity: 0; transform: translate3d(0, 0, 0); }
-  20% { opacity: .55; }
-  70% { opacity: .35; }
-  100% { opacity: 0; transform: translate3d(4px, -34px, 0); }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    opacity: 0.55;
+  }
+  70% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(4px, -34px, 0);
+  }
 }
 .author-art figcaption {
   position: relative;
   padding-left: 3rem;
   margin: 1.35rem 0 0 8%;
   color: #bda371;
-  font: 700 .72rem/1.8 Cinzel, serif;
-  letter-spacing: .17em;
+  font:
+    700 0.72rem/1.8 Cinzel,
+    serif;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
 }
-.author-art figcaption > span { position: absolute; left: 0; top: .6rem; width: 2rem; height: 1px; background: currentColor; opacity: .6; }
-.author-copy { grid-column: 2; grid-row: 2; min-width: 0; max-width: 65ch; }
-.author-copy p { margin: 0 0 1.3rem; font: 400 clamp(.98rem, 1.15vw, 1.08rem)/1.8 Lora, serif; color: var(--author-ink); }
-.author-journey { display: inline-flex; align-items: center; gap: 1rem; margin-top: 1.15rem; padding-block: .65rem; color: #d1c1a2; font: 400 .95rem/1.5 Lora, serif; text-decoration: none; transition: color 300ms ease; }
-.author-arrow { position: relative; width: 2rem; height: 1px; background: currentColor; transition: width 300ms ease, transform 300ms ease; }
-.author-arrow::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid; border-right: 1px solid; transform: rotate(45deg); }
-.author-journey:hover { color: var(--author-gold); }
-.author-journey:hover .author-arrow { width: 2.5rem; transform: translateX(4px); }
-.author-journey:focus-visible { outline: 2px solid var(--author-gold); outline-offset: 6px; }
+.author-art figcaption > span {
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+.author-copy {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  max-width: 65ch;
+}
+.author-copy p {
+  margin: 0 0 1.3rem;
+  font:
+    400 clamp(0.98rem, 1.15vw, 1.08rem)/1.8 Lora,
+    serif;
+  color: var(--author-ink);
+}
+.author-journey {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.15rem;
+  padding-block: 0.65rem;
+  color: #d1c1a2;
+  font:
+    400 0.95rem/1.5 Lora,
+    serif;
+  text-decoration: none;
+  transition: color 300ms ease;
+}
+.author-arrow {
+  position: relative;
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  transition:
+    width 300ms ease,
+    transform 300ms ease;
+}
+.author-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  transform: rotate(45deg);
+}
+.author-journey:hover {
+  color: var(--author-gold);
+}
+.author-journey:hover .author-arrow {
+  width: 2.5rem;
+  transform: translateX(4px);
+}
+.author-journey:focus-visible {
+  outline: 2px solid var(--author-gold);
+  outline-offset: 6px;
+}
 @media (prefers-reduced-motion: no-preference) {
-  .author-section.is-entering [data-author-reveal] { opacity: 0; transform: translateY(15px); }
-  .author-section.is-entering .author-art { transform: translateX(-20px); }
-  .author-section [data-author-reveal] { transition: opacity 550ms ease, transform 550ms ease; }
-  .author-heading { transition-delay: 60ms !important; }
-  .author-copy { transition-delay: 120ms !important; }
+  .author-section.is-entering [data-author-reveal] {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  .author-section.is-entering .author-art {
+    transform: translateX(-20px);
+  }
+  .author-section [data-author-reveal] {
+    transition:
+      opacity 550ms ease,
+      transform 550ms ease;
+  }
+  .author-heading {
+    transition-delay: 60ms !important;
+  }
+  .author-copy {
+    transition-delay: 120ms !important;
+  }
 }
 @media (max-width: 900px) {
-  .author-transition { --transition-height: clamp(120px, 20vw, 170px); }
-  #sobre-mim.author-section { padding-block: 5rem; }
-  .author-composition { width: min(640px, 100%); grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .author-heading { grid-column: 1; grid-row: 1; padding: 0; }
-  .author-art { grid-column: 1; grid-row: 2; margin: .25rem -0.5rem 2.75rem; }
-  .author-copy { grid-column: 1; grid-row: 3; }
-  .author-art figcaption { margin-top: .75rem; }
-  .author-heading h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .author-ornament { margin-bottom: 1rem; }
+  .author-transition {
+    --transition-height: clamp(120px, 20vw, 170px);
+  }
+  #sobre-mim.author-section {
+    padding-block: 5rem;
+  }
+  .author-composition {
+    width: min(640px, 100%);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .author-heading {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+  }
+  .author-art {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0.25rem -0.5rem 2.75rem;
+  }
+  .author-copy {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .author-art figcaption {
+    margin-top: 0.75rem;
+  }
+  .author-heading h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+  .author-ornament {
+    margin-bottom: 1rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .author-section [data-author-reveal], .author-art img, .author-art-motion, .author-journey, .author-arrow { opacity: 1; transform: none !important; transition: none !important; animation: none !important; }
+  .author-section [data-author-reveal],
+  .author-art img,
+  .author-art-motion,
+  .author-journey,
+  .author-arrow {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
   /* Arte totalmente estável: sem olhar, sem respiração, sem partículas. */
-  .author-eye, .author-mote { display: none; }
-  .author-glow { animation: none; opacity: var(--glow-rest); }
+  .author-eye,
+  .author-mote {
+    display: none;
+  }
+  .author-glow {
+    animation: none;
+    opacity: var(--glow-rest);
+  }
 }
