@@ -55,17 +55,72 @@
   mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, rgba(0,0,0,.9) 58%, transparent 74%);
 }
 .author-art img { display: block; width: 100%; height: auto; object-fit: contain; }
-.author-art-motion { transform: none; }
+.author-art-motion { position: relative; transform: none; }
 @media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  /* O JS interpola --parallax-x/y quadro a quadro; só a escala usa transição CSS. */
   .author-art-motion {
-    transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0) scale(var(--parallax-scale, 1));
-    transition: transform 550ms ease-out, filter 350ms ease;
+    translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+    scale: var(--parallax-scale, 1);
+    transition: scale 700ms ease-out;
+    will-change: translate;
   }
-  .author-art-blend.is-parallax-active { --parallax-scale: 1.012; }
-  .author-art-blend.is-parallax-active .author-art-motion {
-    filter: brightness(1.02);
-    transition-duration: 250ms, 350ms;
-  }
+  .author-art-blend.is-parallax-active { --parallax-scale: 1.01; }
+}
+
+/* ---- Vida na cena: recortes da própria arte, mascarados ---- */
+.author-art-life { position: absolute; inset: 0; pointer-events: none; }
+.author-layer {
+  position: absolute;
+  left: calc(var(--x) * 100%);
+  top: calc(var(--y) * 100%);
+  width: calc(var(--w) * 100%);
+  height: calc(var(--h) * 100%);
+  overflow: hidden;
+  contain: strict;
+}
+.author-layer > img {
+  position: absolute;
+  left: calc(-1 * var(--x) / var(--w) * 100%);
+  top: calc(-1 * var(--y) / var(--h) * 100%);
+  width: calc(100% / var(--w));
+  max-width: none;
+  height: auto;
+}
+/* Olhos: só a íris (zona sólida) se desloca; o degradê funde com a pálpebra. */
+.author-eye {
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 72%);
+}
+.author-eye > img { transform: translate3d(var(--eye-x, 0px), var(--eye-y, 0px), 0); will-change: transform; }
+/* Fênix e tela: a arte "screen" sobre si mesma clareia só os brilhos, respirando devagar. */
+.author-glow {
+  mix-blend-mode: screen;
+  opacity: var(--glow-rest, .16);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 48%, #000 28%, transparent 68%);
+  mask-image: radial-gradient(ellipse at 50% 48%, #000 28%, transparent 68%);
+}
+.author-glow--blue { --glow-rest: .14; --glow-peak: .34; animation: authorBreath 5.2s ease-in-out -1.3s infinite alternate; }
+.author-glow--red { --glow-rest: .14; --glow-peak: .32; animation: authorBreath 6.1s ease-in-out -3.7s infinite alternate; }
+.author-glow--screen { --glow-rest: .12; --glow-peak: .22; animation: authorBreath 7.3s ease-in-out -2.2s infinite alternate; }
+@keyframes authorBreath { from { opacity: var(--glow-rest); } to { opacity: var(--glow-peak); } }
+/* Pontos de energia: poucos, lentos, perto das fênix. */
+.author-mote {
+  position: absolute;
+  left: var(--mx);
+  top: var(--my);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: authorMote var(--md) linear var(--ms) infinite;
+}
+.author-mote--blue { background: #8cc0ff; box-shadow: 0 0 6px 1px rgba(90, 150, 255, .7); }
+.author-mote--red { background: #ff8aa0; box-shadow: 0 0 6px 1px rgba(255, 90, 120, .7); }
+@keyframes authorMote {
+  0% { opacity: 0; transform: translate3d(0, 0, 0); }
+  20% { opacity: .55; }
+  70% { opacity: .35; }
+  100% { opacity: 0; transform: translate3d(4px, -34px, 0); }
 }
 .author-art figcaption {
   position: relative;
@@ -105,4 +160,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .author-section [data-author-reveal], .author-art img, .author-art-motion, .author-journey, .author-arrow { opacity: 1; transform: none !important; transition: none !important; animation: none !important; }
+  /* Arte totalmente estável: sem olhar, sem respiração, sem partículas. */
+  .author-eye, .author-mote { display: none; }
+  .author-glow { animation: none; opacity: var(--glow-rest); }
 }

@@ -92,12 +92,26 @@
         <div class="author-ornament" aria-hidden="true"><span></span>◇<span></span></div>
       </header>
       <figure class="author-art" data-author-reveal>
-        <!-- Arte local provisória. Nova arte: assets/about/about-author.webp (ver assets/about/README.md). -->
         <div class="author-art-blend" data-author-parallax>
           <div class="author-art-motion">
           <img src="assets/img/user/foto_perfil.png"
             alt="Ilustração do desenvolvedor com notebook em um ambiente inspirado em um grimório"
-            width="1672" height="941" loading="lazy" decoding="async">
+            width="1086" height="1448" loading="lazy" decoding="async">
+          <!-- Camadas de vida: recortes mascarados da própria ilustração (nenhum pixel novo).
+               As frações --x/--y/--w/--h são relativas à arte de 1086×1448. -->
+          <div class="author-art-life" aria-hidden="true">
+            <span class="author-layer author-eye" style="--x:.42173;--y:.31354;--w:.04604;--h:.01588"><img src="assets/img/user/foto_perfil.png" alt="" decoding="async"></span>
+            <span class="author-layer author-eye" style="--x:.37569;--y:.33356;--w:.03315;--h:.01519"><img src="assets/img/user/foto_perfil.png" alt="" decoding="async"></span>
+            <span class="author-layer author-glow author-glow--blue" style="--x:.66298;--y:.09669;--w:.13812;--h:.29696"><img src="assets/img/user/foto_perfil.png" alt="" decoding="async"></span>
+            <span class="author-layer author-glow author-glow--red" style="--x:.79650;--y:.08287;--w:.13352;--h:.27624"><img src="assets/img/user/foto_perfil.png" alt="" decoding="async"></span>
+            <span class="author-layer author-glow author-glow--screen" style="--x:.15654;--y:.41436;--w:.22560;--h:.14503"><img src="assets/img/user/foto_perfil.png" alt="" decoding="async"></span>
+            <i class="author-mote author-mote--blue" style="--mx:71%;--my:30%;--md:11s;--ms:-2s"></i>
+            <i class="author-mote author-mote--blue" style="--mx:75%;--my:22%;--md:13s;--ms:-7s"></i>
+            <i class="author-mote author-mote--blue" style="--mx:69%;--my:17%;--md:9.5s;--ms:-4.5s"></i>
+            <i class="author-mote author-mote--red" style="--mx:86%;--my:28%;--md:12s;--ms:-5s"></i>
+            <i class="author-mote author-mote--red" style="--mx:90%;--my:19%;--md:10s;--ms:-1s"></i>
+            <i class="author-mote author-mote--red" style="--mx:83%;--my:14%;--md:14s;--ms:-9s"></i>
+          </div>
           </div>
         </div>
         <figcaption><span aria-hidden="true"></span>O autor por trás<br>dos legados</figcaption>
