@@ -1,0 +1,8 @@
+# bastidores (backend/): saídas geradas e cache do Python
+backend/output/
+__pycache__/
+*.pyc
+
+# capturas/rascunhos temporários na raiz
+/_*.png
+/_*.py
