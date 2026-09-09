@@ -1,0 +1,25 @@
+# Auditoria das stacks — 8 de setembro de 2026
+
+Escopo: os 15 projetos com link de repositório em `assets/js/script.js`. Foram consultadas as árvores atuais dos repositórios, os manifestos, imports e referências HTML pertinentes. As tecnologias principais foram comparadas com o catálogo e com os detalhes dos modais. Não foram executados os projetos remotos.
+
+| Projeto / repositório | Stack confirmada | Resultado e evidência |
+| --- | --- | --- |
+| [Savory](https://github.com/DevWizardMarcos/ReactSavory-) | React 18, React Router, Vite, CSS; Node.js como ambiente de ferramentas | `package.json` e `vite.config.js` atuais confirmam Vite. O modal ainda descrevia Create React App e foi atualizado. React Router foi incluído no catálogo e no modal. Não há evidência de MongoDB; removida a associação na seção de habilidades. |
+| [StarBucks](https://github.com/DevWizardMarcos/Projeto-StarBucks-Old) | HTML e CSS | Correta. Árvore com `index.html`, `css/style.css` e imagens, sem JavaScript. |
+| [Deadpool](https://github.com/DevWizardMarcos/Deadpool-Ultima-Aventura-O-Fim-do-Jogo) | HTML, CSS, JavaScript e Bootstrap 5.3 | Correta para a página. `index.html` carrega Bootstrap por CDN. Sass/Webpack aparecem como ferramentas auxiliares no modal: o `package.json` contém JSON inválido e a entrada `src/index.js` indicada em `webpack.config.js` não está na árvore. Não considerar o build operacional. |
+| [Horizon](https://github.com/DevWizardMarcos/formuluariohorizon) | HTML e CSS | Correta. A árvore contém formulário, estilos e mídias, sem JavaScript. |
+| [Infinity Open](https://github.com/DevWizardMarcos/Infinity-Open-2026) | HTML, CSS, JavaScript e Bootstrap 5.3 | Correta. Referências em `index.html` e lógica em `js/script.js`. Google Fonts e Google Analytics são serviços adicionais carregados pela página. |
+| [Wayne](https://github.com/DevWizardMarcos/Projeto_Wayne) | HTML, CSS, JavaScript e Bootstrap 5; SCSS e PHP auxiliares | O catálogo passou a identificar PHP como auxiliar. `php/registrar_invasor.php` registra tentativas, mas não autentica usuários. O dashboard carrega CSS compilado de Gotham e Font Awesome; PHP exige servidor compatível, não executa no GitHub Pages. |
+| [DevWizard Portfolio](https://github.com/DevWizardMarcos/PortifolinoDev) | HTML, CSS, JavaScript e Bootstrap 5.3 na página principal | Stack principal correta em `index.html`, no GitHub e localmente. O subprojeto `TabuleiroMedieval` tem stack própria com Vite, Three.js e GSAP declarados em seu `package.json`; não são dependências da página principal. |
+| [Choronos](https://github.com/DevWizardMarcos/Projeto-Choronos-Pomodoro) | React 19, TypeScript, Vite e CSS | TypeScript faltava. Confirmado por `package.json`, `vite.config.ts` e arquivos TSX. Node.js é ambiente de desenvolvimento, não backend demonstrado. |
+| [Aulas Flex](https://github.com/DevWizardMarcos/Aulas-flex-com-o-Instrutor-Ms-) | Python, SQLite e SQL | MySQL foi substituído por SQLite: `FILTROS_DE_DADOS/main.py` e `UPDATE_DELETE/main.py` importam `sqlite3`. Há exercícios HTML/CSS auxiliares, mas eles não sustentam a afirmação de MySQL. |
+| [API Financeira Python](https://github.com/DevWizardMarcos/Projeto-API-financeira-Python) | Python, Streamlit, Requests e CSS | Stack ampliada a partir dos imports de `main.py` e do arquivo CSS. A descrição foi corrigida: é uma aplicação que consome cotações da AwesomeAPI, não um servidor de API próprio. |
+| [Projeto Pizzaria](https://github.com/DevWizardMarcos/Projeto_Pizzaria) | React 19, React Router, Vite e CSS no repositório vinculado | O README descreve um sistema maior com FastAPI, mas a árvore pública analisada contém apenas o front-end. Python/FastAPI foram retirados da stack implementada deste repositório; a descrição preserva a referência ao backend separado. Categoria alinhada para Front-End. |
+| [Dashboard de Dados Reais](https://github.com/DevWizardMarcos/Dashboard-de-dados-reais) | React 19, TypeScript, Vite e Tailwind CSS 4 | Tailwind faltava. Confirmado por `package.json`, plugin em `vite.config.ts` e import em `src/index.css`. O nome de pacote `projeto-next` não comprova uso de Next.js. |
+| [Game Project IF](https://github.com/DevWizardMarcos/Game-project-IF) | Node.js, Express, HTML, CSS e JavaScript | Express incluído, confirmado em `package.json` e `src/server/server.js`. Body-parser e CORS são dependências auxiliares; Playwright é ferramenta de teste. |
+| [Interativa](https://github.com/DevWizardMarcos/interativa) | Não confirmada | Consulta pública retornou HTTP 404. Pode estar privado, removido ou renomeado. Stack HTML/CSS/JavaScript existente foi preservada, sem tratá-la como validada. |
+| [Amigo Fiel](https://github.com/DevWizardMarcos/Amigo-Fiel) | HTML e CSS | Correta. `index.html` referencia CSS e a árvore não contém JavaScript. |
+
+## Limites
+
+Dependências declaradas não provam que todos os seus recursos sejam usados. As stacks acima destacam a aplicação principal; ferramentas de build, bibliotecas de ícones e serviços externos são contextualizados quando necessário. Projetos sem link não tiveram suas stacks remotas validadas. Os repositórios podem mudar após esta análise.

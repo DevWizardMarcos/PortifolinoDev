@@ -339,7 +339,11 @@
 .architecture-diagram > svg > path { fill: none; stroke: color-mix(in srgb, var(--book-accent) 72%, #5b4128); stroke-width: 3; stroke-dasharray: 8 5; opacity: .8; }
 .architecture-diagram marker path { fill: var(--book-accent); }
 .architecture-node rect { fill: rgba(225,207,167,.9); stroke: #654b2f; stroke-width: 2; filter: drop-shadow(2px 3px 2px rgba(70,44,19,.17)); }
-.architecture-node text { fill: #3a2a1d; font: 700 22px Cinzel, serif; }
+.architecture-node text { fill: #3a2a1d; font: 700 18px Cinzel, serif; }
+.architecture-diagram.architecture-diagram--expanded { min-width: 0; min-height: 0; }
+.architecture-diagram.architecture-diagram--expanded svg { width: 100%; min-width: 0; max-width: 100%; height: auto; }
+.architecture-summary { margin: 0 0 1.5rem; color: #66543e; font-size: .82rem; line-height: 1.7; }
+.architecture-description { margin: .4rem 0 0; color: #66543e; font-size: .76rem; line-height: 1.6; }
 .architecture-legend { display: grid; gap: .65rem; margin: 0; padding: 0; list-style: none; }
 .architecture-legend li { display: flex; align-items: center; gap: .7rem; padding-bottom: .6rem; border-bottom: 1px dashed rgba(75,52,29,.25); color: #493725; font-size: .78rem; }
 .architecture-legend li span { color: var(--book-accent); font: 700 .58rem/1 Cinzel, serif; }
@@ -363,6 +367,11 @@
 .contributor-record a { display: inline-block; margin-top: .45rem; color: var(--book-accent); font: 700 .58rem/1.2 Cinzel, serif; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
 
 .file-register { display: grid; gap: .65rem; }
+.files-introduction { margin: 0 0 1.75rem; padding: .5rem 0 1rem; border-bottom: 1px dashed rgba(79,56,31,.3); color: #735f46; font: italic 400 .82rem/1.8 Lora, serif; }
+.files-introduction + .file-register { gap: 1.1rem; }
+.files-introduction + .file-register a { padding: 1.15rem; }
+.files-introduction + .file-register p { gap: .55rem; }
+.files-introduction + .file-register small { line-height: 1.6; }
 .file-register a { display: grid; grid-template-columns: 2rem 1fr auto; align-items: center; gap: .7rem; padding: .8rem; border: 1px solid rgba(79,56,31,.3); color: #443223; background: rgba(113,78,36,.06); text-decoration: none; transition: border-color .18s, transform .18s; }
 .file-register a:hover { border-color: var(--book-accent); transform: translateX(3px); }
 .file-register a > span, .file-register a > i { color: var(--book-accent); font-style: normal; }

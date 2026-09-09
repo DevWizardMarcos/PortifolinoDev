@@ -168,14 +168,17 @@
     }
     remaining.forEach(id => { levels[id] = level; });
     const maxLevel = Math.max(...Object.values(levels), 0);
+    const largestRow = Math.max(...Array.from({ length: maxLevel + 1 }, (_, current) => nodes.filter(node => levels[node.id] === current).length));
+    const width = architecture.expanded ? Math.max(700, largestRow * 260 + 40) : 1000;
+    const height = architecture.expanded ? 130 + maxLevel * 130 : 500;
     const positions = {};
     for (let current = 0; current <= maxLevel; current += 1) {
       const row = nodes.filter(node => levels[node.id] === current);
       row.forEach((node, index) => {
-        positions[node.id] = { x: ((index + 1) * 1000) / (row.length + 1), y: 65 + current * (370 / Math.max(maxLevel, 1)) };
+        positions[node.id] = { x: architecture.expanded ? width / 2 + (index - (row.length - 1) / 2) * 260 : ((index + 1) * width) / (row.length + 1), y: 65 + current * ((height - 130) / Math.max(maxLevel, 1)) };
       });
     }
-    return { nodes, edges, positions };
+    return { nodes, edges, positions, width, height };
   }
 
   function ArchitectureDiagram(architecture) {
@@ -190,14 +193,16 @@
     }).join('');
     const nodes = layout.nodes.map(node => {
       const position = layout.positions[node.id];
-      return `<g class="architecture-node" transform="translate(${position.x} ${position.y})"><rect x="-105" y="-28" width="210" height="56" rx="5"/><text text-anchor="middle" dominant-baseline="middle">${escapeHtml(node.label)}</text></g>`;
+      const lines = node.label.split(/\s*\/\s*/);
+      const label = lines.map((line, index) => `<tspan x="0" y="${(index - (lines.length - 1) / 2) * 22}">${escapeHtml(line)}</tspan>`).join('');
+      return `<g class="architecture-node" transform="translate(${position.x} ${position.y})"><rect x="-105" y="-28" width="210" height="56" rx="5"/><text text-anchor="middle" dominant-baseline="middle">${label}</text></g>`;
     }).join('');
-    return `<div class="architecture-diagram" role="img" aria-label="Diagrama da arquitetura de ${escapeHtml(layout.nodes.map(node => node.label).join(', '))}"><svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet"><defs><marker id="book-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" /></marker></defs>${paths}${nodes}</svg></div>`;
+    return `<div class="architecture-diagram${architecture.expanded ? ' architecture-diagram--expanded' : ''}" role="img" aria-label="Diagrama da arquitetura de ${escapeHtml(layout.nodes.map(node => node.label).join(', '))}"><svg viewBox="0 0 ${layout.width} ${layout.height}" preserveAspectRatio="xMidYMid meet"><defs><marker id="book-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" /></marker></defs>${paths}${nodes}</svg></div>`;
   }
 
   function ProjectArchitecturePage(project) {
-    const diagram = ArchitectureDiagram(project.architecture);
-    const legend = project.architecture.nodes?.length ? `<ol class="architecture-legend">${project.architecture.nodes.map((node, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span>${escapeHtml(node.label)}</li>`).join('')}</ol>` : EmptyRecord('Nós ainda não registrados.');
+    const diagram = `${project.architecture.summary ? `<p class="architecture-summary">${escapeHtml(project.architecture.summary)}</p>` : ''}${ArchitectureDiagram(project.architecture)}`;
+    const legend = project.architecture.nodes?.length ? `<ol class="architecture-legend">${project.architecture.nodes.map((node, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><div>${escapeHtml(node.label)}${node.description ? `<p class="architecture-description">${escapeHtml(node.description)}</p>` : ''}</div></li>`).join('')}</ol>` : EmptyRecord('Nós ainda não registrados.');
     return BookSpread(BookPage('left', 'Mapa de fluxo', 'Arquitetura', diagram), BookPage('right', 'Índice técnico', 'Componentes', `${legend}<p class="margin-note">As linhas representam o fluxo entre as partes documentadas.</p>`));
   }
 
@@ -220,9 +225,11 @@
 
   function ProjectCollaboratorsPage(project) {
     const contributors = project.contributors || [];
+    const creatorCount = contributors.filter(person => !person.honorary && !person.creditOnly).length;
+    const honoraryCount = contributors.filter(person => person.honorary).length;
     const introduction = `<div class="contributors-introduction">
       <span aria-hidden="true">◇</span>
-      <strong>${contributors.length ? `${contributors.length} ${contributors.length === 1 ? 'criador registrado' : 'criadores registrados'}` : 'Registro em preparação'}</strong>
+      <strong>${creatorCount ? `${creatorCount} ${creatorCount === 1 ? 'criador registrado' : 'criadores registrados'}` : 'Registro em preparação'}${honoraryCount ? ` · ${honoraryCount} menção honrosa` : ''}</strong>
       <p>As assinaturas e contribuições desta relíquia são preservadas juntas no mesmo registro.</p>
     </div>`;
     const records = contributors.length
@@ -241,7 +248,7 @@
 
   function ProjectFilesPage(project) {
     const galleryCount = project.arts.gallery?.length || 0;
-    const left = fileRecords(project);
+    const left = `${project.filesMessage ? `<p class="files-introduction">${escapeHtml(project.filesMessage)}</p>` : ''}${fileRecords(project)}`;
     const right = `${ArtFrame({ src: project.arts.interfacePreview, alt: `Prévia da interface de ${project.title}`, title: 'Prévia da interface', variant: 'preview', ratio: '16 / 10' })}<p class="gallery-count">${galleryCount ? `${galleryCount} imagem(ns) na galeria` : 'Galeria em preparação'}</p>`;
     return BookSpread(BookPage('left', 'Documentos vinculados', 'Arquivos', left), BookPage('right', 'Registro visual', 'Interface', right));
   }
