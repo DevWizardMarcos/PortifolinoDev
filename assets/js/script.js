@@ -1201,7 +1201,7 @@ let skillWheelLocked = false;
 
 function renderSpellShelf() {
   if (!spellShelf) return;
-  const coverByDomain = { 'front-end': 'front', 'back-end': 'back', data: 'dados', tools: 'ferramentas' };
+  const coverByDomain = { 'front-end': 'front', 'back-end': 'back', 'full-stack': 'fullstack', data: 'dados', tools: 'ferramentas' };
   // A ordem da estante é independente dos dados: Full-Stack permanece no trono central.
   const shelfDomains = ['front-end', 'back-end', 'full-stack', 'data', 'tools']
     .map(id => skillGroups[id]);
@@ -1210,7 +1210,6 @@ function renderSpellShelf() {
       ${coverByDomain[domain.id]
         ? `<img src="./assets/img/arcenal/${coverByDomain[domain.id]}.png" alt="Capa do grimório ${domain.title}" draggable="false">`
         : `<span class="spell-book__cover" aria-hidden="true"><i>${domain.rune}</i><strong>${domain.title}</strong><small>Volume 05</small></span>`}
-      <span class="spell-book__label" aria-hidden="true">${domain.title}<small>Volume ${String(index + 1).padStart(2, '0')}</small></span>
     </button>`).join('');
 }
 
@@ -1418,7 +1417,7 @@ function renderSpellGrimoire(focusTarget = null, isCategorySwitch = false) {
       <button class="skill-panel__close skill-carousel-modal__close" type="button" aria-label="Fechar tecnologias de ${activeSkillGroup.title}">
         <span aria-hidden="true">×</span>
       </button>
-      <header class="skill-panel__header skill-carousel-modal__header">
+      <header class="skill-panel__header skill-carousel-modal__header visually-hidden">
         <h3 id="skill-panel-title">◇ ${activeSkillGroup.title} ◇</h3>
       </header>
       <div class="skill-carousel-modal__body">

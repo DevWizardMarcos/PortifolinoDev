@@ -14,6 +14,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/animacoes.css">
   <link rel="stylesheet" href="assets/css/legacy-book.css">
+  <link rel="stylesheet" href="assets/css/about-author.css">
 </head>
 
 <body>
@@ -81,59 +82,34 @@
 
   </section>
   
-  <!-- Sessão Sobre o Personagem -->
-  <section id="sobre-mim" class="about-chapter" aria-labelledby="about-title">
-    <div class="about-aura" aria-hidden="true"></div>
-    <div class="about-container">
-      <header class="about-heading">
-        <span class="about-chapter-label">Capítulo I</span>
-        <h2 id="about-title">Sobre o Personagem</h2>
-        <p>Conheça o dev por trás da magia.</p>
+  <!-- Sobre: o autor por trás dos legados -->
+  <div class="author-transition" aria-hidden="true"></div>
+  <section id="sobre-mim" class="author-section" aria-labelledby="about-title">
+    <div class="author-composition">
+      <header class="author-heading" data-author-reveal>
+        <span class="author-chapter">Capítulo I</span>
+        <h2 id="about-title">Minha Origem</h2>
+        <div class="author-ornament" aria-hidden="true"><span></span>◇<span></span></div>
       </header>
-
-      <div class="about-story">
-        <figure class="about-portrait">
-          <img src="assets/img/user/foto_perfil.png" alt="Retrato de Marcos Simões">
-          <span class="portrait-caption">O homem por trás do grimório</span>
-        </figure>
-
-        <article class="about-narrative">
-          <h3>Minha Origem</h3>
-          <div class="narrative-divider" aria-hidden="true"><span></span></div>
-          <p>Minha jornada começou pela curiosidade de entender como ideias poderiam se transformar em experiências digitais.</p>
-          <p>Com o tempo, projetos, ensino e liderança passaram a fazer parte desse caminho — conectando criação, troca de conhecimento e a busca constante por novos desafios.</p>
-        </article>
-      </div>
-
-      <div class="about-motivation">
-        <div class="motivation-heading"><span></span><h3>O que move a jornada</h3><span></span></div>
-        <div class="motivation-grid">
-          <article class="motivation-item"><span class="pillar-number">01</span><span class="pillar-rune" aria-hidden="true">◆</span><h4>Criar</h4><i></i><p>Transformar ideias em interfaces e experiências que realmente ganham vida.</p></article>
-          <article class="motivation-item"><span class="pillar-number">02</span><span class="pillar-rune" aria-hidden="true">◆</span><h4>Compartilhar</h4><i></i><p>Ensinar aquilo que aprendo e crescer através da troca com outras pessoas.</p></article>
-          <article class="motivation-item"><span class="pillar-number">03</span><span class="pillar-rune" aria-hidden="true">◆</span><h4>Evoluir</h4><i></i><p>Buscar desafios que me tirem do confortável e ampliem aquilo que sou capaz de construir.</p></article>
+      <figure class="author-art" data-author-reveal>
+        <!-- Arte local provisória. Nova arte: assets/about/about-author.webp (ver assets/about/README.md). -->
+        <div class="author-art-blend" data-author-parallax>
+          <div class="author-art-motion">
+          <img src="assets/img/user/foto_perfil.png"
+            alt="Ilustração do desenvolvedor com notebook em um ambiente inspirado em um grimório"
+            width="1672" height="941" loading="lazy" decoding="async">
+          </div>
         </div>
+        <figcaption><span aria-hidden="true"></span>O autor por trás<br>dos legados</figcaption>
+      </figure>
+      <div class="author-copy" data-author-reveal>
+        <p>Sempre fui movido pela curiosidade de entender como as coisas funcionam — e, principalmente, como poderiam funcionar melhor.</p>
+        <p>Hoje transformo essa curiosidade em interfaces e experiências digitais, unindo desenvolvimento Front-End, design e a bagagem que construí trabalhando com projetos, ensino e liderança.</p>
+        <p>Este portfólio é o reflexo dessa mistura entre código, criação e visão de produto.</p>
+        <a class="author-journey" href="#jornada">Explorar minha jornada<span class="author-arrow" aria-hidden="true"></span></a>
       </div>
-
-      <div class="traveler-traits" aria-labelledby="traits-title">
-        <div class="motivation-heading"><span></span><h3 id="traits-title">Traços do Viajante</h3><span></span></div>
-        <ul>
-          <li><span aria-hidden="true">◇</span>Curiosidade</li>
-          <li><span aria-hidden="true">◇</span>Criatividade</li>
-          <li><span aria-hidden="true">◇</span>Liderança</li>
-          <li><span aria-hidden="true">◇</span>Aprendizado</li>
-        </ul>
-      </div>
-
-      <a class="journey-marker" href="#legados" aria-label="Ir para o Salão dos Legados">
-        <span class="journey-gem" aria-hidden="true">◇</span>
-        <i aria-hidden="true"></i>
-        <strong>Início da<br>Jornada</strong>
-        <i aria-hidden="true"></i>
-        <span class="journey-arrow" aria-hidden="true">▼</span>
-      </a>
     </div>
   </section>
-
   <!-- Conteúdo anterior preservado, fora da apresentação -->
   <section class="sobre-legado" hidden aria-hidden="true">
 
@@ -643,6 +619,7 @@
     <script src="assets/js/data/legacyProjects.js"></script>
     <script src="assets/js/legacy/legacyBook.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/about-author.js"></script>
 
 </body>
 

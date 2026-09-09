@@ -14735,3 +14735,39 @@ button.corridor-relic-frame {
   .skill-carousel-modal--closing { animation-duration: 1ms !important; }
   .skill-carousel__item { transition-duration: 1ms; }
 }
+
+/* Capas com suas cores originais em repouso, hover e seleção. */
+.spell-library .spell-book,
+.spell-library .spell-book > img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Seleção sem véu escuro; o alvo do backdrop mantém o comportamento de fechar. */
+.spell-library .spell-library__backdrop {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+.spell-library .spell-book {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+/* As duas metades permanecem dentro da cena, sem deslocar os dedos para fora. */
+.spell-library .spell-library__hands--left,
+.spell-library .spell-library__hands--right {
+  transform: translateY(calc(28% + 90px));
+}
+@media (max-width: 900px) {
+  .spell-library .spell-library__hands--left,
+  .spell-library .spell-library__hands--right { transform: translateY(calc(24% + 65px)); }
+}
+/* Retira a base sombreada que atravessava a capa do volume central. */
+.spell-library .spell-library__dais { display: none; }
+
+/* Respiro entre a base dos livros e o título das tecnologias. */
+.spell-library .spell-grimoire.skill-carousel-modal {
+  margin-top: 48px;
+}
+@media (max-width: 620px) {
+  .spell-library .spell-grimoire.skill-carousel-modal { margin-top: 32px; }
+}
