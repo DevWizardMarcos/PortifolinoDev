@@ -11,19 +11,19 @@
 .contact-heading { text-align: center; margin-bottom: 2rem; color: var(--contact-gold); }
 .contact-heading > span { font: 700 .7rem/1.6 Cinzel, serif; letter-spacing: .2em; text-transform: uppercase; }
 .contact-heading h2 { font: 400 clamp(1.6rem, 3vw, 2.4rem)/1.4 Cinzel, serif; margin: .8rem 0; }
-.contact-stage { position: relative; width: min(1240px, 100%); margin: auto; }
-.contact-open { display: block; width: min(740px, 92%); margin: 2rem auto 4rem; padding: 0; border: 0; background: none; cursor: pointer; transition: scale 250ms; }
+.contact-stage { position: relative; width: min(1040px, 100%); margin: auto; }
+.contact-open { display: block; width: min(460px, 85%); margin: 1.5rem auto 2.5rem; padding: 0; border: 0; background: none; cursor: pointer; transition: scale 250ms; }
 .contact-open:hover { scale: 1.04; }
 .contact-closed-art { display: block; filter: drop-shadow(0 20px 18px #0009); }
 .contact-closed-art img { display: block; width: 100%; height: auto; }
 .contact-section :is(button, a):focus-visible { outline: 2px solid var(--contact-gold); outline-offset: 5px; }
 .contact-desk { position: relative; padding: 35px 0; isolation: isolate; }
 .contact-parchment {
-  position: relative; width: min(940px, calc(100% - 250px)); margin-left: auto;
-  padding: 65px 7% 42px; color: var(--contact-ink); isolation: isolate;
+  position: relative; width: min(760px, calc(100% - 250px)); margin-left: auto;
+  padding: 55px 6% 32px; color: var(--contact-ink); isolation: isolate;
 }
 .contact-parchment::before {
-  content: ''; position: absolute; z-index: -1; inset: -22% 0 -30%;
+  content: ''; position: absolute; z-index: -1; inset: -18% 0 -10%;
   background: url('../img/formulario/pergaminhoAberto.png') center / 100% 100% no-repeat;
   pointer-events: none;
 }
@@ -31,7 +31,8 @@
 .contact-parchment header { text-align: center; margin-bottom: 1.25rem; }
 .contact-overline { color: #70562f; font: 700 .6rem/1.5 Cinzel, serif; letter-spacing: .16em; }
 .contact-parchment h3 { font: 700 clamp(1.4rem, 2.8vw, 2.1rem)/1.2 Cinzel, serif; margin: .75rem 0 0; }
-.contact-close { display: block; margin: 0 0 .5rem auto; padding: .5rem 0; min-height: 44px; background: none; border: 0; color: #63503b; font: .75rem Lora, serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.contact-close { display: block; margin: 0 0 .5rem auto; padding: .6rem .9rem; min-height: 44px; background: #33241f; border: 1px solid #c8a663; border-radius: 6px; color: #fff3da; font: 700 .875rem/1.4 Lora, serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.contact-close:hover { background: #493128; }
 .contact-form { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .8rem 2rem; }
 .contact-form > * { grid-column: 1 / -1; min-width: 0; }
 .contact-field:has([name="name"]), .contact-field:has([name="email"]) { grid-column: auto; }
@@ -56,8 +57,10 @@
 .contact-seal i { font-style: normal; }
 [data-status="success"] .contact-seal { opacity: 1; }
 .contact-section button:disabled { cursor: wait; opacity: .75; }
-.contact-feedback { text-align: center; min-height: 2.8rem; font-size: .8rem; line-height: 1.5; }
-.contact-feedback small { display: block; }
+.contact-feedback { text-align: center; min-height: 2.8rem; color: #fff3da; font-size: .95rem; line-height: 1.6; }
+.contact-feedback:not(:empty) { padding: .8rem 1rem; background: #33241f; border: 1px solid #c8a663; border-radius: 6px; }
+.contact-feedback strong { color: inherit; font-weight: 700; }
+.contact-feedback small { display: block; color: inherit; font-size: .875rem; }
 .contact-footer .contact-demo-note { margin: 0 0 1.5rem; font-size: .7rem; text-align: center; color: #c8bba7; }
 .contact-footer { position: relative; text-align: center; margin: 2rem auto 0; }
 .contact-footer p { font-size: .85rem; }
@@ -104,7 +107,7 @@
 }
 @media (max-width: 680px) {
   .contact-section { padding: 4rem .65rem 2rem; }
-  .contact-open { width: 100%; margin-block: 2rem 3rem; }
+  .contact-open { width: min(320px, 85%); margin-block: 1.5rem 2rem; }
   .contact-desk { padding-top: 200px; }
   .contact-parchment { width: 100%; margin: 0; padding: 70px 9% 48px; }
   /* Slice the supplied image at its paper center: preserve the scroll rods
