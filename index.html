@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/animacoes.css">
   <link rel="stylesheet" href="assets/css/legacy-book.css">
   <link rel="stylesheet" href="assets/css/about-author.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 
 <body>
@@ -449,10 +450,48 @@
         <div id="relic-dialog-content"></div>
       </dialog>
 
-      <a class="legacy-continue" href="#banner" aria-label="Voltar ao início da jornada">
+      <a class="legacy-continue" href="#contato" aria-label="Continuar para contato">
         <span aria-hidden="true">◇</span><i></i><strong>Continuar a Jornada</strong><b aria-hidden="true">↓</b>
       </a>
     </div>
+  </section>
+
+  <section id="contato" class="contact-section" aria-labelledby="contact-section-title" data-status="idle" data-contact-state="closed">
+    <div class="contact-heading">
+      <span>Capítulo IV · Contato</span>
+      <h2 id="contact-section-title">Mesa do Mensageiro</h2>
+    </div>
+    <div class="contact-stage">
+    <button class="contact-open" type="button" aria-label="Abrir formulário de contato" aria-expanded="false" aria-controls="contact-content" disabled>
+      <span class="contact-closed-art" aria-hidden="true"><img src="assets/img/formulario/pergaminho.png" alt="" width="1734" height="907"></span>
+    </button>
+    <div id="contact-content" hidden inert>
+    <div class="contact-desk">
+      <div class="contact-owl" data-state="idle" aria-hidden="true"></div>
+      <div class="contact-feather" aria-hidden="true"></div>
+      <div class="contact-inkpot" data-state="closed" aria-hidden="true"></div>
+      <div class="contact-parchment" tabindex="-1" aria-labelledby="contact-title">
+        <button class="contact-close" type="button">Fechar pergaminho</button>
+        <header>
+          <span class="contact-overline">Uma conversa pode ser o começo</span>
+          <h3 id="contact-title">Vamos construir<br>algo juntos?</h3>
+        </header>
+        <form class="contact-form" aria-label="Enviar uma mensagem" aria-busy="false">
+          <p class="contact-required">Campos com * são obrigatórios.</p>
+          <div class="contact-field"><label for="contact-name">Nome <span>*</span></label><input data-contact-field id="contact-name" name="name" autocomplete="name" required minlength="2" maxlength="100" aria-describedby="contact-name-error"><span class="contact-error" id="contact-name-error"></span></div>
+          <div class="contact-field"><label for="contact-email">Email <span>*</span></label><input data-contact-field id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="contact-email-error"><span class="contact-error" id="contact-email-error"></span></div>
+          <div class="contact-field"><label for="contact-subject">Assunto <small>(opcional)</small></label><input data-contact-field id="contact-subject" name="subject" maxlength="150" aria-describedby="contact-subject-error"><span class="contact-error" id="contact-subject-error"></span></div>
+          <div class="contact-field"><label for="contact-message">Mensagem <span>*</span></label><textarea data-contact-field id="contact-message" name="message" rows="4" required minlength="10" maxlength="5000" aria-describedby="contact-message-error"></textarea><span class="contact-error" id="contact-message-error"></span></div>
+          <div class="contact-submit"><span class="contact-seal" aria-hidden="true"><i>◇</i></span><button type="submit" disabled><span class="contact-button-wax" aria-hidden="true">◇</span><span data-submit-label>Selar e enviar</span></button></div>
+          <div class="contact-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+          <noscript><p>Para usar o formulário, ative o JavaScript. Você também pode escrever para <a href="mailto:mp718887@gmail.com">mp718887@gmail.com</a>.</p></noscript>
+        </form>
+      </div>
+    </div>
+    <footer class="contact-footer"><p class="contact-demo-note">Demonstração visual: nenhuma mensagem será enviada.</p><p>Prefere uma conversa direta?</p><nav class="contact-links" aria-label="Contato e redes sociais"><a data-contact-github href="https://github.com/DevWizardMarcos">GitHub</a><a data-contact-linkedin href="https://www.linkedin.com/in/marcos-simoes-ms/">LinkedIn</a><a data-contact-email href="mailto:mp718887@gmail.com">Email</a></nav><p class="contact-signature">Marcos Simões <span aria-hidden="true">◇</span> Design, código e propósito.</p></footer>
+    </div>
+    </div>
+    <noscript><p>Ative o JavaScript para abrir o pergaminho e usar o formulário de contato.</p></noscript>
   </section>
 
   <!-- Marcação histórica mantida apenas como referência inerte. -->
@@ -634,6 +673,7 @@
     <script src="assets/js/legacy/legacyBook.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/about-author.js"></script>
+    <script type="module" src="assets/js/contact/contactSection.js"></script>
 
 </body>
 

@@ -1,0 +1,129 @@
+/* Mesa do Mensageiro: original artwork, real HTML fields, no paper placeholders. */
+.contact-section {
+  --contact-ink: #33291f; --contact-paper: #e6d4ae; --contact-gold: #c8a663; --contact-wax: #6d2631;
+  position: relative; overflow: clip; padding: 6rem 1.25rem 3rem;
+  font-family: Lora, Georgia, serif; color: var(--contact-paper);
+  background: radial-gradient(ellipse at 50% 55%, #35251f 0%, #18121a 48%, #09070d 78%);
+  scroll-margin-top: 4rem;
+}
+.contact-section *, .contact-section *::before, .contact-section *::after { box-sizing: border-box; }
+.contact-section [hidden] { display: none !important; }
+.contact-heading { text-align: center; margin-bottom: 2rem; color: var(--contact-gold); }
+.contact-heading > span { font: 700 .7rem/1.6 Cinzel, serif; letter-spacing: .2em; text-transform: uppercase; }
+.contact-heading h2 { font: 400 clamp(1.6rem, 3vw, 2.4rem)/1.4 Cinzel, serif; margin: .8rem 0; }
+.contact-stage { position: relative; width: min(1240px, 100%); margin: auto; }
+.contact-open { display: block; width: min(740px, 92%); margin: 2rem auto 4rem; padding: 0; border: 0; background: none; cursor: pointer; transition: scale 250ms; }
+.contact-open:hover { scale: 1.04; }
+.contact-closed-art { display: block; filter: drop-shadow(0 20px 18px #0009); }
+.contact-closed-art img { display: block; width: 100%; height: auto; }
+.contact-section :is(button, a):focus-visible { outline: 2px solid var(--contact-gold); outline-offset: 5px; }
+.contact-desk { position: relative; padding: 35px 0; isolation: isolate; }
+.contact-parchment {
+  position: relative; width: min(940px, calc(100% - 250px)); margin-left: auto;
+  padding: 65px 7% 42px; color: var(--contact-ink); isolation: isolate;
+}
+.contact-parchment::before {
+  content: ''; position: absolute; z-index: -1; inset: -22% 0 -30%;
+  background: url('../img/formulario/pergaminhoAberto.png') center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+.contact-parchment:focus { outline: none; }
+.contact-parchment header { text-align: center; margin-bottom: 1.25rem; }
+.contact-overline { color: #70562f; font: 700 .6rem/1.5 Cinzel, serif; letter-spacing: .16em; }
+.contact-parchment h3 { font: 700 clamp(1.4rem, 2.8vw, 2.1rem)/1.2 Cinzel, serif; margin: .75rem 0 0; }
+.contact-close { display: block; margin: 0 0 .5rem auto; padding: .5rem 0; min-height: 44px; background: none; border: 0; color: #63503b; font: .75rem Lora, serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.contact-form { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .8rem 2rem; }
+.contact-form > * { grid-column: 1 / -1; min-width: 0; }
+.contact-field:has([name="name"]), .contact-field:has([name="email"]) { grid-column: auto; }
+.contact-required { font-size: .7rem; margin: 0; color: #63503b; }
+.contact-field label { display: block; font-size: .82rem; font-weight: 700; }
+.contact-field label small { font-weight: 400; }
+.contact-field input, .contact-field textarea {
+  display: block; width: 100%; min-height: 44px; padding: .4rem .2rem; border: 0;
+  border-bottom: 1px solid #826e51; border-radius: 0; background: transparent;
+  color: var(--contact-ink); font: 1rem/1.8 Lora, Georgia, serif; box-shadow: none;
+}
+.contact-field textarea { min-height: 112px; resize: vertical; line-height: 28px; background: repeating-linear-gradient(transparent 0 27px, #826e5144 27px 28px); }
+.contact-field :is(input,textarea):focus { outline: none; border-bottom: 2px solid var(--contact-wax); }
+.contact-field:focus-within label { color: var(--contact-wax); }
+.contact-error { display: block; color: #75212d; font-size: .75rem; margin-top: .25rem; }
+.contact-error:empty { display: none; }
+.contact-submit { display: flex; justify-content: center; position: relative; margin-top: .35rem; }
+.contact-submit button { display: flex; flex-direction: column; align-items: center; gap: .5rem; padding: .3rem 1rem; border: 0; background: none; color: var(--contact-wax); font: 700 .7rem/1.5 Cinzel, serif; letter-spacing: .1em; cursor: pointer; }
+.contact-button-wax, .contact-seal { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 45% 48% 43% 49%; background: var(--contact-wax); color: var(--contact-paper); font-size: 2rem; box-shadow: inset 0 0 0 4px #8a434b, inset 0 0 0 6px #52232b, 2px 4px 6px #33291f66; transition: transform 200ms; }
+.contact-submit button:hover .contact-button-wax { transform: rotate(-7deg) scale(1.07); }
+.contact-seal { position: absolute; right: 10%; top: 8px; opacity: 0; scale: .75; }
+.contact-seal i { font-style: normal; }
+[data-status="success"] .contact-seal { opacity: 1; }
+.contact-section button:disabled { cursor: wait; opacity: .75; }
+.contact-feedback { text-align: center; min-height: 2.8rem; font-size: .8rem; line-height: 1.5; }
+.contact-feedback small { display: block; }
+.contact-footer .contact-demo-note { margin: 0 0 1.5rem; font-size: .7rem; text-align: center; color: #c8bba7; }
+.contact-footer { position: relative; text-align: center; margin: 2rem auto 0; }
+.contact-footer p { font-size: .85rem; }
+.contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; }
+.contact-links a { color: var(--contact-paper); padding: .75rem 0; text-underline-offset: 6px; text-decoration-color: #c8a66388; }
+.contact-footer .contact-signature { margin-top: 2rem; font-size: .7rem; color: #a69a8a; }
+.contact-signature span { color: var(--contact-gold); margin: 0 .5rem; }
+/* Each character contains actual PNG layers. No CSS silhouettes. */
+.contact-owl, .contact-inkpot, .contact-feather { position: absolute; pointer-events: none; }
+.contact-owl { z-index: 2; left: 0; top: 35px; width: 250px; height: 310px; }
+.contact-inkpot { z-index: 2; left: 40px; top: 440px; width: 160px; height: 148px; }
+.contact-feather { z-index: 4; left: 0; top: 0; width: 116px; height: 174px; transform: translate(var(--feather-x, 135px), var(--feather-y, 330px)); transition: transform 300ms ease-in-out; }
+.contact-owl img, .contact-inkpot img, .contact-feather img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 150ms ease, scale 180ms ease; }
+.contact-owl img { object-position: center bottom; scale: .98; }
+.contact-owl img.is-active, .contact-inkpot img.is-active, .contact-feather img.is-active { opacity: 1; scale: 1; }
+.contact-feather img { transform-origin: 9% 97%; }
+[data-contact-state="opening"] .contact-open, [data-contact-state="closing"] .contact-open { position: absolute; z-index: 5; left: 50%; top: 0; translate: -50% 0; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-contact-state="closed"] .contact-closed-art { animation: contact-scroll-breathe 2.8s ease-in-out infinite; }
+  [data-contact-state="opening"] .contact-open { animation: contact-away 280ms both; }
+  [data-contact-state="opening"] .contact-parchment { animation: contact-unroll 550ms both; }
+  [data-contact-state="opening"] :is(.contact-form, .contact-parchment header, .contact-close) { animation: contact-reveal 250ms 350ms both; }
+  [data-contact-state="opening"] :is(.contact-feather, .contact-inkpot) { animation: contact-reveal 250ms 450ms both; }
+  [data-contact-state="opening"] .contact-owl { animation: contact-reveal 250ms 550ms both; }
+  [data-contact-state="opening"] .contact-footer { animation: contact-reveal 250ms 650ms both; }
+  [data-contact-state="closing"] #contact-content { animation: contact-away 400ms both; }
+  [data-contact-state="closing"] .contact-open { animation: contact-reveal 250ms 400ms both; }
+  .contact-feather[data-writing="true"][data-phase="field"] img.is-active { animation: contact-write 600ms ease-in-out infinite alternate; }
+  .contact-owl[data-state="sending"] { animation: contact-flight 900ms ease-in-out infinite alternate; }
+  .contact-owl[data-state="success"] { animation: contact-arrive 650ms both; }
+  @keyframes contact-scroll-breathe { 50% { transform: translateY(-6px) scale(1.025); filter: drop-shadow(0 26px 22px #0009); } }
+  @keyframes contact-away { to { opacity: 0; transform: scale(.94); } }
+  @keyframes contact-unroll { from { opacity: 0; clip-path: inset(0 45%); scale: .96; } to { opacity: 1; clip-path: inset(-25% -5%); scale: 1; } }
+  @keyframes contact-reveal { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes contact-write { from { rotate: -1deg; } to { translate: 3px 0; rotate: 1deg; } }
+  @keyframes contact-flight { to { translate: 0 -12px; rotate: -2deg; } }
+  @keyframes contact-arrive { from { opacity: .4; translate: -12px -20px; } to { opacity: 1; translate: 0 0; } }
+}
+@media (max-width: 1000px) {
+  .contact-parchment { width: calc(100% - 175px); padding-inline: 6%; }
+  .contact-owl { width: 180px; height: 230px; }
+  .contact-inkpot { width: 120px; height: 111px; left: 15px; top: 420px; }
+  .contact-feather { width: 94px; height: 141px; }
+}
+@media (max-width: 680px) {
+  .contact-section { padding: 4rem .65rem 2rem; }
+  .contact-open { width: 100%; margin-block: 2rem 3rem; }
+  .contact-desk { padding-top: 200px; }
+  .contact-parchment { width: 100%; margin: 0; padding: 70px 9% 48px; }
+  /* Slice the supplied image at its paper center: preserve the scroll rods
+     and corners on a tall letter without stretching them into long ovals. */
+  .contact-parchment::before {
+    background: none; inset: 0; border: 70px solid transparent;
+    border-image-source: url('../img/formulario/pergaminhoAberto.png');
+    border-image-slice: 280 120 220 120 fill; border-image-width: 100px 30px 80px 30px;
+    border-image-repeat: stretch;
+  }
+  .contact-form { grid-template-columns: minmax(0, 1fr); gap: .7rem; }
+  .contact-field:has([name="name"]), .contact-field:has([name="email"]) { grid-column: 1; }
+  .contact-parchment h3 { font-size: 1.4rem; }
+  .contact-owl { width: 170px; height: 200px; left: 0; top: 0; }
+  .contact-inkpot { width: 95px; height: 88px; left: auto; right: 8px; top: 115px; }
+  .contact-feather { width: 68px; height: 102px; }
+  .contact-footer { margin-top: .5rem; }
+  .contact-demo-note { font-size: .65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-section *, .contact-section *::before, .contact-section *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

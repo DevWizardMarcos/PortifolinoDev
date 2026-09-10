@@ -2,6 +2,8 @@
 backend/output/
 __pycache__/
 *.pyc
+.env
+.env.local
 
 # capturas/rascunhos temporários na raiz
 /_*.png
