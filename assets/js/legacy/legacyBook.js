@@ -59,6 +59,10 @@
       purpose: detailed.purpose || source.legacy || source.solution,
       objective: detailed.objective || source.construction || source.solution,
       accentColor: detailed.accentColor || source.accentColor || '#9b7845',
+      signatureLogo: ({
+        '#7254a8': 'LogoRoxa.png',
+        '#a7333d': 'LogoVermelha.png'
+      })[(detailed.accentColor || source.accentColor || '').toLowerCase()] || 'LogoDourada.png',
       techGroups: detailed.techGroups || fallbackTechGroups,
       features: detailed.features || fallbackFeatures,
       architecture: detailed.architecture || { nodes: [], edges: [] },
@@ -114,7 +118,7 @@
         ${Field('Classificação', project.classification)}
       </dl>
       <section class="ink-note"><h3>Resumo do registro</h3><p>${escapeHtml(project.summary)}</p></section>
-      <div class="relic-signature"><span>Relíquia</span><strong>${String(relicNumber).padStart(2, '0')}</strong>${project.arts.symbolArt ? ArtFrame({ src: project.arts.symbolArt, alt: `Símbolo de ${project.title}`, title: 'Símbolo', variant: 'symbol', ratio: '1 / 1' }) : '<i aria-hidden="true">◈</i>'}</div>`;
+      <div class="relic-signature"><span>Relíquia</span><strong>${String(relicNumber).padStart(2, '0')}</strong>${project.arts.symbolArt ? ArtFrame({ src: project.arts.symbolArt, alt: `Símbolo de ${project.title}`, title: 'Símbolo', variant: 'symbol', ratio: '1 / 1' }) : `<img class="relic-signature__logo" src="./assets/img/Logo/${project.signatureLogo}" width="36" height="36" alt="" aria-hidden="true">`}</div>`;
     return BookSpread(
       BookPage('left', 'Gravura da relíquia', 'Identidade', left),
       BookPage('right', 'Registro catalogado', 'Ficha da relíquia', right)

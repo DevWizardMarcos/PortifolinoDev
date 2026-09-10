@@ -584,15 +584,12 @@
     700 1.25rem/1 Cinzel,
     serif;
 }
-.relic-signature > i {
-  display: grid;
-  place-items: center;
+.relic-signature > .relic-signature__logo {
+  display: block;
   width: 36px;
   height: 36px;
-  border: 1px solid var(--book-accent);
-  border-radius: 50%;
-  color: var(--book-accent);
-  font-style: normal;
+  flex: 0 0 36px;
+  object-fit: contain;
 }
 
 .study-sketches {
