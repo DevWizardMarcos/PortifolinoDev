@@ -35,6 +35,32 @@ export function createContactScene(section) {
     setOwl({ submitting: 'sending', success: 'success' }[formStatus]
       || (activeField ? 'watching' : 'idle'));
   }
+  // Mirror field typography so the nib follows wrapped text and the caret.
+  const mirror = document.createElement('div');
+  mirror.setAttribute('aria-hidden', 'true');
+  mirror.style.cssText = 'position:fixed;visibility:hidden;pointer-events:none;left:-10000px;top:0;';
+  section.append(mirror);
+  function caretPosition(target) {
+    const style = getComputedStyle(target);
+    for (const key of ['font', 'letterSpacing', 'lineHeight', 'paddingTop',
+      'paddingRight', 'paddingBottom', 'paddingLeft', 'borderTopWidth',
+      'borderLeftWidth', 'borderRightWidth', 'borderBottomWidth', 'boxSizing']) {
+      mirror.style[key] = style[key];
+    }
+    mirror.style.width = target.getBoundingClientRect().width + 'px';
+    mirror.style.borderStyle = 'solid';
+    mirror.style.whiteSpace = target.tagName === 'TEXTAREA' ? 'pre-wrap' : 'pre';
+    mirror.style.overflowWrap = 'break-word';
+    mirror.textContent = target.value.slice(0, target.selectionStart ?? target.value.length);
+    const marker = document.createElement('span');
+    marker.textContent = '\u200b';
+    mirror.append(marker);
+    const bounds = mirror.getBoundingClientRect(), caret = marker.getBoundingClientRect();
+    return {
+      x: Math.max(4, Math.min(target.clientWidth - 4, caret.left - bounds.left - target.scrollLeft)),
+      y: Math.max(8, Math.min(target.clientHeight - 4, caret.top - bounds.top + parseFloat(style.fontSize) - target.scrollTop)),
+    };
+  }
   function position() {
     const origin = desk.getBoundingClientRect();
     const jar = pot.getBoundingClientRect();
@@ -42,21 +68,17 @@ export function createContactScene(section) {
     // Image tips: normal (8%, 97%); inked (10%, 98%). Align the TIP, not its box.
     const tipX = w * (inked ? .10 : .08);
     const tipY = h * .97;
-    let x = jar.left - origin.left + jar.width * .78;
+    let x = jar.left - origin.left + jar.width + 22;
     let y = jar.top - origin.top + jar.height * .67;
-    if (phase === 'approach' || phase === 'dip') {
+    if (phase === 'approach' || phase === 'dip' || phase === 'lift') {
       x = jar.left - origin.left + jar.width * .42;
-      y = jar.top - origin.top + jar.height * (phase === 'dip' ? .35 : .23);
+      y = jar.top - origin.top + jar.height * (phase === 'dip' ? .38 : .19);
     } else if (activeField && !reduced.matches) {
       const target = section.querySelector('[name="' + activeField + '"]');
       const rect = target.getBoundingClientRect();
-      const featherPositions = {
-        name: { x: .65, y: .75 }, email: { x: .65, y: .75 },
-        subject: { x: .8, y: .75 }, message: { x: .8, y: .28 },
-      };
-      const anchor = featherPositions[activeField];
-      x = rect.left - origin.left + rect.width * anchor.x;
-      y = rect.top - origin.top + rect.height * anchor.y;
+      const caret = caretPosition(target);
+      x = rect.left - origin.left + caret.x;
+      y = rect.top - origin.top + caret.y;
     }
     feather.style.setProperty('--feather-x', Math.max(0, Math.min(x - tipX, origin.width - w)) + 'px');
     feather.style.setProperty('--feather-y', (y - tipY) + 'px');
@@ -73,10 +95,11 @@ export function createContactScene(section) {
   function startInk() {
     if (reduced.matches) { finishInk(); return; }
     phase = 'approach'; feather.dataset.phase = phase; position();
-    later(250, () => { setPot('open'); });
-    later(350, () => { phase = 'dip'; feather.dataset.phase = phase; position(); });
-    later(500, () => { inked = true; setFeather('inked'); });
-    later(600, finishInk); // + 300ms CSS travel to the most recently focused field.
+    setPot('open');
+    later(450, () => { phase = 'dip'; feather.dataset.phase = phase; position(); });
+    later(850, () => { inked = true; setFeather('inked'); });
+    later(1000, () => { phase = 'lift'; feather.dataset.phase = phase; position(); });
+    later(1400, finishInk);
   }
   function reset() {
     timers.forEach(clearTimeout); timers = [];
@@ -87,8 +110,13 @@ export function createContactScene(section) {
     setFeather('normal'); setPot('closed'); setOwl('idle'); position();
   }
   new ResizeObserver(position).observe(desk);
+  section.querySelectorAll('[data-contact-field]').forEach(field => {
+    for (const event of ['input', 'click', 'keyup', 'select', 'scroll']) {
+      field.addEventListener(event, () => { if (activeField === field.name) position(); });
+    }
+  });
   reduced.addEventListener('change', () => {
-    if (reduced.matches && (phase === 'approach' || phase === 'dip')) {
+    if (reduced.matches && (phase === 'approach' || phase === 'dip' || phase === 'lift')) {
       timers.forEach(clearTimeout); timers = []; finishInk();
     }
     position();
@@ -97,16 +125,18 @@ export function createContactScene(section) {
     reset,
     focus(field) {
       activeField = field;
-      feather.dataset.writing = String(Boolean(field));
+      feather.dataset.writing = String(Boolean(field) && formStatus === 'typing');
       owlState();
       if (field && !inked && phase === 'rest') startInk();
-      else if (phase !== 'approach' && phase !== 'dip') {
+      else if (phase !== 'approach' && phase !== 'dip' && phase !== 'lift') {
         setPot(field ? 'open' : 'closed'); position();
       }
     },
     refresh: position,
     state(status) {
       formStatus = status; section.dataset.status = status; owlState();
+      feather.dataset.writing = String(Boolean(activeField) && status === 'typing');
+      position();
     },
   };
 }

@@ -7,11 +7,13 @@ export async function submitContact(payload) {
     body: JSON.stringify(payload),
   });
 
+  const result = await response.json().catch(() => null);
   if (!response.ok) {
-    throw new Error("Não foi possível enviar os dados.");
+    const detail = typeof result?.detail === "string" ? result.detail : null;
+    throw new Error(detail || `Falha no envio (HTTP ${response.status}). Tente novamente.`);
   }
 
-  return response.json();
+  return result;
 }
 
 export function setupContactForm(section, scene) {
@@ -105,10 +107,11 @@ export function setupContactForm(section, scene) {
         setStatus("idle");
         feedback.textContent = "";
       }, 7000);
-    } catch {
+    } catch (error) {
       setStatus("error");
-      feedback.textContent =
-        "Não foi possível preparar a carta. Tente novamente.";
+      feedback.textContent = error instanceof TypeError
+        ? "Sem conexão com o serviço de envio. Verifique se o backend está em execução."
+        : error.message || "Não foi possível enviar a carta. Tente novamente.";
     } finally {
       fields.forEach((field) => (field.readOnly = false));
       form.setAttribute("aria-busy", "false");
