@@ -38,10 +38,7 @@ const frames = [
 btn?.addEventListener('click', () => {
     // Reseta a animação
     personagem.classList.remove('ativo');
-    void personagem.offsetWidth; // força o reflow
-
-    // Inicia
-    personagem.classList.add('ativo');
+    requestAnimationFrame(() => requestAnimationFrame(() => personagem.classList.add('ativo')));
 
     // Troca os frames (velocidade do sprite)
     let i = 0;
@@ -593,9 +590,8 @@ function navigateCorridor(step) {
   if (filteredProjects.length < 2) return;
   activeProjectIndex = (activeProjectIndex + step + filteredProjects.length) % filteredProjects.length;
   archiveGrid?.classList.remove('is-changing');
-  void archiveGrid?.offsetWidth;
-  archiveGrid?.classList.add('is-changing');
   renderCards(activeRelicFilter);
+  requestAnimationFrame(() => requestAnimationFrame(() => archiveGrid?.classList.add('is-changing')));
 }
 
 archiveGrid?.addEventListener('keydown', event => {
@@ -779,10 +775,9 @@ function activateFragment(tab) {
     item.querySelector('span').textContent = active ? '◆' : '◇';
   });
   panel.classList.remove('is-changing');
-  void panel.offsetWidth;
   panel.innerHTML = `<p>${fragments[tab.dataset.fragment]}</p>`;
   panel.setAttribute('aria-labelledby', tab.id);
-  panel.classList.add('is-changing');
+  requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('is-changing')));
 }
 
 dialogContent?.addEventListener('error', event => window.LegacyBook?.handleImageError(event), true);

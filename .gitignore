@@ -8,3 +8,6 @@ __pycache__/
 # capturas/rascunhos temporários na raiz
 /_*.png
 /_*.py
+
+# capturas brutas do tour da Infinity School (as versões otimizadas ficam em assets/img/Jornada/infinity/)
+assets/img/Portais/Tour/
