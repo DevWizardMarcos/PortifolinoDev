@@ -5,6 +5,10 @@ import os
 import smtplib
 import ssl
 from email.message import EmailMessage
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 app = FastAPI()
 
@@ -81,4 +85,3 @@ def receberContato(dados: MensagemContato):
         "mensagem": "Mensagem aceita pelo servidor de email.",
         "nome": dados.name,
     }
-

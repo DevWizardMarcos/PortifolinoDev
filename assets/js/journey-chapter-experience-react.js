@@ -236,12 +236,12 @@
       // para que a troca de cena seja um crossfade, sem esperar o download.
       shots.map(shot => h('div', {
         key: shot.src,
-        className: `journey-scene__shot${shot.src === activeShot ? ' is-active' : ''}${shot.fit === 'cover' ? ' is-cover' : ''}`,
+        className: `journey-scene__shot${shot.src === activeShot ? ' is-active' : ''}${shot.fit === 'cover' ? ' is-cover' : ''}${shot.hoverSrc ? ' has-hover-image' : ''}`,
         style: { '--shot-focus': shot.focus || '50% 50%' },
         'aria-hidden': shot.src === activeShot ? undefined : 'true',
       },
         h('img', {
-          className: 'journey-scene__shot-main',
+          className: 'journey-scene__shot-main journey-scene__shot-main--base',
           src: shot.src,
           alt: shot.alt || '',
           width: 1676,
@@ -254,6 +254,12 @@
             objectFit: 'cover',
             objectPosition: shot.focus || '50% 50%',
           },
+        }),
+        shot.hoverSrc && h('img', {
+          className: 'journey-scene__shot-main journey-scene__shot-main--hover',
+          src: shot.hoverSrc,
+          alt: shot.hoverAlt || '',
+          decoding: 'async',
         })
       )),
       h('div', { className: 'journey-scene__glow', 'aria-hidden': 'true' }),
@@ -320,6 +326,97 @@
     );
   }
 
+  function JourneyDecisionTable({ chapter }) {
+    const paths = chapter.decisionPaths;
+    const [activeIndex, setActiveIndex] = useState(0);
+    if (!paths?.length) return null;
+    const active = paths[activeIndex];
+
+    function selectWithKeyboard(event, index) {
+      const direction = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1
+        : event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 0;
+      if (!direction && event.key !== 'Home' && event.key !== 'End') return;
+      event.preventDefault();
+      event.stopPropagation();
+      const target = event.key === 'Home' ? 0
+        : event.key === 'End' ? paths.length - 1
+          : (index + direction + paths.length) % paths.length;
+      setActiveIndex(target);
+      event.currentTarget.parentElement?.querySelectorAll('[role="tab"]')[target]?.focus();
+    }
+
+    return h('section', { className: 'journey-decision', 'aria-labelledby': 'journey-decision-title' },
+      h('header', { className: 'journey-decision__header' },
+        h('span', { className: 'journey-decision__seal', 'aria-hidden': 'true' }, h('b', null, '◇')),
+        h('div', null,
+          h('h3', { id: 'journey-decision-title' }, chapter.id === '2025' ? 'Legados da Liderança' : 'A mesa das decisões'),
+          h('p', null, chapter.id === '2025' ? 'Explore os conhecimentos compartilhados e as vozes que marcaram esta jornada.' : 'Qual marca dessa liderança você deseja conhecer primeiro?')
+        )
+      ),
+      h('div', { className: 'journey-decision__layout' },
+        h('div', { className: 'journey-decision__relics', role: 'tablist', 'aria-label': 'Caminhos da liderança' },
+          paths.map((path, index) => h('button', {
+            key: path.id,
+            type: 'button',
+            role: 'tab',
+            id: `decision-tab-${path.id}`,
+            className: index === activeIndex ? 'is-active' : '',
+            'aria-selected': index === activeIndex,
+            'aria-controls': `decision-panel-${path.id}`,
+            tabIndex: index === activeIndex ? 0 : -1,
+            onClick: () => setActiveIndex(index),
+            onKeyDown: event => selectWithKeyboard(event, index),
+          },
+            h('span', { className: 'journey-decision__symbol', 'aria-hidden': 'true' }, path.symbol),
+            h('span', null, h('strong', null, path.title), h('small', null, path.label))
+          ))
+        ),
+        h('div', {
+          key: active.id,
+          className: `journey-decision__panel journey-decision__panel--${active.id}`,
+          role: 'tabpanel',
+          id: `decision-panel-${active.id}`,
+          'aria-labelledby': `decision-tab-${active.id}`,
+          tabIndex: 0,
+        },
+          h('p', { className: 'journey-decision__question' }, active.question),
+          h('h4', null, active.title),
+          h('p', { className: 'journey-decision__description' }, active.description),
+          active.stats?.length > 0 && h('dl', { className: 'journey-decision__stats' },
+            active.stats.map(stat => h('div', { key: stat.label },
+              h('dt', null, stat.value), h('dd', null, stat.label)
+            ))
+          ),
+          active.items?.length > 0 && h('div', { className: 'journey-decision__entries' },
+            active.items.map(item => h('article', { key: item.title },
+              h('h5', null, item.title), h('p', null, item.text)
+            ))
+          ),
+          active.source === 'knowledgeMap' && window.JourneyKnowledgeMap && window.journeyKnowledgeMap
+            ? h(window.JourneyKnowledgeMap, { data: window.journeyKnowledgeMap })
+            : null,
+          active.source === 'banner' && window.JourneyBanner && window.journeyBannerData
+            ? h(window.JourneyBanner, { data: window.journeyBannerData })
+            : null,
+          active.source === 'projects' && h(window.React.Fragment, null,
+            h('div', { className: 'journey-decision__entries' },
+              chapter.projects.map(project => h('article', { key: project.name },
+                h('h5', null, project.name), h('p', null, project.description)
+              ))
+            )
+          ),
+          active.empty && active.source !== 'banner' && h('div', { className: 'journey-decision__empty' },
+            h('span', { 'aria-hidden': 'true' }, active.symbol),
+            h('div', null, h('h5', null, active.empty.title), h('p', null, active.empty.text))
+          )
+        )
+      ),
+      h('p', { className: 'journey-decision__closing' },
+        'Liderar é manter pessoas, voz e confiança na mesma mesa.'
+      )
+    );
+  }
+
   function JourneyChapterContent({ chapter, onInvite, onReplay, summaryRef }) {
     return h('div', { className: 'journey-cinematic__content' },
       onReplay && h('div', { className: 'journey-cinematic__summary-head' },
@@ -330,7 +427,7 @@
       h('p', { className: 'journey-cinematic__summary' }, chapter.summary),
       h(ListBlock, { title: 'Experiências', items: chapter.experiences }),
       h(ListBlock, { title: 'Conquistas', items: chapter.achievements }),
-      h(ListBlock, { title: chapter.tagsTitle || 'Tecnologias', items: chapter.technologies, tags: true }),
+      h(JourneyDecisionTable, { chapter }),
       chapter.projects?.length > 0 && h('section', { className: 'journey-cinematic__block' },
         h('h3', null, chapter.projects.length > 1 ? 'Projetos relacionados' : 'Projeto relacionado'),
         chapter.projects.map(project => h('article', { className: 'journey-cinematic__project', key: project.name },
@@ -388,7 +485,14 @@
       .filter(scene => scene.assets?.shot)
       .map(scene => ({ src: scene.assets.shot, alt: scene.assets.shotAlt, focus: scene.assets.shotFocus }));
     const shots = chapter.scene.image
-      ? [{ src: chapter.scene.image, alt: chapter.scene.imageAlt, focus: chapter.scene.imageFocus, fit: chapter.scene.imageFit }, ...storyShots]
+      ? [{
+        src: chapter.scene.image,
+        alt: chapter.scene.imageAlt,
+        focus: chapter.scene.imageFocus,
+        fit: chapter.scene.imageFit,
+        hoverSrc: chapter.scene.hoverImage,
+        hoverAlt: chapter.scene.hoverImageAlt,
+      }, ...storyShots]
       : storyShots;
 
     useEffect(() => { titleRef.current?.focus({ preventScroll: true }); }, []);
@@ -510,13 +614,13 @@
 
       function handleKeydown(event) {
         // Com as Memórias Interativas abertas, o teclado (Escape, setas, Tab) pertence a elas.
-        if (dialogRef.current?.querySelector('.journey-memories')) return;
+        if (dialogRef.current?.querySelector('.journey-memories, .journey-banner')) return;
         if (event.key === 'Escape') {
           event.preventDefault();
           actionsRef.current.onClose();
           return;
         }
-        if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft') && !event.altKey && !event.ctrlKey && !event.metaKey) {
+        if ((event.key === 'ArrowRight' || event.key === 'ArrowLeft') && !event.target.closest?.('.knowledge-map, .journey-decision__relics') && !event.altKey && !event.ctrlKey && !event.metaKey) {
           event.preventDefault();
           const direction = event.key === 'ArrowRight' ? 1 : -1;
           if (arrowRef.current?.(direction)) return;

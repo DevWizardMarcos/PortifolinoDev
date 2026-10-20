@@ -1388,6 +1388,254 @@ html.journey-modal-open main { visibility: hidden; }
   font: 400 0.94rem/1.72 Lora, serif;
 }
 
+/* Mesa das decisões — capítulo da liderança. */
+.journey-decision {
+  --decision-gold: #e9c873;
+  --decision-ink: #18090d;
+  margin: 1.8rem 0 1.2rem;
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  border: 1px solid rgba(233, 200, 115, 0.2);
+  border-radius: 4px 18px 4px 18px;
+  background:
+    linear-gradient(115deg, rgba(240, 96, 122, 0.08), transparent 38%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 42px),
+    #10070a;
+  box-shadow: inset 0 0 34px rgba(0, 0, 0, 0.48), 0 18px 38px rgba(0, 0, 0, 0.2);
+}
+.journey-decision__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.15rem;
+}
+.journey-decision__seal {
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  width: 42px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(233, 200, 115, 0.6);
+  rotate: 45deg;
+  color: var(--decision-gold);
+  background: rgba(233, 200, 115, 0.06);
+  box-shadow: 0 0 18px rgba(233, 200, 115, 0.12);
+}
+.journey-decision__seal b {
+  rotate: -45deg;
+  font: inherit;
+}
+.journey-decision__header h3 {
+  margin: 0 0 0.2rem;
+  color: #f4e7c7;
+  font: 700 clamp(1rem, 1.8vw, 1.28rem)/1.2 Cinzel, serif;
+  text-wrap: balance;
+}
+.journey-decision__header p,
+.journey-decision__closing {
+  margin: 0;
+  color: rgba(243, 223, 176, 0.66);
+  font: italic 400 0.83rem/1.5 Lora, serif;
+}
+.journey-decision__layout {
+  display: grid;
+  grid-template-columns: minmax(155px, 0.72fr) minmax(0, 1.7fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+.journey-decision__relics {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+}
+.journey-decision__relics button {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(233, 200, 115, 0.13);
+  border-radius: 2px 10px 2px 10px;
+  color: rgba(243, 234, 217, 0.68);
+  background: rgba(255, 255, 255, 0.018);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+.journey-decision__relics button:hover,
+.journey-decision__relics button:focus-visible {
+  color: #fff5dc;
+  border-color: rgba(233, 200, 115, 0.48);
+  background: rgba(233, 200, 115, 0.07);
+}
+.journey-decision__relics button:focus-visible {
+  outline: 2px solid var(--decision-gold);
+  outline-offset: 2px;
+}
+.journey-decision__relics button.is-active {
+  color: #fff5dc;
+  border-color: rgba(240, 96, 122, 0.64);
+  background: linear-gradient(90deg, rgba(240, 96, 122, 0.18), rgba(233, 200, 115, 0.04));
+  transform: translateX(4px);
+}
+.journey-decision__symbol {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--decision-gold);
+  font-size: 1.05rem;
+  box-shadow: inset 0 0 12px rgba(233, 200, 115, 0.08);
+}
+.journey-decision__relics strong,
+.journey-decision__relics small { display: block; }
+.journey-decision__relics strong { font: 700 0.75rem/1.25 Cinzel, serif; }
+.journey-decision__relics small {
+  margin-top: 0.15rem;
+  color: rgba(233, 226, 216, 0.5);
+  font: 400 0.68rem/1.3 Lora, serif;
+}
+.journey-decision__panel {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 290px;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid rgba(240, 96, 122, 0.22);
+  border-radius: 12px 3px 12px 3px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(240, 96, 122, 0.16), transparent 38%),
+    linear-gradient(145deg, rgba(74, 31, 34, 0.48), rgba(12, 6, 8, 0.92));
+  outline: none;
+}
+.journey-decision__panel:focus-visible {
+  outline: 2px solid var(--decision-gold);
+  outline-offset: 2px;
+}
+.journey-decision__question {
+  margin: 0 0 0.28rem;
+  color: var(--decision-gold);
+  font: 600 0.72rem/1.35 Lora, serif;
+}
+.journey-decision__panel > h4 {
+  margin: 0 0 0.55rem;
+  color: #fff3d2;
+  font: 700 clamp(1.15rem, 2vw, 1.55rem)/1.2 Cinzel, serif;
+  text-wrap: balance;
+}
+.journey-decision__description {
+  max-width: 62ch;
+  margin: 0 0 1rem;
+  color: rgba(238, 227, 209, 0.76);
+  font: 400 0.85rem/1.62 Lora, serif;
+}
+.journey-decision__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0 0 1rem;
+}
+.journey-decision__stats div {
+  flex: 1 1 120px;
+  padding: 0.65rem 0.75rem;
+  border-left: 2px solid var(--decision-gold);
+  background: rgba(233, 200, 115, 0.055);
+}
+.journey-decision__stats dt {
+  color: #fff3d2;
+  font: 700 1.15rem/1 Cinzel, serif;
+  font-variant-numeric: tabular-nums;
+}
+.journey-decision__stats dd {
+  margin: 0.3rem 0 0;
+  color: rgba(233, 226, 216, 0.58);
+  font: 400 0.68rem/1.35 Lora, serif;
+}
+.journey-decision__entries { display: grid; gap: 0.55rem; }
+.journey-decision__entries article {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(233, 200, 115, 0.12);
+  background: rgba(0, 0, 0, 0.16);
+}
+.journey-decision__entries h5,
+.journey-decision__empty h5 {
+  margin: 0 0 0.25rem;
+  color: #f3dfb0;
+  font: 700 0.78rem/1.3 Cinzel, serif;
+}
+.journey-decision__entries p,
+.journey-decision__empty p {
+  margin: 0;
+  color: rgba(233, 226, 216, 0.65);
+  font: 400 0.75rem/1.5 Lora, serif;
+}
+.journey-decision__empty {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.1rem;
+  padding: 0.9rem;
+  border: 1px dashed rgba(233, 200, 115, 0.24);
+  background: rgba(233, 200, 115, 0.035);
+}
+.journey-decision__empty > span {
+  color: rgba(233, 200, 115, 0.65);
+  font-size: 1.45rem;
+}
+.journey-decision__spell-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.journey-decision__spell-list li {
+  padding: 0.28rem 0.48rem;
+  border: 1px solid rgba(143, 216, 255, 0.22);
+  border-radius: 2px;
+  color: #bfe9ff;
+  background: rgba(143, 216, 255, 0.055);
+  font: 600 0.62rem/1.2 Cinzel, serif;
+}
+.journey-decision__closing {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(233, 200, 115, 0.13);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .journey-decision__panel { animation: journey-decision-reveal 240ms ease-out both; }
+}
+@keyframes journey-decision-reveal {
+  from { opacity: 0; transform: translateY(7px); }
+}
+
+@media (max-width: 620px) {
+  .journey-decision { padding: 0.85rem; }
+  .journey-decision__layout { grid-template-columns: 1fr; }
+  .journey-decision__relics {
+    grid-template-columns: repeat(3, minmax(72px, 1fr));
+    overflow-x: auto;
+    padding: 2px 2px 0.35rem;
+  }
+  .journey-decision__relics button {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    min-width: 76px;
+    min-height: 78px;
+    text-align: center;
+  }
+  .journey-decision__relics button.is-active { transform: translateY(-2px); }
+  .journey-decision__relics small { display: none; }
+  .journey-decision__panel { min-height: 0; }
+}
+
 .journey-cinematic__block {
   padding: 1.05rem 0;
   border-top: 1px solid rgba(var(--chapter-rgb), 0.18);
@@ -2310,6 +2558,19 @@ html.journey-modal-open main { visibility: hidden; }
   height: 100%;
   object-fit: cover;
 }
+.journey-scene__shot-main--base,
+.journey-scene__shot-main--hover {
+  transition: opacity 420ms ease;
+}
+.journey-scene__shot-main--hover {
+  opacity: 0;
+}
+.journey-scene__shot.has-hover-image:hover .journey-scene__shot-main--base {
+  opacity: 0;
+}
+.journey-scene__shot.has-hover-image:hover .journey-scene__shot-main--hover {
+  opacity: 1;
+}
 /* Com uma ilustração em tela, o cenário em CSS por baixo para de renderizar e animar
    (após o crossfade). Isso evita trabalho invisível: box-shadow animado, blend modes, velas. */
 .journey-scene__camera,
@@ -2505,6 +2766,8 @@ html.journey-modal-open main { visibility: hidden; }
   .journey-scene__camera { transform: none !important; transition: none !important; }
   .journey-story__beat > * { animation: none !important; }
   .journey-light, .journey-scene__shot { transition-duration: 1ms !important; transition-delay: 0s !important; }
+  .journey-scene__shot-main--base,
+  .journey-scene__shot-main--hover { transition: none !important; }
 }
 
 /* ---------- Memórias Interativas (Infinity School) ---------- */

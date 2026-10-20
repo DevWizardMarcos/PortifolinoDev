@@ -1,8 +1,33 @@
 # backend — bastidores do portfólio
 
-O site é 100% estático (HTML/CSS/JS na raiz). Esta pasta **não roda em produção**:
-guarda as ferramentas em Python que usamos para testar e medir o site em um
-navegador real (Chromium headless via Playwright).
+O portfólio principal é estático (HTML/CSS/JS na raiz). Esta pasta contém a
+API FastAPI de envio de email (`app.py`) e as ferramentas de testes visuais.
+
+## API do formulário
+
+Veja o [passo a passo no README principal](../README.md#rodar-o-site-e-o-backend-do-formulário)
+para instalar as dependências, configurar `backend/.env` e iniciar o site e a API.
+
+Com as dependências e credenciais configuradas, execute na raiz do repositório:
+
+```powershell
+python -m uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
+```
+
+Ou, dentro da pasta `backend`, use o comando curto:
+
+```powershell
+uvicorn app:app --reload
+```
+
+Por padrão, o Uvicorn usa `http://127.0.0.1:8000`.
+
+O formulário usa `POST /contato`. O backend envia emails pelo Gmail para a conta
+configurada em `SMTP_USER`. O site local deve estar na porta 5501, conforme o CORS.
+
+## Ferramentas de testes visuais
+
+As ferramentas abaixo usam Chromium headless via Playwright.
 
 ```
 backend/
