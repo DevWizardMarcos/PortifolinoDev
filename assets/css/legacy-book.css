@@ -231,11 +231,15 @@
   position: relative;
   z-index: 1;
   display: block;
-  color: color-mix(in srgb, var(--book-accent) 68%, #4a3323);
+  width: fit-content;
+  padding: 0.18rem 0.32rem;
+  color: #421b18;
+  background: rgba(244, 226, 184, 0.68);
+  text-shadow: 0 1px 0 rgba(255, 244, 214, 0.72);
   font:
-    700 0.57rem/1.2 Cinzel,
+    800 clamp(0.66rem, 0.9vw, 0.76rem)/1.25 Cinzel,
     serif;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -567,9 +571,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.55rem;
-  margin-top: 1.1rem;
+  gap: 0.75rem;
+  margin: 1.1rem 1.1rem 1.65rem 0;
   color: #765f44;
+  transform: translateY(-1rem);
 }
 .relic-signature span {
   font:
@@ -579,10 +584,29 @@
   text-transform: uppercase;
 }
 .relic-signature strong {
+  display: grid;
+  place-items: center;
+  min-width: 2.15rem;
+  min-height: 2.15rem;
+  padding: 0.15rem;
+  border: 1px solid color-mix(in srgb, var(--book-accent) 42%, #8a6840);
+  border-radius: 50%;
   color: var(--book-accent);
   font:
-    700 1.25rem/1 Cinzel,
+    700 0.9rem/1 Cinzel,
     serif;
+}
+.relic-signature > .book-art-frame--symbol {
+  flex: 0 0 42px;
+  width: 42px;
+  margin-left: 0.2rem;
+  overflow: hidden;
+}
+.relic-signature > .book-art-frame--symbol img {
+  width: 36px;
+  height: 36px;
+  margin: auto;
+  object-fit: contain;
 }
 .relic-signature > .relic-signature__logo {
   display: block;

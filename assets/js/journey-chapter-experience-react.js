@@ -326,10 +326,73 @@
     );
   }
 
+  function LeadershipLegacies({ chapter }) {
+    const paths = chapter.decisionPaths;
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    function selectWithKeyboard(event, index) {
+      const direction = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+      if (!direction && event.key !== 'Home' && event.key !== 'End') return;
+      event.preventDefault();
+      event.stopPropagation();
+      const target = event.key === 'Home' ? 0 : event.key === 'End' ? paths.length - 1 : (index + direction + paths.length) % paths.length;
+      setActiveIndex(target);
+      event.currentTarget.parentElement?.querySelectorAll('[role="tab"]')[target]?.focus();
+    }
+
+    return h('section', { className: 'journey-decision journey-decision--editorial', 'aria-labelledby': 'journey-decision-title' },
+      h('header', { className: 'legacy-editorial__header' },
+        h('h3', { id: 'journey-decision-title' }, 'Legados da Liderança'),
+        h('p', null, 'Conhecimento que se transforma em legado.')
+      ),
+      h('div', { className: 'legacy-editorial__tabs', role: 'tablist', 'aria-label': 'Legados da liderança' },
+        paths.map((path, index) => h('button', {
+          key: path.id,
+          type: 'button',
+          role: 'tab',
+          id: `decision-tab-${path.id}`,
+          className: index === activeIndex ? 'is-active' : '',
+          'aria-selected': index === activeIndex,
+          'aria-controls': `decision-panel-${path.id}`,
+          tabIndex: index === activeIndex ? 0 : -1,
+          onClick: () => setActiveIndex(index),
+          onKeyDown: event => selectWithKeyboard(event, index),
+        }, path.id === 'mapa' ? 'Crônicas' : 'Vozes'))
+      ),
+      h('div', { className: 'legacy-editorial__panels' },
+        paths.map((path, index) => h('section', {
+          key: path.id,
+          className: `legacy-editorial__panel legacy-editorial__panel--${path.id}`,
+          role: 'tabpanel',
+          id: `decision-panel-${path.id}`,
+          'aria-labelledby': `decision-tab-${path.id}`,
+          hidden: index !== activeIndex,
+          tabIndex: 0,
+        },
+          h('div', { className: 'legacy-editorial__copy' },
+            h('p', { className: 'legacy-editorial__eyebrow' }, path.id === 'mapa' ? 'Explore a jornada' : 'Escute o legado'),
+            h('h4', null, path.id === 'mapa' ? 'Crônicas do Conhecimento' : 'O Estandarte das Vozes'),
+            h('p', { className: 'legacy-editorial__description' }, path.id === 'mapa'
+              ? 'Descubra palestras, workshops e encontros que transformaram experiências em conhecimento compartilhado.'
+              : 'Conheça relatos autorizados de alunos e de pessoas que dividiram projetos, aprendizados e responsabilidades nesta jornada.')
+          ),
+          path.source === 'knowledgeMap' && window.JourneyKnowledgeMap && window.journeyKnowledgeMap
+            ? h(window.JourneyKnowledgeMap, { data: window.journeyKnowledgeMap, editorial: true })
+            : null,
+          path.source === 'banner' && window.JourneyBanner && window.journeyBannerData
+            ? h(window.JourneyBanner, { data: window.journeyBannerData, editorial: true, onExploreChronicles: () => { setActiveIndex(0); requestAnimationFrame(() => document.querySelector('#decision-tab-mapa')?.focus()); } })
+            : null
+        ))
+      ),
+      h('p', { className: 'journey-decision__closing' }, 'Liderar é manter pessoas, voz e confiança na mesma mesa.')
+    );
+  }
+
   function JourneyDecisionTable({ chapter }) {
     const paths = chapter.decisionPaths;
     const [activeIndex, setActiveIndex] = useState(0);
     if (!paths?.length) return null;
+    if (chapter.id === '2025') return h(LeadershipLegacies, { chapter });
     const active = paths[activeIndex];
 
     function selectWithKeyboard(event, index) {

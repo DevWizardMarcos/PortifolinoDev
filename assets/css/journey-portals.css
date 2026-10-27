@@ -1491,9 +1491,10 @@ html.journey-modal-open main { visibility: hidden; }
   font-size: 1.05rem;
   box-shadow: inset 0 0 12px rgba(233, 200, 115, 0.08);
 }
+.journey-decision__relics button > span:last-child { min-width: 0; }
 .journey-decision__relics strong,
-.journey-decision__relics small { display: block; }
-.journey-decision__relics strong { font: 700 0.75rem/1.25 Cinzel, serif; }
+.journey-decision__relics small { display: block; overflow-wrap: anywhere; hyphens: auto; }
+.journey-decision__relics strong { font: 700 clamp(0.62rem, 2.4vw, 0.75rem)/1.25 Cinzel, serif; letter-spacing: 0; }
 .journey-decision__relics small {
   margin-top: 0.15rem;
   color: rgba(233, 226, 216, 0.5);
@@ -1616,7 +1617,7 @@ html.journey-modal-open main { visibility: hidden; }
   from { opacity: 0; transform: translateY(7px); }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 760px) {
   .journey-decision { padding: 0.85rem; }
   .journey-decision__layout { grid-template-columns: 1fr; }
   .journey-decision__relics {
@@ -1634,6 +1635,143 @@ html.journey-modal-open main { visibility: hidden; }
   .journey-decision__relics button.is-active { transform: translateY(-2px); }
   .journey-decision__relics small { display: none; }
   .journey-decision__panel { min-height: 0; }
+}
+
+/* Legados da Liderança — edição medieval minimalista. */
+.journey-decision--editorial {
+  --decision-gold: #c9a85f;
+  width: min(1080px, 100%);
+  margin: clamp(2rem, 5vw, 4.5rem) auto 1.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  container-type: inline-size;
+}
+.legacy-editorial__header {
+  position: relative;
+  padding-bottom: clamp(1.25rem, 3vw, 2rem);
+  border-bottom: 1px solid rgba(201, 168, 95, 0.34);
+  text-align: center;
+}
+.legacy-editorial__header::before {
+  content: '◇';
+  position: absolute;
+  top: .15rem;
+  left: 0;
+  color: var(--decision-gold);
+  font-size: .8rem;
+}
+.legacy-editorial__header h3 {
+  margin: 0;
+  color: #f2e7d0;
+  font: 700 clamp(1.45rem, 3.2vw, 2.45rem)/1.12 Cinzel, serif;
+  letter-spacing: 0.025em;
+}
+.legacy-editorial__header p {
+  margin: 0.55rem 0 0;
+  color: rgba(233, 226, 216, 0.66);
+  font: italic 400 clamp(0.88rem, 1.35vw, 1rem)/1.55 Lora, serif;
+}
+.legacy-editorial__tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(201, 168, 95, 0.22);
+}
+.legacy-editorial__tabs button {
+  position: relative;
+  min-height: 58px;
+  padding: 0.85rem 1rem;
+  border: 0;
+  color: rgba(242, 231, 208, 0.48);
+  background: transparent;
+  font: 700 clamp(0.72rem, 1.2vw, 0.82rem)/1.2 Cinzel, serif;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+.legacy-editorial__tabs button + button { border-left: 1px solid rgba(201, 168, 95, 0.16); }
+.legacy-editorial__tabs button::after {
+  content: '';
+  position: absolute;
+  right: 24%;
+  bottom: -1px;
+  left: 24%;
+  height: 2px;
+  background: var(--decision-gold);
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+.legacy-editorial__tabs button:hover { color: #f2e7d0; background: rgba(201, 168, 95, 0.025); }
+.legacy-editorial__tabs button:focus-visible { outline: 2px solid var(--decision-gold); outline-offset: -4px; }
+.legacy-editorial__tabs button.is-active { color: #f4dfaa; background: rgba(64, 32, 39, 0.42); }
+.legacy-editorial__tabs button.is-active::after { transform: scaleX(1); }
+.legacy-editorial__panels { min-width: 0; }
+.legacy-editorial__panel {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(1.6rem, 4vw, 4rem);
+  align-items: center;
+  min-width: 0;
+  padding: clamp(2rem, 5vw, 4.25rem) clamp(0rem, 2vw, 1.5rem);
+  outline: none;
+}
+.legacy-editorial__panel[hidden] { display: none; }
+.legacy-editorial__panel:focus-visible { outline: 2px solid var(--decision-gold); outline-offset: 4px; }
+.legacy-editorial__copy { max-width: 42ch; }
+.legacy-editorial__eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--decision-gold);
+  font: 700 0.66rem/1.3 Cinzel, serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.legacy-editorial__panel h4 {
+  margin: 0 0 1rem;
+  color: #f3e8d2;
+  font: 700 clamp(1.65rem, 3.7vw, 3.2rem)/1.06 Cinzel, serif;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.legacy-editorial__description {
+  margin: 0;
+  color: rgba(233, 226, 216, 0.7);
+  font: 400 clamp(0.88rem, 1.3vw, 1rem)/1.72 Lora, serif;
+}
+.journey-decision--editorial .journey-decision__closing {
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2rem) 1rem 0;
+  border-top-color: rgba(201, 168, 95, 0.22);
+  color: rgba(243, 223, 176, 0.64);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .legacy-editorial__panel:not([hidden]) { animation: legacy-editorial-reveal 260ms ease-out both; }
+}
+@keyframes legacy-editorial-reveal {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
+@container (max-width: 680px) {
+  .legacy-editorial__panel {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .legacy-editorial__copy { max-width: 52ch; }
+}
+
+@media (max-width: 760px) {
+  .journey-decision--editorial { margin-top: 2rem; padding: 0; }
+  .legacy-editorial__header { padding-inline: 0.25rem; text-align: left; }
+  .legacy-editorial__tabs button { min-height: 52px; }
+  .legacy-editorial__panel {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    padding: 2rem 0;
+  }
+  .legacy-editorial__copy { max-width: 52ch; }
+  .journey-decision--editorial .journey-decision__closing { text-align: left; }
 }
 
 .journey-cinematic__block {

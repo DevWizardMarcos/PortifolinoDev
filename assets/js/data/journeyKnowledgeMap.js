@@ -3,6 +3,7 @@
 (() => {
   const ROOT = 'assets/img/Portais/Captulo IV/';
   const REGIONS = `${ROOT}Regioes/`;
+  const PORTALS = 'assets/img/Portais/';
   const gamma = href => ({ label: 'Abrir material original', href });
   window.journeyKnowledgeMap = {
     title: 'Mapa — Crônicas do Conhecimento',
@@ -61,31 +62,33 @@
       },
       {
         id: 'santuario-conquista', numeral: 'V', title: 'Santuário da Conquista', subtitle: 'React',
-        thumbnail: `${REGIONS}05_santuario_da_conquista.png`, image: `${REGIONS}Imagem do ChatGPT 15 de out. de 2026, 22_48_42.png`,
-        imageAlt: 'Santuário fantástico dedicado à conclusão de uma jornada de aprendizado',
-        chronicles: [{ id: 'modulo-finalizado-react', title: 'O Módulo Finalizado — React', description: 'Registro da conclusão do módulo dedicado a React.', position: { x: 51, y: 49 } }],
+        thumbnail: `${REGIONS}05_santuario_da_conquista.png`, image: `${REGIONS}santuario-da-conquista-xadrez.png`,
+        imageAlt: 'Aline e Alice, guardiãs da luz e da sombra, frente a frente em uma partida de xadrez no Santuário da Conquista',
+        chronicles: [{ id: 'modulo-finalizado-react', title: 'O Módulo Finalizado — React', description: 'Registro da conclusão do módulo dedicado a React.', experience: 'living-board', position: { x: 51, y: 49 } }],
       },
       {
         id: 'arena-comunidade', numeral: 'VI', title: 'Arena da Comunidade', subtitle: 'Eventos e colaboração',
-        thumbnail: `${REGIONS}06_arena_da_comunidade.png`, image: `${REGIONS}Imagem do ChatGPT 15 de out. de 2026, 22_48_52.png`,
-        imageAlt: 'Arena medieval preparada para encontros e atividades em comunidade',
+        thumbnail: `${REGIONS}06_arena_da_comunidade.png`, image: `${REGIONS}arena-da-comunidade.jpg`,
+        imageAlt: 'Arena gótica circular iluminada por tochas e vitrais roxos, com um palco central sob um estandarte da guilda',
         chronicles: [
-          { id: 'hackathon', title: 'Hackathon', description: 'Registro de uma experiência de colaboração em evento.', position: { x: 24, y: 58 } },
-          { id: 'hallowinit', title: 'HallowInit', description: 'Registro de participação em um encontro da comunidade.', position: { x: 42, y: 38 } },
-          { id: 'infinity-open', title: 'Infinity Open', description: 'Registro de participação no Infinity Open.', position: { x: 61, y: 58 } },
-          { id: 'vivver-sistemas', title: 'Evento da Vivver Sistemas', description: 'Registro de um evento relacionado à Vivver Sistemas.', position: { x: 78, y: 38 }, material: { label: 'Conhecer a Vivver Sistemas', href: 'https://www.linkedin.com/company/vivver-sistemas/' } },
+          { id: 'hackathon', experience: 'hackathon-city', title: 'Hackathon City', description: 'Registro de uma experiência de colaboração em evento.', image: `${PORTALS}Nova pasta/hackthon.png`, imageAlt: 'Desenvolvedor de capuz observa da sacada uma arena gótica onde um dragão de gelo e uma fênix de fogo se enfrentam', position: { x: 24, y: 58 } },
         ],
       },
     ],
   };
 
   window.journeyBannerData = {
-    title: 'O Estandarte — Resultados',
-    description: 'Vozes e registros autorizados sobre o impacto humano desta jornada.',
+    title: 'O Estandarte das Vozes',
+    description: 'Histórias e registros da jornada compartilhados com autorização.',
+    assets: {
+      libraryBackground: null,
+      councilBackground: null,
+    },
+    animation: { revealMs: 360, transitionMs: 220 },
+    // Registros futuros devem seguir os campos documentados no modal e só são exibidos quando authorized === true.
     categories: [
-      { id: 'alunos', title: 'Vozes dos Alunos', description: 'Feedbacks sobre aulas, mentorias, explicações e acompanhamento.', testimonials: [] },
-      { id: 'equipe', title: 'Vozes da Equipe', description: 'Feedbacks de instrutores, colegas e pessoas que trabalharam diretamente comigo.', testimonials: [] },
-      { id: 'eventos', title: 'Ecos dos Eventos', description: 'Comentários de participantes de palestras, workshops e eventos.', testimonials: [] },
+      { id: 'alunos', state: 'students', environment: 'library', title: 'Vozes dos Alunos', description: 'Feedbacks sobre aulas, mentorias, explicações e acompanhamento.', testimonials: [] },
+      { id: 'equipe', state: 'team', environment: 'council', title: 'Vozes da Equipe', description: 'Feedbacks de instrutores, colegas e pessoas que trabalharam diretamente comigo.', testimonials: [] },
     ],
   };
 })();

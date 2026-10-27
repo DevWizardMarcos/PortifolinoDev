@@ -1,0 +1,60 @@
+/* Arte do livro aberto (assets/img/legados) aplicada ao livro dos Aprendizes e ao livro das Relíquias.
+   --book-art: pergaminho limpo · --book-art-index: arte original com os 9 espaços do índice.
+   Gerar/atualizar as imagens: python scripts/prepare-book-art.py */
+:root {
+  --book-art: url("../img/legados/livro-aberto.webp");
+  --book-art-index: url("../img/legados/livro-aberto-indice.webp");
+}
+
+/* ===================== Livro dos Aprendizados ===================== */
+.voice-book { width: min(1100px,100%); }
+.voice-book__spread {
+  display: block; aspect-ratio: 1759 / 894; min-height: 0; border: 0; border-radius: 6px;
+  container-type: inline-size;
+  background: var(--book-art) center / 100% 100% no-repeat; box-shadow: 0 22px 46px rgba(0,0,0,.6);
+}
+.voice-book__spread[data-art="index"] { background-image: var(--book-art-index); }
+.voice-book__spread::before { display: none; }
+.voice-page { position: absolute; bottom: 11.5%; top: 12.5%; max-height: none; padding: 0; background: none; scrollbar-width: thin; scrollbar-color: rgba(120,70,40,.5) transparent; }
+.voice-page--left { left: 17.5%; width: 30%; }
+.voice-page--left, .voice-page--left .voice-page__text, .voice-page--left .voice-page__meta { color: #2b150f; }
+.voice-page--left .voice-page__kicker { color: #5b1c2c; font-weight: 800; }
+.voice-page--left .voice-page__author { color: #4a2418; }
+.voice-page--left .voice-page__topics span { color: #5b1c2c; border-color: #5b1c2c; background: rgba(255,255,255,.28); }
+.voice-page--right { left: 53.5%; width: 34%; }
+.voice-page--right.is-index { top: 0; bottom: 0; left: 50%; width: 50%; overflow: hidden; }
+.voice-page__body { padding-right: .4rem; }
+.voice-page__title { font-size: clamp(.95rem, 2.1cqw, 1.5rem); }
+.voice-page__text { font-size: clamp(.74rem, 1.35cqw, .95rem); line-height: 1.65; }
+.voice-page__kicker, .voice-page__meta, .voice-page__author { font-size: clamp(.6rem, 1.1cqw, .8rem); }
+.voice-index__slots { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; }
+.voice-slot { position: absolute; left: 9.4%; width: 69.9%; top: calc(12.3% + var(--slot) * 8.77%); height: 7.83%; }
+.voice-slot button { display: grid; align-content: center; gap: .1rem; width: 100%; height: 100%; min-height: 0; padding: 0 3% 0 7%; border: 0; border-radius: 3px; color: #3b211d; background: transparent; text-align: left; transition: background 180ms ease; }
+.voice-slot button:hover { background: rgba(91,28,44,.1); }
+.voice-slot button:focus-visible { outline: 2px solid #5b1c2c; outline-offset: -3px; background: rgba(91,28,44,.12); }
+.voice-slot__title { overflow: hidden; font: 700 clamp(.6rem, 1.2cqw, .86rem)/1.25 Cinzel, serif; text-overflow: ellipsis; white-space: nowrap; }
+.voice-slot small { overflow: hidden; color: #6b4a3a; font: clamp(.54rem, .95cqw, .7rem)/1.2 Lora, serif; text-overflow: ellipsis; white-space: nowrap; }
+.voice-page .voice-chips { margin-top: .9rem; }
+.voice-page .voice-chips button { min-height: 34px; padding: .25rem .6rem; border-color: #241709; color: #e6c882; background: linear-gradient(#3a2a16, #241709); box-shadow: inset 0 0 0 1px rgba(216,182,108,.25); font-size: clamp(.52rem, .95cqw, .64rem); }
+.voice-page .voice-chips button.is-active { color: #170a10; background: linear-gradient(#e6c882, #d8b66c); }
+.voice-book__leaf { background: var(--book-art) 100% 0 / 200% 100% no-repeat; }
+.voice-book__leaf--prev { background-position: 0 0; }
+
+/* ===================== Livro dos Aprendizados no celular: uma página por vez ===================== */
+@media (max-width: 760px) {
+  .voice-book__spread { aspect-ratio: auto; display: grid; gap: 0; background: none; box-shadow: none; container-type: normal; }
+  .voice-page, .voice-page--left, .voice-page--right, .voice-page--right.is-index {
+    position: static; width: auto; overflow: visible; padding: 1.7rem 1.4rem;
+    background: var(--book-art) 7% 50% / cover no-repeat; box-shadow: inset 0 0 0 3px #3a1522;
+  }
+  .voice-page--right, .voice-page--right.is-index { background-position: 92% 50%; }
+  .voice-page__title { font-size: 1.2rem; }
+  .voice-page__text { font-size: .9rem; }
+  .voice-page__kicker, .voice-page__meta, .voice-page__author { font-size: .72rem; }
+  .voice-index__slots { position: static; display: grid; gap: .45rem; }
+  .voice-slot { position: static; width: auto; height: auto; }
+  .voice-slot button { min-height: 48px; padding: .5rem .8rem; border: 1px solid rgba(124,75,45,.5); background: rgba(255,255,255,.2); }
+  .voice-slot__title { font-size: .78rem; white-space: normal; }
+  .voice-slot small { font-size: .66rem; white-space: normal; }
+  .voice-book__leaf { display: none; }
+}

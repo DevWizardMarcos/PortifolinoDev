@@ -12,3 +12,6 @@ __pycache__/
 # capturas brutas do tour da Infinity School (as versões otimizadas ficam em assets/img/Jornada/infinity/)
 assets/img/Portais/Tour/
 .claude
+# pré-visualizações do script de sprites do leão
+scripts/.lion-preview/
+scripts/.council-preview/

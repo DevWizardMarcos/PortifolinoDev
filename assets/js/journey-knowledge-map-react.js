@@ -126,7 +126,11 @@
     const { direction } = navRef.current;
     const art = chronicle.experience === 'innovation-owl' && window.InnovationOwlScene
       ? h(window.InnovationOwlScene, { caption: 'O Despertar da Coruja Mecânica' })
-      : h(GalleryArt, {
+      : chronicle.experience === 'hackathon-city' && window.HackathonCityScene
+        ? h(window.HackathonCityScene, { onBack: onRegion })
+      : chronicle.experience === 'living-board' && window.SanctuaryScene
+        ? h(window.SanctuaryScene, { onBack: onRegion })
+        : h(GalleryArt, {
         src: chronicle.image || region.image, alt: chronicle.imageAlt || region.imageAlt,
         caption: chronicle.image ? chronicle.title : `${region.title} — arte da região`, sceneKey: chronicle.id, direction,
         morph: chronicle.imageAlternate ? { src: chronicle.imageAlternate, alt: chronicle.imageAlternateAlt || '' } : null,
@@ -275,9 +279,10 @@
     );
   }
 
-  function JourneyKnowledgeMap({ data }) {
+  function JourneyKnowledgeMap({ data, editorial = false }) {
     const [open, setOpen] = useState(false);
     const triggerRef = useRef(null);
+    const totalChronicles = data.regions.reduce((total, region) => total + region.chronicles.length, 0);
     useEffect(() => {
       const sources = [ATLAS_BACKGROUND, ATLAS_OBSERVER];
       sources.forEach(src => {
@@ -289,33 +294,136 @@
     }, [data]);
     function close() { setOpen(false); requestAnimationFrame(() => triggerRef.current?.focus({ preventScroll: true })); }
     return h(window.React.Fragment, null,
-      h('div', { className: 'atlas-invitation' },
-        h('span', { 'aria-hidden': 'true' }, '⌖'),
-        h('div', null, h('strong', null, 'Um mundo de conhecimento aguarda'), h('p', null, 'Atravesse seis regiões e descubra as crônicas preservadas em cada território.')),
-        h('button', { type: 'button', ref: triggerRef, onClick: () => setOpen(true), 'aria-haspopup': 'dialog' }, 'Explorar o Mapa')
-      ),
+      editorial
+        ? h('div', { className: 'legacy-editorial__action legacy-editorial__action--map' },
+          h('figure', { className: 'legacy-editorial__preview' },
+            h('img', { src: ATLAS_BACKGROUND, alt: 'Prévia do mapa das Crônicas do Conhecimento', width: 1440, height: 810, loading: 'lazy', decoding: 'async' }),
+            h('button', { type: 'button', ref: triggerRef, onClick: () => setOpen(true), 'aria-haspopup': 'dialog', className: 'legacy-editorial__preview-button' }, 'Abrir o Atlas', h('span', { 'aria-hidden': 'true' }, '→')),
+            h('figcaption', null, h('span', null, 'Atlas do Conhecimento'), h('small', null, `${data.regions.length} regiões · ${totalChronicles} crônicas`))
+          )
+        )
+        : h('div', { className: 'atlas-invitation' },
+          h('span', { 'aria-hidden': 'true' }, '⌖'),
+          h('div', null, h('strong', null, 'Um mundo de conhecimento aguarda'), h('p', null, 'Atravesse seis regiões e descubra as crônicas preservadas em cada território.')),
+          h('button', { type: 'button', ref: triggerRef, onClick: () => setOpen(true), 'aria-haspopup': 'dialog' }, 'Explorar o Mapa')
+        ),
       open ? window.ReactDOM.createPortal(h(LeadershipAtlasModal, { data, onClose: close }), document.body) : null
     );
   }
 
-  function JourneyBanner({ data }) {
-    const [open, setOpen] = useState(false); const triggerRef = useRef(null); const dialogRef = useRef(null);
-    function close() { setOpen(false); requestAnimationFrame(() => triggerRef.current?.focus()); }
-    useEffect(() => { if (!open) return undefined; requestAnimationFrame(() => dialogRef.current?.querySelector('.journey-banner__close')?.focus()); const onKey = event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); close(); return; } if (event.key !== 'Tab') return; const controls = [...dialogRef.current.querySelectorAll('button:not([disabled]), a[href]')]; if (event.shiftKey && document.activeElement === controls[0]) { event.preventDefault(); controls.at(-1).focus(); } else if (!event.shiftKey && document.activeElement === controls.at(-1)) { event.preventDefault(); controls[0].focus(); } }; document.addEventListener('keydown', onKey, true); return () => document.removeEventListener('keydown', onKey, true); }, [open]);
+  function BannerIcon({ type }) {
+    const common = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.35, strokeLinecap: 'round', strokeLinejoin: 'round' };
+    if (type === 'students') return h('svg', { viewBox: '0 0 48 48', 'aria-hidden': 'true' },
+      h('path', { ...common, d: 'M7 12c7-2 12 0 17 4v24c-5-4-10-6-17-4V12Zm34 0c-7-2-12 0-17 4v24c5-4 10-6 17-4V12Z' }),
+      h('path', { ...common, d: 'm31 7 8 8m-11 6L41 8l-1-3-3-1-13 13-2 6 6-2Z' })
+    );
+    if (type === 'team') return h('svg', { viewBox: '0 0 48 48', 'aria-hidden': 'true' },
+      h('path', { ...common, d: 'M24 7 39 13v11c0 9-6 15-15 19C15 39 9 33 9 24V13L24 7Z' }),
+      h('path', { ...common, d: 'm16 20 3-7 5 5 5-5 3 7m-15 0h14v6H17v-6Z' })
+    );
+    return null;
+  }
+
+  function JourneyBanner({ data, editorial = false, onExploreChronicles }) {
+    const VX = window.VoiceExperience;
+    const [open, setOpen] = useState(false); const [activeRecord, setActiveRecord] = useState(null); const triggerRef = useRef(null); const dialogRef = useRef(null);
+    const { activeIndex, onTabKeyDown, setActiveIndex } = VX.useVoiceNavigation(data.categories.length);
+    const backStackRef = useRef([]); const recordRef = useRef(null);
+    recordRef.current = activeRecord;
+    const openerRef = useRef(null);
+    function openAt(index, opener) { openerRef.current = opener || triggerRef.current; setActiveIndex(index); setOpen(true); }
+    function close() { setOpen(false); requestAnimationFrame(() => (openerRef.current || triggerRef.current)?.focus({ preventScroll: true })); }
+    function exploreChronicles() { setOpen(false); requestAnimationFrame(() => onExploreChronicles?.()); }
+    useEffect(() => {
+      if (!open) return undefined;
+      const oldOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => dialogRef.current?.querySelector('.journey-banner__close')?.focus());
+      const onKey = event => {
+        if (event.key === 'Escape') {
+          event.preventDefault(); event.stopPropagation();
+          if (recordRef.current) { setActiveRecord(null); return; }
+          // Cada ambiente desfaz primeiro a própria camada (galeria, evento, livro) antes de fechar o modal.
+          const stack = backStackRef.current;
+          for (let at = stack.length - 1; at >= 0; at -= 1) if (stack[at].run()) return;
+          close();
+          return;
+        }
+        if (event.key !== 'Tab') return;
+        const layers = dialogRef.current.querySelectorAll('[data-voice-layer]');
+        const scope = layers.length ? layers[layers.length - 1] : dialogRef.current;
+        const controls = [...scope.querySelectorAll('button:not([disabled]), a[href], video[controls], audio[controls], summary')];
+        if (!controls.length) return;
+        if (!scope.contains(document.activeElement)) { event.preventDefault(); controls[0].focus(); }
+        else if (event.shiftKey && document.activeElement === controls[0]) { event.preventDefault(); controls.at(-1).focus(); }
+        else if (!event.shiftKey && document.activeElement === controls.at(-1)) { event.preventDefault(); controls[0].focus(); }
+      };
+      document.addEventListener('keydown', onKey, true);
+      return () => { document.removeEventListener('keydown', onKey, true); document.body.style.overflow = oldOverflow; };
+    }, [open]);
+    const activeCategory = data.categories[activeIndex];
+    const categoryTypes = VX.categoryTypes;
+    const authorizedRecords = useMemo(() => window.VoiceArchive.select(VX.environments[categoryTypes[activeIndex]], activeCategory.testimonials), [activeIndex, activeCategory]);
     const modal = open && h('div', { className: 'journey-banner', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'journey-banner-title', ref: dialogRef },
       h('div', { className: 'journey-banner__veil', onClick: close, 'aria-hidden': 'true' }),
-      h('section', { className: 'journey-banner__scroll' },
-        h('header', null, h('span', { 'aria-hidden': 'true' }, '⚑'), h('div', null, h('p', null, 'Legados da Liderança'), h('h4', { id: 'journey-banner-title' }, data.title), h('small', null, data.description)), h('button', { type: 'button', className: 'journey-banner__close', onClick: close, 'aria-label': 'Fechar o Estandarte' }, '×')),
-        h('div', { className: 'journey-banner__categories' }, data.categories.map(category => h('article', { key: category.id }, h('span', { 'aria-hidden': 'true' }, category.id === 'alunos' ? '✦' : category.id === 'equipe' ? '♜' : '◇'), h('h5', null, category.title), h('p', null, category.description), h('div', { className: 'journey-banner__empty' }, h('strong', null, 'Nenhum depoimento publicado'), h('small', null, 'Este espaço receberá registros originais quando houver autorização.'))))),
-        h('p', { className: 'journey-banner__note' }, 'Os depoimentos serão apresentados com autoria, relação profissional e contexto — sem nomes, avaliações ou métricas inventadas.')
+      h('section', { className: 'journey-banner__scroll', 'data-env': VX.environments[categoryTypes[activeIndex]] },
+        h('div', { className: 'journey-banner__glow', 'aria-hidden': 'true' }),
+        h('header', null,
+          h('span', { className: 'journey-banner__crest', 'aria-hidden': 'true' }, '⚑'),
+          h('div', null, h('p', null, 'Legados da Liderança'), h('h4', { id: 'journey-banner-title' }, 'O Estandarte das Vozes'), h('small', null, 'Histórias e registros da jornada compartilhados com autorização.')),
+          h('button', { type: 'button', className: 'journey-banner__close', onClick: close, 'aria-label': 'Fechar o Estandarte' }, '×')
+        ),
+        h('nav', { className: 'journey-banner__hall', role: 'tablist', 'aria-label': 'Categorias do Arquivo das Vozes' },
+          data.categories.map((category, index) => h('button', {
+            key: category.id,
+            type: 'button',
+            role: 'tab',
+            id: `banner-tab-${category.id}`,
+            className: `journey-banner__standard journey-banner__standard--${categoryTypes[index]}${index === activeIndex ? ' is-active' : ''}`,
+            'aria-selected': index === activeIndex,
+            'aria-controls': 'journey-banner-archive',
+            tabIndex: index === activeIndex ? 0 : -1,
+            onClick: () => setActiveIndex(index),
+            onKeyDown: event => onTabKeyDown(event, index),
+          },
+            h('span', { className: 'journey-banner__standard-rail', 'aria-hidden': 'true' }),
+            h('span', { className: 'journey-banner__standard-cloth' },
+              h(BannerIcon, { type: categoryTypes[index] }),
+              h('strong', null, category.title),
+              h('small', null, category.description)
+            )
+          ))
+        ),
+        h('section', { key: activeCategory.id, className: 'journey-banner__archive', id: 'journey-banner-archive', role: 'tabpanel', 'aria-labelledby': `banner-tab-${activeCategory.id}`, tabIndex: 0 },
+          h(VX.Experience, { type: categoryTypes[activeIndex], records: authorizedRecords, onExploreChronicles: exploreChronicles, onOpenRecord: setActiveRecord, backRef: backStackRef })
+        ),
+        h('p', { className: 'journey-banner__note' }, 'Os registros serão apresentados com autoria, contexto e autorização — sem nomes, avaliações ou métricas inventadas.'),
+        activeRecord && h(VX.RecordDialog, { record: activeRecord, onClose: () => setActiveRecord(null) })
       )
     );
     return h(window.React.Fragment, null,
-      h('div', { className: 'journey-banner__invitation' }, h('span', { 'aria-hidden': 'true' }, '⚑'), h('div', null, h('strong', null, 'O Estandarte aguarda suas primeiras vozes'), h('p', null, 'A estrutura está pronta para receber apenas depoimentos reais e autorizados.')), h('button', { type: 'button', ref: triggerRef, onClick: () => setOpen(true) }, 'Explorar o Estandarte')),
+      editorial
+        ? h('div', { className: 'legacy-editorial__action legacy-editorial__action--voices' },
+          window.LivingLionGuardian
+            ? h(window.LivingLionGuardian, null)
+            : h('div', { className: 'legacy-editorial__voices-preview', 'aria-hidden': 'true' },
+              h('span', { className: 'legacy-editorial__quote-mark' }, '“'),
+              h('div', { className: 'legacy-editorial__voices-copy' }, h('small', null, 'O Estandarte das Vozes'), h('strong', null, 'Vozes preservadas com contexto e autorização.')),
+              h('div', { className: 'legacy-editorial__pennant' }, h('i', null, '⚑'), h('b', null))
+            ),
+          h('nav', { className: 'legacy-editorial__legacies', 'aria-label': 'Abrir um dos legados' },
+            data.categories.map((category, index) => {
+              const label = { alunos: 'Aprendizes', equipe: 'Guilda' }[category.id] || category.title;
+              return h('button', { key: category.id, type: 'button', 'aria-haspopup': 'dialog', 'aria-label': `${label} — ${category.title}`, onClick: event => openAt(index, event.currentTarget) }, label);
+            })
+          ),
+          h('button', { type: 'button', ref: triggerRef, onClick: event => openAt(activeIndex, event.currentTarget), 'aria-haspopup': 'dialog', className: 'legacy-editorial__cta' }, 'Explorar as Vozes', h('span', { 'aria-hidden': 'true' }, '→'))
+        )
+        : h('div', { className: 'journey-banner__invitation' }, h('span', { 'aria-hidden': 'true' }, '⚑'), h('div', null, h('strong', null, 'O Estandarte aguarda suas primeiras vozes'), h('p', null, 'A estrutura está pronta para receber apenas depoimentos reais e autorizados.')), h('button', { type: 'button', ref: triggerRef, onClick: () => setOpen(true) }, 'Explorar o Estandarte')),
       open ? window.ReactDOM.createPortal(modal, document.body) : null
     );
   }
 
   window.JourneyKnowledgeMap = JourneyKnowledgeMap;
-  window.JourneyBanner = JourneyBanner;
+  if (window.VoiceExperience && window.VoiceArchive) window.JourneyBanner = JourneyBanner;
 })();
