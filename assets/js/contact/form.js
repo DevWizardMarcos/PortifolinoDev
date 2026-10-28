@@ -1,19 +1,37 @@
+const CONTACT_EMAIL = "mp718887@gmail.com";
+
+// Serviço estático (sem backend próprio): FormSubmit entrega a mensagem no email.
+// Na primeira vez, o FormSubmit envia um email de ativação para CONTACT_EMAIL.
 export async function submitContact(payload) {
-  const response = await fetch("http://127.0.0.1:8000/contato", {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
+  const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
+    signal: controller.signal,
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      ...payload,
+      _subject: "Novo contato pelo portfólio",
+      _template: "table",
+      _captcha: "false",
+    }),
   });
 
+  clearTimeout(timeout);
   const result = await response.json().catch(() => null);
-  if (!response.ok) {
-    const detail = typeof result?.detail === "string" ? result.detail : null;
-    throw new Error(detail || `Falha no envio (HTTP ${response.status}). Tente novamente.`);
+  if (!response.ok || result?.success === "false" || result?.success === false) {
+    throw new Error(result?.message || `Falha no envio (HTTP ${response.status}). Tente novamente.`);
   }
 
   return result;
+}
+
+// Último recurso: abre o cliente de email do visitante com a mensagem preenchida.
+function openMailto(payload) {
+  const body = `${payload.message}
+
+— ${payload.name} (${payload.email})`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Contato pelo portfólio")}&body=${encodeURIComponent(body)}`;
 }
 
 export function setupContactForm(section, scene) {
@@ -109,9 +127,8 @@ export function setupContactForm(section, scene) {
       }, 7000);
     } catch (error) {
       setStatus("error");
-      feedback.textContent = error instanceof TypeError
-        ? "Sem conexão com o serviço de envio. Verifique se o backend está em execução."
-        : error.message || "Não foi possível enviar a carta. Tente novamente.";
+      feedback.textContent = "Não foi possível enviar agora. Abrindo seu email para enviar a carta…";
+      openMailto(payload);
     } finally {
       fields.forEach((field) => (field.readOnly = false));
       form.setAttribute("aria-busy", "false");

@@ -1,4 +1,4 @@
-// Memórias Interativas — modal imersivo com três abas (Memórias, Tour 360°, Diário da Jornada).
+// Memórias Interativas — modal imersivo com três abas (Memórias, Passeio pela escola [só desktop], Diário da Jornada).
 // Recebe os dados de window.infinityMemories (ou de outro arquivo com a mesma estrutura) e expõe
 // window.JourneyMemories para o capítulo que o abre. O estado (aba, foto e ponto) sobrevive ao
 // fechamento, para que reabrir continue de onde o visitante parou.
@@ -10,8 +10,8 @@
   const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pad = number => String(number).padStart(2, '0');
   const TABS = [
-    { id: 'memories', label: 'Memórias', icon: '✦' },
-    { id: 'tour', label: 'Tour 360°', icon: '◎' },
+    { id: 'memories', label: 'Memórias', icon: '✦', mobileOnly: true },
+    { id: 'walk', label: 'Passeio pela escola', icon: '◎', desktopOnly: true },
     { id: 'diary', label: 'Diário da Jornada', icon: '❦' },
   ];
   const saved = {};
@@ -239,6 +239,201 @@
     );
   }
 
+  // ---------- Passeio pela escola (desktop): caminhar de foto em foto, estilo Street View ----------
+  const DESKTOP_QUERY = '(min-width: 1025px) and (hover: hover) and (pointer: fine)';
+  function useDesktop() {
+    const [matches, setMatches] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
+    useEffect(() => {
+      const query = window.matchMedia(DESKTOP_QUERY);
+      const update = () => setMatches(query.matches);
+      query.addEventListener('change', update);
+      return () => query.removeEventListener('change', update);
+    }, []);
+    return matches;
+  }
+
+  function MemoryWalk({ data, index, setIndex, controlsRef }) {
+    const places = data.memories;
+    const total = places.length;
+    const place = places[index];
+    const viewportRef = useRef(null);
+    const panRef = useRef(null);
+    const placeRef = useRef(place);
+    const target = useRef({ x: 0, y: 0, z: 1 });
+    const current = useRef({ x: 0, y: 0, z: 1 });
+    const hover = useRef({ x: 0, y: 0 });
+    const drag = useRef(null);
+    const timer = useRef(null);
+    const [leaving, setLeaving] = useState(null);
+    const [spotId, setSpotId] = useState(null);
+    const [hint, setHint] = useState(true);
+    placeRef.current = place;
+    const last = index === total - 1;
+    const next = places[index + 1];
+
+    // Largura da foto: cobre a janela, mas nunca é ampliada além de 1,5x o tamanho real (evita borrar).
+    function geometry() {
+      const el = viewportRef.current;
+      const item = placeRef.current;
+      const itemRatio = item.width / item.height;
+      const vw = el ? el.clientWidth : 1;
+      const vh = el ? el.clientHeight : 1;
+      const width = Math.min(Math.max(vw, vh * itemRatio), item.width * 1.5);
+      const zMax = Math.max(1, Math.min(3, (item.width * 2.2) / width));
+      return { vw, vh, width, height: width / itemRatio, zMax };
+    }
+    const limit = (value, max) => Math.min(max, Math.max(-max, value));
+    function bounds(z, g) {
+      return { x: Math.max(0, (g.width * z - g.vw) / 2), y: Math.max(0, (g.height * z - g.vh) / 2) };
+    }
+    function aim(change) {
+      const g = geometry();
+      const t = { ...target.current, ...change };
+      t.z = Math.min(g.zMax, Math.max(1, t.z));
+      const b = bounds(t.z, g);
+      t.x = limit(t.x, b.x);
+      t.y = limit(t.y, b.y);
+      target.current = t;
+    }
+
+    // Loop de animação: a câmera persegue o alvo com inércia (sem re-renderizar o React a cada quadro).
+    useEffect(() => {
+      let frame = 0;
+      function tick() {
+        const pan = panRef.current;
+        if (pan) {
+          const g = geometry();
+          const t = target.current;
+          const c = current.current;
+          const b = bounds(t.z, g);
+          const goalX = limit(t.x + hover.current.x * Math.min(b.x, 60), b.x);
+          const goalY = limit(t.y + hover.current.y * Math.min(b.y, 30), b.y);
+          c.x += (goalX - c.x) * 0.12;
+          c.y += (goalY - c.y) * 0.12;
+          c.z += (t.z - c.z) * 0.14;
+          pan.style.width = `${g.width}px`;
+          pan.style.setProperty('--x', `${c.x.toFixed(2)}px`);
+          pan.style.setProperty('--y', `${c.y.toFixed(2)}px`);
+          pan.style.setProperty('--z', c.z.toFixed(4));
+        }
+        frame = requestAnimationFrame(tick);
+      }
+      frame = requestAnimationFrame(tick);
+      return () => { cancelAnimationFrame(frame); clearTimeout(timer.current); };
+    }, []);
+
+    useEffect(() => {
+      target.current = { x: 0, y: 0, z: 1 };
+      current.current = { x: 0, y: 0, z: 1 };
+    }, [index]);
+
+    useEffect(() => {
+      [places[index + 1], places[index - 1]].filter(Boolean).forEach(item => {
+        const image = new Image();
+        image.decoding = 'async';
+        image.src = item.src;
+      });
+    }, [index]);
+
+    function travel(toIndex) {
+      if (toIndex === index || toIndex < 0 || toIndex >= total) return;
+      const step = toIndex > index ? 1 : -1;
+      setLeaving({ place, step, width: panRef.current?.style.width, key: `${place.id}-${Date.now()}` });
+      clearTimeout(timer.current);
+      timer.current = setTimeout(() => setLeaving(null), 900);
+      setSpotId(null);
+      setHint(false);
+      setIndex(toIndex);
+    }
+
+    controlsRef.current = ({ pan = 0, step = 0, zoom = 1 }) => {
+      setHint(false);
+      if (step) travel(index + step);
+      if (pan) aim({ x: target.current.x - pan * 160 });
+      if (zoom !== 1) aim({ z: target.current.z * zoom });
+    };
+
+    function onPointerDown(event) {
+      if (event.button !== 0 || event.target.closest('button')) return;
+      drag.current = { x: event.clientX, y: event.clientY, tx: target.current.x, ty: target.current.y };
+      event.currentTarget.setPointerCapture(event.pointerId);
+      setHint(false);
+    }
+    function onPointerMove(event) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      hover.current = { x: -((event.clientX - rect.left) / rect.width - 0.5) * 2, y: -((event.clientY - rect.top) / rect.height - 0.5) * 2 };
+      const d = drag.current;
+      if (d) aim({ x: d.tx + event.clientX - d.x, y: d.ty + event.clientY - d.y });
+    }
+    function onPointerUp() { drag.current = null; }
+    function onPointerLeave() { hover.current = { x: 0, y: 0 }; }
+    function onWheel(event) {
+      setHint(false);
+      aim({ z: target.current.z * (event.deltaY < 0 ? 1.15 : 1 / 1.15) });
+    }
+
+    const layerStyle = item => ({ '--ratio': `${item.width} / ${item.height}`, '--ratio-num': item.width / item.height });
+    const direction = leaving ? (leaving.step > 0 ? 'forward' : 'back') : '';
+
+    return h('div', { className: 'journey-memories__walk' },
+      h('div', {
+        className: 'journey-memories__walk-view',
+        ref: viewportRef,
+        onPointerDown,
+        onPointerMove,
+        onPointerUp,
+        onPointerCancel: onPointerUp,
+        onPointerLeave,
+        onWheel,
+        onDoubleClick: () => aim({ x: 0, y: 0, z: 1 }),
+      },
+        leaving && h('div', { key: leaving.key, className: `journey-memories__walk-layer is-leaving is-${direction}`, style: layerStyle(leaving.place), 'aria-hidden': 'true' },
+          h('img', { className: 'journey-memories__walk-backdrop', src: leaving.place.src, alt: '', draggable: false }),
+          h('div', { className: 'journey-memories__walk-pan', style: { width: leaving.width } },
+            h('img', { src: leaving.place.src, alt: '', draggable: false }))
+        ),
+        h('div', { key: place.id, className: `journey-memories__walk-layer${direction ? ` is-entering is-${direction}` : ''}`, style: layerStyle(place) },
+          h('img', { className: 'journey-memories__walk-backdrop', src: place.src, alt: '', draggable: false, 'aria-hidden': 'true' }),
+          h('div', { className: 'journey-memories__walk-pan', ref: panRef },
+            h('img', { src: place.src, alt: place.alt, width: place.width, height: place.height, decoding: 'async', draggable: false })
+          )
+        ),
+        h('div', { className: 'journey-memories__walk-shade', 'aria-hidden': 'true' })
+      ),
+      h('div', { className: 'journey-memories__walk-info', key: `info-${place.id}` },
+        h('span', null, `${pad(index + 1)} / ${pad(total)}`),
+        h('strong', null, place.title),
+        h('em', null, place.caption),
+        h('small', null, data.period || '')
+      ),
+      h('ol', { className: 'journey-memories__walk-map', 'aria-label': 'Percurso pela escola' },
+        places.map((item, itemIndex) => h('li', { key: item.id },
+          h('button', {
+            type: 'button',
+            title: item.title,
+            'aria-label': `${itemIndex + 1}. ${item.title}`,
+            'aria-current': itemIndex === index ? 'true' : undefined,
+            onClick: () => travel(itemIndex),
+          })
+        ))
+      ),
+      hint && h('p', { className: 'journey-memories__walk-hint', 'aria-hidden': 'true' },
+        'Arraste para olhar ao redor · roda do mouse para aproximar · ▲ ou ↑ para avançar'),
+      h('div', { className: 'journey-memories__walk-nav', role: 'group', 'aria-label': 'Caminhar' },
+        h('button', { type: 'button', className: 'is-side', disabled: index === 0, onClick: () => travel(index - 1), 'aria-label': 'Voltar ao ambiente anterior' },
+          h('span', { 'aria-hidden': 'true' }, '▼'), 'Voltar'),
+        last
+          ? h('button', { type: 'button', className: 'is-main', onClick: () => travel(0), 'aria-label': 'Recomeçar o passeio pela entrada' },
+            h('span', { 'aria-hidden': 'true' }, '↺'), 'Recomeçar pela entrada')
+          : h('button', { type: 'button', className: 'is-main', onClick: () => travel(index + 1), 'aria-label': `Avançar para ${next.title}` },
+            h('span', { 'aria-hidden': 'true' }, '▲'), next.title),
+        h('div', { className: 'is-zoom' },
+          h('button', { type: 'button', onClick: () => aim({ z: target.current.z * 1.3 }), 'aria-label': 'Aproximar' }, '+'),
+          h('button', { type: 'button', onClick: () => aim({ z: target.current.z / 1.3 }), 'aria-label': 'Afastar' }, '−'))
+      )
+    );
+  }
+
   // ---------- Diário da Jornada ----------
   function MemoryDiary({ diary }) {
     return h('ol', { className: 'journey-memories__diary' },
@@ -257,13 +452,17 @@
   function JourneyMemories({ data, onClose, returnFocusRef }) {
     const key = data.title;
     const state = saved[key] || { tab: 'memories', index: 0, hotspot: null };
-    const [tab, setTab] = useState(state.tab);
+    const desktop = useDesktop();
+    const [tabState, setTab] = useState(state.tab);
+    // No desktop o Passeio substitui as Memórias; no celular/tablet só as Memórias existem.
+    const tabs = TABS.filter(item => desktop ? !item.mobileOnly : !item.desktopOnly);
+    const tab = tabs.some(item => item.id === tabState) ? tabState : tabs[0].id;
     const [index, setIndexState] = useState(state.index);
     const [hotspotId, setHotspotId] = useState(state.hotspot);
     const dialogRef = useRef(null);
     const closeRef = useRef(null);
     const detailRef = useRef(null);
-    const tourControlsRef = useRef(null);
+    const walkControlsRef = useRef(null);
     const live = useRef({});
     live.current = { tab, index, hotspotId, onClose };
     saved[key] = { tab, index, hotspot: hotspotId };
@@ -322,11 +521,14 @@
             setHotspotId(null);
             return;
           }
-          if (currentTab === 'tour' && tourControlsRef.current) {
-            const zoom = event.key === '+' || event.key === '=' ? 0.85 : event.key === '-' ? 1.18 : 1;
-            if (arrow || zoom !== 1) {
+          if (currentTab === 'walk' && walkControlsRef.current) {
+            const key = event.key;
+            const action = key === 'ArrowLeft' ? { pan: -1 } : key === 'ArrowRight' ? { pan: 1 }
+              : key === 'ArrowUp' ? { step: 1 } : key === 'ArrowDown' ? { step: -1 }
+              : key === '+' || key === '=' ? { zoom: 1.15 } : key === '-' ? { zoom: 1 / 1.15 } : null;
+            if (action) {
               event.preventDefault();
-              tourControlsRef.current({ yaw: arrow * 0.2, zoom });
+              walkControlsRef.current(action);
               return;
             }
           }
@@ -355,16 +557,16 @@
 
     // Setas dentro da lista de abas trocam de aba (padrão WAI-ARIA), sem trocar de fotografia.
     function handleTabsKeydown(event) {
-      const position = TABS.findIndex(item => item.id === tab);
+      const position = tabs.findIndex(item => item.id === tab);
       let next = null;
-      if (event.key === 'ArrowRight') next = (position + 1) % TABS.length;
-      if (event.key === 'ArrowLeft') next = (position - 1 + TABS.length) % TABS.length;
+      if (event.key === 'ArrowRight') next = (position + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (position - 1 + tabs.length) % tabs.length;
       if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = TABS.length - 1;
+      if (event.key === 'End') next = tabs.length - 1;
       if (next === null) return;
       event.preventDefault();
       event.stopPropagation();
-      selectTab(TABS[next].id, true);
+      selectTab(tabs[next].id, true);
     }
 
     // Renderizado no topo do diálogo do capítulo: o painel tem transform, que prenderia o `position: fixed`.
@@ -390,7 +592,7 @@
             'aria-label': 'Seções das memórias',
             onKeyDown: handleTabsKeydown,
           },
-            TABS.map(item => h('button', {
+            tabs.map(item => h('button', {
               key: item.id,
               type: 'button',
               role: 'tab',
@@ -423,7 +625,7 @@
             setHotspotId,
             detailRef,
           }),
-          tab === 'tour' && h(MemoryTour, { tour: data.tour, title: data.title, controlsRef: tourControlsRef }),
+          tab === 'walk' && h(MemoryWalk, { data, index, setIndex, controlsRef: walkControlsRef }),
           tab === 'diary' && h(MemoryDiary, { diary: data.diary })
         )
       )

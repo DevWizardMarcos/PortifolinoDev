@@ -30,7 +30,7 @@
 
 .voice-environment__intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr); gap: .15rem 1.5rem; align-items: end; margin-bottom: 1.1rem; }
 .voice-environment__intro p { grid-column: 1; margin: 0; color: var(--env-b); font: 700 .66rem/1.3 Cinzel,serif; letter-spacing: .1em; text-transform: uppercase; }
-.voice-environment__intro h6 { grid-column: 1; margin: 0; color: #ead5a6; font: 700 clamp(1rem,1.8vw,1.3rem)/1.3 Cinzel,serif; text-wrap: balance; }
+.voice-environment__intro h5 { grid-column: 1; margin: 0; color: #ead5a6; font: 700 clamp(1rem,1.8vw,1.3rem)/1.3 Cinzel,serif; text-wrap: balance; }
 .voice-environment__intro > span { grid-column: 2; grid-row: 1 / 3; max-width: 56ch; color: #b6a5a5; font: .78rem/1.55 Lora,serif; }
 .voice-environment__chronicles { display: block; margin: 1.1rem auto 0; padding: .7rem 1.1rem; border: 1px solid #d8b66c; color: #170a10; background: #d8b66c; font: 700 .68rem/1.25 Cinzel,serif; }
 .voice-environment__chronicles:hover { background: #ead5a6; }
@@ -81,9 +81,9 @@
 .voice-page { min-width: 0; padding: clamp(1.1rem,3.2vw,2.5rem) clamp(1.1rem,3.6vw,2.8rem); color: #3b211d; overflow: auto; max-height: clamp(310px,52dvh,560px); scrollbar-color: #8a6a3a transparent; }
 .voice-page--left { background: linear-gradient(90deg, #d9c18c, #ead8ae 70%, #d2b67e); }
 .voice-page--right { background: linear-gradient(90deg, #d2b67e, #ead8ae 30%, #dcc590); }
-.voice-page__kicker { margin: 0 0 .5rem; color: #7c4b2d; font: 700 .64rem/1.3 Cinzel,serif; letter-spacing: .1em; text-transform: uppercase; }
-.voice-page__title { margin: 0 0 .8rem; color: #3b211d; font: 700 clamp(1.1rem,2.2vw,1.55rem)/1.25 Cinzel,serif; text-wrap: balance; }
-.voice-page__text { margin: 0 0 .8rem; color: #45291f; font: .88rem/1.7 Lora,serif; }
+.voice-page__kicker { margin: 0 0 .5rem; color: #472418; font: 700 .64rem/1.3 Cinzel,serif; letter-spacing: .1em; text-transform: uppercase; }
+.voice-page__title { margin: 0 0 .8rem; color: #24110e; font: 700 clamp(1.1rem,2.2vw,1.55rem)/1.25 Cinzel,serif; text-wrap: balance; }
+.voice-page__text { margin: 0 0 .8rem; color: #301713; font: .88rem/1.7 Lora,serif; }
 .voice-page__text--quote { font-style: italic; font-size: .96rem; }
 .voice-page__pending { margin: 1.2rem 0 0; padding-top: .8rem; border-top: 1px solid rgba(124,75,45,.4); color: #6b3d2a; font: italic 700 .84rem/1.5 Lora,serif; }
 .voice-page__topics { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .7rem; }

@@ -21,7 +21,8 @@ const photo = (name, width, height) => ({
 return {
   title: 'Infinity School',
   place: 'Belo Horizonte',
-  credit: 'Fotografias: tour virtual público da Infinity School no Google Maps.',
+  period: 'Fotografias de 2023 a 2024',
+  credit: 'Fotografias de 2023 a 2024: tour virtual público da Infinity School no Google Maps.',
 
   diary: [
     {

@@ -55,4 +55,23 @@
 @media (max-width: 600px) {
   .hc__viewport { aspect-ratio: 4 / 3; }
 }
-.hc__note { margin: 0; color: #8f8083; font: italic .72rem/1.5 Lora, serif; text-align: center; }
+.hc__note { margin: 0; color: rgba(244,231,209,.78); font: italic .72rem/1.5 Lora, serif; text-align: center; }
+
+/* O Hackathon City divide a tela com a crônica no Atlas. Em landscape baixo,
+   reduz apenas o chrome para a arte, as ações e a nota caberem sem sobreposição. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hc { gap: .35rem; padding: .4rem; overflow-y: hidden; }
+  .hc__viewport { max-height: none; }
+  .hc__controls { gap: .3rem; }
+  .hc__buttons { gap: .35rem; }
+  .hc__buttons button,
+  .hc__link,
+  .hc__sound button,
+  .hc__inspect button {
+    min-height: 36px;
+    padding: .3rem .6rem;
+    font-size: .58rem;
+  }
+  .hc__buttons .is-quiet { flex-basis: 100%; min-height: 32px; }
+  .hc__note { font-size: .68rem; line-height: 1.35; }
+}

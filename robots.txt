@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devwizardmarcos.github.io/PortifolinoDev/sitemap.xml

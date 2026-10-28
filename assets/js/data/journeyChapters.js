@@ -13,7 +13,7 @@
 //   theme, themeRgb — cor do capítulo
 //   story        — opcional: cenas sequenciais exibidas antes do resumo. Cada cena aceita:
 //                  id, kicker, title, narrative,
-//                  assets   { shot?, shotAlt?, shotFocus? } — ilustração em tela cheia (ex.: cena 2)
+//                  assets   { shot?, shotAlt?, shotFocus?, shotFit? } — ilustração em tela cheia (ex.: cena 2)
 //                  lighting { moon, candle, monitor, blue, omen } — intensidades de 0 a 1
 //                  avatar   { state: idle | focus | typing }
 //                  screen   (dim | lesson | code | site), notebook (few | notes | wireframe)
@@ -63,6 +63,7 @@ return [
           shot: 'assets/img/Jornada/comecando-curiosidade.webp',
           shotAlt: 'O avatar de Marcos, pensativo, diante do laptop em um quarto gótico à noite, com a lua na janela, velas acesas e um caderno de ideias aberto em 2020.',
           shotFocus: '45% 40%',
+          shotFit: 'contain',
         },
         lighting: { moon: 1, candle: 1, monitor: 0.2, blue: 0.15, omen: 0 },
         avatar: { state: 'idle' },
@@ -195,7 +196,7 @@ return [
       image: 'assets/img/Jornada/entrando na infinity.webp',
       imageAlt: 'Marcos entrando na Infinity School com uma mochila, em um ambiente iluminado por tons roxos e dourados',
       imageFocus: '50% 50%',
-      imageFit: 'cover',
+      imageFit: 'contain',
       hoverImage: 'assets/img/Jornada/saindo.webp',
       hoverImageAlt: 'Marcos de frente ao entrar na Infinity School',
       memories: { source: 'infinityMemories', label: 'Memórias Interativas da Infinity School' },

@@ -60,7 +60,7 @@
       objective: detailed.objective || source.construction || source.solution,
       accentColor: detailed.accentColor || source.accentColor || '#9b7845',
       signatureLogo: ({
-        '#7254a8': 'LogoRoxa.png',
+        '#7254a8': 'LogoRoxa.webp',
         '#a7333d': 'LogoVermelha.png'
       })[(detailed.accentColor || source.accentColor || '').toLowerCase()] || 'LogoDourada.png',
       techGroups: detailed.techGroups || fallbackTechGroups,

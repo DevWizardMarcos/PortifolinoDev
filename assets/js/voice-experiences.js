@@ -153,7 +153,7 @@
 
   function EnvironmentIntro({ kicker, title, text }) {
     return h('div', { className: 'voice-environment__intro' },
-      h('p', null, kicker), h('h6', null, title), text && h('span', null, text));
+      h('p', null, kicker), h('h5', null, title), text && h('span', null, text));
   }
 
   function Chips({ label, items, value, onChange, allLabel = 'Todos' }) {

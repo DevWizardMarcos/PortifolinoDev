@@ -202,7 +202,7 @@
     }
 
     return h('figure', {
-      className: `journey-cinematic__scene journey-scene--${variant} ${story.className}${activeShot ? ' is-shot' : ''}`,
+      className: `journey-cinematic__scene journey-scene--${variant} ${story.className}${activeShot ? ' is-shot' : ''}${memoriesFor(chapter) ? ' has-tour-trigger' : ''}`,
       ref: sceneRef,
       style: story.style,
       ...story.data,
@@ -236,7 +236,7 @@
       // para que a troca de cena seja um crossfade, sem esperar o download.
       shots.map(shot => h('div', {
         key: shot.src,
-        className: `journey-scene__shot${shot.src === activeShot ? ' is-active' : ''}${shot.fit === 'cover' ? ' is-cover' : ''}${shot.hoverSrc ? ' has-hover-image' : ''}`,
+        className: `journey-scene__shot${shot.src === activeShot ? ' is-active' : ''}${shot.fit === 'cover' ? ' is-cover' : ''}${shot.fit === 'contain' ? ' is-contain' : ''}${shot.hoverSrc ? ' has-hover-image' : ''}`,
         style: { '--shot-focus': shot.focus || '50% 50%' },
         'aria-hidden': shot.src === activeShot ? undefined : 'true',
       },
@@ -251,7 +251,6 @@
             inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
             objectPosition: shot.focus || '50% 50%',
           },
         }),
@@ -546,7 +545,7 @@
 
     const storyShots = scenes
       .filter(scene => scene.assets?.shot)
-      .map(scene => ({ src: scene.assets.shot, alt: scene.assets.shotAlt, focus: scene.assets.shotFocus }));
+      .map(scene => ({ src: scene.assets.shot, alt: scene.assets.shotAlt, focus: scene.assets.shotFocus, fit: scene.assets.shotFit }));
     const shots = chapter.scene.image
       ? [{
         src: chapter.scene.image,

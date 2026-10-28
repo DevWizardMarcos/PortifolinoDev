@@ -162,3 +162,29 @@
   .chess-victory blockquote { display:none; }
   .chess-victory__actions { flex-direction:column; }
 }
+
+/* O santuário aparece dentro de metade do Atlas em celulares deitados. Nesse
+   espaço, prioriza o tabuleiro e remove os retratos laterais que causavam corte. */
+@media (orientation:landscape) and (max-height:520px) {
+  .sanctuary-scene__scroll { overflow:auto; }
+  .chess-sanctuary__header { grid-template-columns:auto minmax(0,1fr) auto; gap:.35rem; padding:.35rem .45rem .15rem; }
+  .chess-sanctuary__header p { display:none; }
+  .chess-sanctuary__header h4 { padding:0 .7rem; font-size:.8rem; }
+  .chess-sanctuary__header h4::before,
+  .chess-sanctuary__header h4::after { display:none; }
+  .chess-sanctuary__header nav { gap:.25rem; }
+  .chess-sanctuary__header button { min-height:34px; padding:.3rem .45rem; }
+  .chess-mode-selector { gap:.35rem; padding:.35rem .45rem .2rem; }
+  .chess-mode-selector button { min-width:0; min-height:38px; padding:.35rem .5rem; font-size:.58rem; }
+  .chess-opponent { display:none; }
+  .chess-sanctuary__arena { display:block; padding:.25rem .45rem .5rem; }
+  .chess-profile { display:none; }
+  .chess-game { width:min(100%,280px); margin:0 auto; padding:5px; }
+  .chess-status { min-height:28px; padding:.25rem .4rem; }
+  .chess-status strong { font-size:.62rem; }
+  .chess-status span { font-size:.56rem; }
+  .medieval-board { width:min(100%,220px); padding:5px; }
+  .chess-game__actions { margin-top:.35rem; }
+  .chess-game__actions button { min-height:34px; padding:.3rem .4rem; font-size:.54rem; }
+  .chess-history { display:none; }
+}

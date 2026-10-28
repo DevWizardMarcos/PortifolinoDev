@@ -34,7 +34,9 @@
     gate.setAttribute('role', 'button');
     gate.setAttribute('aria-controls', chapters[index].id);
     gate.setAttribute('aria-expanded', 'false');
-    gate.setAttribute('aria-label', `Abrir o portal ${gateLabel(index)}`);
+    // Mantém o nome acessível igual ao rótulo visível; leitores de voz conseguem
+    // localizar o controle dizendo exatamente o texto exibido no portal.
+    gate.setAttribute('aria-label', gate.textContent.trim().replace(/\s+/g, ' '));
     gate.tabIndex = index === 0 ? 0 : -1;
   });
 
