@@ -3,9 +3,9 @@
   if (!window.React || !window.ReactDOM) return;
   const h = window.React.createElement;
   const { useEffect, useLayoutEffect, useMemo, useRef, useState } = window.React;
-  const JOURNEY_AVATAR = 'assets/img/Jornada/avatar de lado.png';
+  const JOURNEY_AVATAR = 'assets/img/Jornada/avatar de lado.webp';
   const ATLAS_BACKGROUND = 'assets/img/Portais/Captulo IV/atlas-strategy-chamber-optimized.jpg';
-  const ATLAS_OBSERVER = 'assets/img/Portais/Captulo IV/atlas-avatar-observer-v2-optimized.png';
+  const ATLAS_OBSERVER = 'assets/img/Portais/Captulo IV/atlas-avatar-observer-v2-optimized.webp';
   const REGION_PLACEMENT = [
     { x: 18, y: 25, size: 25 }, { x: 48, y: 19, size: 23 }, { x: 79, y: 25, size: 25 },
     { x: 29.5, y: 69, size: 22.5 }, { x: 54, y: 66, size: 27 }, { x: 83, y: 70, size: 23 },

@@ -2717,7 +2717,7 @@ body {
 }
 
 #banner {
-  background-image: url("../img/bannerPrincipalDev.png");
+  background-image: url("../img/bannerPrincipalDev.webp");
   background-size: cover;
   background-position: center;
   min-height: 55vw;
@@ -3022,7 +3022,7 @@ nav {
 
 /* ===== Seção Salão ===== */
 #Salao {
-  background-image: url("../img/bannerSalao.png");
+  background-image: url("../img/bannerSalao.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4604,7 +4604,7 @@ nav {
   min-height: 100vh;
   padding: clamp(5rem, 8vw, 7.5rem) 1.5rem 4rem;
   overflow: hidden;
-  background-image: url("../img/bannerSalao.png");
+  background-image: url("../img/bannerSalao.webp");
   background-position: center top;
   background-size: cover;
   background-attachment: fixed;
@@ -5002,7 +5002,7 @@ nav {
       transparent 44%
     ),
     linear-gradient(180deg, rgba(5, 3, 10, 0.28), rgba(7, 4, 12, 0.5)),
-    url("../img/portal/portal.png");
+    url("../img/portal/portal.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -5028,7 +5028,7 @@ nav {
       rgba(4, 2, 8, 0.42)
     ),
     linear-gradient(180deg, rgba(10, 6, 16, 0.04), rgba(8, 4, 13, 0.2)),
-    url("../img/portal/interno.png");
+    url("../img/portal/interno.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -5050,7 +5050,7 @@ nav {
       rgba(4, 2, 8, 0.34)
     ),
     linear-gradient(180deg, rgba(10, 6, 16, 0.02), rgba(8, 4, 13, 0.14)),
-    url("../img/portal/interno.png");
+    url("../img/portal/interno.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

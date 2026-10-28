@@ -11,11 +11,11 @@
   const { useEffect, useRef, useState } = window.React;
 
   const VORTEX = {
-    azul: 'assets/img/Portais/vortice-azul.png.png',
-    laranja: 'assets/img/Portais/vortice-laranja.png',
-    roxo: 'assets/img/Portais/vortice-roxo.png',
-    vermelho: 'assets/img/Portais/vortice-vermelho.png',
-    dourado: 'assets/img/Portais/vortice-dourado.png',
+    azul: 'assets/img/Portais/vortice-azul.png.webp',
+    laranja: 'assets/img/Portais/vortice-laranja.webp',
+    roxo: 'assets/img/Portais/vortice-roxo.webp',
+    vermelho: 'assets/img/Portais/vortice-vermelho.webp',
+    dourado: 'assets/img/Portais/vortice-dourado.webp',
   };
   const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
   const CROSSING_MS = 180;

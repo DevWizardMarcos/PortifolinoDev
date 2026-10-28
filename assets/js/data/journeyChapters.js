@@ -20,8 +20,8 @@
 //                  effects  [runes, interface, sweep]
 //                  camera   { zoom, x, y } — x/y em %; transition: fade | shot
 window.journeyChapters = (() => {
-const AVATAR_FRONT = 'assets/img/Jornada/avatar de frente.png';
-const AVATAR_SIDE = 'assets/img/Jornada/avatar de lado.png';
+const AVATAR_FRONT = 'assets/img/Jornada/avatar de frente.webp';
+const AVATAR_SIDE = 'assets/img/Jornada/avatar de lado.webp';
 
 return [
   {
@@ -60,7 +60,7 @@ return [
         title: 'Toda jornada começa com uma pergunta.',
         narrative: 'Em 2020, a programação ainda era um território desconhecido para mim. Mas a curiosidade começou a falar mais alto, e foi ela que abriu o primeiro portal da minha jornada.',
         assets: {
-          shot: 'assets/img/Jornada/comecando-curiosidade.jpg',
+          shot: 'assets/img/Jornada/comecando-curiosidade.webp',
           shotAlt: 'O avatar de Marcos, pensativo, diante do laptop em um quarto gótico à noite, com a lua na janela, velas acesas e um caderno de ideias aberto em 2020.',
           shotFocus: '45% 40%',
         },
@@ -152,7 +152,7 @@ return [
       label: 'A oficina do artesão',
       avatar: AVATAR_FRONT,
       avatarAlt: 'Avatar de Marcos trabalhando em uma forja medieval iluminada por brasas',
-      image: 'assets/img/Jornada/Ms Negocios.png',
+      image: 'assets/img/Jornada/Ms Negocios.webp',
       imageAlt: 'Marcos desenvolvendo a identidade e o site da MS Negócios em uma oficina arcana',
       imageFocus: '50% 50%',
       portal: 'laranja',
@@ -192,11 +192,11 @@ return [
       label: 'O alto da torre',
       avatar: AVATAR_SIDE,
       avatarAlt: 'Avatar de Marcos no alto de uma torre arcana cercado por livros flutuantes',
-      image: 'assets/img/Jornada/entrando na infinity.png',
+      image: 'assets/img/Jornada/entrando na infinity.webp',
       imageAlt: 'Marcos entrando na Infinity School com uma mochila, em um ambiente iluminado por tons roxos e dourados',
       imageFocus: '50% 50%',
       imageFit: 'cover',
-      hoverImage: 'assets/img/Jornada/saindo.png',
+      hoverImage: 'assets/img/Jornada/saindo.webp',
       hoverImageAlt: 'Marcos de frente ao entrar na Infinity School',
       memories: { source: 'infinityMemories', label: 'Memórias Interativas da Infinity School' },
       portal: 'roxo',
@@ -267,7 +267,7 @@ return [
       label: 'A mesa do conselho',
       avatar: AVATAR_SIDE,
       avatarAlt: 'Avatar de Marcos diante de uma mesa de conselho com estandartes e mapas',
-      image: 'assets/img/Portais/Captulo IV/avatart capitulo IV.png',
+      image: 'assets/img/Portais/Captulo IV/avatart capitulo IV.webp',
       imageAlt: 'Marcos planejando aulas, projetos e mentorias em uma biblioteca arcana da Infinity School',
       imageFocus: '50% 50%',
       imageFit: 'cover',

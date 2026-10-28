@@ -274,9 +274,9 @@
         h('div', { className: 'voice-library__glow', 'aria-hidden': 'true' }),
         !book.open
           ? h('button', { type: 'button', ref: coverRef, className: 'voice-book-closed', onClick: () => book.setOpen(true), 'aria-label': 'Abrir O Livro dos Aprendizados' },
-            h('img', { className: 'voice-book-closed__art', src: 'assets/img/legados/livro-aprendizados-fechado.png', alt: '', 'aria-hidden': 'true', decoding: 'async' }),
+            h('img', { className: 'voice-book-closed__art', src: 'assets/img/legados/livro-aprendizados-fechado.webp', alt: '', 'aria-hidden': 'true', decoding: 'async' }),
             h('span', { className: 'voice-book-closed__label' },
-              h('span', { className: 'voice-book-closed__sigil', 'aria-hidden': 'true' }, h('img', { src: 'assets/img/legados/simbolo-backend-chapeu.png', alt: '', decoding: 'async' })),
+              h('span', { className: 'voice-book-closed__sigil', 'aria-hidden': 'true' }, h('img', { src: 'assets/img/legados/simbolo-backend-chapeu.webp', alt: '', decoding: 'async' })),
               h('strong', null, 'O Livro dos Aprendizados'),
               h('small', null, 'Clique para abrir')
             )

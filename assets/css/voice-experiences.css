@@ -57,7 +57,7 @@
 .voice-library__scene {
   position: relative; display: grid; place-items: center; min-height: clamp(430px,62dvh,720px); padding: 1.2rem .6rem 4.4rem; overflow: hidden;
   border-block: 1px solid rgba(216,182,108,.24); perspective: 1600px;
-  background: linear-gradient(180deg, rgba(10,5,9,.25), rgba(10,5,9,.1) 40%, rgba(10,5,9,.45)), url('../img/legados/biblioteca-fundo.png') center bottom / cover no-repeat, #0f070d;
+  background: linear-gradient(180deg, rgba(10,5,9,.25), rgba(10,5,9,.1) 40%, rgba(10,5,9,.45)), url('../img/legados/biblioteca-fundo.webp') center bottom / cover no-repeat, #0f070d;
 }
 .voice-library__shelves { display: none; position: absolute; inset: 0; opacity: .42; background:
   repeating-linear-gradient(90deg, #5b1c2c 0 9px, #2c0f1a 9px 15px, #7a5a2c 15px 21px, #3a1424 21px 30px, #4d2a1c 30px 37px, #20101a 37px 44px),

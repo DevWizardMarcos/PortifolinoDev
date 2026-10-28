@@ -7,11 +7,11 @@
   const CHALLENGE_FEN = '7k/8/5KQ1/8/8/8/8/8 w - - 0 1';
   const CHALLENGE_MOVE = Object.freeze({ from: 'g6', to: 'g7' });
   const ASSETS = Object.freeze({
-    background: 'assets/img/Portais/Captulo IV/santuario-catedral.png',
-    aline: 'assets/img/Portais/Capitulo V/Aline do Xeque em Energia Azul.png',
-    alice: 'assets/img/Portais/Capitulo V/Alice do Xeque em Energia Azul.png',
-    alineVictory: 'assets/img/Portais/Captulo IV/aline-victory-ceremony.png',
-    aliceVictory: 'assets/img/Portais/Captulo IV/alice-victory-ceremony.png',
+    background: 'assets/img/Portais/Captulo IV/santuario-catedral.webp',
+    aline: 'assets/img/Portais/Capitulo V/Aline do Xeque em Energia Azul.webp',
+    alice: 'assets/img/Portais/Capitulo V/Alice do Xeque em Energia Azul.webp',
+    alineVictory: 'assets/img/Portais/Captulo IV/aline-victory-ceremony.webp',
+    aliceVictory: 'assets/img/Portais/Captulo IV/alice-victory-ceremony.webp',
     chessPieces: 'assets/img/chess/cm-chessboard-standard.svg',
   });
   const PIECE_NAMES = { p: 'peão', n: 'cavalo', b: 'bispo', r: 'torre', q: 'dama', k: 'rei' };

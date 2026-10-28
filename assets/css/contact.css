@@ -24,7 +24,7 @@
 }
 .contact-parchment::before {
   content: ''; position: absolute; z-index: -1; inset: -18% 0 -10%;
-  background: url('../img/formulario/pergaminhoAberto.png') center / 100% 100% no-repeat;
+  background: url('../img/formulario/pergaminhoAberto.webp') center / 100% 100% no-repeat;
   pointer-events: none;
 }
 .contact-parchment:focus { outline: none; }
@@ -121,7 +121,7 @@
      and corners on a tall letter without stretching them into long ovals. */
   .contact-parchment::before {
     background: none; inset: 0; border: 70px solid transparent;
-    border-image-source: url('../img/formulario/pergaminhoAberto.png');
+    border-image-source: url('../img/formulario/pergaminhoAberto.webp');
     border-image-slice: 280 120 220 120 fill; border-image-width: 100px 30px 80px 30px;
     border-image-repeat: stretch;
   }

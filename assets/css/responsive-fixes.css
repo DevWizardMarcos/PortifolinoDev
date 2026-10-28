@@ -1,0 +1,52 @@
+/* Ajustes de legibilidade no mobile: nenhum texto abaixo de 12px e
+   contraste maior nas dicas de rolagem. Carregado por último. */
+@media (max-width: 900px) {
+  .hero-kicker,
+  .hero-actions a,
+  .hero-xp span,
+  .hero-xp small,
+  .scroll-cue span,
+  .author-chapter,
+  .author-art figcaption,
+  .journey-portals__chapter,
+  .journey-gate__title,
+  .spell-library__header > span,
+  .spell-library__hint,
+  .spell-library__hint span,
+  .legacy-chapter,
+  .legacy-enter strong,
+  .hall-scroll-hint,
+  .hall-stage-heading > span,
+  .legacy-tree-core > span,
+  .display-relic > header span,
+  .display-relic > footer span,
+  .display-relic > footer b,
+  .examine-relic,
+  .portal-kicker,
+  .archive-preview small,
+  .crystal-key small,
+  .legacy-continue strong,
+  .contact-heading > span {
+    font-size: max(12px, 0.75rem);
+  }
+
+  .hero-copy .hero-kicker {
+    font-size: 12px !important;
+  }
+
+  .legacy-tree-core span,
+  .portal-reward > span,
+  .portal-reward .discover-legacies {
+    font-size: max(12px, 0.75rem);
+  }
+
+  .scroll-cue,
+  .hall-scroll-hint,
+  .spell-library__hint {
+    color: rgba(244, 236, 220, 0.86);
+  }
+
+  .hero-xp small {
+    color: rgba(219, 207, 183, 0.85);
+  }
+}

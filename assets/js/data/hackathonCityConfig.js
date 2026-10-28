@@ -20,7 +20,7 @@
     stage: { width: W, height: H },
 
     assets: {
-      composite: 'assets/img/Portais/Captulo IV/hackathon-arena.jpg',
+      composite: 'assets/img/Portais/Captulo IV/hackathon-arena.webp',
       // Camadas independentes (null = ainda não produzida). Ordem de baixo para cima.
       layers: {
         sky: null,            // Layer 0 — céu e lua
