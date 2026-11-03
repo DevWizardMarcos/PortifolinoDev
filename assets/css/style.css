@@ -102,7 +102,7 @@
   transform: translateX(-50%) rotate(45deg);
 }
 .spell-library__arch span::after {
-  content: "✦";
+  content: "";
   position: absolute;
   inset: 11px;
   display: grid;
@@ -8955,6 +8955,29 @@ nav {
   }
 }
 
+/* Tablet: a frase do guardião sobe para cima do gato e não encosta mais no cristal. */
+@media (max-width: 1024px) {
+  .guardian-presence {
+    display: block;
+    transform: translateY(1.5rem);
+  }
+
+  .guardian-presence .guardian-portraits {
+    width: clamp(90px, 14vw, 110px);
+  }
+
+  .guardian-presence .guardian-copy {
+    position: absolute;
+    left: 8px;
+    bottom: calc(100% + 0.25rem);
+    width: 180px;
+    padding: 0;
+    /* Folga extra: a orelha/cauda do gato não pode encostar no texto. */
+    transform: translateY(-4.6rem);
+    text-shadow: 0 2px 10px #000;
+  }
+}
+
 @media (max-width: 760px) {
   .portal-scene {
     height: 740px;
@@ -9653,6 +9676,11 @@ button.corridor-relic-frame {
     left: 72%;
   }
 
+  .crystal-key small {
+    padding: 0.4rem 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
   .arcane-circle {
     left: 62%;
     width: 390px;
@@ -9851,6 +9879,23 @@ button.corridor-relic-frame {
     transform: translateY(46px);
   }
 }
+@media (min-width: 761px) and (max-width: 1024px) {
+  .archive-threshold .guardian-presence {
+    display: block;
+    padding: 0;
+    border-left: 0;
+  }
+  /* Frase acima do gato, longe do botão "Toque o cristal". */
+  .archive-threshold .guardian-presence .guardian-copy {
+    position: absolute;
+    left: 8px;
+    bottom: calc(100% + 0.25rem);
+    width: 180px;
+    max-width: 180px;
+    padding: 0;
+    transform: translateY(-4.6rem);
+  }
+}
 @media (max-width: 760px) {
   .archive-threshold[data-portal-state="open"] .portal-reward {
     top: 40%;
@@ -10003,6 +10048,34 @@ button.corridor-relic-frame {
     .discover-legacies {
     max-width: calc(100% - 1rem);
     font-size: 0.52rem;
+  }
+}
+
+/* Tablet/mobile: o texto do botão quebra dentro da caixa em vez de vazar. */
+@media (max-width: 1024px) {
+  .archive-threshold[data-portal-state="open"] .portal-reward {
+    height: 240px;
+  }
+  .archive-threshold[data-portal-state="open"]
+    .portal-reward
+    .discover-legacies {
+    width: calc(100% - 2rem);
+    max-width: none;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0.7rem 0.9rem;
+  }
+  .archive-threshold[data-portal-state="open"]
+    .portal-reward
+    .discover-legacies::before {
+    display: none;
+  }
+  .archive-threshold[data-portal-state="open"]
+    .portal-reward
+    .discover-legacies
+    b {
+    margin-left: 0.4rem;
   }
 }
 
@@ -14631,7 +14704,7 @@ button.corridor-relic-frame {
 }
 
 .grimoire__archivist-note::before {
-  content: "✧";
+  content: "";
   position: absolute;
   top: 8px;
   left: -8px;
@@ -16163,6 +16236,16 @@ button.corridor-relic-frame {
   .energy-path {
     left: 50%;
     width: min(78%, 330px);
+  }
+
+  /* Cristal e botão centralizados na cena; gato menor, no canto, sem competir com o cristal. */
+  .crystal-key {
+    left: 50%;
+    bottom: 26%;
+  }
+
+  .guardian-presence {
+    display: none;
   }
 }
 

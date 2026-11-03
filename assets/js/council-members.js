@@ -124,7 +124,7 @@
     if (!member.skills?.length) return null;
     return h('section', { className: 'council-modal__section council-modal__reveal', 'aria-labelledby': 'council-skills-title' },
       h('h6', { id: 'council-skills-title' }, 'Habilidades'),
-      h('ul', { className: 'council-modal__seals' }, member.skills.map(skill => h('li', { key: skill }, h('span', { 'aria-hidden': 'true' }, '✦'), skill))));
+      h('ul', { className: 'council-modal__seals' }, member.skills.map(skill => h('li', { key: skill }, skill))));
   }
 
   function CouncilMemberRecords({ member, records, onOpenRecord }) {

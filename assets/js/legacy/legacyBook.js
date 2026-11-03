@@ -137,7 +137,7 @@
   }
 
   function TechGroup(group) {
-    return `<section class="tech-group"><h3>${escapeHtml(group.title)}</h3><div>${(group.items || []).map(item => `<article class="tech-entry"><span aria-hidden="true">✦</span><p><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.description)}</small></p></article>`).join('')}</div></section>`;
+    return `<section class="tech-group"><h3>${escapeHtml(group.title)}</h3><div>${(group.items || []).map(item => `<article class="tech-entry"><p><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.description)}</small></p></article>`).join('')}</div></section>`;
   }
 
   function ProjectStackPage(project) {
@@ -173,13 +173,13 @@
     remaining.forEach(id => { levels[id] = level; });
     const maxLevel = Math.max(...Object.values(levels), 0);
     const largestRow = Math.max(...Array.from({ length: maxLevel + 1 }, (_, current) => nodes.filter(node => levels[node.id] === current).length));
-    const width = architecture.expanded ? Math.max(700, largestRow * 260 + 40) : 1000;
+    const width = architecture.expanded ? Math.max(700, largestRow * 260 + 40) : (190 * largestRow + 30); // largura ajustada às colunas: sem vazio lateral, o texto não encolhe no celular
     const height = architecture.expanded ? 130 + maxLevel * 130 : 500;
     const positions = {};
     for (let current = 0; current <= maxLevel; current += 1) {
       const row = nodes.filter(node => levels[node.id] === current);
       row.forEach((node, index) => {
-        positions[node.id] = { x: architecture.expanded ? width / 2 + (index - (row.length - 1) / 2) * 260 : ((index + 1) * width) / (row.length + 1), y: 65 + current * ((height - 130) / Math.max(maxLevel, 1)) };
+        positions[node.id] = { x: width / 2 + (index - (row.length - 1) / 2) * (architecture.expanded ? 260 : 190), y: 65 + current * ((height - 130) / Math.max(maxLevel, 1)) };
       });
     }
     return { nodes, edges, positions, width, height };
@@ -199,7 +199,7 @@
       const position = layout.positions[node.id];
       const lines = node.label.split(/\s*\/\s*/);
       const label = lines.map((line, index) => `<tspan x="0" y="${(index - (lines.length - 1) / 2) * 22}">${escapeHtml(line)}</tspan>`).join('');
-      return `<g class="architecture-node" transform="translate(${position.x} ${position.y})"><rect x="-105" y="-28" width="210" height="56" rx="5"/><text text-anchor="middle" dominant-baseline="middle">${label}</text></g>`;
+      return `<g class="architecture-node" transform="translate(${position.x} ${position.y})"><rect x="${architecture.expanded ? -105 : -90}" y="-28" width="${architecture.expanded ? 210 : 180}" height="56" rx="5"/><text text-anchor="middle" dominant-baseline="middle">${label}</text></g>`;
     }).join('');
     return `<div class="architecture-diagram${architecture.expanded ? ' architecture-diagram--expanded' : ''}" role="img" aria-label="Diagrama da arquitetura de ${escapeHtml(layout.nodes.map(node => node.label).join(', '))}"><svg viewBox="0 0 ${layout.width} ${layout.height}" preserveAspectRatio="xMidYMid meet"><defs><marker id="book-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" /></marker></defs>${paths}${nodes}</svg></div>`;
   }

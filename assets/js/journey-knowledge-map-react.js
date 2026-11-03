@@ -16,7 +16,6 @@
 
   function ExplorerProgress({ visited, total }) {
     return h('div', { className: 'atlas-progress', role: 'status', 'aria-live': 'polite', title: `${visited} de ${total} crônicas exploradas` },
-      h('span', { 'aria-hidden': 'true' }, '✦'),
       h('div', null, h('strong', null, `${visited}/${total}`), h('small', null, 'Diário do Explorador')),
       h('i', { 'aria-hidden': 'true' }, h('b', { style: { '--atlas-progress': `${total ? visited / total * 100 : 0}%` } }))
     );
@@ -90,7 +89,7 @@
         key: `morph-toggle-${sceneKey}`, type: 'button', className: 'atlas-gallery__morph-toggle',
         'aria-pressed': morphPaused, onClick: () => setMorphPaused(paused => !paused),
         'aria-label': `${morphPaused ? 'Retomar' : 'Pausar'} a transição para a segunda arte: ${morph.alt}`,
-      }, h('span', { 'aria-hidden': 'true' }, morphPaused ? '❚❚ Pausado · clique para retomar' : '✦ Passe o mouse · clique para pausar')),
+      }, h('span', { 'aria-hidden': 'true' }, morphPaused ? '❚❚ Pausado · clique para retomar' : 'Passe o mouse · clique para pausar')),
       outgoing && h('span', { key: `sweep-${sceneKey}`, className: 'atlas-gallery__sweep', 'aria-hidden': 'true' }),
       h('span', { className: 'atlas-gallery__light', 'aria-hidden': 'true' }),
       presenter && h('img', { className: 'atlas-gallery__presenter', src: JOURNEY_AVATAR, alt: '', 'aria-hidden': 'true' }),
@@ -110,7 +109,7 @@
           region.chronicles.map((item, index) => h('button', {
             key: item.id, type: 'button', role: 'listitem', className: visited.has(item.id) ? 'is-visited' : '', onClick: () => onChronicle(index),
           },
-            h('span', { 'aria-hidden': 'true' }, visited.has(item.id) ? '✓' : '✦'),
+            h('span', { 'aria-hidden': 'true' }, visited.has(item.id) ? '✓' : ''),
             h('span', null, h('strong', null, item.title), h('small', null, visited.has(item.id) ? 'Explorada — abrir novamente' : 'Abrir crônica'))
           ))
         )

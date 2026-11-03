@@ -1986,7 +1986,7 @@ html.journey-modal-open main { visibility: hidden; }
   .journey-scene__avatar { right: 0; width: 47%; height: 92%; }
   .journey-cinematic__eyebrow,
   .journey-cinematic__progress { font-size: max(0.75rem, 12px); }
-  .journey-cinematic__close { flex: 0 0 44px; width: 44px; height: 44px; }
+  .journey-cinematic__close { flex: 0 0 32px; width: 32px; height: 32px; border: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 1.3rem !important; }
   .journey-scene__shot.is-contain .journey-scene__shot-main {
     object-fit: contain;
     background: #05040c;
@@ -2000,7 +2000,7 @@ html.journey-modal-open main { visibility: hidden; }
   .journey-cinematic__eyebrow { font-size: 0.75rem; }
   .journey-cinematic__progress { min-width: auto; font-size: 0.75rem; letter-spacing: 0.06em; }
   .journey-cinematic__header-actions { gap: 0.4rem; }
-  .journey-cinematic__close { flex: 0 0 44px; width: 44px; height: 44px; }
+  .journey-cinematic__close { flex: 0 0 32px; width: 32px; height: 32px; border: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 1.3rem !important; }
   .journey-cinematic__scene { height: 72vw; min-height: 250px; max-height: 330px; }
   .journey-cinematic__scene.has-tour-trigger figcaption {
     top: 0.65rem;

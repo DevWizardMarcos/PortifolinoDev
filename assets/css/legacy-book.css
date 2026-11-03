@@ -116,26 +116,6 @@
     inset 0 0 38px rgba(0, 0, 0, 0.42);
 }
 
-.book-cover::before,
-.book-cover::after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  top: 3%;
-  bottom: 3%;
-  width: 8px;
-  border: 1px solid rgba(77, 54, 29, 0.24);
-  background: repeating-linear-gradient(90deg, #bca779 0 1px, #ded0ad 1px 2px);
-  opacity: 0.65;
-}
-
-.book-cover::before {
-  left: 0.22rem;
-}
-.book-cover::after {
-  right: 0.22rem;
-}
-
 .book-panel {
   position: relative;
   z-index: 3;
@@ -175,11 +155,6 @@
       rgba(120, 82, 37, 0.06) 0 1px,
       transparent 2px
     ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 25px,
-      rgba(86, 64, 38, 0.028) 25px 26px
-    ),
     linear-gradient(
       105deg,
       #dcc79e,
@@ -190,7 +165,6 @@
   background-size:
     73px 91px,
     91px 67px,
-    auto,
     auto;
 }
 
@@ -201,11 +175,6 @@
       rgba(120, 82, 37, 0.07) 0 1px,
       transparent 2px
     ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 25px,
-      rgba(86, 64, 38, 0.028) 25px 26px
-    ),
     linear-gradient(
       75deg,
       #c7ad7e,
@@ -215,16 +184,7 @@
     );
   background-size:
     83px 77px,
-    auto,
     auto;
-}
-
-.book-page::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 1px solid rgba(90, 63, 35, 0.16);
-  pointer-events: none;
 }
 
 .book-page__eyebrow {
@@ -252,6 +212,8 @@
     700 clamp(1.2rem, 2.1vw, 1.72rem)/1.15 Cinzel,
     serif;
   letter-spacing: 0.035em;
+  /* A sombra herdada do modal borrava o título no papel claro. */
+  text-shadow: none;
 }
 
 .book-page__rule {
@@ -1099,9 +1061,10 @@
     padding: 1.6rem 1.25rem 2.6rem;
   }
   .book-page--right {
-    border-top: 7px double rgba(83, 57, 31, 0.35);
+    border-top: 0;
   }
   .book-spine {
+    display: none;
     top: 50%;
     right: 0;
     bottom: auto;
@@ -1152,10 +1115,10 @@
     width: 100%;
   }
   .architecture-diagram {
-    min-height: 270px;
+    min-height: 0;
   }
   .architecture-diagram svg {
-    height: 290px;
+    height: auto;
   }
 }
 

@@ -107,7 +107,8 @@
   @keyframes contact-arrive { from { opacity: .4; translate: -12px -20px; } to { opacity: 1; translate: 0 0; } }
 }
 @media (max-width: 1000px) {
-  .contact-parchment { width: calc(100% - 175px); padding-inline: 6%; }
+  /* padding-bottom maior estende o papel para baixo: selo e "Selar e enviar" ficam dentro do pergaminho. */
+  .contact-parchment { width: calc(100% - 175px); padding-inline: 6%; padding-bottom: 96px; }
   .contact-owl { width: 180px; height: 230px; }
   .contact-inkpot { width: 120px; height: 111px; left: 15px; top: 420px; }
   .contact-feather { width: 94px; height: 141px; }
@@ -115,7 +116,8 @@
 @media (max-width: 680px) {
   .contact-section { padding: 4rem .65rem 2rem; }
   .contact-open { width: min(320px, 85%); margin-block: 1.5rem 2rem; }
-  .contact-desk { padding-top: 200px; }
+  .contact-heading { margin-bottom: 3rem; }
+  .contact-desk { padding-top: 250px; }
   .contact-parchment { width: 100%; margin: 0; padding: 70px 9% 48px; }
   /* Slice the supplied image at its paper center: preserve the scroll rods
      and corners on a tall letter without stretching them into long ovals. */
@@ -129,7 +131,7 @@
   .contact-field:has([name="name"]), .contact-field:has([name="email"]) { grid-column: 1; }
   .contact-parchment h3 { font-size: 1.4rem; }
   .contact-owl { width: 170px; height: 200px; left: 0; top: 0; }
-  .contact-inkpot { width: 95px; height: 88px; left: auto; right: 80px; top: 115px; }
+  .contact-inkpot { width: 95px; height: 88px; left: auto; right: 6px; top: 100px; }
   .contact-feather { width: 68px; height: 102px; }
   .contact-footer { margin-top: .5rem; }
   .contact-demo-note { font-size: .65rem; }

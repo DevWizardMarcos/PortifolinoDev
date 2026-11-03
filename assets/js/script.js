@@ -1333,7 +1333,7 @@ function renderLegacySpellGrimoire(focusControl = false) {
         </aside>`;
   spellGrimoire.innerHTML = `
     <button class="spell-grimoire__close grimoire__close" type="button" aria-label="Fechar grimório">
-      <span aria-hidden="true">✦</span>
+      <span aria-hidden="true">×</span>
     </button>
     <div class="spell-grimoire__spread grimoire__spread">
       <article class="spell-grimoire__page grimoire__page grimoire__page--left">

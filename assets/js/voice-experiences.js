@@ -392,7 +392,7 @@
             onClick: () => (selectedSeatId === seat.id ? council.clear() : council.selectSeat(seat.id)),
             onMouseEnter: () => setHoverSeatId(seat.id), onMouseLeave: () => setHoverSeatId(null),
             onFocus: event => { if (event.currentTarget.matches(':focus-visible')) setHoverSeatId(seat.id); }, onBlur: () => setHoverSeatId(null),
-          }, h('span', { 'aria-hidden': 'true' }, live ? '✦' : index + 1), h('small', null, live ? member.name : (record?.title || 'Aguarda um conselheiro')));
+          }, h('span', { 'aria-hidden': 'true' }, live ? '' : index + 1), h('small', null, live ? member.name : (record?.title || 'Aguarda um conselheiro')));
         })),
         selectedSeat && !openMember && h(CouncilLetter, { key: selectedSeatId, record: selected, seat: selectedSeat, reserved: council.memberAt(selectedSeat.id), seatEl: seatRefs.current[selectedSeat.id], onOpen: onOpenRecord, onBack: council.clear }),
         COUNCIL_DEBUG && CM && h(CM.DebugPanel, { overrides, setOverride: (id, patch) => setOverrides(current => ({ ...current, [id]: { ...(current[id] || {}), ...patch } })) })

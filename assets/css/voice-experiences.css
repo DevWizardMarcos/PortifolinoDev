@@ -201,7 +201,7 @@
 }
 @media (max-width: 760px) {
   .journey-banner__scroll { width: 100%; max-height: 98dvh; padding: .8rem; }
-  .journey-banner__hall { padding-block: .7rem 1.6rem; }
+  .journey-banner__hall { padding-block: .7rem 1.6rem; gap: 1.5rem; }
   .journey-banner__standard-cloth { min-height: 128px; }
   .journey-banner__archive { padding: .9rem .1rem; }
   .voice-environment__intro { grid-template-columns: 1fr; }

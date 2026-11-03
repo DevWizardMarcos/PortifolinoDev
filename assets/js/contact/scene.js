@@ -69,7 +69,9 @@ export function createContactScene(section) {
     const tipX = w * (inked ? .10 : .08);
     const tipY = h * .97;
     let x = jar.left - origin.left + jar.width + 22;
-    let y = jar.top - origin.top + jar.height * .67;
+    // Celular: a pena em repouso sobe para sair de cima do tinteiro, que fica na borda da mesa.
+    const rest = window.matchMedia('(max-width: 680px)').matches ? -.35 : .67;
+    let y = jar.top - origin.top + jar.height * rest;
     if (phase === 'approach' || phase === 'dip' || phase === 'lift') {
       x = jar.left - origin.left + jar.width * .42;
       y = jar.top - origin.top + jar.height * (phase === 'dip' ? .38 : .19);

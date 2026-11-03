@@ -10,7 +10,7 @@
   const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pad = number => String(number).padStart(2, '0');
   const TABS = [
-    { id: 'memories', label: 'Memórias', icon: '✦', mobileOnly: true },
+    { id: 'memories', label: 'Memórias', icon: '', mobileOnly: true },
     { id: 'walk', label: 'Passeio pela escola', icon: '◎', desktopOnly: true },
     { id: 'diary', label: 'Diário da Jornada', icon: '❦' },
   ];

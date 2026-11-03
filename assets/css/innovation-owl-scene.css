@@ -29,6 +29,13 @@
   /* No celular a altura segue o palco, sem faixas pretas nem cortes. */
   .atlas-gallery__art:has(> .innovation-owl) { flex: none; width: 100%; height: auto !important; container-type: normal; }
   .innovation-owl { width: 100%; }
+  /* A cena é filha direta da galeria: empilha cena + texto (inclusive em celular deitado,
+     onde a galeria viraria 2 colunas e esticaria a coluna da cena, deixando faixa preta). */
+  .atlas-gallery--chronicle:has(> .innovation-owl) { display: block; height: auto; }
+  .atlas-gallery--chronicle:has(> .innovation-owl) > .innovation-owl { width: 100%; height: auto; }
+}
+@media (max-width: 760px) and (orientation: landscape) and (max-height: 520px) {
+  .atlas-gallery--chronicle:has(> .innovation-owl) { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   .innovation-owl.is-complete .innovation-owl__perched::after { animation: none; }

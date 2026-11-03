@@ -80,6 +80,7 @@
   .council-modal__figure img { max-height: 40dvh; }
   .council-modal__header { grid-template-columns: auto minmax(0,1fr) auto; gap: .7rem; }
   .council-modal__symbol { width: 44px; }
+  .council-modal__close { width: 32px; height: 32px; font-size: 1.1rem; }
   .council-roster { display: block; }
   .voice-council__hotspots { display: none; }
 }
