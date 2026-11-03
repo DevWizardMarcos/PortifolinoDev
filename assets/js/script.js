@@ -38,10 +38,7 @@ const frames = [
 btn?.addEventListener('click', () => {
     // Reseta a animação
     personagem.classList.remove('ativo');
-    void personagem.offsetWidth; // força o reflow
-
-    // Inicia
-    personagem.classList.add('ativo');
+    requestAnimationFrame(() => requestAnimationFrame(() => personagem.classList.add('ativo')));
 
     // Troca os frames (velocidade do sprite)
     let i = 0;
@@ -90,13 +87,13 @@ const projetos = [
     icone: '&#9881;'
   },
   {
-    titulo: 'Lumen Design',
-    categoria: 'design',
+    titulo: 'Portifolio Alice',
+    categoria: 'front',
     categoriaLabel: 'Experiência & UI/UX',
     descricao: 'Design de interfaces centradas em experiência, estética e performance.',
-    techs: ['Figma', 'PS', 'AE', 'CSS'],
-    impacto: 'alto',
-    nivel: '04',
+    techs: ['React', 'Vite', 'Node Js'],
+    impacto: 'Medio',
+    nivel: '03',
     icone: '&#10000;'
   },
   {
@@ -119,26 +116,136 @@ const projetos = [
     nivel: '04',
     icone: '&#9826;'
   },
+  {
+    titulo: 'Starbucks',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Code Stone',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Deadpool',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Garimpo',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'horizon',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'infinity Open',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Porfilio Alice',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Porfilio Alice',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
+  {
+    titulo: 'Wayne',
+    categoria: 'pessoal',
+    categoriaLabel: 'Projeto Pessoal',
+    descricao: 'Criando a Pagina do StartBucks',
+    techs: ['Html', 'Css', 'JavaScript'],
+    impacto: 'Medio',
+    nivel: '03',
+    icone: '&#9826;'
+  },
 ];
 
 // Metadados editoriais: fáceis de substituir quando screenshots e URLs reais estiverem disponíveis.
 const projectProfiles = [
-  { id: 'nexus-vision', category: 'full-stack', phase: 'Legado', featured: true, year: '2026', role: 'Desenvolvimento Full-Stack', image: null, demo: null, github: null },
-  { id: 'oraculo-ia', category: 'back-end', phase: 'Descoberta', featured: true, year: '2026', role: 'Arquitetura e Desenvolvimento', image: null, demo: null, github: null },
-  { id: 'forge-system', category: 'back-end', phase: 'Construção', featured: true, year: '2025', role: 'Desenvolvimento Back-End', image: null, demo: null, github: null },
-  { id: 'lumen-design', category: 'front-end', phase: 'Descoberta', featured: false, year: '2025', role: 'UI/UX e Front-End', image: null, demo: null, github: null },
-  { id: 'devwizard-portfolio', category: 'front-end', phase: 'Construção', featured: false, year: '2026', role: 'Design e Desenvolvimento', image: null, demo: null, github: 'https://github.com/DevWizardMarcos/PortifolinoDev' },
-  { id: 'connect-cnx', category: 'outros', phase: 'Legado', featured: false, year: '2025', role: 'Estratégia e Tecnologia', image: null, demo: null, github: null }
+  { id: 'savory', category: 'front-end', phase: 'Legado', featured: true, year: '2024', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/Savory.webp', demo:'https://devwizardmarcos.github.io/ReactSavory-/', github:'https://github.com/DevWizardMarcos/ReactSavory-' },
+  { id: 'behorner-control', category: 'full-stack', phase: 'Descoberta', featured: true, year: '2026', role: 'Arquitetura e Desenvolvimento', image: './assets/img/Projetos/BannerInfinityControl.webp', demo: null, github: null },
+  { id: 'Hacktohon', category: 'back-end', phase: 'Construção', featured: true, year: '2025', role: 'Desenvolvimento Back-End', image: './assets/img/Projetos/Hacktohon.webp', demo: null, github: null },
+  { id: 'Portifolio Alice', category: 'front-end', phase: 'Concluído', featured: false, year: '2025', role: 'UI/UX e Front-End', image: './assets/img/Projetos/Portifolio_Alice.webp', demo: 'https://template-super-modulo-react.vercel.app/', github: 'https://github.com/DevWizardMarcos/TemplateSuperModuloReact' },
+  { id: 'devwizard-portfolio', category: 'front-end', phase: 'Concluído', featured: false, year: '2026', role: 'Design e Desenvolvimento', image: './assets/img/Projetos/DevWizard.webp', demo: 'https://devwizardmarcos.github.io/PortifolinoDev/', github: 'https://github.com/DevWizardMarcos/PortifolinoDev' },
+  { id: 'starbucks', category: 'front-end', phase: 'Legado', featured: false, year: '2025', role: 'Projeto Pessoal', image: './assets/img/Projetos/StartBucks.webp', demo:'https://devwizardmarcos.github.io/Projeto-StarBucks-Old/', github:'https://github.com/DevWizardMarcos/Projeto-StarBucks-Old' },
+  { id: 'code-stone', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/CodeStone.webp', demo: null, github: null },
+  { id: 'deadpool', category: 'front-end', phase: 'Construção', featured: false, year: '2024', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/deadpoo.webp', demo:'https://devwizardmarcos.github.io/Deadpool-Ultima-Aventura-O-Fim-do-Jogo/', github:'https://github.com/DevWizardMarcos/Deadpool-Ultima-Aventura-O-Fim-do-Jogo' },
+  { id: 'garimpo', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/garimpo.webp', demo: null, github: null },
+  { id: 'horizon', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/horizon.webp', demo:'https://devwizardmarcos.github.io/formuluariohorizon/', github:'https://github.com/DevWizardMarcos/formuluariohorizon' },
+  { id: 'infinity-open', category: 'front-end', phase: 'Construção', featured: false, year: '2026', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/InfinityOpen.webp', demo:'https://devwizardmarcos.github.io/Infinity-Open-2026/', github:'https://github.com/DevWizardMarcos/Infinity-Open-2026' },
+  { id: 'wayne', category: 'front-end', phase: 'Construção', featured: false, year: '2025', role: 'Desenvolvimento Front-End', image: './assets/img/Projetos/wayne.webp', demo:'https://devwizardmarcos.github.io/Projeto_Wayne/', github:'https://github.com/DevWizardMarcos/Projeto_Wayne' }
 ];
 
 // Fonte central de projetos. Novas relíquias exigem alteração apenas neste array.
 const projects = [
-  { id:'savory', title:'Savory', image:'./assets/img/Projetos/Savory.png', shortDescription:'Experiência gastronômica digital para descoberta e exploração de receitas.', challenge:'Organizar a descoberta de receitas em uma experiência visual clara, convidativa e fácil de explorar.', construction:'A interface foi construída com foco na apresentação do conteúdo gastronômico, na hierarquia visual e na navegação responsiva.', legacy:'O projeto consolidou uma experiência digital com identidade própria para apresentar e explorar conteúdo gastronômico.', technologies:['React','Node','Chart.js','MongoDB'], contributions:['Interface','Responsividade'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Legado', year:2026, role:'Desenvolvimento Full-Stack', roleDescription:'Atuação no desenvolvimento da interface e da estrutura da experiência web.', accentColor:'#c69645', status:'completed', github:null, demo:null, featured:true, featuredOrder:1, icon:'&#8734;' },
-  { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.png', shortDescription:'Automação com IA para atendimento e apoio à tomada de decisões.', challenge:'Centralizar o atendimento e transformar informações em apoio prático para decisões, sem tornar o fluxo mais complexo.', construction:'A solução combina uma aplicação web em Flask, recursos de IA e um ambiente conteinerizado para organizar o fluxo de atendimento.', legacy:'A estrutura criada estabelece uma base evolutiva para automatizar o atendimento e apoiar decisões com informações organizadas.', technologies:['Python','GPT','Flask','Docker'], contributions:['Arquitetura da solução','Integração com IA'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', github:null, demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
-  { id:'forge-system', title:'Forge System', image:'./assets/img/Projetos/Hacktohon.png', shortDescription:'Gestão e automação de processos empresariais em uma única plataforma.', challenge:'Reunir fluxos de gestão e automação empresarial em um ambiente único e mais fácil de acompanhar.', construction:'Os processos foram estruturados em uma aplicação Django, com persistência em SQL e suporte do Redis ao processamento.', legacy:'O projeto deixou uma base centralizada para organizar processos empresariais e permitir a evolução da automação.', technologies:['Python','SQL','Django','Redis'], contributions:['Lógica de servidor','Organização dos dados'], category:'back-end', categoryLabel:'Back-End', chapter:'Capítulo IV', phase:'Construção', year:2025, role:'Desenvolvimento Back-End', roleDescription:'Atuação na construção da lógica de servidor e na organização dos dados da plataforma.', accentColor:'#7254a8', status:'development', github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
-  { id:'lumen-design', title:'Lumen Design', image:null, shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['Figma','Photoshop','After Effects','CSS'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Descoberta', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'coming-soon', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#10000;' },
-  { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:null, shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Construção', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'development', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:null, featured:false, featuredOrder:null, icon:'&#9670;' },
-  { id:'connect-cnx', title:'Connect CNX', image:null, shortDescription:'Estratégia digital focada em crescimento orgânico e presença online.', challenge:'Fortalecer a presença digital da empresa e criar caminhos mensuráveis para o crescimento orgânico.', solution:'A estratégia integra SEO, análise de métricas e otimização de conversão para orientar as ações digitais.', technologies:['SEO','Analytics','Ads','CRO'], technicalHighlights:['Análise de métricas','Otimização de conversão'], category:'outros', categoryLabel:'Marketing Digital', phase:'Legado', year:2025, role:'Estratégia e Tecnologia', roleDescription:'Atuação na estratégia digital e no uso de tecnologia para acompanhar os resultados.', status:'completed', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' }
+  { id:'savory', title:'Savory', image:'./assets/img/Projetos/Savory.webp', shortDescription:'Experiência gastronômica digital para descoberta e exploração de receitas.', challenge:'Organizar a descoberta de receitas em uma experiência visual clara, convidativa e fácil de explorar.', construction:'A interface foi construída com foco na apresentação do conteúdo gastronômico, na hierarquia visual e na navegação responsiva.', legacy:'O projeto consolidou uma experiência digital com identidade própria para apresentar e explorar conteúdo gastronômico.', technologies:['React 18','React Router','Vite','Node.js','CSS'], contributions:['Interface','Responsividade'], category:'front-end', categoryLabel:'Front-End', chapter:'Capítulo IV', phase:'Legado', year:2024, role:'Desenvolvimento Front-End', roleDescription:'Atuação no desenvolvimento da interface e da estrutura da experiência web.', accentColor:'#c69645', status:'completed', github:'https://github.com/DevWizardMarcos/ReactSavory-', demo:'https://devwizardmarcos.github.io/ReactSavory-/', featured:true, featuredOrder:1, icon:'&#8734;' },
+  { id:'behorner-control', title:'Behorner-Control', image:'./assets/img/Projetos/BannerInfinityControl.webp', shortDescription:'Controle completo de laboratórios em uma única plataforma, conectando gestão, automação e gerenciamento remoto de computadores.', construction:'Criado a partir da necessidade de acompanhar e controlar o estado dos computadores da Infinity School de forma centralizada, reduzindo verificações manuais e facilitando a gestão dos laboratórios.', legacy:'Pensado para dar à Aline, nossa mascote, uma presença ativa no ecossistema da escola, permitindo que ela acompanhe e tenha controle sobre os computadores dos laboratórios de forma centralizada.', technologies:['Python','FastAPI','SQLAlchemy','SSH','Wake-on-LAN','React','Vite'], contributions:['Arquitetura hexagonal','Controle remoto por sala'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Descoberta', year:2026, role:'Arquitetura e Desenvolvimento', roleDescription:'Responsável pela arquitetura da solução e pelo desenvolvimento de sua base técnica.', accentColor:'#a7333d', status:'development', guild:true, github:'https://github.com/DevWizardMarcos/Infinity-Control', demo:null, featured:true, featuredOrder:2, icon:'&#11041;' },
+  { id:'Hacktohon', title:'Hacktohon', image:'./assets/img/Projetos/Hacktohon.webp', shortDescription:'Vitrine onde alunos publicam seus projetos e empresas conhecem novos talentos. Fundação de contas e segurança já entregue.', challenge:'Dar visibilidade aos projetos dos alunos, começando por uma base de contas segura e testada.', construction:'A autenticação foi construída em FastAPI e SQLite, com sessão em cookie HttpOnly, recuperação de senha por e-mail e testes de integração.', legacy:'A fundação de acesso está pronta para receber as telas de Explorar, Perfil e Projeto em destaque.', technologies:['Python','FastAPI','SQLAlchemy','SQLite','JavaScript'], contributions:['Autenticação segura','Integração com as telas','Roadmap do produto'], category:'full-stack', categoryLabel:'Full-Stack', chapter:'Capítulo IV', phase:'Construção', year:2026, role:'Desenvolvimento Full-Stack', roleDescription:'Responsável pela integração do back-end de autenticação às telas e pela organização do roadmap da plataforma.', accentColor:'#7254a8', status:'development', guild:true, github:null, demo:null, featured:true, featuredOrder:3, icon:'&#9881;' },
+  { id:'Portifolio Alice', title:'Portifolio Alice', image:'./assets/img/Projetos/Portifolio_Alice.webp', shortDescription:'Interfaces centradas em experiência, estética e performance.', challenge:'Equilibrar identidade visual, clareza de uso e desempenho em experiências digitais consistentes.', solution:'A abordagem reúne prototipação e implementação visual para criar interfaces coerentes em diferentes telas.', technologies:['React','Vite','Node Js'], technicalHighlights:['Prototipação de interface','Layout responsivo'], category:'front-end', categoryLabel:'Experiência & UI/UX', phase:'Concluído', year:2025, role:'UI/UX e Front-End', roleDescription:'Responsável pela experiência visual e pela implementação das interfaces.', status:'completed', github:'https://github.com/DevWizardMarcos/TemplateSuperModuloReact', demo:'https://template-super-modulo-react.vercel.app/', featured:false, featuredOrder:null, icon:'&#10000;' },
+  { id:'devwizard-portfolio', title:'DevWizard Portfolio', image:'./assets/img/Projetos/DevWizard.webp', shortDescription:'Portfólio dark fantasy com narrativa, acessibilidade e identidade própria.', challenge:'Apresentar trajetória e projetos de forma memorável sem comprometer clareza, navegação e acessibilidade.', solution:'O portfólio usa uma narrativa RPG como camada editorial sobre uma estrutura web responsiva e acessível.', technologies:['HTML','CSS','JavaScript','Bootstrap'], contributions:['Direção visual','Construção da interface','Responsividade','Acessibilidade'], technicalHighlights:['Componentes orientados por dados','Interações com JavaScript nativo'], category:'front-end', categoryLabel:'Portfólio Pessoal', phase:'Concluído', year:2026, role:'Design e Desenvolvimento', roleDescription:'Responsável pela concepção visual, desenvolvimento front-end e experiência de navegação.', status:'completed', github:'https://github.com/DevWizardMarcos/PortifolinoDev', demo:'https://devwizardmarcos.github.io/PortifolinoDev/', featured:false, featuredOrder:null, icon:'&#9670;' },
+  { id:'starbucks', title:'StarBucks', image:'./assets/img/Projetos/StartBucks.webp', shortDescription:'Página temática inspirada na identidade visual da Starbucks.', challenge:'Revisitar um dos primeiros projetos e melhorar sua organização visual.', solution:'A página usa HTML e CSS para explorar hierarquia, espaçamento e destaque do produto.', technologies:['HTML','CSS'], technicalHighlights:['Composição visual','Fundamentos de HTML e CSS'], category:'front-end', categoryLabel:'Front-End', phase:'Legado', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Criação da estrutura HTML e da composição visual em CSS.', status:'completed', github:'https://github.com/DevWizardMarcos/Projeto-StarBucks-Old', demo:'https://devwizardmarcos.github.io/Projeto-StarBucks-Old/', featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'code-stone', title:'Code Stone', image:'./assets/img/Projetos/CodeStone.webp', shortDescription:'Plataforma educacional gamificada que transforma cursos em campanhas de RPG, com classes, cartas, missões e XP.', challenge:'Tornar o progresso do aluno visível e manter a motivação entre uma aula e outra.', solution:'Visão de produto, fluxo do aluno, arquitetura e roadmap documentados; front-end em React e TypeScript em construção.', technologies:['React 19','TypeScript','Vite','FastAPI (planejado)'], technicalHighlights:['Gamificação','Documentação de produto'], category:'full-stack', categoryLabel:'Full-Stack', phase:'Construção', year:2026, role:'Produto e Front-End', roleDescription:'Responsável pela concepção da academia, pela documentação de produto e pelo front-end.', status:'development', github:'https://github.com/DevWizardMarcos/AcademyStone', demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'deadpool', title:'Deadpool', image:'./assets/img/Projetos/deadpoo.webp', shortDescription:'Página temática com direção visual inspirada no personagem Deadpool.', challenge:'Traduzir uma referência visual forte em uma experiência web funcional e responsiva.', solution:'A interface foi organizada em torno de contraste, hierarquia visual e componentes interativos.', technologies:['HTML5','CSS3','Bootstrap 5.3','JavaScript'], technicalHighlights:['Página temática','Interações nativas'], category:'front-end', categoryLabel:'Front-End', phase:'Construção', year:2024, role:'Desenvolvimento Front-End', roleDescription:'Atuação na criação da identidade visual e das interações da página.', status:'completed', github:'https://github.com/DevWizardMarcos/Deadpool-Ultima-Aventura-O-Fim-do-Jogo', demo:'https://devwizardmarcos.github.io/Deadpool-Ultima-Aventura-O-Fim-do-Jogo/', featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'garimpo', title:'Garimpo', image:'./assets/img/Projetos/garimpo.webp', shortDescription:'Robô de ofertas com link de afiliado, publicação no Telegram e painel web de acompanhamento.', challenge:'Publicar ofertas sem repetições e sem perder o rastreio de afiliado.', solution:'Deal-bot em Python, painel em React e proxy Node para o agente de IA, orquestrados com Docker Compose.', technologies:['Python','React','Vite','Node.js','Docker'], technicalHighlights:['Redesign do painel','Projeto colaborativo'], category:'full-stack', categoryLabel:'Full-Stack', phase:'Construção', year:2026, role:'Front-End / Redesign do painel', roleDescription:'Redesenho do painel e da tela de login em um projeto colaborativo.', status:'development', github:null, demo:null, featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'horizon', title:'Horizon', image:'./assets/img/Projetos/horizon.webp', shortDescription:'Interface de login inspirada em Horizon Zero Dawn, com vídeo de fundo e efeitos CSS.', challenge:'Construir uma página temática com presença visual sem perder usabilidade.', solution:'O formulário combina campos nativos, painel translúcido, vídeo de fundo e animações CSS.', technologies:['HTML5','CSS3'], technicalHighlights:['Direção visual','Layout adaptável'], category:'front-end', categoryLabel:'Front-End', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na estruturação da página e na implementação visual.', status:'completed', github:'https://github.com/DevWizardMarcos/formuluariohorizon', demo:'https://devwizardmarcos.github.io/formuluariohorizon/', featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'infinity-open', title:'Infinity Open', image:'./assets/img/Projetos/InfinityOpen.webp', shortDescription:'Landing page temática de evento com programação, contagem regressiva e formulário integrado ao WhatsApp.', challenge:'Apresentar uma proposta tecnológica de forma acessível e visualmente consistente.', solution:'A solução organiza o conteúdo em uma página responsiva com hierarquia e navegação claras.', technologies:['HTML5','CSS3','JavaScript','Bootstrap 5.3'], technicalHighlights:['Programação do evento','Formulário condicional','Layout responsivo'], category:'front-end', categoryLabel:'Front-End', phase:'Construção', year:2026, role:'Desenvolvimento Front-End', roleDescription:'Atuação na construção da interface e na apresentação do conteúdo.', status:'completed', github:'https://github.com/DevWizardMarcos/Infinity-Open-2026', demo:'https://devwizardmarcos.github.io/Infinity-Open-2026/', featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'wayne', title:'Wayne', image:'./assets/img/Projetos/wayne.webp', shortDescription:'Experiência temática das Indústrias Wayne com acesso demonstrativo, dashboard e coleção de Batmóveis.', challenge:'Criar uma experiência temática reconhecível com boa adaptação para diferentes telas.', solution:'O projeto utiliza composição visual, tipografia e interações simples para reforçar sua identidade.', technologies:['HTML5','CSS3','JavaScript','Bootstrap 5','PHP (auxiliar)'], technicalHighlights:['Dashboard interativo','Coleção de Batmóveis','Importação e exportação JSON'], category:'front-end', categoryLabel:'Front-End', phase:'Construção', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Atuação na criação da interface e na composição visual da experiência.', status:'completed', github:'https://github.com/DevWizardMarcos/Projeto_Wayne', demo:'https://devwizardmarcos.github.io/Projeto_Wayne/', featured:false, featuredOrder:null, icon:'&#9826;' },
+  { id:'api-financeira-python', title:'API Financeira Python', image:'./assets/img/Projetos/API.webp', shortDescription:'Aplicação Streamlit que consulta cotações na AwesomeAPI com Python e Requests.', technologies:['Python','Streamlit','Requests','CSS'], category:'back-end', categoryLabel:'Back-End', phase:'Registro', year:2026, role:'Desenvolvimento Back-End', roleDescription:'Interface em Streamlit e consumo de uma API externa com Requests.', status:'completed', github:'https://github.com/DevWizardMarcos/Projeto-API-financeira-Python', demo:null, featured:false, featuredOrder:null, icon:'&#36;' },
+  /* Temporariamente fora da vitrine; registros completos preservados para reativação futura.
+  { id:'projeto-pizzaria', title:'Projeto Pizzaria', image:null, shortDescription:'SaaS para pizzarias feito em equipe: front-end React com login e cadastro de clientes prontos para a API.', technologies:['React 19','React Router','Vite','CSS'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:2026, role:'Desenvolvimento Front-End', roleDescription:'Responsável pela estrutura do front-end, rotas e telas de autenticação; o back-end FastAPI é da equipe.', status:'development', github:'https://github.com/DevWizardMarcos/Projeto_Pizzaria', demo:'https://devwizardmarcos.github.io/Projeto_Pizzaria/', featured:false, featuredOrder:null, icon:'&#9673;' },
+  { id:'dashboard-dados-reais', title:'Dashboard de Dados Reais', image:null, shortDescription:'Dashboard de marketing com métricas, gráficos SVG, filtros e tabela de campanhas, publicado na Vercel.', technologies:['React 19','TypeScript','Vite','Tailwind CSS 4'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:2026, role:'Desenvolvimento Front-End', roleDescription:'Interface de dados desenvolvida com React e TypeScript.', status:'completed', github:'https://github.com/DevWizardMarcos/Dashboard-de-dados-reais', demo:'https://dashboard-de-dados-reais.vercel.app', featured:false, featuredOrder:null, icon:'&#9638;' },
+  */
+  { id:'game-project-if', title:'Game Project IF', image:'./assets/img/Projetos/Artes Projeto_Indentidade/Game-project-IF-capa.png', shortDescription:'NECRODAWN: RPG acadêmico em equipe com cadastro, login e personagem salvo em um servidor Express.', technologies:['Node.js','Express','HTML','CSS','JavaScript'], category:'full-stack', categoryLabel:'Full-Stack', phase:'Registro', year:2025, role:'Colaboração', roleDescription:'Participação no projeto em equipe, com arte do personagem e organização do repositório para a entrega.', status:'completed', github:'https://github.com/DevWizardMarcos/Game-project-IF', demo:null, featured:false, featuredOrder:null, icon:'&#9823;' },
+  { id:'interativa', title:'Interativa', image:'./assets/img/Projetos/Artes Projeto_Indentidade/interativa-capa.png', shortDescription:'Landing page comercial da Interativa Saúde, com formulário de demonstração e medição de campanhas.', technologies:['HTML','CSS','JavaScript','GTM','Meta Pixel'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:2026, role:'Desenvolvimento Front-End', roleDescription:'Implementação da landing page, do envio de leads e das ferramentas de medição para um cliente real.', status:'completed', github:'https://github.com/DevWizardMarcos/interativa', demo:'https://lp.interativa.ai/', featured:false, featuredOrder:null, icon:'&#10022;' },
+  { id:'amigo-fiel', title:'Amigo Fiel', image:'./assets/img/Projetos/Artes Projeto_Indentidade/amigo fiel-arte capa.png', shortDescription:'Site institucional da Cão & Gato, clínica veterinária fictícia, com vídeo, serviços, equipe e feedback.', technologies:['HTML','CSS'], category:'front-end', categoryLabel:'Front-End', phase:'Registro', year:2025, role:'Desenvolvimento Front-End', roleDescription:'Responsável pela estrutura e pela apresentação visual do projeto.', status:'completed', github:'https://github.com/DevWizardMarcos/Amigo-Fiel', demo:'https://devwizardmarcos.github.io/Amigo-Fiel/', featured:false, featuredOrder:null, icon:'&#9829;' }
 ];
 
 const reliquias = projects;
@@ -146,6 +253,7 @@ const INITIAL_VISIBLE = 6;
 const LOAD_MORE_AMOUNT = 6;
 let activeRelicFilter = 'todos';
 let visibleRelicCount = INITIAL_VISIBLE;
+let activeProjectIndex = 0;
 
 function projectImage(project, featured = false) {
   if (project.image) {
@@ -167,10 +275,15 @@ function projectActions(project, featured = false) {
   return `<div class="relic-actions ${featured ? 'featured-actions' : ''}">${demo}${github}</div>`;
 }
 
+function projectGem(project) {
+  const source = { 'front-end':'assets/img/Gemas/front.webp', 'back-end':'assets/img/Gemas/back.webp', 'full-stack':'assets/img/Gemas/fullstack.webp' }[project.category];
+  return source ? `<img class="project-gem" src="${source}" alt="Gema ${project.categoryLabel}">` : '<span class="project-gem project-gem--other" aria-hidden="true">◆</span>';
+}
+
 function renderShowcase() {
   const container = document.getElementById('relic-showcase');
   if (!container) return;
-  const featuredProjects = reliquias.filter(project => project.featured).sort((a,b) => a.featuredOrder - b.featuredOrder).slice(0,5);
+  const featuredProjects = reliquias.filter(project => project.featured).sort((a,b) => a.featuredOrder - b.featuredOrder).slice(0,3);
   container.dataset.count = String(featuredProjects.length);
   container.innerHTML = featuredProjects.map((project, index) => `
     <article class="display-relic ${project.featuredOrder === 1 ? 'primary-relic' : ''}" style="--artifact-accent:${project.accentColor || '#b9934c'}">
@@ -206,7 +319,7 @@ function observeHallRelics(container) {
 }
 
 // Profundidade progressiva do Salão, sem parallax pesado ou dependências.
-const legacyHall = document.getElementById('Salao');
+const legacyHall = document.getElementById('legados');
 const legacyApproach = document.getElementById('exposicao-legados');
 let hallFramePending = false;
 
@@ -237,28 +350,58 @@ function renderCards(filtro) {
   const grade = document.getElementById('relic-grid');
   if (!grade) return;
 
-  const filteredProjects = reliquias.filter(project => !project.featured && (filtro === 'todos' || project.category === filtro));
-  const visibleProjects = filteredProjects.slice(0, visibleRelicCount);
+  const filteredProjects = reliquias.filter(project => filtro === 'todos' || project.category === filtro);
   const loadMoreButton = document.querySelector('.load-more-relics');
+  const total = filteredProjects.length;
+  if (total) activeProjectIndex = ((activeProjectIndex % total) + total) % total;
 
-  grade.innerHTML = visibleProjects.length ? visibleProjects.map(project => `
-    <article class="relic-card" data-category="${project.category}">
-      <div class="relic-visual">${projectImage(project)}</div>
-      <div class="relic-content">
-        <span class="journey-phase">◇ Fase: ${project.phase}</span>
-        <h4>${project.title}</h4>
-        <span class="relic-category">${project.categoryLabel}</span>
-        <p>${project.shortDescription}</p>
-        <div class="relic-techs">${project.technologies.map(tech => `<span>${tech}</span>`).join('')}</div>
-        <button class="examine-relic archive-examine" type="button" data-project="${project.id}">Examinar <span aria-hidden="true">→</span></button>
+  const slots = total >= 5
+    ? [['far-left', -2], ['near-left', -1], ['active', 0], ['near-right', 1], ['far-right', 2]]
+    : total === 4
+      ? [['near-left', -1], ['active', 0], ['near-right', 1], ['far-right', 2]]
+      : total === 3
+        ? [['near-left', -1], ['active', 0], ['near-right', 1]]
+        : total === 2
+          ? [['active', 0], ['near-right', 1]]
+          : total === 1 ? [['active', 0]] : [];
+
+  const visibleProjects = slots.map(([position, offset]) => ({
+    position,
+    offset,
+    project: filteredProjects[(activeProjectIndex + offset + total) % total]
+  }));
+
+  grade.innerHTML = visibleProjects.length ? visibleProjects.map(({ project, position, offset }, index) => {
+    const projectNumber = reliquias.findIndex(item => item.id === project.id) + 1;
+    const categoryGem = { 'front-end':'#4f9ee8', 'back-end':'#c94e58', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
+    const active = position === 'active';
+    const pedestalType = active ? 'noble' : position.startsWith('near') ? 'altar' : 'shadow';
+    return `
+    <article class="corridor-relic corridor-relic--${position}" data-category="${project.category}" data-project-id="${project.id}" data-corridor-offset="${offset}" style="--relic-accent:${project.accentColor || categoryGem};--category-gem:${categoryGem};--corridor-index:${index}">
+      ${active ? `<button class="corridor-relic-frame corridor-active-trigger" type="button" data-project="${project.id}" aria-label="Examinar relíquia: ${project.title}">
+        <header><span>Relíquia ${String(projectNumber).padStart(2,'0')}</span><small>${projectGem(project)}${project.categoryLabel}</small></header>
+        <div class="corridor-relic-visual">${projectImage(project)}<span aria-hidden="true"></span></div>
+        <div class="corridor-relic-copy">
+          <h4>${project.title}</h4>
+          <p>${project.shortDescription}</p>
+          ${project.guild ? '<span class="guild-seal">Forjado em Guilda</span>' : ''}
+          <div class="corridor-tags">${project.technologies.slice(0,3).map(tech => `<span>${tech}</span>`).join('')}</div>
+          <small>${project.year} · ${project.phase}</small>
+          <span class="corridor-examine">Examinar Relíquia <b aria-hidden="true">→</b></span>
+        </div>
+      </button>` : `<button class="corridor-relic-frame corridor-relic-back" type="button" data-corridor-offset="${offset}" aria-label="Selecionar relíquia ${project.title}">
+        <img src="assets/img/card-back-dw-phoenix.webp" alt="" draggable="false">
+      </button>`}
+      <div class="corridor-pedestal corridor-pedestal--${pedestalType}" aria-hidden="true">
+        <i class="corridor-pedestal__top"></i>
+        <i class="corridor-pedestal__base"></i>
+        <i class="corridor-pedestal__ornament"></i>
       </div>
-    </article>
-  `).join('') : '<p class="empty-relics">Nenhuma relíquia encontrada nesta categoria.</p>';
-  if (loadMoreButton) {
-    const hasMore = visibleRelicCount < filteredProjects.length;
-    loadMoreButton.hidden = !hasMore;
-    loadMoreButton.setAttribute('aria-label', `Mostrar mais ${Math.min(LOAD_MORE_AMOUNT, filteredProjects.length - visibleRelicCount)} projetos`);
-  }
+    </article>`;
+  }).join('') : '<p class="empty-relics">Nenhuma relíquia encontrada nesta categoria.</p>';
+  if (loadMoreButton) loadMoreButton.hidden = true;
+  const navigationDisabled = total < 2;
+  document.querySelectorAll('.corridor-arrow').forEach(button => { button.disabled = navigationDisabled; });
 }
 
 renderShowcase();
@@ -268,6 +411,7 @@ document.querySelector('.relic-filters')?.addEventListener('click', (e) => {
   const btn = e.target.closest('.relic-filter');
   if (!btn) return;
   activeRelicFilter = btn.dataset.filter;
+  activeProjectIndex = 0;
   visibleRelicCount = INITIAL_VISIBLE;
   document.querySelectorAll('.relic-filter').forEach(button => {
     const active = button === btn;
@@ -282,23 +426,234 @@ document.querySelector('.load-more-relics')?.addEventListener('click', () => {
   renderCards(activeRelicFilter);
 });
 
-// Revelação progressiva do arquivo completo.
+// Ritual leve em quatro estados: idle, reação, ativação e recompensa.
+const portalScene = document.querySelector('.archive-threshold');
+const crystalKey = document.querySelector('.crystal-key');
 const discoverButton = document.querySelector('.discover-legacies');
 const relicLibrary = document.getElementById('reliquias');
+const portalStatus = document.querySelector('.portal-status');
+const portalSceneTitle = document.getElementById('portal-scene-title');
+const portalLore = document.querySelector('.portal-lore');
+const guardianPortrait = document.querySelector('.guardian-portraits');
+const guardianImage = document.querySelector('.guardian-image');
+const archiveGrid = document.getElementById('relic-grid');
+const archiveDesktop = window.matchMedia('(min-width: 1024px)');
+const legacyWorld = document.getElementById('legados');
+const legacyHallPanel = legacyWorld?.querySelector('[data-legacy-panel="hall"]');
+const legacyBackButton = legacyWorld?.querySelector('.legacy-back');
+let legacyState = 'hall';
+let stateBeforeProject = 'hall';
+let isPortalOpened = false;
+let guardianSwapTimer;
+let portalTimer;
+let archiveRevealTimer;
+let archiveOpened = false;
+let archiveScrollFrame = 0;
+let archiveInteractionState = 'idle';
+let selectedArchiveCard = null;
+let archiveInteractionTimer = 0;
+
+function setLegacyState(nextState) {
+  legacyState = nextState;
+  if (!legacyWorld) return;
+  legacyWorld.dataset.legacyState = nextState;
+  const archiveVisible = ['transitioning', 'archive', 'returning'].includes(nextState) || (nextState === 'project' && stateBeforeProject === 'archive');
+  if (relicLibrary) {
+    relicLibrary.toggleAttribute('hidden', !archiveVisible);
+    relicLibrary.setAttribute('aria-hidden', String(!archiveVisible));
+    relicLibrary.inert = nextState !== 'archive' && !(nextState === 'project' && stateBeforeProject === 'archive');
+  }
+  if (legacyHallPanel) {
+    const hallHidden = nextState === 'archive' || (nextState === 'project' && stateBeforeProject === 'archive');
+    legacyHallPanel.setAttribute('aria-hidden', String(hallHidden));
+    legacyHallPanel.inert = hallHidden || nextState === 'transitioning';
+  }
+}
+
+function setPortalState(state) {
+  if (!portalScene) return;
+  portalScene.dataset.portalState = state;
+  if (state !== 'idle' && !['archive', 'project', 'transitioning', 'returning'].includes(legacyState)) setLegacyState('threshold');
+  if (state === 'activating' || state === 'open') isPortalOpened = true;
+  portalScene.dataset.portalAwakened = String(isPortalOpened);
+  portalScene.classList.toggle('portal--opened', isPortalOpened);
+  portalScene.classList.toggle('portal--dormant', !isPortalOpened);
+  renderGuardian(isPortalOpened);
+  if (portalSceneTitle) portalSceneTitle.textContent = state === 'open' ? 'O limiar foi aberto' : isPortalOpened ? 'O portal desperta' : 'O Arquivo está selado';
+  if (portalLore) portalLore.textContent = state === 'open' ? 'O Guardião autorizou a passagem. O Arquivo dos Legados aguarda.' : isPortalOpened ? 'As duas forças convergem e o selo começa a ceder.' : 'O cristal guarda a centelha capaz de despertar o acervo.';
+}
+
+function renderGuardian(opened) {
+  if (!guardianImage || !guardianPortrait) return;
+  if (opened) guardianPortrait.classList.remove('guardian--hovered');
+  const nextState = opened ? 'opened' : 'idle';
+  if (guardianPortrait.dataset.guardianState === nextState) return;
+  const nextSource = opened ? guardianImage.dataset.openSrc : guardianImage.dataset.idleSrc;
+  window.clearTimeout(guardianSwapTimer);
+
+  if (!guardianPortrait.dataset.guardianState) {
+    guardianImage.src = nextSource;
+    guardianPortrait.dataset.guardianState = nextState;
+    guardianPortrait.classList.toggle('guardian--awakened', opened);
+    guardianPortrait.classList.toggle('guardian--idle', !opened);
+    return;
+  }
+
+  guardianPortrait.classList.add('is-transforming');
+  guardianSwapTimer = window.setTimeout(() => {
+    guardianImage.src = nextSource;
+    guardianPortrait.dataset.guardianState = nextState;
+    guardianPortrait.classList.toggle('guardian--awakened', opened);
+    guardianPortrait.classList.toggle('guardian--idle', !opened);
+    const revealGuardian = () => requestAnimationFrame(() => requestAnimationFrame(() => guardianPortrait.classList.remove('is-transforming')));
+    if (guardianImage.complete) revealGuardian();
+    else guardianImage.addEventListener('load', revealGuardian, { once: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 260);
+}
+
+function previewGuardian(hovered) {
+  if (!guardianImage || !guardianPortrait || isPortalOpened || guardianPortrait.classList.contains('is-transforming')) return;
+  guardianImage.src = hovered ? guardianImage.dataset.hoverSrc : guardianImage.dataset.idleSrc;
+  guardianPortrait.classList.toggle('guardian--hovered', hovered);
+}
+
+setPortalState(portalScene?.dataset.portalState || 'idle');
+
+guardianPortrait?.addEventListener('pointerenter', () => previewGuardian(true));
+guardianPortrait?.addEventListener('pointerleave', () => previewGuardian(false));
+guardianPortrait?.addEventListener('focus', () => previewGuardian(true));
+guardianPortrait?.addEventListener('blur', () => previewGuardian(false));
+
+crystalKey?.addEventListener('pointerenter', () => {
+  if (portalScene?.dataset.portalState === 'idle') setPortalState('aware');
+});
+crystalKey?.addEventListener('pointerleave', () => {
+  if (portalScene?.dataset.portalState === 'aware') setPortalState('idle');
+});
+crystalKey?.addEventListener('focus', () => {
+  if (portalScene?.dataset.portalState === 'idle') setPortalState('aware');
+});
+crystalKey?.addEventListener('blur', () => {
+  if (portalScene?.dataset.portalState === 'aware') setPortalState('idle');
+});
+crystalKey?.addEventListener('click', () => {
+  if (!portalScene || ['activating', 'open'].includes(portalScene.dataset.portalState)) return;
+  window.clearTimeout(portalTimer);
+  setPortalState('activating');
+  crystalKey.disabled = true;
+  if (portalStatus) portalStatus.textContent = 'O cristal despertou. A energia percorre o salão em direção ao portal.';
+  portalTimer = window.setTimeout(() => {
+    setPortalState('open');
+    crystalKey.setAttribute('aria-expanded', 'true');
+    if (portalStatus) portalStatus.textContent = 'O portal foi aberto. O Arquivo dos Legados está acessível.';
+    discoverButton?.focus({ preventScroll: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 80 : 1800);
+});
+
+function updateActiveArchiveCard(centerFirst = false) {
+  if (!archiveGrid || !archiveDesktop.matches) return;
+  const cards = [...archiveGrid.querySelectorAll('.relic-card')];
+  if (!cards.length) return;
+  if (centerFirst) cards[0].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+  const center = archiveGrid.getBoundingClientRect().left + archiveGrid.clientWidth / 2;
+  let active = cards[0];
+  let nearest = Infinity;
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const distance = Math.abs(rect.left + rect.width / 2 - center);
+    if (distance < nearest) { nearest = distance; active = card; }
+  });
+  cards.forEach(card => {
+    const isCentered = card === active;
+    const isRevealed = card === selectedArchiveCard && ['flipping', 'revealed', 'opening-modal', 'modal-open', 'closing-modal'].includes(archiveInteractionState);
+    card.classList.toggle('is-centered', isCentered);
+    card.classList.toggle('is-active', isRevealed);
+    const front = card.querySelector('.relic-card-front');
+    const back = card.querySelector('.relic-card-back');
+    if (front) front.inert = !isRevealed;
+    if (back) back.tabIndex = isRevealed ? -1 : 0;
+  });
+}
+
+function moveArchive(direction) {
+  if (!archiveGrid || archiveInteractionState !== 'idle') return;
+  const active = archiveGrid.querySelector('.relic-card.is-centered');
+  const cards = [...archiveGrid.querySelectorAll('.relic-card')];
+  const index = Math.max(0, cards.indexOf(active));
+  cards[Math.min(cards.length - 1, Math.max(0, index + direction))]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function navigateCorridor(step) {
+  const filteredProjects = reliquias.filter(project => activeRelicFilter === 'todos' || project.category === activeRelicFilter);
+  if (filteredProjects.length < 2) return;
+  activeProjectIndex = (activeProjectIndex + step + filteredProjects.length) % filteredProjects.length;
+  archiveGrid?.classList.remove('is-changing');
+  renderCards(activeRelicFilter);
+  requestAnimationFrame(() => requestAnimationFrame(() => archiveGrid?.classList.add('is-changing')));
+}
+
+archiveGrid?.addEventListener('keydown', event => {
+  if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+  event.preventDefault();
+  navigateCorridor(event.key === 'ArrowRight' ? 1 : -1);
+});
+
+archiveGrid?.addEventListener('click', event => {
+  const activeTrigger = event.target.closest('.corridor-active-trigger');
+  if (activeTrigger) {
+    openRelicDetails(activeTrigger.dataset.project);
+    return;
+  }
+  const sideCard = event.target.closest('.corridor-relic-back');
+  if (sideCard) navigateCorridor(Number(sideCard.dataset.corridorOffset));
+});
+
+document.querySelector('.corridor-prev')?.addEventListener('click', () => navigateCorridor(-1));
+document.querySelector('.corridor-next')?.addEventListener('click', () => navigateCorridor(1));
+
 discoverButton?.addEventListener('click', () => {
-  const opening = relicLibrary?.hasAttribute('hidden');
-  if (!relicLibrary) return;
-  relicLibrary.toggleAttribute('hidden', !opening);
-  discoverButton.setAttribute('aria-expanded', String(opening));
-  const portalAction = discoverButton.querySelector('small');
-  if (portalAction) portalAction.textContent = opening ? 'Fechar o arquivo' : 'Atravessar o portal';
-  if (opening) relicLibrary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!relicLibrary || legacyState === 'transitioning') return;
+  archiveOpened = true;
+  setLegacyState('transitioning');
+  relicLibrary.dataset.archiveState = 'revealing';
+  discoverButton.disabled = true;
+  discoverButton.setAttribute('aria-expanded', 'true');
+  if (portalStatus) portalStatus.textContent = 'A passagem foi iniciada. O Arquivo dos Legados está surgindo.';
+  window.clearTimeout(archiveRevealTimer);
+  archiveRevealTimer = window.setTimeout(() => {
+    setLegacyState('archive');
+    relicLibrary.dataset.archiveState = 'open';
+    discoverButton.disabled = false;
+    if (portalStatus) portalStatus.textContent = 'O Arquivo dos Legados foi revelado. Explore as relíquias.';
+    updateActiveArchiveCard(true);
+    archiveGrid?.focus({ preventScroll: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 100 : 1100);
+});
+
+legacyBackButton?.addEventListener('click', () => {
+  if (!relicLibrary || legacyState !== 'archive') return;
+  setLegacyState('returning');
+  relicLibrary.dataset.archiveState = 'closing';
+  window.clearTimeout(archiveRevealTimer);
+  archiveRevealTimer = window.setTimeout(() => {
+    setLegacyState('threshold');
+    relicLibrary.dataset.archiveState = 'closed';
+    discoverButton?.setAttribute('aria-expanded', 'false');
+    legacyHallPanel?.removeAttribute('aria-hidden');
+    discoverButton?.focus({ preventScroll: true });
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 100 : 700);
+});
+
+archiveDesktop.addEventListener('change', () => {
+  renderCards(activeRelicFilter);
+  if (relicLibrary && legacyState === 'archive') relicLibrary.dataset.archiveState = 'open';
 });
 
 // Painel nativo e acessível para detalhes das relíquias.
 const relicDialog = document.getElementById('relic-dialog');
 const dialogContent = document.getElementById('relic-dialog-content');
 let relicDialogTrigger = null;
+let activeRelicProject = null;
 
 const projectStatus = {
   development: 'Em desenvolvimento',
@@ -319,9 +674,23 @@ function closeRelicDetails() {
 
 function openRelicDetails(projectId) {
   const project = reliquias.find(item => item.id === projectId);
-  if (!project || !relicDialog || !dialogContent) return;
+  if (!project || !relicDialog || !dialogContent || !window.LegacyBook) return;
+  stateBeforeProject = legacyState === 'archive' ? 'archive' : legacyState === 'threshold' ? 'threshold' : 'hall';
   const relicNumber = project.featuredOrder || reliquias.findIndex(item => item.id === project.id) + 1;
+  activeRelicProject = project;
+  relicDialog.style.setProperty('--relic-accent', project.accentColor || '#b9934c');
+  relicDialog.dataset.category = project.category;
+  dialogContent.innerHTML = window.LegacyBook.render(project, relicNumber);
+  relicDialogTrigger = document.activeElement;
+  setLegacyState('project');
+  relicDialog.showModal();
+  relicDialog.scrollTop = 0;
+  relicDialog.focus();
+  /* Renderizador anterior preservado no histórico do Git; mantido inativo durante a migração.
   const statusLabel = projectStatus[project.status] || project.status;
+  const dialogGem = { 'front-end':'#4f9ee8', 'back-end':'#d44e59', 'full-stack':'#9565d8', outros:'#c49a52' }[project.category] || '#c49a52';
+  const dialogGemImage = { 'front-end':'assets/img/Gemas/front.webp', 'back-end':'assets/img/Gemas/back.webp', 'full-stack':'assets/img/Gemas/fullstack.webp' }[project.category];
+  const dialogGemMeaning = { 'front-end':'Interfaces & Experiência', 'back-end':'Lógica & Estrutura', 'full-stack':'Integração Completa', outros:'Especialidade Arcana' }[project.category];
   const fragments = [
     project.challenge && { id:'challenge', label:'Desafio', content:project.challenge },
     (project.construction || project.solution) && { id:'construction', label:'Construção', content:project.construction || project.solution },
@@ -335,14 +704,22 @@ function openRelicDetails(projectId) {
   ].filter(Boolean).join('');
 
   relicDialog.style.setProperty('--relic-accent', project.accentColor || '#b9934c');
+  relicDialog.style.setProperty('--dialog-gem', dialogGem);
+  relicDialog.dataset.category = project.category;
   dialogContent.innerHTML = `
     <header class="dialog-header relic-examination-header">
       <span class="dialog-eyebrow">Relíquia ${String(relicNumber).padStart(2,'0')} <i>·</i> ${project.chapter || 'Capítulo IV'} <i>·</i> ${project.year}</span>
+      <div class="dialog-classification" aria-label="Classificação ${project.categoryLabel}: ${dialogGemMeaning}">
+        <span class="dialog-gem-crest">${dialogGemImage ? `<img class="dialog-gem-image" src="${dialogGemImage}" alt="" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><i class="dialog-header-gem" hidden></i>` : '<i class="dialog-header-gem"></i>'}</span>
+        <span class="dialog-gem-meaning"><b>${project.categoryLabel}</b><small>${dialogGemMeaning}</small></span>
+      </div>
       <h3 id="dialog-title">${project.title}</h3>
       <p>${project.shortDescription}</p>
-      <div class="dialog-meta"><span>◆ ${project.categoryLabel}</span><i>·</i><span>${statusLabel}</span></div>
+      <div class="dialog-meta"><span><i class="dialog-category-mark" aria-hidden="true">◆</i>${project.categoryLabel}</span><i>·</i><span>${statusLabel}</span></div>
     </header>
-    <figure class="dialog-project-image">${projectImage(project)}</figure>
+    <div class="dialog-project-frame">
+      <figure class="dialog-project-image">${projectImage(project)}</figure>
+    </div>
     <div class="relic-seal" aria-hidden="true"><span>◆</span><small>Selo da relíquia</small></div>
     ${fragments.length ? `<section class="relic-fragments" data-fragments='${JSON.stringify(fragmentData)}'><h4>Examinar a relíquia</h4><div class="fragment-tabs" role="tablist" aria-label="Fragmentos da jornada">${fragmentTabs}</div><div id="fragment-panel" class="fragment-panel" role="tabpanel" tabindex="0" aria-labelledby="fragment-tab-${fragments[0].id}"><p>${fragments[0].content}</p></div></section>` : ''}
     <div class="dialog-mission">
@@ -352,18 +729,28 @@ function openRelicDetails(projectId) {
     ${actions ? `<nav class="dialog-actions" aria-label="Ações do projeto">${actions}</nav>` : ''}
     <footer class="dialog-footer"><span>Registro da jornada</span></footer>`;
   relicDialogTrigger = document.activeElement;
+  setLegacyState('project');
   relicDialog.showModal();
   relicDialog.scrollTop = 0;
   relicDialog.focus();
+  */
 }
 
 dialogContent?.addEventListener('click', event => {
+  if (event.target.closest('[data-book-tab]')) {
+    window.LegacyBook?.handleClick(event, activeRelicProject);
+    return;
+  }
   const tab = event.target.closest('.fragment-tab');
   if (!tab) return;
   activateFragment(tab);
 });
 
 dialogContent?.addEventListener('keydown', event => {
+  if (event.target.closest('[data-book-tab]')) {
+    window.LegacyBook?.handleKeydown(event, activeRelicProject);
+    return;
+  }
   const tab = event.target.closest('.fragment-tab');
   if (!tab || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
   const tabs = [...dialogContent.querySelectorAll('.fragment-tab')];
@@ -386,13 +773,14 @@ function activateFragment(tab) {
     item.querySelector('span').textContent = active ? '◆' : '◇';
   });
   panel.classList.remove('is-changing');
-  void panel.offsetWidth;
   panel.innerHTML = `<p>${fragments[tab.dataset.fragment]}</p>`;
   panel.setAttribute('aria-labelledby', tab.id);
-  panel.classList.add('is-changing');
+  requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('is-changing')));
 }
 
-document.getElementById('Salao')?.addEventListener('click', event => {
+dialogContent?.addEventListener('error', event => window.LegacyBook?.handleImageError(event), true);
+
+document.getElementById('legados')?.addEventListener('click', event => {
   const trigger = event.target.closest('.examine-relic');
   if (trigger) openRelicDetails(trigger.dataset.project);
 });
@@ -401,6 +789,799 @@ relicDialog?.addEventListener('click', event => { if (event.target === relicDial
 relicDialog?.addEventListener('cancel', event => { event.preventDefault(); closeRelicDetails(); });
 relicDialog?.addEventListener('close', () => {
   relicDialog.classList.remove('is-closing');
+  activeRelicProject = null;
+  setLegacyState(stateBeforeProject);
   relicDialogTrigger?.focus();
   relicDialogTrigger = null;
+  if (archiveDesktop.matches && selectedArchiveCard && archiveInteractionState === 'modal-open') {
+    archiveInteractionState = 'closing-modal';
+    window.clearTimeout(archiveInteractionTimer);
+    archiveInteractionTimer = window.setTimeout(() => {
+      archiveInteractionState = 'returning';
+      selectedArchiveCard.classList.remove('is-active');
+      selectedArchiveCard.querySelector('.relic-card-front')?.setAttribute('inert', '');
+      const back = selectedArchiveCard.querySelector('.relic-card-back');
+      if (back) back.tabIndex = 0;
+      archiveInteractionTimer = window.setTimeout(() => {
+        selectedArchiveCard = null;
+        archiveInteractionState = 'idle';
+        archiveGrid?.classList.remove('is-interacting');
+        updateActiveArchiveCard();
+      }, 520);
+    }, 150);
+  }
 });
+
+// Biblioteca de Feitiços — domínios técnicos apresentados como grimórios.
+const spellDomains = [
+  {
+    id: 'front-end', title: 'Front-End', rune: '◇', accent: '#579cda', description: 'Interfaces, sistemas visuais e experiências digitais responsivas.',
+    technologies: [
+      { name: 'React', rank: 'Domínio principal', description: 'Interfaces componentizadas, gerenciamento de estado e experiências interativas.', projects: [] },
+      { name: 'JavaScript', rank: 'Domínio principal', description: 'Lógica de interface, DOM, consumo de APIs e interações nativas.', projects: ['DevWizard Portfolio', 'Code Stone', 'Infinity Open'] },
+      { name: 'HTML & CSS', rank: 'Domínio principal', description: 'Estrutura semântica, layouts responsivos, animações e sistemas visuais.', projects: ['DevWizard Portfolio', 'Garimpo', 'Horizon'] },
+      { name: 'Vite & SASS', rank: 'Experiência sólida', description: 'Fluxos modernos de desenvolvimento, organização de estilos e build otimizado.', projects: ['Portfólio Alice', 'Behorner-Control'] }
+    ]
+  },
+  {
+    id: 'back-end', title: 'Back-End', rune: 'ᚱ', accent: '#c75661', description: 'Serviços, regras de negócio, automações e integrações robustas.',
+    technologies: [
+      { name: 'Python', rank: 'Domínio principal', description: 'Serviços, automações, regras de negócio e aplicações orientadas a dados.', projects: ['Behorner-Control', 'Hacktohon'] },
+      { name: 'FastAPI', rank: 'Experiência sólida', description: 'APIs tipadas, documentação automática e integrações de alta clareza.', projects: ['Behorner-Control'] },
+      { name: 'Django & Flask', rank: 'Aplicação prática', description: 'Aplicações web, rotas, persistência e organização de serviços.', projects: ['Hacktohon', 'Projetos educacionais'] },
+      { name: 'Node.js', rank: 'Experiência sólida', description: 'Serviços JavaScript, integrações e suporte a aplicações full-stack.', projects: ['Game Project IF'] }
+    ]
+  },
+  {
+    id: 'data', title: 'Dados', rune: 'ᛟ', accent: '#b99b62', description: 'Modelagem, persistência e organização estratégica da informação.',
+    technologies: [
+      { name: 'SQL', rank: 'Experiência sólida', description: 'Modelagem relacional, consultas e organização consistente de informações.', projects: ['Hacktohon', 'Behorner-Control'] },
+      { name: 'MySQL', rank: 'Aplicação prática', description: 'Persistência para sistemas web e estruturas relacionais de negócio.', projects: ['Sistemas acadêmicos', 'APIs próprias'] },
+      { name: 'SQLite', rank: 'Aplicação prática', description: 'Persistência leve para protótipos, ferramentas e aplicações locais.', projects: ['Automações Python', 'Protótipos de APIs'] },
+      { name: 'MongoDB', rank: 'Em evolução', description: 'Estruturas documentais e dados flexíveis em experiências full-stack.', projects: [] }
+    ]
+  },
+  {
+    id: 'tools', title: 'Ferramentas', rune: '⚒', accent: '#c59a52', description: 'Instrumentos que sustentam criação, colaboração e entrega técnica.',
+    technologies: [
+      { name: 'Git & GitHub', rank: 'Domínio principal', description: 'Versionamento, colaboração, revisão e manutenção da jornada do código.', projects: ['Todos os projetos principais'] },
+      { name: 'Figma', rank: 'Experiência sólida', description: 'Prototipação, direção visual e tradução de ideias em interfaces.', projects: ['Portfólio Alice', 'DevWizard Portfolio'] },
+      { name: 'Vite', rank: 'Experiência sólida', description: 'Ambientes front-end rápidos, builds modernos e organização de projetos.', projects: ['Savory', 'Behorner-Control'] },
+      { name: 'Notion', rank: 'Aplicação prática', description: 'Documentação, planejamento de entregas e organização do conhecimento.', projects: ['Gestão de projetos', 'Mentorias'] }
+    ]
+  },
+  {
+    id: 'full-stack', title: 'Full-Stack', rune: '∞', accent: '#9565d8', description: 'Visão completa do produto, da interface à arquitetura dos serviços.',
+    technologies: [
+      { name: 'Arquitetura Web', rank: 'Domínio principal', description: 'Integração entre interface, serviços, persistência e experiência final.', projects: ['Savory', 'Behorner-Control'] },
+      { name: 'APIs & Integrações', rank: 'Experiência sólida', description: 'Contratos de dados, comunicação entre camadas e serviços externos.', projects: ['Behorner-Control', 'Hacktohon'] },
+      { name: 'UX Responsiva', rank: 'Domínio principal', description: 'Experiências consistentes, acessíveis e adaptadas a diferentes telas.', projects: ['DevWizard Portfolio', 'Portfólio Alice'] },
+      { name: 'Deploy & Evolução', rank: 'Em evolução', description: 'Preparação de builds, publicação e manutenção incremental de produtos.', projects: ['Projetos autorais', 'Soluções para clientes'] }
+    ]
+  }
+];
+
+// Cada entrada descreve uma tecnologia sem acoplar o conteúdo ao HTML do livro.
+// Para usar um avatar definitivo, basta preencher `avatar` com o caminho da imagem.
+const grimoireEntries = {
+  React: {
+    school: 'Artes da Interface', volume: 'I', record: '04',
+    avatar: null, sigil: 'React',
+    domain: 'Front-End',
+    classification: 'Domínio principal',
+    anatomy: [
+      { term: 'Componentes', note: 'Partes reutilizáveis da interface.' },
+      { term: 'State', note: 'Dados internos que provocam atualização visual.' },
+      { term: 'Props', note: 'Dados transmitidos entre componentes.' },
+      { term: 'Context API', note: 'Estado compartilhado entre diferentes partes da aplicação.' },
+      { term: 'Hooks', note: 'Estado, efeitos, referências e lógica reutilizável.' },
+      { term: 'Rotas', note: 'Navegação entre diferentes áreas da aplicação.' }
+    ],
+    concepts: ['Componentização', 'State', 'Props', 'Context API', 'Hooks', 'Rotas'],
+    competencies: [
+      { title: 'Componentização', description: 'Criação de componentes reutilizáveis e interfaces divididas em partes independentes.' },
+      { title: 'Gerenciamento de estado', description: 'Controle de estados locais e compartilhados com hooks e Context API.' },
+      { title: 'React Router', description: 'Estruturação da navegação e das rotas entre telas da aplicação.' },
+      { title: 'Consumo de APIs', description: 'Integração com APIs REST usando fetch, async e tratamento de respostas.' },
+      { title: 'Formulários e eventos', description: 'Controle de inputs, validações, eventos e interações do usuário.' },
+      { title: 'Renderização condicional', description: 'Conteúdo exibido conforme estado, permissões ou dados.' },
+      { title: 'Responsividade', description: 'Interfaces adaptáveis para desktop, tablet e mobile.' },
+      { title: 'Organização de componentes', description: 'Separação de responsabilidades e estrutura reutilizável.' }
+    ],
+    reactivity: {
+      title: 'Fluxo de reatividade',
+      steps: ['State', 'Render', 'Interface', 'Interação', 'Novo state'],
+      description: 'Mudanças de estado provocam novas renderizações e atualizam a interface conforme os dados da aplicação.'
+    },
+    ecosystem: ['React', 'Vite', 'React Router', 'Context API', 'Fetch / APIs REST', 'JavaScript', 'CSS', 'Tailwind CSS'],
+    practice: 'Uso recorrente na construção de interfaces, aplicações SPA e experiências interativas.',
+    archivistNote: 'React é uma das principais tecnologias que utilizo para estruturar interfaces componentizadas, estados, rotas e integrações com APIs.'
+  },
+  JavaScript: {
+    school: 'Artes da Interface', volume: 'I', record: '07', avatar: null, sigil: 'JS',
+    anatomy: [
+      { term: 'Eventos', note: 'Sinais que despertam uma interação.' },
+      { term: 'DOM', note: 'A árvore viva da página.' },
+      { term: 'Funções', note: 'Rituais pequenos, nomeados e reutilizáveis.' },
+      { term: 'Promises', note: 'Pactos com operações assíncronas.' }
+    ],
+    concepts: ['DOM', 'Eventos', 'Funções', 'APIs', 'Assincronicidade'],
+    fieldNotes: {
+      'DevWizard Portfolio': 'Interações narrativas, navegação e componentes orientados por dados.',
+      'Code Stone': 'Comportamentos nativos aplicados a uma página temática.',
+      'Infinity Open': 'Controle da experiência responsiva sem dependências pesadas.'
+    },
+    archivistNote: 'É a linguagem que conecta estrutura, movimento e resposta nas experiências que construo.'
+  },
+  'HTML & CSS': {
+    school: 'Artes da Interface', volume: 'I', record: '09', avatar: null, sigil: '</>',
+    anatomy: [
+      { term: 'Semântica', note: 'A estrutura que dá significado ao conteúdo.' },
+      { term: 'Cascata', note: 'Regras visuais organizadas por contexto.' },
+      { term: 'Layout', note: 'Grids e fluxos que sustentam a composição.' },
+      { term: 'Acessibilidade', note: 'Caminhos claros para diferentes formas de uso.' }
+    ],
+    concepts: ['Semântica', 'Grid', 'Flexbox', 'Responsividade', 'Acessibilidade'],
+    archivistNote: 'A base de cada interface: sólida o bastante para sustentar identidade e interação.'
+  },
+  'Vite & SASS': {
+    school: 'Artes da Interface', volume: 'I', record: '12', avatar: null, sigil: 'V',
+    anatomy: [
+      { term: 'Build', note: 'Transforma as fontes em artefatos de entrega.' },
+      { term: 'Módulos', note: 'Separa responsabilidades e dependências.' },
+      { term: 'Tokens', note: 'Valores que mantêm o sistema visual coeso.' }
+    ],
+    concepts: ['Build', 'Módulos', 'Variáveis', 'Mixins', 'Otimização'],
+    archivistNote: 'Ferramentas que tornam a oficina front-end mais rápida, previsível e organizada.'
+  },
+  Python: {
+    school: 'Ofícios do Servidor', volume: 'II', record: '03', avatar: null, sigil: 'Py',
+    anatomy: [
+      { term: 'Módulos', note: 'Conhecimento separado por responsabilidade.' },
+      { term: 'Objetos', note: 'Estado e comportamento reunidos.' },
+      { term: 'Tipagem', note: 'Pistas que tornam contratos mais claros.' },
+      { term: 'Automação', note: 'Tarefas repetidas transformadas em processos.' }
+    ],
+    concepts: ['Funções', 'Objetos', 'Módulos', 'Tipagem', 'Automação'],
+    fieldNotes: {
+      'Behorner-Control': 'Base de serviços, automações e regras para controle dos laboratórios.',
+      Hacktohon: 'Lógica de servidor e processamento dos fluxos da plataforma.'
+    },
+    archivistNote: 'Python passou de linguagem de estudo a instrumento recorrente para serviços e automação.'
+  },
+  FastAPI: {
+    school: 'Ofícios do Servidor', volume: 'II', record: '06', avatar: null, sigil: 'API',
+    anatomy: [
+      { term: 'Rotas', note: 'Portais nomeados para cada recurso.' },
+      { term: 'Schemas', note: 'Contratos que validam toda mensagem.' },
+      { term: 'Dependências', note: 'Recursos compartilhados sob controle.' },
+      { term: 'OpenAPI', note: 'Mapa vivo dos caminhos disponíveis.' }
+    ],
+    concepts: ['Rotas', 'Pydantic', 'Dependências', 'OpenAPI', 'Async'],
+    fieldNotes: {
+      'Behorner-Control': 'API tipada para integrar gestão, agentes e controle remoto.'
+    },
+    archivistNote: 'FastAPI trouxe clareza aos contratos e velocidade à construção dos meus serviços.'
+  },
+  'Django & Flask': {
+    school: 'Ofícios do Servidor', volume: 'II', record: '08', avatar: null, sigil: 'DF',
+    anatomy: [
+      { term: 'Rotas', note: 'Direcionam cada requisição ao seu destino.' },
+      { term: 'Modelos', note: 'Representam as regras e os registros do domínio.' },
+      { term: 'Views', note: 'Orquestram entrada, decisão e resposta.' }
+    ],
+    concepts: ['MVC', 'ORM', 'Templates', 'Rotas', 'Autenticação'],
+    archivistNote: 'Dois caminhos para transformar regras de negócio em aplicações web consistentes.'
+  },
+  'Node.js': {
+    school: 'Ofícios do Servidor', volume: 'II', record: '11', avatar: null, sigil: 'N',
+    anatomy: [
+      { term: 'Runtime', note: 'JavaScript operando além do navegador.' },
+      { term: 'Event loop', note: 'Coordena tarefas sem bloquear o fluxo.' },
+      { term: 'Pacotes', note: 'Artefatos compartilhados pelo ecossistema.' }
+    ],
+    concepts: ['Runtime', 'Event loop', 'Módulos', 'APIs', 'NPM'],
+    archivistNote: 'A ponte que mantém a mesma linguagem entre interface, ferramentas e serviços.'
+  },
+  SQL: {
+    school: 'Escola dos Dados', volume: 'III', record: '02', avatar: null, sigil: 'SQL',
+    anatomy: [
+      { term: 'Tabelas', note: 'Coleções estruturadas de registros.' },
+      { term: 'Chaves', note: 'Identificam e conectam entidades.' },
+      { term: 'Consultas', note: 'Perguntas precisas feitas ao arquivo.' },
+      { term: 'Relações', note: 'Vínculos que preservam o contexto.' }
+    ],
+    concepts: ['Tabelas', 'Colunas', 'Registros', 'Chaves', 'Relações'],
+    fieldNotes: {
+      Hacktohon: 'Consultas e estrutura relacional para os processos empresariais.',
+      'Behorner-Control': 'Modelagem dos equipamentos, laboratórios e eventos do sistema.'
+    },
+    archivistNote: 'SQL deixou de ser apenas consulta e passou a fazer parte da arquitetura dos meus sistemas.'
+  },
+  MySQL: {
+    school: 'Escola dos Dados', volume: 'III', record: '05', avatar: null, sigil: 'MY',
+    anatomy: [
+      { term: 'Schema', note: 'O mapa formal do domínio persistido.' },
+      { term: 'Índices', note: 'Atalhos para localizar registros.' },
+      { term: 'Transações', note: 'Mudanças tratadas como uma unidade segura.' }
+    ],
+    concepts: ['Schemas', 'Índices', 'Joins', 'Transações', 'Constraints'],
+    archivistNote: 'Um arquivo relacional confiável para transformar regras de negócio em dados duráveis.'
+  },
+  SQLite: {
+    school: 'Escola dos Dados', volume: 'III', record: '07', avatar: null, sigil: 'SQ',
+    anatomy: [
+      { term: 'Arquivo único', note: 'Toda a base preservada num artefato portátil.' },
+      { term: 'Consultas', note: 'A linguagem relacional sem um servidor dedicado.' },
+      { term: 'Transações', note: 'Consistência mesmo em estruturas leves.' }
+    ],
+    concepts: ['Portabilidade', 'SQL', 'Transações', 'Protótipos', 'Persistência local'],
+    archivistNote: 'Minha escolha para protótipos e ferramentas que pedem persistência simples e confiável.'
+  },
+  MongoDB: {
+    school: 'Escola dos Dados', volume: 'III', record: '10', avatar: null, sigil: 'M',
+    anatomy: [
+      { term: 'Documentos', note: 'Registros flexíveis agrupados por contexto.' },
+      { term: 'Coleções', note: 'Conjuntos de documentos relacionados.' },
+      { term: 'Agregações', note: 'Etapas que transformam e resumem informação.' }
+    ],
+    concepts: ['Documentos', 'Coleções', 'Índices', 'Agregações', 'Schemas flexíveis'],
+    archivistNote: 'Uma alternativa documental para domínios que evoluem com estruturas menos rígidas.'
+  },
+  'Git & GitHub': {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '01', avatar: null, sigil: 'G',
+    anatomy: [
+      { term: 'Commit', note: 'Um ponto preservado na história.' },
+      { term: 'Branch', note: 'Um caminho paralelo de experimentação.' },
+      { term: 'Merge', note: 'A reunião consciente de duas jornadas.' },
+      { term: 'Review', note: 'Leitura crítica antes da integração.' }
+    ],
+    concepts: ['Commit', 'Branch', 'Merge', 'Pull Request', 'Histórico'],
+    archivistNote: 'Git é o registro de decisões que torna cada projeto rastreável e colaborativo.'
+  },
+  Figma: {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '04', avatar: null, sigil: 'F',
+    anatomy: [
+      { term: 'Frames', note: 'Territórios onde a interface toma forma.' },
+      { term: 'Componentes', note: 'Padrões visuais reutilizáveis.' },
+      { term: 'Auto layout', note: 'Regras que preservam ritmo e adaptação.' },
+      { term: 'Protótipo', note: 'Uma simulação do caminho do usuário.' }
+    ],
+    concepts: ['Frames', 'Componentes', 'Auto layout', 'Variantes', 'Protótipos'],
+    archivistNote: 'O espaço onde composição, sistema visual e fluxo são testados antes da construção.'
+  },
+  Vite: {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '07', avatar: null, sigil: 'V',
+    anatomy: [
+      { term: 'Dev server', note: 'Oficina rápida para ciclos de criação.' },
+      { term: 'HMR', note: 'Atualiza módulos sem interromper o trabalho.' },
+      { term: 'Bundle', note: 'Prepara os artefatos para entrega.' }
+    ],
+    concepts: ['Dev server', 'HMR', 'Módulos', 'Build', 'Plugins'],
+    archivistNote: 'Reduz o intervalo entre uma decisão de interface e sua validação no navegador.'
+  },
+  Notion: {
+    school: 'Instrumentos do Ofício', volume: 'IV', record: '09', avatar: null, sigil: 'N',
+    anatomy: [
+      { term: 'Páginas', note: 'Unidades de conhecimento conectadas.' },
+      { term: 'Bases', note: 'Registros organizados por propriedades.' },
+      { term: 'Visões', note: 'Leituras diferentes da mesma informação.' }
+    ],
+    concepts: ['Documentação', 'Bases', 'Planejamento', 'Registros', 'Colaboração'],
+    archivistNote: 'Meu arquivo de apoio para preservar contexto, decisões e próximos passos.'
+  },
+  'Arquitetura Web': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '01', avatar: null, sigil: '∞',
+    anatomy: [
+      { term: 'Interface', note: 'A superfície onde a solução encontra pessoas.' },
+      { term: 'Serviços', note: 'Regras e operações que sustentam o produto.' },
+      { term: 'Dados', note: 'A memória persistente do sistema.' },
+      { term: 'Contratos', note: 'Acordos claros entre cada camada.' }
+    ],
+    concepts: ['Camadas', 'Contratos', 'Serviços', 'Persistência', 'Observabilidade'],
+    fieldNotes: {
+      Savory: 'Integração entre descoberta de conteúdo, interface e persistência.',
+      'Behorner-Control': 'Arquitetura que une agentes, API, banco e painel de operação.'
+    },
+    archivistNote: 'A visão do sistema inteiro orienta minhas decisões mesmo quando atuo em uma única camada.'
+  },
+  'APIs & Integrações': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '04', avatar: null, sigil: 'API',
+    anatomy: [
+      { term: 'Contrato', note: 'Define a forma de cada mensagem.' },
+      { term: 'Recurso', note: 'Entidade exposta por uma rota.' },
+      { term: 'Autorização', note: 'Controla quem atravessa cada portal.' },
+      { term: 'Resposta', note: 'Retorno previsível para cada solicitação.' }
+    ],
+    concepts: ['REST', 'JSON', 'Autenticação', 'Validação', 'Tratamento de erros'],
+    archivistNote: 'Integrações bem definidas mantêm sistemas diferentes trabalhando como uma única solução.'
+  },
+  'UX Responsiva': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '07', avatar: null, sigil: 'UX',
+    anatomy: [
+      { term: 'Fluxo', note: 'O caminho necessário para cumprir uma tarefa.' },
+      { term: 'Hierarquia', note: 'Orienta o olhar e reduz dúvida.' },
+      { term: 'Adaptação', note: 'Preserva a experiência em diferentes telas.' }
+    ],
+    concepts: ['Fluxos', 'Hierarquia', 'Breakpoints', 'Acessibilidade', 'Feedback'],
+    archivistNote: 'Responsividade é preservar intenção e legibilidade, não apenas reduzir dimensões.'
+  },
+  'Deploy & Evolução': {
+    school: 'Convergência Full-Stack', volume: 'V', record: '10', avatar: null, sigil: '↑',
+    anatomy: [
+      { term: 'Build', note: 'Consolida a versão pronta para entrega.' },
+      { term: 'Ambiente', note: 'Configura o contexto de execução.' },
+      { term: 'Versão', note: 'Marca um estado verificável do produto.' }
+    ],
+    concepts: ['Build', 'Ambientes', 'Versionamento', 'Entrega', 'Manutenção'],
+    archivistNote: 'Publicar é apenas o começo de um ciclo contínuo de observação e melhoria.'
+  }
+};
+
+const skillIcon = id => `./assets/img/skill-symbols.svg#${id}`;
+
+// A biblioteca visual é controlada somente por estes grupos e tecnologias.
+const skillGroups = {
+  'front-end': {
+    id: 'front-end', title: 'Front-End', rune: '◇', accent: '#579cda', initialIndex: 4,
+    technologies: [
+      { id: 'html', name: 'HTML', image: './assets/img/arcenal/Stacks/Html.webp' },
+      { id: 'css', name: 'CSS', image: './assets/img/arcenal/Stacks/Css.webp' },
+      { id: 'javascript', name: 'JavaScript', image: './assets/img/arcenal/Stacks/Js.webp' },
+      { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript.webp' },
+      { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.webp' },
+      { id: 'tailwind', name: 'Tailwind CSS', image: './assets/img/arcenal/Stacks/TailWind.webp' },
+      { id: 'bootstrap', name: 'Bootstrap', image: './assets/img/arcenal/Stacks/bootstrap.webp' },
+      { id: 'sass', name: 'Sass', image: './assets/img/arcenal/Stacks/Sass.webp' }
+    ]
+  },
+  'back-end': {
+    id: 'back-end', title: 'Back-End', rune: '⚙', accent: '#c75661', initialIndex: 1,
+    technologies: [
+      { id: 'node', name: 'Node.js', image:  './assets/img/arcenal/Stacks/node.webp'  },
+      { id: 'python', name: 'Python', image: './assets/img/arcenal/Stacks/python.webp'  },
+      { id: 'fastapi', name: 'FastAPI', image: './assets/img/arcenal/Stacks/FastApi.webp' },
+      { id: 'flask', name: 'Flask', image: './assets/img/arcenal/Stacks/flask.webp' },
+      { id: 'streamlit', name: 'Streamlit', image: './assets/img/arcenal/Stacks/Streamlit.webp' },
+      { id: 'flet', name: 'Flet', image: './assets/img/arcenal/Stacks/Flet.webp' }
+    ]
+  },
+  'full-stack': {
+    id: 'full-stack', title: 'Full-Stack', rune: '∞', accent: '#9565d8', initialIndex: 2,
+    technologies: [
+      { id: 'typescript', name: 'TypeScript', image: './assets/img/arcenal/Stacks/TypeScript.webp' },
+      { id: 'react', name: 'React', image: './assets/img/arcenal/Stacks/react.webp' },
+      { id: 'node', name: 'Node.js', image:  './assets/img/arcenal/Stacks/node.webp'  },
+      { id: 'python', name: 'Python', image: './assets/img/arcenal/Stacks/python.webp'  },
+      { id: 'fastapi', name: 'FastAPI', image: './assets/img/arcenal/Stacks/FastApi.webp'  },
+      { id: 'mysql', name: 'MySQL', image:'./assets/img/arcenal/Stacks/MsqlWorkbank.webp' },
+      { id: 'sqlite', name: 'SQLite', image: './assets/img/arcenal/Stacks/Sqlite3.webp' }
+    ]
+  },
+  data: {
+    id: 'data', title: 'Dados', rune: '▤', accent: '#b99b62', initialIndex: 1,
+    technologies: [
+      { id: 'mysql', name: 'MySQL', image:'./assets/img/arcenal/Stacks/MsqlWorkbank.webp' },
+      { id: 'sqlite', name: 'SQLite', image: './assets/img/arcenal/Stacks/Sqlite3.webp' }
+      ]
+  },
+  tools: {
+    id: 'tools', title: 'Ferramentas', rune: '⚒', accent: '#c59a52', initialIndex: 2,
+    technologies: [
+      { id: 'git', name: 'Git', image:  './assets/img/arcenal/Stacks/git.webp'  },
+      { id: 'github', name: 'GitHub', image: './assets/img/arcenal/Stacks/github.webp'},
+      { id: 'vite', name: 'Vite', image:'./assets/img/arcenal/Stacks/vite.webp' },
+      { id: 'figma', name: 'Figma', image: './assets/img/arcenal/Stacks/figma.webp' },
+      { id: 'notion', name: 'Notion', image: './assets/img/arcenal/Stacks/notion.webp' },
+      { id: 'firebase', name: 'Notion', image: './assets/img/arcenal/Stacks/firebase.webp' },
+      { id: 'vscode', name: 'VsCode', image: './assets/img/arcenal/Stacks/VsCode.webp' }
+    ]
+  }
+};
+
+const spellLibrary = document.querySelector('.spell-library');
+const spellShelf = document.getElementById('spell-book-shelf');
+const spellGrimoire = document.getElementById('spell-grimoire');
+const spellInvocation = document.getElementById('spell-invocation');
+let activeSkillGroup = null;
+let activeTechnologyIndex = 0;
+let isSkillModalOpen = false;
+let spellOpeningTimer;
+let skillSwitchTimer;
+let skillModalTrigger = null;
+let skillSwipeStartX = null;
+let skillWheelLocked = false;
+
+function renderSpellShelf() {
+  if (!spellShelf) return;
+  const coverByDomain = { 'front-end': 'front', 'back-end': 'back', 'full-stack': 'fullstack', data: 'dados', tools: 'ferramentas' };
+  // A ordem da estante é independente dos dados: Full-Stack permanece no trono central.
+  const shelfDomains = ['front-end', 'back-end', 'full-stack', 'data', 'tools']
+    .map(id => skillGroups[id]);
+  spellShelf.innerHTML = shelfDomains.map((domain, index) => `
+    <button class="spell-book spell-book--${domain.id}${activeSkillGroup?.id === domain.id ? ' spell-book--active' : ''}" type="button" data-spell-book="${domain.id}" style="--book-accent:${domain.accent};--book-order:${index}" aria-label="Explorar tecnologias de ${domain.title}" aria-controls="spell-grimoire" aria-expanded="${isSkillModalOpen && activeSkillGroup?.id === domain.id}" ${activeSkillGroup?.id === domain.id ? 'aria-current="true"' : ''}>
+      ${coverByDomain[domain.id]
+        ? `<img src="./assets/img/arcenal/${coverByDomain[domain.id]}.webp" alt="Capa do grimório ${domain.title}" draggable="false">`
+        : `<span class="spell-book__cover" aria-hidden="true"><i>${domain.rune}</i><strong>${domain.title}</strong><small>Volume 05</small></span>`}
+    </button>`).join('');
+}
+
+function normalizeGrimoireLabel(value) {
+  return String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]/gi, '')
+    .toLowerCase();
+}
+
+function findGrimoireProject(projectName) {
+  const normalizedName = normalizeGrimoireLabel(projectName);
+  return projects.find(project => {
+    const normalizedTitle = normalizeGrimoireLabel(project.title);
+    return normalizedTitle === normalizedName || normalizedTitle.includes(normalizedName) || normalizedName.includes(normalizedTitle);
+  });
+}
+
+function getGrimoireEntry(technology, domain, index) {
+  const customEntry = grimoireEntries[technology.name] || {};
+  return {
+    name: technology.name,
+    school: customEntry.school || `Escola de ${domain.title}`,
+    volume: customEntry.volume || String(spellDomains.indexOf(domain) + 1),
+    record: customEntry.record || String(index + 1).padStart(2, '0'),
+    avatar: customEntry.avatar || null,
+    sigil: customEntry.sigil || domain.rune,
+    level: technology.rank,
+    description: technology.description,
+    anatomy: customEntry.anatomy || [
+      { term: 'Fundamento', note: technology.description },
+      { term: 'Aplicação', note: 'Conhecimento aplicado em experiências e sistemas reais.' }
+    ],
+    concepts: customEntry.concepts || [technology.name, domain.title, 'Prática', 'Evolução'],
+    domain: customEntry.domain || domain.title,
+    classification: customEntry.classification || technology.rank,
+    competencies: customEntry.competencies || null,
+    reactivity: customEntry.reactivity || null,
+    ecosystem: customEntry.ecosystem || [],
+    practice: customEntry.practice || technology.description,
+    fieldNotes: customEntry.fieldNotes || {},
+    projectNames: technology.projects || [],
+    archivistNote: customEntry.archivistNote || `${technology.name} permanece em estudo contínuo dentro da escola de ${domain.title}.`
+  };
+}
+
+function renderGrimoireProject(projectName, entry, index) {
+  const project = findGrimoireProject(projectName);
+  const note = project?.shortDescription || entry.fieldNotes[projectName] || entry.description;
+  const observation = entry.fieldNotes[projectName] || `Aplicação de ${entry.name} em contexto prático.`;
+  return `
+    <li class="grimoire__project-entry">
+      <div class="grimoire__project-copy">
+        <span class="grimoire__project-number">Registro ${String(index + 1).padStart(2, '0')}</span>
+        <h4>${project?.title || projectName}</h4>
+        <p>${note}</p>
+        <q>${observation}</q>
+      </div>
+      <figure class="grimoire__project-sketch${project?.image ? ' has-image' : ''}" aria-label="Espaço para gravura do projeto ${project?.title || projectName}">
+        ${project?.image
+          ? `<img src="${project.image}" alt="Registro visual do projeto ${project.title}" loading="lazy">`
+          : `<span aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>`}
+      </figure>
+    </li>`;
+}
+
+function renderLegacySpellGrimoire(focusControl = false) {
+  if (!spellGrimoire || !activeBook) return;
+  const pageCount = activeBook.technologies.length;
+  const technology = activeBook.technologies[activeSpellPage];
+  const entry = getGrimoireEntry(technology, activeBook, activeSpellPage);
+  const anatomy = entry.anatomy.slice(0, entry.competencies ? 6 : 4);
+  const projectsToRender = entry.projectNames.slice(0, 4);
+  spellGrimoire.style.setProperty('--book-accent', activeBook.accent);
+  spellGrimoire.classList.add('grimoire');
+  spellGrimoire.classList.toggle('grimoire--professional', Boolean(entry.competencies));
+  spellGrimoire.dataset.activeSheet = String(activeGrimoireSheet);
+  const rightPageContent = entry.competencies ? `
+        <header class="grimoire__field-header grimoire__practice-header">
+          <span>Caderno do arquivista</span>
+          <h3>Domínio prático</h3>
+          <p>Competências aplicadas na construção de interfaces modernas.</p>
+        </header>
+        <section class="grimoire__competencies" aria-labelledby="react-competencies-title">
+          <h4 id="react-competencies-title">Competências principais</h4>
+          <div class="grimoire__competency-list">
+            ${entry.competencies.map((item, index) => `<article class="grimoire__competency" style="--competency-index:${index}">
+              <h5>${item.title}</h5><p>${item.description}</p>
+            </article>`).join('')}
+          </div>
+        </section>
+        <div class="grimoire__practical-grid">
+          <section class="grimoire__reactivity" aria-labelledby="reactivity-title">
+            <h4 id="reactivity-title">${entry.reactivity.title}</h4>
+            <div class="grimoire__reactivity-flow" aria-label="${entry.reactivity.steps.join(' para ')}">
+              ${entry.reactivity.steps.map((step, index) => `<span>${step}</span>${index < entry.reactivity.steps.length - 1 ? '<i aria-hidden="true">↓</i>' : '<i class="grimoire__loop" aria-hidden="true">↺</i>'}`).join('')}
+            </div>
+            <p>${entry.reactivity.description}</p>
+          </section>
+          <div class="grimoire__practical-notes">
+            <section class="grimoire__ecosystem">
+              <h4>Ecossistema</h4>
+              <ul>${entry.ecosystem.map(item => `<li>${item}</li>`).join('')}</ul>
+            </section>
+            <section class="grimoire__classification">
+              <span>Nível de atuação</span>
+              <strong>${entry.classification}</strong>
+              <p>${entry.practice}</p>
+            </section>
+          </div>
+        </div>
+        <aside class="grimoire__archivist-note">
+          <span>Nota do arquivista</span>
+          <p>“${entry.archivistNote}”</p>
+        </aside>` : `
+        <header class="grimoire__field-header">
+          <span>Caderno do arquivista</span>
+          <h3>Registro de Campo</h3>
+          <p>Onde este conhecimento foi colocado à prova.</p>
+        </header>
+        <ol class="grimoire__field-log">
+          ${projectsToRender.map((projectName, index) => renderGrimoireProject(projectName, entry, index)).join('')}
+        </ol>
+        <aside class="grimoire__archivist-note">
+          <span>Nota do arquivista</span>
+          <p>“${entry.archivistNote}”</p>
+        </aside>`;
+  spellGrimoire.innerHTML = `
+    <button class="spell-grimoire__close grimoire__close" type="button" aria-label="Fechar grimório">
+      <span aria-hidden="true">×</span>
+    </button>
+    <div class="spell-grimoire__spread grimoire__spread">
+      <article class="spell-grimoire__page grimoire__page grimoire__page--left">
+        <header class="grimoire__page-header">
+          <span class="grimoire__folio">Bestiário ${String(activeSpellPage + 1).padStart(2, '0')}</span>
+          <h3 class="grimoire__technology-title">${entry.name}</h3>
+          <p class="grimoire__school">${entry.school}</p>
+          <small>Volume ${entry.volume} · Registro ${entry.record}</small>
+        </header>
+
+        <section class="grimoire__study" aria-label="Anatomia de ${entry.name}">
+          <figure class="grimoire__avatar${entry.avatar ? ' has-image' : ''}">
+            ${entry.avatar
+              ? `<img src="${entry.avatar}" alt="Entidade visual de ${entry.name}">`
+              : `<span class="grimoire__avatar-sigil" aria-hidden="true">${entry.sigil}</span><figcaption>Retrato em catalogação</figcaption>`}
+          </figure>
+          <div class="grimoire__anatomy">
+            ${anatomy.map((item, index) => `<div class="grimoire__anatomy-note" style="--note-index:${index}">
+              <strong>${item.term}</strong><span>${item.note}</span>
+            </div>`).join('')}
+          </div>
+          <div class="grimoire__diagram" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </section>
+
+        <div class="grimoire__left-footer">
+          <section class="grimoire__concepts">
+            <h4>${entry.competencies ? 'Fundamentos' : 'Princípios catalogados'}</h4>
+            <ul>${entry.concepts.slice(0, entry.competencies ? 6 : 5).map(concept => `<li>${concept}</li>`).join('')}</ul>
+          </section>
+          <div class="grimoire__seal" aria-label="Selo do domínio ${activeBook.title}">
+            <span aria-hidden="true">${activeBook.rune}</span>
+            <small>${activeBook.title}</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="spell-grimoire__page grimoire__page grimoire__page--right">
+        ${rightPageContent}
+      </article>
+    </div>
+    ${entry.competencies ? `<nav class="grimoire__sheet-navigation" aria-label="Páginas do registro React">
+      <button type="button" data-grimoire-sheet="0" ${activeGrimoireSheet === 0 ? 'aria-current="page"' : ''}>React / Anatomia</button>
+      <span aria-hidden="true">↓</span>
+      <button type="button" data-grimoire-sheet="1" ${activeGrimoireSheet === 1 ? 'aria-current="page"' : ''}>Domínio prático</button>
+    </nav>` : ''}
+    <nav class="spell-grimoire__navigation grimoire__navigation" aria-label="Tecnologias do grimório">
+      <button type="button" data-spell-page="prev" ${activeSpellPage === 0 ? 'disabled' : ''}>‹ registro anterior</button>
+      <span>${activeSpellPage + 1} / ${pageCount}</span>
+      <button type="button" data-spell-page="next" ${activeSpellPage >= pageCount - 1 ? 'disabled' : ''}>próximo registro ›</button>
+    </nav>`;
+  spellGrimoire.hidden = false;
+  if (focusControl) spellGrimoire.querySelector('.spell-grimoire__close')?.focus();
+}
+
+function getSkillOffset(index, activeIndex, count) {
+  let offset = (index - activeIndex + count) % count;
+  if (offset > count / 2) offset -= count;
+  return offset;
+}
+
+function renderSpellGrimoire(focusTarget = null, isCategorySwitch = false) {
+  if (!spellGrimoire || !activeSkillGroup) return;
+  const technologies = activeSkillGroup.technologies;
+  const activeTechnology = technologies[activeTechnologyIndex];
+
+  spellGrimoire.className = `spell-grimoire skill-panel skill-panel--open skill-carousel-modal skill-carousel-modal--open${isCategorySwitch ? ' skill-panel--refresh' : ''}`;
+  spellGrimoire.style.setProperty('--book-accent', activeSkillGroup.accent);
+  spellGrimoire.setAttribute('role', 'region');
+  spellGrimoire.removeAttribute('aria-modal');
+  spellGrimoire.setAttribute('aria-labelledby', 'skill-panel-title');
+  spellGrimoire.setAttribute('aria-hidden', 'false');
+  spellGrimoire.innerHTML = `
+    <section class="skill-panel__frame skill-carousel-modal__panel" data-skill-panel>
+      <button class="skill-panel__close skill-carousel-modal__close" type="button" aria-label="Fechar tecnologias de ${activeSkillGroup.title}">
+        <span aria-hidden="true">×</span>
+      </button>
+      <header class="skill-panel__header skill-carousel-modal__header visually-hidden">
+        <h3 id="skill-panel-title">◇ ${activeSkillGroup.title} ◇</h3>
+      </header>
+      <div class="skill-carousel-modal__body">
+        <button class="skill-carousel__arrow skill-carousel__prev" type="button" data-skill-direction="-1" aria-label="Tecnologia anterior">‹</button>
+        <div class="skill-carousel" role="listbox" aria-label="Tecnologias de ${activeSkillGroup.title}" aria-activedescendant="skill-${activeTechnology.id}">
+          <div class="skill-carousel__track">
+            ${technologies.map((technology, index) => {
+              const offset = getSkillOffset(index, activeTechnologyIndex, technologies.length);
+              const isActive = index === activeTechnologyIndex;
+              const isVisible = Math.abs(offset) <= 2;
+              return `<button
+                id="skill-${technology.id}"
+                class="skill-carousel__item${isActive ? ' skill-carousel__item--active' : ''}"
+                type="button"
+                role="option"
+                aria-selected="${isActive}"
+                aria-label="${technology.name}"
+                data-skill-index="${index}"
+                style="--skill-offset:${offset};--skill-distance:${Math.abs(offset)}"
+                ${isVisible ? '' : 'aria-hidden="true" tabindex="-1"'}>
+                <span class="skill-carousel__symbol" aria-hidden="true">
+                  ${technology.image.includes('#')
+                    ? `<svg viewBox="0 0 96 96" focusable="false"><use href="${technology.image}"></use></svg>`
+                    : `<img src="${technology.image}" alt="" draggable="false">`}
+                </span>
+              </button>`;
+            }).join('')}
+          </div>
+        </div>
+        <button class="skill-carousel__arrow skill-carousel__next" type="button" data-skill-direction="1" aria-label="Próxima tecnologia">›</button>
+      </div>
+      <nav class="skill-carousel__dots" aria-label="Escolher tecnologia">
+        ${technologies.map((technology, index) => `<button type="button" data-skill-index="${index}" aria-label="Mostrar ${technology.name}" ${index === activeTechnologyIndex ? 'aria-current="true"' : ''}></button>`).join('')}
+      </nav>
+    </section>`;
+  spellGrimoire.hidden = false;
+
+  if (focusTarget === 'close') spellGrimoire.querySelector('.skill-carousel-modal__close')?.focus();
+  if (focusTarget === 'active') spellGrimoire.querySelector('.skill-carousel__item--active')?.focus();
+}
+
+function setActiveTechnology(nextIndex, focusActive = true) {
+  if (!activeSkillGroup) return;
+  const count = activeSkillGroup.technologies.length;
+  activeTechnologyIndex = (nextIndex + count) % count;
+  const items = [...spellGrimoire.querySelectorAll('.skill-carousel__item')];
+  items.forEach((item, index) => {
+    const offset = getSkillOffset(index, activeTechnologyIndex, count);
+    const isActive = index === activeTechnologyIndex;
+    const isVisible = Math.abs(offset) <= 2;
+    item.style.setProperty('--skill-offset', offset);
+    item.style.setProperty('--skill-distance', Math.abs(offset));
+    item.classList.toggle('skill-carousel__item--active', isActive);
+    item.setAttribute('aria-selected', String(isActive));
+    item.toggleAttribute('aria-hidden', !isVisible);
+    item.tabIndex = isVisible ? 0 : -1;
+  });
+  const activeTechnology = activeSkillGroup.technologies[activeTechnologyIndex];
+  spellGrimoire.querySelector('.skill-carousel')?.setAttribute('aria-activedescendant', `skill-${activeTechnology.id}`);
+  spellGrimoire.querySelectorAll('.skill-carousel__dots [data-skill-index]').forEach((dot, index) => {
+    if (index === activeTechnologyIndex) dot.setAttribute('aria-current', 'true');
+    else dot.removeAttribute('aria-current');
+  });
+  if (focusActive) spellGrimoire.querySelector('.skill-carousel__item--active')?.focus();
+}
+
+function openSpellBook(bookId) {
+  const selected = skillGroups[bookId];
+  if (!selected || !spellLibrary) return;
+  window.clearTimeout(spellOpeningTimer);
+  window.clearTimeout(skillSwitchTimer);
+
+  if (isSkillModalOpen) {
+    if (activeSkillGroup?.id === selected.id) return;
+    skillModalTrigger = spellShelf?.querySelector(`[data-spell-book="${bookId}"]`) || document.activeElement;
+    activeSkillGroup = selected;
+    activeTechnologyIndex = 0;
+    spellGrimoire.classList.add('skill-panel--switching');
+    renderSpellShelf();
+    spellShelf?.querySelector(`[data-spell-book="${bookId}"]`)?.focus();
+    skillSwitchTimer = window.setTimeout(() => {
+      renderSpellGrimoire(null, true);
+      spellLibrary.dataset.libraryState = 'open';
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 150);
+    return;
+  }
+
+  skillModalTrigger = spellShelf?.querySelector(`[data-spell-book="${bookId}"]`) || document.activeElement;
+  activeSkillGroup = selected;
+  activeTechnologyIndex = 0;
+  isSkillModalOpen = true;
+  spellLibrary.dataset.libraryState = 'selecting';
+  renderSpellShelf();
+  if (spellInvocation) spellInvocation.hidden = true;
+  spellOpeningTimer = window.setTimeout(() => {
+    spellLibrary.dataset.libraryState = 'opening';
+    renderSpellGrimoire('close');
+    spellLibrary.dataset.libraryState = 'open';
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 40);
+}
+
+function closeSpellBook() {
+  if (!spellLibrary || !activeSkillGroup) return;
+  const returnId = activeSkillGroup.id;
+  const returnTarget = skillModalTrigger;
+  window.clearTimeout(spellOpeningTimer);
+  window.clearTimeout(skillSwitchTimer);
+  isSkillModalOpen = false;
+  spellLibrary.dataset.libraryState = 'closing';
+  spellGrimoire.setAttribute('aria-hidden', 'true');
+  spellGrimoire.classList.add('skill-carousel-modal--closing');
+  window.setTimeout(() => {
+    spellGrimoire.hidden = true;
+    spellGrimoire.className = 'spell-grimoire';
+    activeSkillGroup = null;
+    activeTechnologyIndex = 0;
+    spellLibrary.dataset.libraryState = 'idle';
+    renderSpellShelf();
+    if (spellInvocation) spellInvocation.hidden = true;
+    const refreshedBook = spellShelf?.querySelector(`[data-spell-book="${returnId}"]`);
+    (refreshedBook || returnTarget)?.focus();
+    skillModalTrigger = null;
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 30 : 300);
+}
+
+spellShelf?.addEventListener('click', event => {
+  const book = event.target.closest('[data-spell-book]');
+  if (book) openSpellBook(book.dataset.spellBook);
+});
+
+spellGrimoire?.addEventListener('click', event => {
+  if (event.target.closest('.skill-carousel-modal__close')) return closeSpellBook();
+  const directionButton = event.target.closest('[data-skill-direction]');
+  if (directionButton) return setActiveTechnology(activeTechnologyIndex + Number(directionButton.dataset.skillDirection));
+  const technologyButton = event.target.closest('[data-skill-index]');
+  if (technologyButton) setActiveTechnology(Number(technologyButton.dataset.skillIndex));
+});
+
+spellLibrary?.addEventListener('keydown', event => {
+  if (!isSkillModalOpen || spellLibrary.dataset.libraryState !== 'open') return;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeSpellBook();
+    return;
+  }
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault();
+    setActiveTechnology(activeTechnologyIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    return;
+  }
+});
+
+spellGrimoire?.addEventListener('wheel', event => {
+  if (!isSkillModalOpen || skillWheelLocked || Math.abs(event.deltaX) + Math.abs(event.deltaY) < 12) return;
+  event.preventDefault();
+  skillWheelLocked = true;
+  setActiveTechnology(activeTechnologyIndex + (event.deltaX + event.deltaY > 0 ? 1 : -1));
+  window.setTimeout(() => { skillWheelLocked = false; }, 260);
+}, { passive: false });
+
+spellGrimoire?.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'mouse') skillSwipeStartX = event.clientX;
+});
+
+spellGrimoire?.addEventListener('pointerup', event => {
+  if (skillSwipeStartX === null) return;
+  const distance = event.clientX - skillSwipeStartX;
+  skillSwipeStartX = null;
+  if (Math.abs(distance) > 42) setActiveTechnology(activeTechnologyIndex + (distance < 0 ? 1 : -1));
+});
+
+spellGrimoire?.addEventListener('pointercancel', () => { skillSwipeStartX = null; });
+
+renderSpellShelf();

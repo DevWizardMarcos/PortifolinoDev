@@ -1,0 +1,77 @@
+/* Hackathon City — O Confronto das Lendas. Camadas, efeitos, controles e painel de conteúdo. */
+.hc { --gold: #d8b66c; --violet: #8a5cff; position: relative; display: flex; flex-direction: column; gap: .6rem; width: 100%; height: 100%; min-width: 0; min-height: 0; padding: .6rem; color: #f4e7d1; background: #07040b; overflow-y: auto; overflow-x: hidden; isolation: isolate; scrollbar-width: thin; }
+.hc__viewport { position: relative; flex: 0 1 auto; width: 100%; max-height: calc(100% - 3.4rem); aspect-ratio: 1672 / 941; margin-inline: auto; overflow: hidden; border: 1px solid rgba(216,182,108,.32); background: #07040b; container-type: size; }
+.hc__parallax, .hc__camera { position: absolute; inset: 0; will-change: transform; }
+.hc__stage { position: absolute; left: 50%; top: 50%; width: max(100cqw, calc(100cqh * 1.777)); transform: translate(-50%, -50%); }
+.hc__stage > * { position: absolute; }
+.hc__composite { inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+
+/* ambiente */
+.hc__mist { inset: 38% -10% 0; pointer-events: none; opacity: .5; mix-blend-mode: screen; background: radial-gradient(ellipse 40% 22% at 22% 70%, rgba(130,90,230,.22), transparent 70%), radial-gradient(ellipse 36% 20% at 72% 78%, rgba(150,70,200,.2), transparent 70%); }
+.hc__mist--b { inset: 55% -10% 0; opacity: .4; background: radial-gradient(ellipse 34% 18% at 48% 70%, rgba(100,130,255,.2), transparent 70%); }
+.hc__moon-glow { width: 14%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; opacity: .6; mix-blend-mode: screen; background: radial-gradient(circle, rgba(200,170,255,.32), transparent 68%); }
+.hc__arena-glow { width: 36%; aspect-ratio: 2.1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; opacity: .7; mix-blend-mode: screen; background: radial-gradient(ellipse, rgba(170,110,255,.3), transparent 70%); }
+.hc__torch { width: 3.4%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,170,70,.55), rgba(255,110,30,.16) 45%, transparent 70%); }
+
+/* atores: sem sprite, só o ponto de interação sobre a criatura da arte composta */
+.hc__actor { pointer-events: none; }
+.hc__actor-sprite { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.hc__actor-hit { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 1px solid transparent; border-radius: 50%; background: transparent; cursor: pointer; pointer-events: auto; opacity: .001; }
+.hc__actor-hit:hover, .hc__actor-hit:focus-visible { opacity: 1; border-color: rgba(244,223,170,.7); background: radial-gradient(circle, rgba(244,223,170,.08), transparent 70%); }
+.hc__actor-hit:focus-visible { outline: 2px solid #f4dfaa; outline-offset: -3px; }
+
+/* efeitos de fogo e colisão */
+.hc__breath-light { inset: 0; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(ellipse 60% 50% at 50% 32%, rgba(110,170,255,.55), rgba(90,70,230,.2) 55%, transparent 80%); }
+.hc__fire-light { inset: 0; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(ellipse 55% 50% at 66% 30%, rgba(255,120,40,.5), rgba(220,50,40,.18) 55%, transparent 80%); }
+.hc__mouth-glow, .hc__beak-glow { width: 4.2%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; opacity: 0; mix-blend-mode: screen; }
+.hc__mouth-glow { background: radial-gradient(circle, rgba(220,240,255,.95), rgba(110,170,255,.5) 40%, transparent 70%); }
+.hc__beak-glow { background: radial-gradient(circle, rgba(255,230,160,.95), rgba(255,130,40,.5) 40%, transparent 70%); }
+.hc__fx { inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hc__ring { width: 16%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 2px solid rgba(255,225,170,.8); border-radius: 50%; pointer-events: none; opacity: 0; box-shadow: 0 0 22px rgba(255,150,60,.5), inset 0 0 18px rgba(130,170,255,.4); }
+.hc__flash { width: 40%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,245,230,.9), rgba(255,170,90,.4) 40%, transparent 70%); }
+.hc__avatar-light { inset: 0; pointer-events: none; opacity: 0; mix-blend-mode: soft-light; background: linear-gradient(115deg, rgba(90,140,255,.7), rgba(255,100,50,.6) 70%); }
+.hc__dark { inset: 0; pointer-events: none; opacity: 0; background: #05020a; }
+
+/* legenda e controles */
+.hc__caption { position: absolute; left: 50%; bottom: 5%; z-index: 4; max-width: 90%; margin: 0; padding: .45rem 1rem; transform: translateX(-50%); border: 1px solid rgba(216,182,108,.4); color: #ead5a6; background: rgba(8,4,12,.72); font: 700 clamp(.62rem,1.1vw,.82rem) Cinzel, serif; letter-spacing: .12em; text-transform: uppercase; text-align: center; pointer-events: none; }
+.hc__controls { display: grid; gap: .5rem; flex: 0 0 auto; }
+.hc__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.hc__buttons button, .hc__link, .hc__sound button, .hc__inspect button { min-height: 44px; padding: .45rem 1rem; border: 1px solid rgba(216,182,108,.45); color: #ead5a6; background: rgba(28,16,25,.85); font: 700 .66rem/1.2 Cinzel, serif; letter-spacing: .05em; cursor: pointer; }
+.hc__link { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.hc__buttons .hc__link.is-primary, .hc__buttons button.is-primary { color: #170a10; background: #d8b66c; }
+.hc__buttons button.is-quiet { border-color: transparent; background: none; }
+.hc__buttons button:disabled { opacity: .4; cursor: not-allowed; }
+.hc__buttons button:hover:not(:disabled), .hc__link:hover { filter: brightness(1.15); }
+.hc button:focus-visible, .hc a:focus-visible { outline: 2px solid #f4dfaa; outline-offset: 3px; }
+.hc__sound { display: flex; align-items: center; justify-content: center; gap: .8rem; }
+.hc__sound input { width: 120px; accent-color: #d8b66c; }
+.hc__warn { margin: 0; color: #e5b4a6; font: .74rem Lora, serif; text-align: center; }
+.hc__inspect { position: absolute; z-index: 6; left: 50%; bottom: 14%; width: min(420px, 88%); padding: .9rem 1rem; transform: translateX(-50%); border: 1px solid rgba(216,182,108,.5); background: rgba(10,5,14,.94); }
+.hc__inspect strong { color: #ead5a6; font: 700 .86rem Cinzel, serif; }
+.hc__inspect p { margin: .4rem 0 .7rem; color: rgba(244,231,209,.85); font: .8rem/1.55 Lora, serif; }
+.hc-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+/* celular: recorte 4:3 centrado nas criaturas (dragão e fênix inteiros), em vez de encolher a cena de 16:9 */
+@media (max-width: 600px) {
+  .hc__viewport { aspect-ratio: 4 / 3; }
+}
+.hc__note { margin: 0; color: rgba(244,231,209,.78); font: italic .72rem/1.5 Lora, serif; text-align: center; }
+
+/* O Hackathon City divide a tela com a crônica no Atlas. Em landscape baixo,
+   reduz apenas o chrome para a arte, as ações e a nota caberem sem sobreposição. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hc { gap: .35rem; padding: .4rem; overflow-y: hidden; }
+  .hc__viewport { max-height: none; }
+  .hc__controls { gap: .3rem; }
+  .hc__buttons { gap: .35rem; }
+  .hc__buttons button,
+  .hc__link,
+  .hc__sound button,
+  .hc__inspect button {
+    min-height: 36px;
+    padding: .3rem .6rem;
+    font-size: .58rem;
+  }
+  .hc__buttons .is-quiet { flex-basis: 100%; min-height: 32px; }
+  .hc__note { font-size: .68rem; line-height: 1.35; }
+}

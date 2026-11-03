@@ -4,7 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevWizardMarcos</title>
+  <meta name="description"
+    content="Portfólio de Marcos Simões, desenvolvedor Front-End e Full-Stack, professor e líder técnico. Conheça projetos, tecnologias e experiência profissional.">
+  <meta name="theme-color" content="#09070d">
+  <meta name="author" content="Marcos Simões">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- Ajuste a URL abaixo para o endereço real onde o portfólio for publicado. -->
+  <link rel="canonical" href="https://devwizardmarcos.github.io/PortifolinoDev/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Marcos Simões — DevWizard">
+  <meta property="og:title" content="Marcos Simões | Desenvolvedor Front-End e Full-Stack">
+  <meta property="og:description"
+    content="Portfólio interativo: projetos, tecnologias e experiência de Marcos Simões, desenvolvedor Front-End e Full-Stack, professor e líder técnico.">
+  <meta property="og:url" content="https://devwizardmarcos.github.io/PortifolinoDev/">
+  <meta property="og:image" content="https://devwizardmarcos.github.io/PortifolinoDev/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marcos Simões",
+    "alternateName": "DevWizard",
+    "jobTitle": "Desenvolvedor Front-End e Full-Stack",
+    "url": "https://devwizardmarcos.github.io/PortifolinoDev/",
+    "email": "mailto:mp718887@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/marcos-simoes-ms/",
+      "https://github.com/DevWizardMarcos"
+    ],
+    "knowsAbout": ["JavaScript", "React", "Front-End", "Full-Stack", "Python", "Liderança técnica", "Ensino de programação"]
+  }
+  </script>
+  <!-- Chave pública restrita à Maps Embed API e aos domínios autorizados. Veja o README. -->
+  <title>Marcos Simões | Desenvolvedor Front-End e Full-Stack</title>
+  <link rel="icon" type="image/png" href="assets/img/Logo/LogoRoxa.webp">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -13,45 +49,75 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/animacoes.css">
+  <link rel="stylesheet" href="assets/css/legacy-book.css">
+  <link rel="stylesheet" href="assets/css/about-author.css">
+  <link rel="stylesheet" href="assets/css/journey-portals.css">
+  <link rel="stylesheet" href="assets/css/journey-knowledge-map.css">
+  <link rel="stylesheet" href="assets/css/innovation-owl-scene.css">
+  <link rel="stylesheet" href="assets/css/sanctuary-scene.css">
+  <link rel="stylesheet" href="assets/css/hackathon-city.css">
+  <link rel="stylesheet" href="assets/css/voice-experiences.css">
+  <link rel="stylesheet" href="assets/css/living-lion.css">
+  <link rel="stylesheet" href="assets/css/book-art.css">
+  <link rel="stylesheet" href="assets/css/council-members.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <link rel="stylesheet" href="assets/css/responsive-fixes.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+  <main id="conteudo-principal">
 
   <!--Banner-->
   <section id="banner">
     <header class="hero-header" id="hero-header">
       <nav class="hero-nav" aria-label="Navegação principal">
-        <a class="hero-brand" href="#banner" aria-label="DevWizard — início"><span aria-hidden="true">◆</span>DEV<span>WIZARD</span></a>
-        <button class="nav-toggle" type="button" aria-controls="hero-menu" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+        <a class="hero-brand" href="#banner" aria-label="DevWizard — início">DEV<span>WIZARD</span></a>
+        <button class="nav-toggle" type="button" aria-controls="hero-menu" aria-expanded="false"
+          aria-label="Abrir menu"><span></span><span></span><span></span></button>
         <div class="hero-menu" id="hero-menu">
           <ul class="hero-links">
-            <li><a class="active" href="#sobre-mim">Jornada</a></li><li><a href="#arsenal-skills">Arsenal</a></li>
-            <li><a href="#sessaoProjetos">Legados</a></li><li><a href="#sobre-mim">Sobre</a></li><li><a href="#contato">Contato</a></li>
+            <li><a class="active" href="#jornada">Jornada</a></li>
+            <li><a href="#arsenal-skills">Arsenal</a></li>
+            <li><a href="#legados">Legados</a></li>
+            <li><a href="#sobre-mim">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
           </ul>
           <div class="social-links" aria-label="Redes sociais">
-            <a href="https://github.com/DevWizardMarcos" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.3-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.1-.12-.3-.52-1.47.11-3.06 0 0 .97-.31 3.16 1.18a10.95 10.95 0 0 1 5.75 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg></a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.35 7.67H1.58V22h3.77V7.67ZM3.47 1A2.19 2.19 0 1 0 3.47 5.38 2.19 2.19 0 0 0 3.47 1ZM22.42 13.78c0-4.31-2.3-6.31-5.37-6.31a4.64 4.64 0 0 0-4.21 2.32V7.67H9.07V22h3.77v-7.1c0-1.87.35-3.68 2.67-3.68 2.29 0 2.32 2.14 2.32 3.8V22h3.77l.82-8.22Z"/></svg></a>
+            <a href="https://github.com/DevWizardMarcos" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.3-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.1-.12-.3-.52-1.47.11-3.06 0 0 .97-.31 3.16 1.18a10.95 10.95 0 0 1 5.75 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z" />
+              </svg></a>
+            <a href="https://www.linkedin.com/in/marcos-simoes-ms/" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn de Marcos Simões"><svg
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M5.35 7.67H1.58V22h3.77V7.67ZM3.47 1A2.19 2.19 0 1 0 3.47 5.38 2.19 2.19 0 0 0 3.47 1ZM22.42 13.78c0-4.31-2.3-6.31-5.37-6.31a4.64 4.64 0 0 0-4.21 2.32V7.67H9.07V22h3.77v-7.1c0-1.87.35-3.68 2.67-3.68 2.29 0 2.32 2.14 2.32 3.8V22h3.77l.82-8.22Z" />
+              </svg></a>
           </div>
         </div>
       </nav>
     </header>
-    
+
     <!--texto banner principal-->
     <div class="d-flex flex-column align-items-center justify-content-center text-center" id="tituloBanner">
       <div class="hero-copy">
-        <p class="hero-kicker"><span>◆</span> Portfólio // 2026 <span>◆</span></p>
-        <p class="hero-identity">DevWizard</p>
+        <p class="hero-kicker">Portfólio // 2026</p>
         <h1>Marcos Simões</h1>
         <p class="hero-role">Front-End Developer</p>
         <p class="hero-description">Interfaces modernas onde design,<br>código e experiência se encontram.</p>
-        <div class="hero-actions"><a class="btnIncio" href="#sobre-mim">Explorar jornada</a><a class="btnProjetos" href="#sessaoProjetos">Ver projetos</a></div>
-        <div class="hero-xp" aria-label="Nível de experiência"><div><span>Nível 26</span><span>70%</span></div><i><b></b></i><small>Experiência</small></div>
+        <div class="hero-actions"><a class="btnIncio" href="#sobre-mim">Explorar jornada</a><a class="btnProjetos"
+            href="#legados">Ver projetos</a></div>
+        <div class="hero-xp" aria-label="Nível de experiência">
+          <div><span>Nível 26</span><span>70%</span></div><i><b></b></i><small>Experiência</small>
+        </div>
       </div>
       <a class="scroll-cue" href="#sobre-mim"><span>Scroll para iniciar a jornada</span><b aria-hidden="true">↓</b></a>
       <h1><b class="Dev">Dev</b><b class="Wizard">Wizard</b>Marcos</h1>
       <p>Full-Stack Developer &bull; Professor &bull; Líder Técnico</p>
       <p>Transformando conhecimento em experiências digitais.</p>
-      
+
       <!-- Stats Bar -->
       <div class="d-flex align-items-center gap-3" id="statsBar">
         <div class="d-flex flex-column" id="nivelContainer">
@@ -64,83 +130,78 @@
             <div class="progress-bar" role="progressbar" style="width: 70%; background-color: #d6035b"></div>
           </div>
         </div>
-        
+
       </div>
 
       <div class="d-flex gap-4" id="sessao-Btn-Banner">
-        <button class="btnIncio"><a href="#sobre-Jornada">Iniciar Jornanda</a></button>
-        <button class="btnProjetos"><a href="">Explorar Projetos</a></button>
-        
+        <button class="btnIncio"><a href="#sobre-mim">Iniciar Jornada</a></button>
+        <button class="btnProjetos"><a href="#exposicao-legados">Explorar Projetos</a></button>
+
       </div>
-    <div id="personagem-run">
+      <div id="personagem-run">
         <img id="frame-personagem" src="assets/img/freams/correndo1.png" alt="">
-    </div>
+      </div>
 
     </div>
-    
+
 
   </section>
-  
-  <!-- Sessão Sobre o Personagem -->
-  <section id="sobre-mim" class="about-chapter" aria-labelledby="about-title">
-    <div class="about-aura" aria-hidden="true"></div>
-    <div class="about-container">
-      <header class="about-heading">
-        <span class="about-chapter-label">Capítulo I</span>
-        <h2 id="about-title">Sobre o Personagem</h2>
-        <p>Conheça o dev por trás da magia.</p>
+
+  <!-- Sobre: o autor por trás dos legados -->
+  <div class="author-transition" aria-hidden="true"></div>
+  <section id="sobre-mim" class="author-section" aria-labelledby="about-title">
+    <div class="author-composition">
+      <header class="author-heading" data-author-reveal>
+        <span class="author-chapter">Capítulo I</span>
+        <h2 id="about-title">Minha Origem</h2>
+        <div class="author-ornament" aria-hidden="true"><span></span>◇<span></span></div>
       </header>
-
-      <div class="about-story">
-        <figure class="about-portrait">
-          <span class="portrait-rune" aria-hidden="true">◆</span>
-          <img src="assets/img/user/foto_perfil.png" alt="Retrato de Marcos Simões">
-          <span class="portrait-caption">O homem por trás do grimório</span>
-        </figure>
-
-        <article class="about-narrative">
-          <span class="narrative-mark" aria-hidden="true">01</span>
-          <h3>Minha Origem</h3>
-          <div class="narrative-divider" aria-hidden="true"><span></span></div>
-          <p>Minha jornada começou pela curiosidade de entender como ideias poderiam se transformar em experiências digitais.</p>
-          <p>Com o tempo, projetos, ensino e liderança passaram a fazer parte desse caminho — conectando criação, troca de conhecimento e a busca constante por novos desafios.</p>
-        </article>
-      </div>
-
-      <div class="about-motivation">
-        <div class="motivation-heading"><span></span><h3>O que move a jornada</h3><span></span></div>
-        <div class="motivation-grid">
-          <article class="motivation-item"><span class="pillar-number">01</span><span class="pillar-rune" aria-hidden="true">◆</span><h4>Criar</h4><i></i><p>Transformar ideias em interfaces e experiências que realmente ganham vida.</p></article>
-          <article class="motivation-item"><span class="pillar-number">02</span><span class="pillar-rune" aria-hidden="true">◆</span><h4>Compartilhar</h4><i></i><p>Ensinar aquilo que aprendo e crescer através da troca com outras pessoas.</p></article>
-          <article class="motivation-item"><span class="pillar-number">03</span><span class="pillar-rune" aria-hidden="true">◆</span><h4>Evoluir</h4><i></i><p>Buscar desafios que me tirem do confortável e ampliem aquilo que sou capaz de construir.</p></article>
+      <figure class="author-art" data-author-reveal>
+        <div class="author-art-blend" data-author-parallax>
+          <div class="author-art-motion">
+            <img src="assets/img/user/foto_perfil.webp"
+              alt="Ilustração do desenvolvedor com notebook em um ambiente inspirado em um grimório" width="1086"
+              height="1448" loading="lazy" decoding="async">
+            <!-- Camadas de vida: recortes mascarados da própria ilustração (nenhum pixel novo).
+               As frações --x/--y/--w/--h são relativas à arte de 1086×1448. -->
+            <div class="author-art-life" aria-hidden="true">
+              <span class="author-layer author-eye" style="--x:.42173;--y:.31354;--w:.04604;--h:.01588"><img
+                  src="assets/img/user/foto_perfil.webp" alt="" decoding="async"></span>
+              <span class="author-layer author-eye" style="--x:.37569;--y:.33356;--w:.03315;--h:.01519"><img
+                  src="assets/img/user/foto_perfil.webp" alt="" decoding="async"></span>
+              <span class="author-layer author-glow author-glow--blue"
+                style="--x:.66298;--y:.09669;--w:.13812;--h:.29696"><img src="assets/img/user/foto_perfil.webp" alt=""
+                  decoding="async"></span>
+              <span class="author-layer author-glow author-glow--red"
+                style="--x:.79650;--y:.08287;--w:.13352;--h:.27624"><img src="assets/img/user/foto_perfil.webp" alt=""
+                  decoding="async"></span>
+              <span class="author-layer author-glow author-glow--screen"
+                style="--x:.15654;--y:.41436;--w:.22560;--h:.14503"><img src="assets/img/user/foto_perfil.webp" alt=""
+                  decoding="async"></span>
+              <i class="author-mote author-mote--blue" style="--mx:71%;--my:30%;--md:11s;--ms:-2s"></i>
+              <i class="author-mote author-mote--blue" style="--mx:75%;--my:22%;--md:13s;--ms:-7s"></i>
+              <i class="author-mote author-mote--blue" style="--mx:69%;--my:17%;--md:9.5s;--ms:-4.5s"></i>
+              <i class="author-mote author-mote--red" style="--mx:86%;--my:28%;--md:12s;--ms:-5s"></i>
+              <i class="author-mote author-mote--red" style="--mx:90%;--my:19%;--md:10s;--ms:-1s"></i>
+              <i class="author-mote author-mote--red" style="--mx:83%;--my:14%;--md:14s;--ms:-9s"></i>
+            </div>
+          </div>
         </div>
+        <figcaption><span aria-hidden="true"></span>O autor por trás<br>dos legados</figcaption>
+      </figure>
+      <div class="author-copy" data-author-reveal>
+        <p>Sempre fui movido pela curiosidade de entender como as coisas funcionam — e, principalmente, como poderiam
+          funcionar melhor.</p>
+        <p>Hoje transformo essa curiosidade em interfaces e experiências digitais, unindo desenvolvimento Front-End,
+          design e a bagagem que construí trabalhando com projetos, ensino e liderança.</p>
+        <p>Este portfólio é o reflexo dessa mistura entre código, criação e visão de produto.</p>
+        <a class="author-journey" href="#jornada">Explorar minha jornada<span class="author-arrow"
+            aria-hidden="true"></span></a>
       </div>
-
-      <div class="traveler-traits" aria-labelledby="traits-title">
-        <div class="motivation-heading"><span></span><h3 id="traits-title">Traços do Viajante</h3><span></span></div>
-        <ul>
-          <li><span aria-hidden="true">◇</span>Curiosidade</li>
-          <li><span aria-hidden="true">◇</span>Criatividade</li>
-          <li><span aria-hidden="true">◇</span>Liderança</li>
-          <li><span aria-hidden="true">◇</span>Aprendizado</li>
-        </ul>
-      </div>
-
-      <a class="journey-marker" href="#Salao" aria-label="Ir para o início da jornada">
-        <span class="journey-gem" aria-hidden="true">◇</span>
-        <i aria-hidden="true"></i>
-        <strong>Início da<br>Jornada</strong>
-        <i aria-hidden="true"></i>
-        <span class="journey-arrow" aria-hidden="true">▼</span>
-      </a>
     </div>
   </section>
-
   <!-- Conteúdo anterior preservado, fora da apresentação -->
   <section class="sobre-legado" hidden aria-hidden="true">
-
-    <img src="assets/img/deco-esquerda.png" alt="" class="deco-lateral deco-esquerda">
-    <img src="assets/img/deco-direita.png" alt="" class="deco-lateral deco-direita">
 
     <div class="container d-flex flex-column align-items-center" id="sessao-SobreMim">
 
@@ -152,7 +213,7 @@
         <!-- Avatar / Foto -->
         <div class="col-12 col-md-4 d-flex justify-content-center">
           <div class="avatar-frame">
-            <img src="assets/img/user/foto_perfil.png" alt="Foto de Marcos" class="avatar-img">
+            <img src="assets/img/user/foto_perfil.webp" alt="Foto de Marcos" class="avatar-img">
           </div>
         </div>
 
@@ -193,7 +254,7 @@
           </div>
 
           <!-- Arsenal Principal: será populado via JS -->
-          <div id="arsenal-skills"></div>
+          <div id="legacy-arsenal-skills"></div>
 
           <div class="sobre-card">
             <span class="sobre-label">&#9670; Guilda Atual</span>
@@ -267,73 +328,490 @@
 
     </div>
   </section>
- 
-
-  
 
 
 
 
 
 
+
+
+
+
+  <!-- Minha Jornada — Os Portais do Tempo.
+       Sem JavaScript, os portais são âncoras e todos os capítulos ficam visíveis abaixo deles.
+       Conteúdo baseado apenas na trajetória registrada em "Sobre o Personagem" e nos projetos do Salão. -->
+  <section id="jornada" class="journey-portals" aria-labelledby="journey-title">
+    <div class="journey-portals__atmosphere" aria-hidden="true"></div>
+    <header class="journey-portals__header">
+      <span class="journey-portals__chapter">Capítulo II</span>
+      <h2 id="journey-title">Minha Jornada</h2>
+      <p class="journey-portals__subtitle">Os Portais do Tempo</p>
+      <div class="journey-portals__ornament" aria-hidden="true"><span></span>◇<span></span></div>
+      <p class="journey-portals__intro">Cada arco guarda um capítulo da trajetória. Escolha um portal para atravessá-lo.</p>
+    </header>
+
+    <ol class="journey-gates" aria-label="Portais da jornada">
+      <li class="journey-gate" style="--gate:#6fbcff;--gate-rgb:111,188,255">
+        <a class="journey-gate__portal" href="#capitulo-2020" data-journey-gate>
+          <span data-portal-art="azul" aria-hidden="true"></span>
+          <span class="journey-gate__year">2020</span>
+          <span class="journey-gate__title">O Despertar</span>
+        </a>
+      </li>
+      <li class="journey-gate" style="--gate:#ec9a4c;--gate-rgb:236,154,76">
+        <a class="journey-gate__portal" href="#capitulo-2022" data-journey-gate>
+          <span data-portal-art="laranja" aria-hidden="true"></span>
+          <span class="journey-gate__year">2022</span>
+          <span class="journey-gate__title">A Forja do Ofício</span>
+        </a>
+      </li>
+      <li class="journey-gate" style="--gate:#a985ff;--gate-rgb:169,133,255">
+        <a class="journey-gate__portal" href="#capitulo-2024" data-journey-gate>
+          <span data-portal-art="roxo" aria-hidden="true"></span>
+          <span class="journey-gate__year">2024</span>
+          <span class="journey-gate__title">A Torre do Saber</span>
+        </a>
+      </li>
+      <li class="journey-gate" style="--gate:#f0607a;--gate-rgb:240,96,122">
+        <a class="journey-gate__portal" href="#capitulo-2025" data-journey-gate>
+          <span data-portal-art="vermelho" aria-hidden="true"></span>
+          <span class="journey-gate__year">2025–2026</span>
+          <span class="journey-gate__title">O Chamado da Liderança</span>
+        </a>
+      </li>
+      <li class="journey-gate journey-gate--open" style="--gate:#e9c873;--gate-rgb:233,200,115">
+        <a class="journey-gate__portal" href="#capitulo-2026" data-journey-gate>
+          <span data-portal-art="dourado" aria-hidden="true"></span>
+          <span class="journey-gate__year">2026+</span>
+          <span class="journey-gate__title">O Horizonte</span>
+        </a>
+      </li>
+    </ol>
+
+    <div class="journey-stage" id="journey-stage">
+      <p class="journey-stage__status visually-hidden" role="status" aria-live="polite"></p>
+
+      <nav class="journey-stage__controls" aria-label="Navegação entre capítulos" hidden>
+        <button class="journey-stage__step" type="button" data-journey-step="-1"><span aria-hidden="true">←</span>
+          <span data-journey-step-label>Portal anterior</span></button>
+        <button class="journey-stage__close" type="button" data-journey-close>Fechar capítulo <span
+            aria-hidden="true">×</span></button>
+        <button class="journey-stage__step" type="button" data-journey-step="1"><span
+            data-journey-step-label>Próximo portal</span> <span aria-hidden="true">→</span></button>
+      </nav>
+
+      <article class="journey-chapter" id="capitulo-2020" aria-labelledby="capitulo-2020-title"
+        style="--gate:#6fbcff;--gate-rgb:111,188,255">
+        <header class="journey-chapter__header">
+          <span class="journey-chapter__era">Portal I · 2020</span>
+          <h3 id="capitulo-2020-title" tabindex="-1">O Despertar</h3>
+          <p class="journey-chapter__lead">Os primeiros passos na programação, pela Danki Code — o começo de uma rotina
+            de estudos que nunca mais parou.</p>
+        </header>
+        <div class="journey-chapter__grid">
+          <section class="journey-chapter__block">
+            <h4>Experiências</h4>
+            <ul>
+              <li>Início dos estudos de programação pela <strong>Danki Code</strong>.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Tecnologias</h4>
+            <ul class="journey-tags">
+              <li>HTML</li><li>CSS</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block journey-chapter__block--wide">
+            <h4>Projetos relacionados</h4>
+            <ul class="journey-projects">
+              <li>
+                <strong>StarBucks</strong><span>Releitura de um dos primeiros projetos, refeita em 2025 para medir a
+                  própria evolução.</span>
+                <span class="journey-projects__links"><a href="https://devwizardmarcos.github.io/Projeto-StarBucks-Old/"
+                    target="_blank" rel="noopener noreferrer">Ver projeto</a><a
+                    href="https://github.com/DevWizardMarcos/Projeto-StarBucks-Old" target="_blank"
+                    rel="noopener noreferrer">GitHub</a></span>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="journey-chapter" id="capitulo-2022" aria-labelledby="capitulo-2022-title"
+        style="--gate:#ec9a4c;--gate-rgb:236,154,76">
+        <header class="journey-chapter__header">
+          <span class="journey-chapter__era">Portal II · 2022</span>
+          <h3 id="capitulo-2022-title" tabindex="-1">A Forja do Ofício</h3>
+          <p class="journey-chapter__lead">A transição de aluno para empreendedor: o ano em que o estudo virou ofício.</p>
+        </header>
+        <div class="journey-chapter__grid">
+          <section class="journey-chapter__block">
+            <h4>Experiências</h4>
+            <ul>
+              <li>Fundação da <strong>MS Negócios</strong>, empresa própria de criação de sites e soluções digitais.</li>
+              <li>Ingresso no curso técnico da <strong>Infinity School</strong>, em Belo Horizonte.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Conquistas</h4>
+            <ul>
+              <li>Primeira empresa própria, responsável por todo o ciclo de desenvolvimento — do briefing com o cliente à
+                entrega final.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block journey-chapter__block--wide">
+            <h4>Frentes de atuação</h4>
+            <ul class="journey-tags">
+              <li>Briefing com clientes</li><li>Design</li><li>Desenvolvimento web</li><li>Implantação</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="journey-chapter" id="capitulo-2024" aria-labelledby="capitulo-2024-title"
+        style="--gate:#a985ff;--gate-rgb:169,133,255">
+        <header class="journey-chapter__header">
+          <span class="journey-chapter__era">Portal III · 2024</span>
+          <h3 id="capitulo-2024-title" tabindex="-1">A Torre do Saber</h3>
+          <p class="journey-chapter__lead">A graduação começa e, na Infinity School, o aluno passa para o outro lado da
+            sala de aula.</p>
+        </header>
+        <div class="journey-chapter__grid">
+          <section class="journey-chapter__block">
+            <h4>Experiências</h4>
+            <ul>
+              <li><strong>Monitor Estagiário Dev</strong> na Infinity School (nov. 2024 – abr. 2025): suporte aos
+                instrutores, mentoria personalizada a alunos, contribuição no currículo e orientação em projetos
+                front-end e back-end.</li>
+              <li>Início da graduação em <strong>Análise e Desenvolvimento de Sistemas</strong> na Descomplica Faculdade
+                Digital (2024 – 2027).</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Conquistas</h4>
+            <ul>
+              <li>Transição de aluno para monitor na Infinity School.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Tecnologias</h4>
+            <ul class="journey-tags">
+              <li>React 18</li><li>React Router</li><li>Vite</li><li>Node.js</li><li>JavaScript</li>
+              <li>Bootstrap 5.3</li><li>HTML5</li><li>CSS3</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Projetos relacionados</h4>
+            <ul class="journey-projects">
+              <li>
+                <strong>Savory</strong><span>Descoberta de receitas com React e a API TheMealDB.</span>
+                <span class="journey-projects__links"><a href="https://devwizardmarcos.github.io/ReactSavory-/"
+                    target="_blank" rel="noopener noreferrer">Ver projeto</a><a
+                    href="https://github.com/DevWizardMarcos/ReactSavory-" target="_blank"
+                    rel="noopener noreferrer">GitHub</a></span>
+              </li>
+              <li>
+                <strong>Deadpool</strong><span>Página temática com narrativa ilustrada e carrosséis.</span>
+                <span class="journey-projects__links"><a
+                    href="https://devwizardmarcos.github.io/Deadpool-Ultima-Aventura-O-Fim-do-Jogo/" target="_blank"
+                    rel="noopener noreferrer">Ver projeto</a><a
+                    href="https://github.com/DevWizardMarcos/Deadpool-Ultima-Aventura-O-Fim-do-Jogo" target="_blank"
+                    rel="noopener noreferrer">GitHub</a></span>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="journey-chapter" id="capitulo-2025" aria-labelledby="capitulo-2025-title"
+        style="--gate:#f0607a;--gate-rgb:240,96,122">
+        <header class="journey-chapter__header">
+          <span class="journey-chapter__era">Portal IV · 2025–2026</span>
+          <h3 id="capitulo-2025-title" tabindex="-1">O Chamado da Liderança</h3>
+          <p class="journey-chapter__lead">Da monitoria à liderança: formar pessoas, conduzir projetos e construir
+            sistemas reais.</p>
+        </header>
+        <div class="journey-chapter__grid">
+          <section class="journey-chapter__block">
+            <h4>Experiências</h4>
+            <ul>
+              <li><strong>Monitor PJ Líder / Sênior</strong> na Infinity School (abr. 2025 – presente): liderança do
+                suporte técnico e pedagógico, desenvolvimento de sistemas web, APIs e automações e mentoria de alunos em
+                projetos finais.</li>
+              <li>Suporte integral aos cursos <em>Seja Full-Stack</em>, <em>Data Analytics</em>, <em>Data Science</em>
+                e <em>AI / Automação do Zero</em>.</li>
+              <li><strong>CEO da Connect CNX</strong>, atuando como desenvolvedor Full-Stack e estrategista de SEO e
+                marketing digital.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Conquistas</h4>
+            <ul>
+              <li>Mais de 100 alunos formados com acompanhamento direto.</li>
+              <li>Mais de 20 workshops e 10 minicursos organizados por mês.</li>
+              <li>Na Infinity School, a trajetória de aluno a monitor, professor de programação, líder de monitoria
+                Dev, líder de projetos (incluindo Hackathons), líder de instrutores e líder de professores.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Tecnologias</h4>
+            <ul class="journey-tags">
+              <li>Python</li><li>FastAPI</li><li>Django</li><li>SQLAlchemy</li><li>SQL</li><li>Redis</li>
+              <li>React</li><li>Vite</li><li>Node.js</li><li>JavaScript</li><li>Bootstrap 5</li><li>SEO</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Projetos relacionados</h4>
+            <ul class="journey-projects">
+              <li>
+                <strong>Behorner-Control</strong><span>Controle centralizado dos laboratórios da Infinity School · em
+                  desenvolvimento.</span>
+              </li>
+              <li>
+                <strong>Hackathon</strong><span>Gestão e automação de processos empresariais com Django e Redis.</span>
+              </li>
+              <li>
+                <strong>Infinity Open</strong><span>Landing page de evento com programação e inscrição via
+                  WhatsApp.</span>
+                <span class="journey-projects__links"><a href="https://devwizardmarcos.github.io/Infinity-Open-2026/"
+                    target="_blank" rel="noopener noreferrer">Ver projeto</a><a
+                    href="https://github.com/DevWizardMarcos/Infinity-Open-2026" target="_blank"
+                    rel="noopener noreferrer">GitHub</a></span>
+              </li>
+              <li>
+                <strong>Wayne</strong><span>Experiência temática com dashboard e coleção de Batmóveis.</span>
+                <span class="journey-projects__links"><a href="https://devwizardmarcos.github.io/Projeto_Wayne/"
+                    target="_blank" rel="noopener noreferrer">Ver projeto</a><a
+                    href="https://github.com/DevWizardMarcos/Projeto_Wayne" target="_blank"
+                    rel="noopener noreferrer">GitHub</a></span>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="journey-chapter" id="capitulo-2026" aria-labelledby="capitulo-2026-title"
+        style="--gate:#e9c873;--gate-rgb:233,200,115">
+        <header class="journey-chapter__header">
+          <span class="journey-chapter__era">Portal V · 2026 em diante</span>
+          <h3 id="capitulo-2026-title" tabindex="-1">O Horizonte</h3>
+          <p class="journey-chapter__lead">Este portal ainda está se formando — o próximo capítulo está sendo escrito.
+          </p>
+        </header>
+        <div class="journey-chapter__grid">
+          <section class="journey-chapter__block">
+            <h4>Em andamento</h4>
+            <ul>
+              <li>Graduação em Análise e Desenvolvimento de Sistemas, com conclusão prevista para 2027.</li>
+              <li>Behorner-Control segue em desenvolvimento.</li>
+              <li>O próprio DevWizard Portfolio continua em construção.</li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block">
+            <h4>Projetos relacionados</h4>
+            <ul class="journey-projects">
+              <li>
+                <strong>DevWizard Portfolio</strong><span>Narrativa RPG sobre uma estrutura web responsiva e
+                  acessível.</span>
+                <span class="journey-projects__links"><a href="https://github.com/DevWizardMarcos/PortifolinoDev"
+                    target="_blank" rel="noopener noreferrer">GitHub</a></span>
+              </li>
+            </ul>
+          </section>
+          <section class="journey-chapter__block journey-chapter__block--wide journey-chapter__invite">
+            <p>Quer fazer parte do próximo capítulo?</p>
+            <a href="#contato">Enviar uma mensagem <span aria-hidden="true">→</span></a>
+          </section>
+        </div>
+      </article>
+
+    </div>
+    <div data-journey-experience-root></div>
+  </section>
 
   <!-- Salão dos Legados -->
-  <section id="Salao" class="legacy-hall" aria-labelledby="legacy-title">
+  <section class="spell-library" id="arsenal-skills" aria-labelledby="spell-library-title" data-library-state="idle">
+    <div class="spell-library__atmosphere" aria-hidden="true"></div>
+    <header class="spell-library__header">
+      <span>Capítulo V</span>
+      <h2 id="spell-library-title">Biblioteca de Feitiços</h2>
+      <p>Conhecimentos reunidos ao longo da jornada.<br> Cada volume guarda uma escola de domínio técnico.</p>
+    </header>
+    <div class="spell-library__chamber">
+      <div class="spell-library__architecture" aria-hidden="true">
+        <i class="spell-library__central-light"></i>
+      </div>
+      <div class="spell-library__backdrop" aria-hidden="true"></div>
+      <div class="spell-library__fog" aria-hidden="true"></div>
+      <div class="spell-library__guardians" aria-hidden="true">
+        <img class="spell-library__hands spell-library__hands--idle spell-library__hands--left"
+          src="assets/img/arcenal/hands-idle.webp" alt="">
+        <img class="spell-library__hands spell-library__hands--idle spell-library__hands--right"
+          src="assets/img/arcenal/hands-idle.webp" alt="">
+        <img class="spell-library__hands spell-library__hands--awakened spell-library__hands--left"
+          src="assets/img/arcenal/hands-awakened-cutout.webp" alt="">
+        <img class="spell-library__hands spell-library__hands--awakened spell-library__hands--right"
+          src="assets/img/arcenal/hands-awakened-cutout.webp" alt="">
+        <i class="spell-library__light-spill spell-library__light-spill--blue"></i>
+        <i class="spell-library__light-spill spell-library__light-spill--ember"></i>
+      </div>
+      <div class="spell-library__shelf-frame" aria-label="Altar de domínios técnicos">
+        <div class="spell-library__shelf" id="spell-book-shelf"></div>
+        <div class="spell-library__dais" aria-hidden="true"></div>
+      </div>
+      <div class="spell-library__low-mist" aria-hidden="true"><i></i><i></i></div>
+      <div class="spell-library__stage" aria-live="polite">
+        <div class="spell-invocation" id="spell-invocation" aria-hidden="true" hidden></div>
+        <div class="spell-grimoire" id="spell-grimoire" aria-hidden="true" hidden></div>
+      </div>
+    </div>
+    <p class="spell-library__hint"><span aria-hidden="true">◇</span> Selecione um volume para explorar suas tecnologias
+    </p>
+  </section>
+
+  <section id="legados" class="legacy-hall legacy-world" aria-labelledby="legacy-title" data-legacy-state="hall">
     <div class="legacy-overlay" aria-hidden="true"></div>
     <div class="hall-depth-layers" aria-hidden="true">
       <i class="hall-depth-layer hall-depth-far"></i>
       <i class="hall-depth-layer hall-depth-near"></i>
     </div>
-    <div class="legacy-container">
-      <header class="legacy-heading" id="salao-header">
-        <span class="legacy-chapter">Capítulo IV</span>
-        <h2 id="legacy-title">Salão dos Legados</h2>
-        <p>Cada conquista deixa uma relíquia para trás.</p>
-        <a class="legacy-enter" href="#exposicao-legados"><strong>Entrar no Salão</strong><span aria-hidden="true">↓</span></a>
-        <small class="hall-scroll-hint">Role para iniciar a travessia</small>
-      </header>
-
-      <section class="relic-showcase" id="exposicao-legados" aria-labelledby="tree-title">
-        <header class="hall-stage-heading">
-          <span>Etapa I · Aproximação</span>
-          <p>Adentre o núcleo onde cada conquista ganhou forma.</p>
+    <div class="legacy-container legacy-world__stage">
+      <div class="legacy-world__panel legacy-world__panel--hall" data-legacy-panel="hall">
+        <header class="legacy-heading" id="salao-header">
+          <span class="legacy-chapter">Capítulo IV</span>
+          <h2 id="legacy-title">Salão dos Legados</h2>
+          <p>Cada conquista deixa uma relíquia para trás.</p>
+          <a class="legacy-enter" href="#exposicao-legados"><strong>Entrar no Salão</strong><span
+              aria-hidden="true">↓</span></a>
+          <small class="hall-scroll-hint">Role para iniciar a travessia</small>
         </header>
-        <div class="legacy-tree-core">
-          <span class="tree-rune" aria-hidden="true">◇</span>
-          <h3 id="tree-title">Árvore dos Legados</h3>
-          <div class="legacy-tree-portrait"><img src="assets/img/avataSalao.jpeg" alt="Árvore dos Legados, núcleo das relíquias" loading="lazy"></div>
-          <span>Núcleo Arcano</span>
+
+        <div class="relic-showcase" id="exposicao-legados" role="region" aria-labelledby="tree-title">
+          <header class="hall-stage-heading">
+            <span>Etapa I · Destaques do Salão</span>
+            <p>Três relíquias centrais revelam os marcos desta jornada.</p>
+          </header>
+          <div class="legacy-tree-core">
+            <span class="tree-rune" aria-hidden="true">◇</span>
+            <h3 id="tree-title">Relíquias em Destaque</h3>
+            <div class="legacy-tree-portrait"><img src="assets/img/avataSalao.webp"
+                alt="Árvore dos Legados, núcleo das relíquias" loading="lazy"></div>
+            <span>Núcleo Arcano</span>
+          </div>
+          <div class="root-lines" aria-hidden="true"></div>
+          <div id="relic-showcase" class="relic-showcase-grid"></div>
         </div>
-        <div class="root-lines" aria-hidden="true"></div>
-        <div id="relic-showcase" class="relic-showcase-grid"></div>
-      </section>
 
-      <aside class="guardian-passage" aria-label="Guardião dos Legados">
-        <div class="guardian-copy"><span>Guardião dos Legados</span><p>Nem toda relíquia revela seu poder à primeira vista.</p></div>
-        <img class="legacy-guardian" src="assets/img/cat.png" alt="Gato, guardião do Arquivo dos Legados" loading="lazy">
-      </aside>
+        <div class="archive-threshold" role="region" aria-labelledby="portal-scene-title" data-portal-state="idle">
+          <header class="portal-scene-copy">
+            <span class="portal-kicker">Etapa final · O limiar</span>
+            <h3 id="portal-scene-title">O Arquivo está selado</h3>
+            <p class="portal-lore">O cristal guarda a centelha capaz de despertar o acervo.</p>
+          </header>
 
-      <div class="archive-threshold">
-        <span class="portal-kicker">Etapa final da travessia</span>
-        <p class="portal-lore">O acervo completo aguarda além deste limiar.</p>
-        <button class="discover-legacies archive-portal" type="button" aria-expanded="false" aria-controls="reliquias">
-          <span class="portal-frame" aria-hidden="true">
-            <span class="portal-glow"></span>
-            <span class="portal-ring portal-ring-outer"></span>
-            <span class="portal-ring portal-ring-inner"></span>
-            <span class="portal-core"><b>◇</b></span>
-          </span>
-          <strong>Portal Arcano</strong>
-          <span>Arquivo dos Legados</span>
-          <small>Atravessar o portal</small>
-        </button>
+          <div class="portal-scene">
+            <div class="portal-atmosphere" aria-hidden="true"></div>
+            <div class="ancient-portal" aria-hidden="true">
+              <span class="portal-spire portal-spire-left"></span><span class="portal-spire portal-spire-right"></span>
+              <div class="portal-arch">
+                <div class="archive-preview">
+                  <div class="portal-base-ritual" aria-hidden="true">
+                    <i class="ritual-mist"></i>
+                    <i class="ritual-beam"></i>
+                    <i class="ritual-arc ritual-arc-inner"></i>
+                    <i class="ritual-arc ritual-arc-middle"></i>
+                    <i class="ritual-arc ritual-arc-outer"></i>
+                    <i class="ritual-core">◇</i>
+                  </div>
+                  <span class="preview-vault"></span>
+                  <span class="preview-card preview-card-one"></span><span
+                    class="preview-card preview-card-two"></span><span class="preview-card preview-card-three"></span>
+                  <small>Arquivo dos Legados</small>
+                </div>
+                <span class="portal-door portal-door-left">
+                  <svg class="door-phoenix phoenix-blue" viewBox="0 0 180 330" role="presentation">
+                    <g class="phoenix-engraving">
+                      <path
+                        d="M151 220 C126 207 109 190 100 165 C89 134 67 103 34 78 C55 82 76 93 92 111 C83 80 89 49 110 24 C109 58 119 83 139 101 C126 99 116 101 108 108 C123 116 136 129 143 146 C126 136 112 133 99 137 C105 165 120 185 151 220Z" />
+                      <path
+                        d="M101 136 C77 128 55 135 30 157 C56 151 75 154 91 167 C70 168 52 178 38 198 C62 186 83 185 104 195" />
+                      <path d="M95 164 C78 194 73 227 79 263 C88 241 100 224 116 212 C106 242 108 270 124 299" />
+                      <path d="M107 109 C117 102 129 104 136 114 C126 113 119 116 115 124" />
+                      <path class="phoenix-eye" d="M127 111 l4 1" />
+                    </g>
+                  </svg>
+                </span><span class="portal-door portal-door-right">
+                  <svg class="door-phoenix phoenix-red" viewBox="0 0 180 330" role="presentation">
+                    <g class="phoenix-engraving">
+                      <path
+                        d="M29 110 C55 119 74 138 83 163 C94 195 116 220 149 241 C129 242 108 235 91 220 C101 250 96 280 76 307 C76 274 66 250 47 232 C60 234 70 231 78 223 C63 216 49 203 42 187 C59 196 74 197 87 191 C79 164 62 139 29 110Z" />
+                      <path
+                        d="M82 193 C106 201 129 192 153 168 C128 176 108 174 92 162 C113 159 130 147 142 126 C119 140 97 142 77 133" />
+                      <path d="M87 218 C101 192 105 161 96 128 C90 149 79 165 64 178 C72 151 68 124 51 98" />
+                      <path d="M77 223 C67 231 55 230 47 221 C57 221 64 217 68 209" />
+                      <path class="phoenix-eye" d="M56 224 l-4 -1" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="portal-seam"></span>
+                <span class="portal-lock"><b>◇</b></span>
+                <span class="portal-rune rune-one">ᚱ</span><span class="portal-rune rune-two">ᛟ</span><span
+                  class="portal-rune rune-three">ᚨ</span>
+              </div>
+            </div>
+
+            <div class="energy-path" aria-hidden="true"><i></i><i></i><i></i></div>
+
+            <div class="arcane-foreground">
+              <div class="guardian-presence">
+                <div class="guardian-portraits" role="img"
+                  aria-label="Gato, Guardião dos Legados, observando o cristal">
+                  <img class="legacy-guardian guardian-image" src="assets/img/Mascote/guardiao.webp"
+                    data-idle-src="assets/img/Mascote/guardiao.webp"
+                    data-hover-src="assets/img/Mascote/guardiaoHover.webp" data-open-src="assets/img/cat.webp" alt=""
+                    loading="lazy">
+                </div>
+                <div class="guardian-copy"><span>Guardião dos Legados</span>
+                  <p>“A chave escolhe quem está pronto para atravessar.”</p>
+                </div>
+              </div>
+              <div class="arcane-circle" aria-hidden="true"><i class="circle-ring ring-one"></i><i
+                  class="circle-ring ring-two"></i><i class="circle-sigil">◇</i></div>
+              <button class="crystal-key" type="button"
+                aria-label="Toque o cristal para ativar e abrir o Arquivo dos Legados"
+                aria-expanded="false" aria-controls="reliquias">
+                <span class="crystal-aura" aria-hidden="true"></span><span class="crystal" aria-hidden="true"><img
+                    src="assets/img/cristal.webp" alt=""></span><small>Toque o cristal</small>
+              </button>
+            </div>
+
+            <div class="portal-reward" aria-live="polite">
+              <span>O limiar foi aberto</span>
+              <strong>O Arquivo dos Legados aguarda</strong>
+              <button class="discover-legacies" type="button" aria-expanded="false" aria-controls="reliquias">Acessar o
+                Arquivo dos Legados <b aria-hidden="true">→</b></button>
+            </div>
+          </div>
+          <p class="portal-status visually-hidden" role="status" aria-live="polite"></p>
+        </div>
       </div>
 
-      <section class="relic-library" id="reliquias" aria-labelledby="relics-title" hidden>
+      <div class="legacy-world__panel legacy-world__panel--archive relic-library" id="reliquias" role="region"
+        aria-labelledby="relics-title" data-legacy-panel="archive" data-archive-state="closed" hidden>
+        <div class="archive-reveal" aria-hidden="true">
+          <span class="archive-energy-streak"></span>
+          <div class="sealed-reliquary">
+            <i class="reliquary-fragment fragment-left"></i><i class="reliquary-fragment fragment-right"></i>
+            <span class="reliquary-seal">◇</span>
+            <strong>Arquivo</strong><small>Selado</small>
+          </div>
+        </div>
         <header class="library-heading">
-          <span>Acervo do DevWizard</span>
+          <button class="legacy-back" type="button" aria-label="Voltar ao Salão dos Legados">← Voltar ao Salão</button>
+          <span class="legacy-breadcrumb">Salão dos Legados <i aria-hidden="true">/</i> Arquivo</span>
           <h3 id="relics-title">Arquivo dos Legados</h3>
-          <p>Registros de projetos preservados ao longo da jornada.</p>
+          <p>Registros preservados ao longo da jornada.</p>
         </header>
         <nav class="relic-filters" aria-label="Filtrar projetos">
           <button class="relic-filter active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
@@ -342,42 +820,120 @@
           <button class="relic-filter" type="button" data-filter="back-end" aria-pressed="false">Back-End</button>
           <button class="relic-filter" type="button" data-filter="outros" aria-pressed="false">Outros</button>
         </nav>
-        <div id="relic-grid" class="relic-grid" aria-live="polite"></div>
+        <div class="relic-row-shell corridor-shell">
+          <div class="corridor-vault" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div id="relic-grid" class="relic-grid relic-corridor" aria-live="polite"
+            aria-label="Entrada do Corredor de Relíquias. Use as setas para navegar." tabindex="0"></div>
+          <div class="corridor-navigation" aria-label="Navegação do Corredor de Relíquias">
+            <button class="corridor-arrow corridor-prev" type="button" aria-label="Projeto anterior">←</button>
+            <p class="corridor-invitation">Explore o corredor</p>
+            <button class="corridor-arrow corridor-next" type="button" aria-label="Próximo projeto">→</button>
+          </div>
+        </div>
         <button class="load-more-relics" type="button" hidden>Mostrar mais <span aria-hidden="true">↓</span></button>
-      </section>
+      </div>
 
-      <dialog class="relic-dialog" id="relic-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <dialog class="relic-dialog legacy-project-modal" id="relic-dialog" role="dialog" aria-modal="true"
+        aria-labelledby="dialog-title">
         <button class="dialog-close" type="button" aria-label="Fechar detalhes do projeto">×</button>
         <div id="relic-dialog-content"></div>
       </dialog>
 
-      <a class="legacy-continue" href="#banner" aria-label="Voltar ao início da jornada">
+      <a class="legacy-continue" href="#contato" aria-label="Continuar a Jornada para contato">
         <span aria-hidden="true">◇</span><i></i><strong>Continuar a Jornada</strong><b aria-hidden="true">↓</b>
       </a>
     </div>
   </section>
 
-  <!-- Versão anterior preservada, fora da apresentação -->
-    <section class="legacy-projects-archive" hidden aria-hidden="true">
-      <div id="sessaoSalao">
-        <div class="salao-conteudo-central">
-          <h2>Salão dos</h2>
-          <h1>Legados</h1>
-          <p>Cada projeto é uma marca. Cada marca é um legado.</p>
-          <a href="#" class="btn-salao">Explorar Legados</a>
+  <section id="contato" class="contact-section" aria-labelledby="contact-section-title" data-status="idle"
+    data-contact-state="closed">
+    <div class="contact-heading">
+      <span>Capítulo IV · Contato</span>
+      <h2 id="contact-section-title">Mesa do Mensageiro</h2>
+    </div>
+    <div class="contact-stage">
+      <button class="contact-open" type="button" aria-label="Abrir formulário de contato" aria-expanded="false"
+        aria-controls="contact-content" disabled>
+        <span class="contact-closed-art" aria-hidden="true"><img src="assets/img/formulario/pergaminho.webp" alt=""
+            width="1734" height="907"></span>
+      </button>
+      <div id="contact-content" hidden inert>
+        <div class="contact-desk">
+          <div class="contact-owl" data-state="idle" aria-hidden="true"></div>
+          <div class="contact-feather" aria-hidden="true"></div>
+          <div class="contact-inkpot" data-state="closed" aria-hidden="true"></div>
+          <div class="contact-parchment" tabindex="-1" aria-labelledby="contact-title">
+            <button class="contact-close" type="button">Fechar pergaminho</button>
+            <header>
+              <span class="contact-overline">Uma conversa pode ser o começo</span>
+              <h3 id="contact-title">Vamos construir<br>algo juntos?</h3>
+            </header>
+            <form class="contact-form" aria-label="Enviar uma mensagem" aria-busy="false">
+              <p class="contact-required">Campos com * são obrigatórios.</p>
+              <div class="contact-field"><label for="contact-name">Nome <span>*</span></label><input data-contact-field
+                  id="contact-name" name="name" autocomplete="name" required minlength="2" maxlength="100"
+                  aria-describedby="contact-name-error"><span class="contact-error" id="contact-name-error"></span>
+              </div>
+              <div class="contact-field"><label for="contact-email">Email <span>*</span></label><input
+                  data-contact-field id="contact-email" name="email" type="email" autocomplete="email" required
+                  maxlength="254" aria-describedby="contact-email-error"><span class="contact-error"
+                  id="contact-email-error"></span></div>
+              <div class="contact-field"><label for="contact-subject">Assunto <small>(opcional)</small></label><input
+                  data-contact-field id="contact-subject" name="subject" maxlength="150"
+                  aria-describedby="contact-subject-error"><span class="contact-error"
+                  id="contact-subject-error"></span></div>
+              <div class="contact-field"><label for="contact-message">Mensagem <span>*</span></label><textarea
+                  data-contact-field id="contact-message" name="message" rows="4" required minlength="10"
+                  maxlength="5000" aria-describedby="contact-message-error"></textarea><span class="contact-error"
+                  id="contact-message-error"></span></div>
+              <div class="contact-submit"><span class="contact-seal" aria-hidden="true"><i>◇</i></span><button
+                  type="submit" disabled><span class="contact-button-wax" aria-hidden="true">◇</span><span
+                    data-submit-label>Selar e enviar</span></button></div>
+              <div class="contact-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+              <noscript>
+                <p>Para usar o formulário, ative o JavaScript. Você também pode escrever para <a
+                    href="mailto:mp718887@gmail.com">mp718887@gmail.com</a>.</p>
+              </noscript>
+            </form>
+          </div>
         </div>
+        <footer class="contact-footer">
+          <p class="contact-demo-note">Demonstração visual: nenhuma mensagem será enviada.</p>
+          <p>Prefere uma conversa direta?</p>
+          <nav class="contact-links" aria-label="Contato e redes sociais"><a data-contact-github
+              href="https://github.com/DevWizardMarcos">GitHub</a><a data-contact-linkedin
+              href="https://www.linkedin.com/in/marcos-simoes-ms/">LinkedIn</a><a data-contact-email
+              href="mailto:mp718887@gmail.com">Email</a></nav>
+          <p class="contact-signature">Marcos Simões <span aria-hidden="true">◇</span> Design, código e propósito.</p>
+        </footer>
+      </div>
+    </div>
+    <noscript>
+      <p>Ative o JavaScript para abrir o pergaminho e usar o formulário de contato.</p>
+    </noscript>
+  </section>
+
+  </main>
+
+  <!-- Marcação histórica mantida apenas como referência inerte. -->
+  <template data-retired-legacy-markup="first">
+    <div id="legacy-hall-retired-a">
+      <div class="salao-conteudo-central">
+        <h2>Salão dos</h2>
+        <h1>Legados</h1>
+        <p>Cada projeto é uma marca. Cada marca é um legado.</p>
+        <a href="#" class="btn-salao">Explorar Legados</a>
+      </div>
 
 
 
 
-      <section id="sessaoProjetos">
-        <div
-          class="d-flex justify-content-center align-items-center flex-column"
-        >
+      <section id="legacy-projects-retired-a">
+        <div class="d-flex justify-content-center align-items-center flex-column">
           <h1>Reliquias do Legado</h1>
           <session id="card-projetos">
             <nav id="sessaoSelecoes">
-              <ul class="d-flex gap-5" id="elementoSelecionar">
+              <ul class="d-flex gap-5" id="legacy-filters-retired-a">
                 <button><a href="">Todos</a></button>
                 <button><a href="">Front</a></button>
                 <button><a href="">Back</a></button>
@@ -387,9 +943,9 @@
             </nav>
           </session>
 
-          <div class="d-flex  gap-3 sessao-Cards" >
+          <div class="d-flex  gap-3 sessao-Cards">
             <div class="card" style="width: 18rem">
-              <img src="assets/img/cat.png" class="card-img-top" alt="..." />
+              <img src="assets/img/cat.webp" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
@@ -400,7 +956,7 @@
               </div>
             </div>
             <div class="card" style="width: 18rem">
-              <img src="assets/img/cat.png" class="card-img-top" alt="..." />
+              <img src="assets/img/cat.webp" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
@@ -411,7 +967,7 @@
               </div>
             </div>
             <div class="card" style="width: 18rem">
-              <img src="assets/img/cat.png" class="card-img-top" alt="..." />
+              <img src="assets/img/cat.webp" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
@@ -422,7 +978,7 @@
               </div>
             </div>
             <div class="card" style="width: 18rem">
-              <img src="assets/img/cat.png" class="card-img-top" alt="..." />
+              <img src="assets/img/cat.webp" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
@@ -443,29 +999,28 @@
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div> -->
-        
-            </div>
+
           </div>
         </div>
-      </section>
+    </div>
     </section>
+  </template>
 
 
 
 
-  <!--Sessao Salão dos Legados-->
-  <section class="legacy-projects-archive" hidden aria-hidden="true">
-    <div id="sessaoSalao">
+  <template data-retired-legacy-markup="second">
+    <div id="legacy-hall-retired-b">
       <div class="salao-conteudo-central">
         <h2>~ Salão dos ~</h2>
         <h1>Legados</h1>
         <p>Cada projeto é uma marca. Cada marca é um legado.</p>
-        <a href="#sessaoProjetos" class="btn-salao">&#10022; Explorar Legados &#10022;</a>
+        <a href="#legados" class="btn-salao">&#10022; Explorar Legados &#10022;</a>
       </div>
       <div class="salao-card-lateral">
         <div class="salao-card-icone">
         </div>
-        <img src="assets/img/avataSalao.jpeg" alt="avataSalao" class="tl-arvore" style="padding: 20px 20px;">
+        <img src="assets/img/avataSalao.webp" alt="avataSalao" class="tl-arvore" style="padding: 20px 20px;">
         <h3>Núcleo da Criação</h3>
         <p>Fonte de toda criação, propósito e inovação. É daqui que todos os projetos ganham vida...</p>
         <a href="#">Acessar Núcleo &rarr;</a>
@@ -473,11 +1028,11 @@
     </div>
 
     <!-- Relíquias do Legado -->
-    <div id="sessaoProjetos">
-      <div class="d-flex flex-column align-items-center gap-4 w-100" >
+    <div id="legacy-projects-retired-b">
+      <div class="d-flex flex-column align-items-center gap-4 w-100">
         <h1 class="reliquias-titulo">Relíquias do Legado</h1>
         <nav>
-          <ul class="d-flex gap-4 flex-wrap justify-content-center list-unstyled mb-0" id="elementoSelecionar">
+          <ul class="d-flex gap-4 flex-wrap justify-content-center list-unstyled mb-0" id="legacy-filters-retired-b">
             <li><button class="filtro-btn ativo" data-filter="todos"> Todos</button></li>
             <li><button class="filtro-btn" data-filter="sistemas">Sistemas</button></li>
             <li><button class="filtro-btn" data-filter="automacoes">Automações</button></li>
@@ -493,11 +1048,12 @@
     <!-- Bottom: Timeline + Stats -->
     <div class="salao-bottom">
       <div class="salao-timeline">
-        <img src="assets/img/avataSalao.jpeg" alt="Árvore da Jornada" class="tl-arvore">
+        <img src="assets/img/avataSalao.webp" alt="Árvore da Jornada" class="tl-arvore">
         <div class="tl-etapas">
           <div class="tl-item tl-ativo">
             <span class="tl-icone">&#9670;</span>
-            <div><span class="tl-titulo">Início da Jornada</span><span class="tl-desc">Primeiros passos, primeiras ideias.</span></div>
+            <div><span class="tl-titulo">Início da Jornada</span><span class="tl-desc">Primeiros passos, primeiras
+                ideias.</span></div>
           </div>
           <div class="tl-item">
             <span class="tl-icone">&#9670;</span>
@@ -509,7 +1065,8 @@
           </div>
           <div class="tl-item">
             <span class="tl-icone">&#9670;</span>
-            <div><span class="tl-titulo">Liderança</span><span class="tl-desc">Liderando pessoas e projetos.</span></div>
+            <div><span class="tl-titulo">Liderança</span><span class="tl-desc">Liderando pessoas e projetos.</span>
+            </div>
           </div>
           <div class="tl-item tl-destaque">
             <span class="tl-icone">&#9670;</span>
@@ -521,19 +1078,50 @@
       <div class="salao-impacto">
         <h2 class="impacto-titulo">Impacto Gerado</h2>
         <div class="impacto-grid">
-          <div class="impacto-item"><span class="impacto-num">09</span><span class="impacto-label">Projetos Concluídos</span></div>
-          <div class="impacto-item"><span class="impacto-num">27+</span><span class="impacto-label">Tecnologias Dominadas</span></div>
-          <div class="impacto-item"><span class="impacto-num">15K+</span><span class="impacto-label">Usuários Impactados</span></div>
-          <div class="impacto-item"><span class="impacto-num">100%</span><span class="impacto-label">Compromisso com Excelência</span></div>
+          <div class="impacto-item"><span class="impacto-num">09</span><span class="impacto-label">Projetos
+              Concluídos</span></div>
+          <div class="impacto-item"><span class="impacto-num">27+</span><span class="impacto-label">Tecnologias
+              Dominadas</span></div>
+          <div class="impacto-item"><span class="impacto-num">15K+</span><span class="impacto-label">Usuários
+              Impactados</span></div>
+          <div class="impacto-item"><span class="impacto-num">100%</span><span class="impacto-label">Compromisso com
+              Excelência</span></div>
         </div>
         <p class="impacto-quote">O futuro ainda está sendo escrito.<br>E cada projeto é uma linha dessa história.</p>
       </div>
     </div>
-  </section>
+  </template>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
+  <script src="assets/js/data/legacyProjects.js"></script>
+  <script src="assets/js/legacy/legacyBook.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/about-author.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="assets/js/journey-portal-blue-react.js"></script>
+  <script src="assets/js/journey-portals.js"></script>
+  <script src="assets/js/data/journeyChapters.js"></script>
+  <script src="assets/js/data/journeyKnowledgeMap.js"></script>
+  <script src="assets/js/data/infinityMemories.js"></script>
+  <script src="assets/js/data/voiceRecords.js"></script>
+  <script src="assets/js/data/councilMembers.js"></script>
+  <script src="assets/js/journey-memories-react.js"></script>
+  <script src="assets/js/innovation-owl-scene.js"></script>
+  <script src="assets/js/vendor/chess.min.js"></script>
+  <script src="assets/js/sanctuary-scene.js"></script>
+  <script src="assets/js/data/hackathonCityConfig.js"></script>
+  <script src="assets/js/hackathon-city-scene.js"></script>
+  <script src="assets/js/voice-experiences.js"></script>
+  <script src="assets/js/council-members.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" crossorigin="anonymous"></script>
+  <script src="assets/js/data/lionConfig.js"></script>
+  <script src="assets/js/data/lionManifest.js"></script>
+  <script src="assets/js/living-lion-guardian.js"></script>
+  <script src="assets/js/journey-knowledge-map-react.js"></script>
+  <script src="assets/js/journey-chapter-experience-react.js"></script>
+  <script type="module" src="assets/js/contact/contactSection.js"></script>
 
 </body>
 

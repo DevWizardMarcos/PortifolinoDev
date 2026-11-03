@@ -1,0 +1,14 @@
+guardiao-rugido.mp3 — rugido do Guardião Leão (O Estandarte Vivo)
+
+Origem: cópia de assets/img/Portais/efeitos-sonoros-rugido-de-leao.mp3, baixado por Marcos.
+Duração: 6,06 s, estéreo, 44,1 kHz. Contém dois rugidos: o primeiro (0,2 s a ~2 s) é o usado; o segundo começa em ~4,2 s.
+Licença: NÃO verificada. Confirme na página de onde o arquivo foi baixado se o uso em portfólio público é permitido
+e se exige atribuição; registre aqui a fonte e a licença.
+
+Como o código usa o arquivo (assets/js/data/lionConfig.js > audio):
+  start / duration  trecho tocado (hoje 0 s por 2,5 s)
+  fadeOut           saída suave no fim do trecho
+  gain              normalização (a gravação é baixa)
+  reverb            reverberação de salão por cima (0 desliga)
+  attackAt          segundo do trecho em que o rugido "estoura", alinhado à abertura da boca
+Para usar outro arquivo, troque `src` e ajuste esses valores. Se o arquivo não carregar, entra o rugido sintetizado.

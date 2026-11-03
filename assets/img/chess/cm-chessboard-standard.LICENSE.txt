@@ -1,0 +1,16 @@
+cm-chessboard standard chess pieces
+===================================
+
+Source: https://github.com/shaack/cm-chessboard/blob/master/assets/pieces/standard.svg
+
+The chess pieces are derived from the Wikimedia Commons standard SVG chess
+pieces by Cburnett and Rfc1394, modified by shaack for cm-chessboard.
+
+License: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Authors:
+- https://en.wikipedia.org/wiki/User:Cburnett
+- https://en.wikipedia.org/wiki/User:Rfc1394
+
+cm-chessboard: https://github.com/shaack/cm-chessboard
