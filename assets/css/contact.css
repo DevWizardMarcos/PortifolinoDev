@@ -31,8 +31,8 @@
 .contact-parchment header { text-align: center; margin-bottom: 1.25rem; }
 .contact-overline { color: #70562f; font: 700 .6rem/1.5 Cinzel, serif; letter-spacing: .16em; }
 .contact-parchment h3 { font: 700 clamp(1.4rem, 2.8vw, 2.1rem)/1.2 Cinzel, serif; margin: .75rem 0 0; }
-.contact-close { display: block; margin: 1.6rem 0 .5rem auto; padding: .6rem .9rem; min-height: 44px; background: #33241f; border: 1px solid #c8a663; border-radius: 6px; color: #fff3da; font: 700 .875rem/1.4 Lora, serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
-.contact-close:hover { background: #493128; }
+.contact-close { display: block; margin: 1.6rem 0 .5rem auto; padding: .6rem .9rem; min-height: 44px; background: none; border: 0; border-radius: 6px; color: var(--contact-ink); font: 700 .875rem/1.4 Lora, serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.contact-close:hover { color: var(--contact-wax); }
 .contact-form { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .8rem 2rem; }
 .contact-form > * { grid-column: 1 / -1; min-width: 0; }
 .contact-field:has([name="name"]), .contact-field:has([name="email"]) { grid-column: auto; }

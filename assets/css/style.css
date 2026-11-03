@@ -1527,12 +1527,6 @@ html {
   letter-spacing: 0.14em;
 }
 
-.hero-brand > span:first-child {
-  color: #9d3041;
-  font-size: 0.62rem;
-  filter: drop-shadow(0 0 7px #9d3041);
-}
-
 .hero-brand > span:last-child {
   color: #c8a65a;
 }
@@ -7469,6 +7463,7 @@ nav {
 }
 
 .legacy-tree-core h3 {
+  margin: 0.75rem 0 clamp(2.25rem, 5vw, 3.5rem);
   color: #ead6aa;
   font-size: clamp(0.8rem, 1.3vw, 1.02rem);
   text-shadow: 0 3px 16px rgba(0, 0, 0, 0.94);
@@ -9850,6 +9845,11 @@ button.corridor-relic-frame {
 .archive-threshold .guardian-presence .guardian-copy p {
   margin: 0;
   line-height: 1.55;
+}
+@media (min-width: 761px) {
+  .archive-threshold .guardian-presence .guardian-copy {
+    transform: translateY(46px);
+  }
 }
 @media (max-width: 760px) {
   .archive-threshold[data-portal-state="open"] .portal-reward {
