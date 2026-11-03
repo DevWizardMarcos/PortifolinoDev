@@ -247,7 +247,7 @@ return [
     ],
     projects: [
       { name: 'Behorner-Control', description: 'Sistema em desenvolvimento para centralizar o controle dos laboratórios da Infinity School.' },
-      { name: 'Hackathon', description: 'Solução para gestão e automação de processos empresariais desenvolvida em contexto de Hackathon.' },
+      { name: 'Hackathon', description: 'Vitrine para alunos publicarem projetos e empresas conhecerem talentos, começando por uma base de autenticação segura em FastAPI.' },
       {
         name: 'Infinity Open',
         description: 'Landing page de evento com apresentação da programação e fluxo direto de inscrição pelo WhatsApp.',
@@ -302,6 +302,10 @@ return [
       label: 'O amanhecer à frente',
       avatar: AVATAR_FRONT,
       avatarAlt: 'Avatar de Marcos sentado em uma muralha observando o horizonte dourado',
+      image: 'assets/img/Jornada/planejamento-plataforma.webp',
+      imageAlt: 'Marcos e um camaleão mago planejam uma plataforma sobre um pergaminho com roadmap, estrutura, wireframes, módulos do dashboard e planos, diante de um castelo ao pôr do sol',
+      imageFocus: '50% 50%',
+      imageFit: 'cover',
       portal: 'dourado',
     },
   },

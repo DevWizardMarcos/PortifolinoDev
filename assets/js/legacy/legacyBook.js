@@ -231,8 +231,11 @@
     const contributors = project.contributors || [];
     const creatorCount = contributors.filter(person => !person.honorary && !person.creditOnly).length;
     const honoraryCount = contributors.filter(person => person.honorary).length;
+    const portrait = safeUrl(project.creatorPortrait);
     const introduction = `<div class="contributors-introduction">
-      <span aria-hidden="true">◇</span>
+      ${portrait
+        ? `<figure class="contributors-portrait"><img src="${portrait}" alt="Retrato de DevWizardMarcos, criador da relíquia" loading="lazy"></figure>`
+        : '<span aria-hidden="true">◇</span>'}
       <strong>${creatorCount ? `${creatorCount} ${creatorCount === 1 ? 'criador registrado' : 'criadores registrados'}` : 'Registro em preparação'}${honoraryCount ? ` · ${honoraryCount} menção honrosa` : ''}</strong>
       <p>As assinaturas e contribuições desta relíquia são preservadas juntas no mesmo registro.</p>
     </div>`;

@@ -834,6 +834,24 @@
   color: var(--book-accent);
   font-size: 1.8rem;
 }
+.contributors-portrait {
+  width: min(11rem, 60%);
+  aspect-ratio: 1;
+  margin: 0 0 1.1rem;
+  padding: 0.3rem;
+  overflow: hidden;
+  border: 1px solid var(--book-accent);
+  border-radius: 50%;
+  background: rgba(109, 74, 35, 0.08);
+  box-shadow: 0 0 0 4px rgba(116, 79, 38, 0.12);
+}
+.contributors-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .contributors-introduction strong {
   color: #463326;
   font:
